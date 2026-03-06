@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-03T09:58:55.559060Z",
+  "assets": {
+    "images": [
+      "./assets/img/bg.webp",
+      "./assets/img/hero.webp",
+      "./assets/img/product-ads.webp",
+      "./assets/img/product-brand.webp",
+      "./assets/img/product-ai.webp",
+      "./assets/img/product-fpv.webp",
+      "./assets/img/section-ads.webp",
+      "./assets/img/section-brand.webp",
+      "./assets/img/section-ai.webp",
+      "./assets/img/section-fpv.webp",
+      "./assets/img/case-01.webp",
+      "./assets/img/case-02.webp",
+      "./assets/img/case-03.webp"
+    ],
+    "video": [
+      "./assets/video/README.txt"
+    ],
+    "fonts": [],
+    "meta": [
+      "./meta/og-default.jpg",
+      "./meta/favicon.ico",
+      "./meta/manifest.webmanifest",
+      "./meta/robots.txt",
+      "./meta/sitemap.xml"
+    ]
+  },
+  "notes": [
+    "Пути только относительные (./assets..., ./meta...).",
+    "Заменяй заглушки в assets/img и assets/video реальными файлами, сохраняя имена."
+  ]
+}

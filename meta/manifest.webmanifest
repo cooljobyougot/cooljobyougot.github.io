@@ -1,0 +1,20 @@
+{
+  "name": "#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+  "short_name": "#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070A12",
+  "theme_color": "#2F6BFF",
+  "icons": [
+    {
+      "src": "./meta/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./meta/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
