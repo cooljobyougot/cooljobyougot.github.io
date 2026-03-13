@@ -4,265 +4,351 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <title>AI‑продакшн — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
-  <meta name="description" content="AI‑продакшн: реальная съёмка + генеративные сцены в одном ролике." />
-  <meta property="og:title" content="AI‑продакшн — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
-  <meta property="og:description" content="Реальная съёмка + генеративные сцены в одном ролике." />
-  <meta property="og:type" content="website" />
 
-  <!-- Design system: keep existing global styles -->
+  <title>AI-продакшн — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
+  <meta name="description" content="AI-продакшн: реальная съёмка и генеративные сцены в одном ролике. Кадры, которые невозможно снять, но можно встроить в цельный пайплайн." />
+
+  <meta property="og:title" content="AI-продакшн — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
+  <meta property="og:description" content="Реальная съёмка и генеративные сцены в одном ролике. Кадры, которые невозможно снять, но можно встроить в цельный пайплайн." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../meta/og-default.jpg" />
+
+  <link rel="icon" href="../meta/favicon.ico" />
+  <link rel="apple-touch-icon" href="../meta/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-
-  <!-- TOPBAR (keep current topbar; highlight AI) -->
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="brand-title">
-          <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
-          <span>Стратегический видеопартнёр для бренда и продаж</span>
-        </div>
+        <a class="brand-logo" href="../index.html" aria-label="На главную">
+          <img
+            src="../assets/img/logo-main.png"
+            alt="Логотип агентства"
+            width="108"
+            height="108"
+            onerror="this.style.display='none';"
+          />
+          <div class="brand-title">
+            <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
+            <span>Стратегический видеопартнёр для бренда и продаж</span>
+          </div>
+        </a>
       </div>
 
-      <nav class="nav nav-compact" aria-label="Решения">
-        <a class="navpill" href="../index.html#ads" data-scroll>Рекламные ролики</a>
-        <a class="navpill" href="../index.html#brand" data-scroll>Имидж бренда</a>
-        <a class="navpill" href="../index.html#ai" data-scroll aria-current="page"
-           style="border-color:var(--borderStrong); background: color-mix(in oklab, var(--surface2) 76%, transparent); box-shadow: var(--btn-shadow);">
-          AI‑продакшн
-        </a>
-        <a class="navpill" href="../index.html#fpv" data-scroll>FPV‑съёмка</a>
+      <nav class="nav-compact" aria-label="Навигация по направлению">
+        <a class="navpill" href="../index.html#solutions">Решения</a>
+        <a class="navpill" href="#showreel" data-scroll>Showreel</a>
+        <a class="navpill" href="#workflow" data-scroll>Процесс</a>
+        <a class="navpill" href="#offer" data-scroll>Предложение</a>
       </nav>
 
       <div class="topbar-actions">
         <a class="pill ghost" href="../index.html">На главную</a>
-        <a class="pill ghost" href="../index.html#cases" data-scroll>Кейсы</a>
-        <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
+        <a class="pill primary" href="#offer" data-scroll>Получить предложение</a>
 
         <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+          <span class="burger"><span></span></span>
         </button>
       </div>
     </div>
   </header>
 
+  <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__head">
+      <div class="brand-title">
+        <strong>AI-продакшн</strong>
+        <span>Навигация по странице</span>
+      </div>
+
+      <button class="nav-toggle" id="navClose" type="button" aria-label="Закрыть меню" aria-expanded="true">
+        <span class="burger"><span></span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav__body" aria-label="Мобильная навигация">
+      <a href="#top" data-scroll>Вверх</a>
+      <a href="#showreel" data-scroll>Showreel</a>
+      <a href="#adds" data-scroll>Что добавляем</a>
+      <a href="#montage" data-scroll>Кадры под монтаж</a>
+      <a href="#examples" data-scroll>Примеры</a>
+      <a href="#workflow" data-scroll>Как работаем</a>
+      <a href="#offer" data-scroll>Получить предложение</a>
+      <a href="../index.html">На главную</a>
+    </nav>
+  </aside>
+
   <main>
-    <!-- 2) HERO -->
-    <section class="hero" id="top">
-      <div class="container reveal-grid">
-        <div class="card hero-copy">
-          <h1 class="hero-h1" style="margin-bottom:8px">AI‑продакшн</h1>
-<p class="subhead" style="margin:0 0 2em">
-  Кадры, которые невозможно снять
-</p>
+    <section class="section section-dark hero hero-wide" id="top">
+      <div class="container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Направление</p>
 
-<p style="margin:0; color:var(--mutedText); line-height:var(--lh-relaxed)"></p>
+          <h1 class="hero-h1 hero-h1--wide">
+            AI-продакшн —
+            <span class="serif">кадры</span>,
+            которые невозможно снять,
+            но можно встроить в
+            <span class="serif">реальный ролик</span>
+          </h1>
 
-<div class="row" style="margin-top:12px">
-  <span class="tag" style="text-transform:none; letter-spacing:0; font-weight:500">Реализм по задаче</span>
-  <span class="tag" style="text-transform:none; letter-spacing:0; font-weight:500">Генерация в одном языке с реальным кадром</span>
-</div>
+          <p class="hero-sub hero-sub--wide">
+            Мы не подменяем продакшн случайной генерацией. Мы расширяем реальную съёмку: добираем сцены, усиливаем монтаж и собираем невозможные кадры в одном визуальном языке.
+          </p>
 
           <div class="cta-row">
             <a class="pill primary" href="#offer" data-scroll>Получить предложение</a>
-            <a class="pill ghost" href="../index.html">На главную</a>
+            <a class="pill ghost" href="#showreel" data-scroll>Смотреть showreel</a>
+            <span class="trust">Съёмка → генерация → монтаж → финальная форма</span>
           </div>
-        </div>
 
-        <div class="card reveal-media" aria-label="Hero изображение">
-          <img src="../assets/images/ai-hero.webp" alt="AI‑продакшн — hero" loading="eager" />
-        </div>
-      </div>
-    </section>
-
-<!-- 3) WHAT WE ADD -->
-<section class="section" id="adds">
-  <div class="container">
-    <div class="section-title">
-      <h2>Что мы добавляем в реальное видео</h2>
-      <p style="margin-bottom:12px">Кадры и вставки, которые расширяют сцену</p>
-    </div>
-
-    <div class="card" style="padding:18px">
-      <ul class="bullets" style="margin:0">
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Нейро-b-roll</span> добираем планы и детали, которых не было на съёмке, чтобы монтаж стал цельным</li>
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Невозможные локации</span> переносим действие туда, куда физически не попасть или слишком дорого ехать</li>
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Расширение кадра</span> увеличиваем пространство вокруг снятого материала, чтобы кадр собирался в нужный формат</li>
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Замены фона</span> меняем окружение, сохраняя объект в кадре, чтобы попасть в нужный смысл и уровень</li>
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Генеративные вставки</span> добавляем короткие сцены в реальный ролик, чтобы усилить заход, раскрытие или переход</li>
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Стилевые версии</span> делаем несколько подач одного материала в разной художественной форме</li>
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Нейро-графика</span> создаём графические элементы, которые выглядят как часть кадра</li>
-        <li><span class="tag" style="text-transform:none; letter-spacing:0; font-weight:400">Нейро-VFX</span> добавляем эффекты и изменения в кадр так, чтобы это смотрелось как единая сцена</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-    <!-- 5) MONTAGE -->
-    <section class="section" id="montage">
-      <div class="container">
-        <div class="section-title">
-          <h2>Кадры под монтаж</h2>
-          <p>Заходы, раскрытия, переходы</p>
-        </div>
-
-        <div class="product-grid">
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ai-montage-hook.webp" alt="Заход — визуальный слот" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Заход — момент, который останавливает взгляд</h3>
-                <span class="tag">Hook</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ai-montage-reveal.webp" alt="Раскрытие — визуальный слот" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Раскрытие — смысл и преживание</h3>
-                <span class="tag">Reveal</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ai-montage-transition.webp" alt="Переход — визуальный слот" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Переход — движение между сценами</h3>
-                <span class="tag">Transition</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6) EXAMPLES -->
-    <section class="section" id="examples">
-      <div class="container">
-        <div class="section-title">
-          <h2>Примеры</h2>
-          <p>Фрагменты работ</p>
-        </div>
-
-        <div class="product-grid">
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ai-case-01.webp" alt="Невозможная локация — превью" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Невозможная локация — вставка в реальную съёмку</h3>
-                <span class="tag">Example</span>
-              </div>
-              <div class="row">
-                <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ai-case-02.webp" alt="Генеративные переходы — превью" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Генеративные переходы — связка, которая держит ритм</h3>
-                <span class="tag">Example</span>
-              </div>
-              <div class="row">
-                <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ai-case-03.webp" alt="Стилевая версия — превью" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Стилевая версия — один материал, разная подача</h3>
-                <span class="tag">Example</span>
-              </div>
-              <div class="row">
-                <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7) HOW WE WORK -->
-    <section class="section" id="workflow">
-      <div class="container">
-        <div class="section-title">
-          <h2>Как мы работаем</h2>
-          <p>4 шага</p>
-        </div>
-
-        <div class="product-grid">
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Собираем вводные. Определяем аудиторию и контекст</p>
-          </div>
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Рождаем идею. Это главный продукт проекта</p>
-          </div>
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Сценарий и раскадровка. Утверждаем</p>
-          </div>
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Съёмка и генеративные кадры. Монтаж. Финальная форма</p>
+          <div class="hero-meta">
+            <span>Реализм по задаче</span>
+            <span>·</span>
+            <span>Генерация в одном языке с реальным кадром</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 8) FAQ -->
-    <section class="section" id="faq">
+    <section class="showreel-stage" id="showreel" aria-label="Hero визуал направления">
+      <div class="showreel-stage__sticky">
+        <div class="showreel-stage__frame" data-showreel-frame>
+          <div class="showreel-stage__media">
+            <img
+              src="../assets/images/ai-hero.webp"
+              alt="AI-продакшн — hero визуал"
+              width="1600"
+              height="1000"
+              loading="eager"
+              onerror="this.onerror=null;this.src='../assets/img/product-ai.webp';"
+            />
+            <div class="showreel-stage__overlay">
+              <span class="showreel-stage__label">AI direction</span>
+              <button class="showreel-play" type="button" aria-label="Запустить превью" data-showreel-trigger>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                  <path d="M8 6.5v11l9-5.5-9-5.5Z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="adds">
       <div class="container">
-        <div class="section-title">
-          <h2>Вопросы</h2>
+        <div class="section-title reveal">
+          <h2>Что мы добавляем в реальное видео</h2>
+          <p>Не хаотичную генерацию, а набор точных инструментов, которые расширяют реальную сцену и поддерживают монтаж.</p>
         </div>
 
-        <div class="card" style="padding:18px">
-          <ul class="bullets" style="margin:0">
-            <li>Как вы делаете, чтобы не выглядело фейково</li>
-            <li>Что именно можно добавить в реальную съёмку</li>
-            <li>Что вы принципиально не делаете</li>
-            <li>В каких форматах отдаёте</li>
-            <li>Как происходит утверждение</li>
+        <div class="card reveal-copy reveal">
+          <ul class="bullets">
+            <li><strong>Нейро-b-roll</strong> — добираем планы и детали, которых не было на съёмке, чтобы ролик ощущался цельным.</li>
+            <li><strong>Невозможные локации</strong> — переносим действие туда, куда физически не попасть или слишком дорого ехать.</li>
+            <li><strong>Расширение кадра</strong> — достраиваем пространство вокруг снятого материала, чтобы собрать нужный формат и ритм.</li>
+            <li><strong>Замены фона</strong> — меняем окружение, сохраняя объект в кадре и попадая в нужный смысловой уровень.</li>
+            <li><strong>Генеративные вставки</strong> — короткие сцены внутри реального ролика для усиления захода, раскрытия и переходов.</li>
+            <li><strong>Стилевые версии</strong> — разные формы одного материала под задачу и площадку.</li>
+            <li><strong>Нейро-графика</strong> — графические элементы, которые выглядят как часть кадра, а не отдельный слой.</li>
+            <li><strong>Нейро-VFX</strong> — эффекты и изменения внутри кадра, которые не распадаются на “реальное” и “искусственное”.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 9) OFFER -->
-    <section class="section" id="offer">
+    <section class="section section-dark" id="montage">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
+          <h2>Кадры под монтаж</h2>
+          <p>AI особенно силён там, где нужно поддержать драматургию: заход, раскрытие и переход между сценами.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-montage-hook.webp"
+                alt="Заход — момент, который останавливает взгляд"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/images/ai-case-01.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Заход</h3><span class="tag">Hook</span></div>
+              <p class="value">Момент, который останавливает взгляд, задаёт интригу и сразу переводит зрителя в нужное состояние.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-montage-reveal.webp"
+                alt="Раскрытие — смысл и переживание"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/images/ai-case-02.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Раскрытие</h3><span class="tag">Reveal</span></div>
+              <p class="value">Сцена, где зритель получает главное ощущение, смысл или масштаб — не через слова, а через визуальное разворачивание.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-montage-transition.webp"
+                alt="Переход — движение между сценами"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/images/ai-case-03.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Переход</h3><span class="tag">Transition</span></div>
+              <p class="value">Связка между сценами, которая держит ритм и не даёт ролику рассыпаться на отдельные фрагменты.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-case-03.webp"
+                alt="Усиление монтажа через AI"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/product-ai.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Усиление ритма</h3><span class="tag">Rhythm</span></div>
+              <p class="value">AI помогает не только дорисовать сцену, но и собрать ритмическую логику монтажа так, чтобы всё работало как единый поток.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="examples">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Примеры и типы задач</h2>
+          <p>Каждый слот на этой странице уже собран так, чтобы позже в него можно было поставить реальные материалы без пустот и перестройки блока.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-case-01.webp"
+                alt="Невозможная локация — вставка в реальную съёмку"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/case-01.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Невозможная локация</h3><span class="tag">Example</span></div>
+              <p class="value">Когда нужно перенести ролик туда, куда съёмочная группа физически не попадёт, но сцена должна ощущаться убедительно.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-case-02.webp"
+                alt="Генеративные переходы — связка, которая держит ритм"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/case-02.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Генеративные переходы</h3><span class="tag">Example</span></div>
+              <p class="value">Когда монтажу нужна сцепка, которая удерживает ритм и помогает ролику перейти на следующий уровень интенсивности.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-case-03.webp"
+                alt="Стилевая версия — один материал, разная подача"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/case-03.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Стилевая версия</h3><span class="tag">Example</span></div>
+              <p class="value">Когда один и тот же материал нужно подать в нескольких художественных режимах без потери единого языка ролика.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/ai-case-04.webp"
+                alt="Генеративное усиление реальной съёмки"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/product-ai.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Усиление реальной съёмки</h3><span class="tag">Example</span></div>
+              <p class="value">Когда реальный материал уже есть, но ему не хватает масштаба, сцены, перехода или визуального акцента, который доведёт ролик до нужного уровня.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="workflow">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Как мы работаем</h2>
+          <p>AI-продакшн здесь встроен в общий процесс, а не существует отдельно от идеи, сценария и монтажа.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>01 · Сбор вводных</h3><span class="tag">Start</span></div><p class="value">Разбираем задачу, формат ролика, реальную съёмку, ограничения и точки, где AI действительно нужен, а где лучше не вмешиваться.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>02 · Рождение идеи</h3><span class="tag">Idea</span></div><p class="value">Определяем, какие генеративные элементы усиливают ролик по смыслу, а не просто добавляют случайный визуальный шум.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>03 · Сценарий и раскадровка</h3><span class="tag">Script</span></div><p class="value">Собираем сцены, переходы и монтажную драматургию. На этом этапе AI-слой проектируется как часть общей формы.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>04 · Съёмка, генерация, монтаж</h3><span class="tag">Finish</span></div><p class="value">Реальная съёмка, генеративные кадры и финальный монтаж соединяются в один ролик, который не распадается на “до” и “после AI”.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="offer">
+      <div class="container">
+        <div class="section-title reveal">
           <h2>Получить предложение</h2>
-          <p style="margin-bottom:12px">Коротко опишите задачу — соберём предложение по формату и срокам</p>
+          <p>Коротко опиши задачу — соберём предложение по формату, сценарию и роли AI внутри проекта.</p>
         </div>
 
         <div class="contact-grid">
-          <form class="card form" action="../index.html#contact" method="get">
+          <form class="card form reveal" action="../index.html#contact" method="get">
             <label class="field">
               <span>Контакт (Telegram / Email / Телефон) <span class="req">*</span></span>
               <input name="contact" required placeholder="@telegram или email или +7..." />
@@ -270,22 +356,30 @@
 
             <label class="field">
               <span>Сообщение</span>
-              <textarea name="message" rows="5" placeholder="Коротко: что нужно сделать и к какому сроку"></textarea>
+              <textarea name="message" rows="5" placeholder="Коротко: задача, формат, контекст, сроки"></textarea>
             </label>
 
-            <div class="row">
-              <button class="pill primary" type="submit">Получить предложение</button>
-              <a class="pill ghost" href="../index.html#contact" data-scroll>Перейти к контактам</a>
+            <div class="form-note">
+              <div class="row">
+                <button class="pill primary" type="submit">Получить предложение</button>
+                <a class="pill ghost" href="../index.html#contact">Открыть контакты на главной</a>
+              </div>
             </div>
-
-            <p class="tiny" style="margin:10px 0 0">MVP: без backend. Кнопка ведёт на контакты.</p>
           </form>
 
-          <div class="card contact-card">
-            <h3 style="margin:0 0 8px">Быстрый контакт</h3>
-            <p class="tiny" style="margin:0 0 12px">Если удобнее — сразу на главную к контактам</p>
+          <div class="card contact-card lift">
+            <h3 style="margin:0 0 8px; font-size:1.3rem; letter-spacing:-0.03em;">Быстрый вход в диалог</h3>
+            <p class="tiny" style="margin:0 0 12px;">
+Если удобнее, переходи сразу в 
+<a href="https://t.me/kakayauvasinteresnayarabota" 
+target="_blank" 
+rel="noopener" 
+style="color:#0088cc; font-weight:600;">Telegram</a> 
+или на главную страницу к общим контактам.
+</p>
+
             <div class="contact-actions">
-              <a class="pill primary" href="../index.html#contact" data-scroll>Открыть контакты</a>
+              <a class="pill primary" href="../index.html#contact">Контакты на главной</a>
               <a class="pill ghost" href="../index.html">На главную</a>
             </div>
           </div>
@@ -315,12 +409,11 @@
     </div>
   </div>
 
-  <!-- Cookie consent -->
   <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Уведомление о cookies">
     <div class="cookie-card">
       <p>
-        Мы используем только необходимые cookies, чтобы запомнить ваши настройки (например, тему и выбор по cookies).
-        Аналитики и трекеров нет.
+        Мы используем только необходимые cookies, чтобы запомнить ваши настройки интерфейса и выбор по cookies.
+        Аналитики и сторонних трекеров нет.
         <a href="../legal/cookies.html">Подробнее</a>
       </p>
       <div class="cookie-actions">

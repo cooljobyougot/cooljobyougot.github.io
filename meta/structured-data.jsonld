@@ -1,0 +1,227 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://какаяувасинтереснаяработа.рф/#organization",
+      "name": "Креативное агентство #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "url": "https://какаяувасинтереснаяработа.рф",
+      "description": "Стратегический видеопартнёр для бренда и продаж. Рекламные ролики, имидж бренда, AI-продакшн, FPV-съёмка.",
+      "sameAs": [
+        "https://t.me/cooljobyougot",
+        "https://t.me/kakayauvasinteresnayarabota"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "@id": "https://какаяувасинтереснаяработа.рф/#contact-sales",
+          "contactType": "sales",
+          "telephone": "+79394463156",
+          "availableLanguage": [
+            "ru"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "@id": "https://какаяувасинтереснаяработа.рф/#contact-management",
+          "contactType": "management",
+          "telephone": "+79104721024",
+          "availableLanguage": [
+            "ru"
+          ]
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "@id": "https://какаяувасинтереснаяработа.рф/#offer-catalog",
+        "name": "Услуги агентства",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Рекламные ролики",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "@id": "https://какаяувасинтереснаяработа.рф/products/ads.html#service",
+                "name": "Рекламные ролики",
+                "url": "https://какаяувасинтереснаяработа.рф/products/ads.html",
+                "description": "Рекламный ролик начинается с задачи. Идея → сценарий → продакшн → монтаж → адаптации.",
+                "provider": {
+                  "@id": "https://какаяувасинтереснаяработа.рф/#organization"
+                },
+                "areaServed": "RU",
+                "availableLanguage": [
+                  "ru"
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Имидж бренда",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "@id": "https://какаяувасинтереснаяработа.рф/products/brand.html#service",
+                "name": "Имидж бренда",
+                "url": "https://какаяувасинтереснаяработа.рф/products/brand.html",
+                "description": "Имидж бренда: идея → форма → переживание. Ролик, который держит уровень бренда.",
+                "provider": {
+                  "@id": "https://какаяувасинтереснаяработа.рф/#organization"
+                },
+                "areaServed": "RU",
+                "availableLanguage": [
+                  "ru"
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "AI-продакшн",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "@id": "https://какаяувасинтереснаяработа.рф/products/ai.html#service",
+                "name": "AI-продакшн",
+                "url": "https://какаяувасинтереснаяработа.рф/products/ai.html",
+                "description": "AI-продакшн: реальная съёмка + генеративные сцены в одном ролике.",
+                "provider": {
+                  "@id": "https://какаяувасинтереснаяработа.рф/#organization"
+                },
+                "areaServed": "RU",
+                "availableLanguage": [
+                  "ru"
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "FPV-съёмка",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "@id": "https://какаяувасинтереснаяработа.рф/products/fpv.html#service",
+                "name": "FPV-съёмка",
+                "url": "https://какаяувасинтереснаяработа.рф/products/fpv.html",
+                "description": "FPV-съёмка: FPV + AI-сцены. Невозможный опыт, который удерживает взгляд.",
+                "provider": {
+                  "@id": "https://какаяувасинтереснаяработа.рф/#organization"
+                },
+                "areaServed": "RU",
+                "availableLanguage": [
+                  "ru"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://какаяувасинтереснаяработа.рф/#website",
+      "name": "#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "url": "https://какаяувасинтереснаяработа.рф",
+      "inLanguage": "ru",
+      "publisher": {
+        "@id": "https://какаяувасинтереснаяработа.рф/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://какаяувасинтереснаяработа.рф/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://какаяувасинтереснаяработа.рф/index.html#webpage",
+      "name": "Креативное агентство — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "Портфолио и контакты креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.",
+      "url": "https://какаяувасинтереснаяработа.рф/index.html",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://какаяувасинтереснаяработа.рф/#website"
+      },
+      "about": {
+        "@id": "https://какаяувасинтереснаяработа.рф/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://какаяувасинтереснаяработа.рф/meta/og-default.jpg"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://какаяувасинтереснаяработа.рф/products/ads.html#webpage",
+      "name": "Рекламные ролики — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "Рекламный ролик начинается с задачи. Идея → сценарий → продакшн → монтаж → адаптации.",
+      "url": "https://какаяувасинтереснаяработа.рф/products/ads.html",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://какаяувасинтереснаяработа.рф/#website"
+      },
+      "about": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/ads.html#service"
+      },
+      "mainEntity": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/ads.html#service"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://какаяувасинтереснаяработа.рф/products/brand.html#webpage",
+      "name": "Имидж бренда — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "Имидж бренда: идея → форма → переживание. Ролик, который держит уровень бренда.",
+      "url": "https://какаяувасинтереснаяработа.рф/products/brand.html",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://какаяувасинтереснаяработа.рф/#website"
+      },
+      "about": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/brand.html#service"
+      },
+      "mainEntity": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/brand.html#service"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://какаяувасинтереснаяработа.рф/products/ai.html#webpage",
+      "name": "AI-продакшн — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "AI-продакшн: реальная съёмка + генеративные сцены в одном ролике.",
+      "url": "https://какаяувасинтереснаяработа.рф/products/ai.html",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://какаяувасинтереснаяработа.рф/#website"
+      },
+      "about": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/ai.html#service"
+      },
+      "mainEntity": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/ai.html#service"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://какаяувасинтереснаяработа.рф/products/fpv.html#webpage",
+      "name": "FPV-съёмка — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "FPV-съёмка: FPV + AI-сцены. Невозможный опыт, который удерживает взгляд.",
+      "url": "https://какаяувасинтереснаяработа.рф/products/fpv.html",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://какаяувасинтереснаяработа.рф/#website"
+      },
+      "about": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/fpv.html#service"
+      },
+      "mainEntity": {
+        "@id": "https://какаяувасинтереснаяработа.рф/products/fpv.html#service"
+      }
+    }
+  ]
+}

@@ -4,327 +4,338 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
+
   <title>Креативное агентство — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
-  <meta name="description" content="Портфолио и контакты креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА." />
+  <meta name="description" content="Стратегический видеопартнёр для бренда и продаж: рекламные ролики, имидж бренда, AI-продакшн, FPV-съёмка." />
+
   <meta property="og:title" content="Креативное агентство — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
-  <meta property="og:description" content="Портфолио и контакты креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА." />
-  <meta property="og:image" content="./meta/og-default.jpg" />
+  <meta property="og:description" content="Стратегический видеопартнёр для бренда и продаж: рекламные ролики, имидж бренда, AI-продакшн, FPV-съёмка." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="./meta/og-default.jpg" />
+
   <link rel="icon" href="./meta/favicon.ico" />
   <link rel="apple-touch-icon" href="./meta/apple-touch-icon.png" />
   <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-
-  <header class="topbar">
+  <header class="topbar" id="top">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="brand-title">
-          <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
-          <span>Стратегический видеопартнёр для бренда и продаж</span>
-        </div>
+        <a class="brand-logo" href="./index.html" aria-label="На главную">
+          <img src="./assets/img/logo-main.png" alt="Логотип агентства" width="108" height="108" onerror="this.style.display='none';" />
+          <div class="brand-title">
+            <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
+            <span>Стратегический видеопартнёр для бренда и продаж</span>
+          </div>
+        </a>
       </div>
 
-      <nav class="nav nav-compact" aria-label="Решения">
-        <a class="navpill" href="index.html#ads" data-scroll>Рекламные ролики</a>
-        <a class="navpill" href="index.html#brand" data-scroll>Имидж бренда</a>
-        <a class="navpill" href="index.html#ai" data-scroll>AI‑продакшн</a>
-        <a class="navpill" href="index.html#fpv" data-scroll>FPV‑съёмка</a>
+      <nav class="nav-compact" aria-label="Навигация по сайту">
+        <a class="navpill" href="#solutions" data-scroll>Решения</a>
+
+        <a class="navpill" href="#cases" data-scroll>Кейсы</a>
+        <a class="navpill" href="#contact" data-scroll>Контакты</a>
       </nav>
 
       <div class="topbar-actions">
-        <a class="pill primary" href="index.html#contact" data-scroll>Обсудить задачу</a>
-        <a class="pill ghost" href="index.html#cases" data-scroll>Кейсы</a>
-
+        <a class="pill ghost" href="#showreel" data-scroll>Showreel</a>
+        <a class="pill primary" href="#contact" data-scroll>Обсудить задачу</a>
         <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+          <span class="burger"><span></span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="top">
-      <div class="container">
-        <div class="card hero-copy">
-          <h1 class="hero-h1">Стратегический видеопартнёр для бренда и продаж</h1>
+  <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__head">
+      <div class="brand-title">
+        <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
+        <span>Навигация</span>
+      </div>
+      <button class="nav-toggle" id="navClose" type="button" aria-label="Закрыть меню" aria-expanded="true">
+        <span class="burger"><span></span></span>
+      </button>
+    </div>
 
-          <ul class="benefits" aria-label="Преимущества">
-            <li>Идея и сценарий, которые удерживают внимание</li>
-            <li>Премиальный продакшн и монтаж</li>
-            <li>Контент, встроенный в задачи бренда и продаж</li>
-            <li>Форматы под любые площадки</li>
-          </ul>
+    <nav class="mobile-nav__body" aria-label="Мобильная навигация">
+      <a href="#top" data-scroll>Главная</a>
+      <a href="#showreel" data-scroll>Showreel</a>
+      <a href="#solutions" data-scroll>Решения</a>
+      <a href="#cases" data-scroll>Кейсы</a>
+      <a href="#services" data-scroll>Услуги</a>
+      <a href="#contact" data-scroll>Контакты</a>
+      <a href="./products/ads.html">Рекламные ролики</a>
+      <a href="./products/brand.html">Имидж бренда</a>
+      <a href="./products/ai.html">AI-продакшн</a>
+      <a href="./products/fpv.html">FPV-съёмка</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="section section-dark hero hero-wide">
+      <div class="container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Креативное агентство</p>
+
+          <h1 class="hero-h1 hero-h1--wide">
+            Собираем
+            <span class="serif">идею</span>,
+            превращаем её в форму
+            и доводим до
+            <span class="serif">результата</span>
+          </h1>
+
+          <p class="hero-sub hero-sub--wide">
+            Рекламные ролики, имидж бренда, AI-продакшн и FPV-съёмка — единая система фокуса, доверия и продаж.
+          </p>
 
           <div class="cta-row">
             <a class="pill primary" href="#contact" data-scroll>Обсудить задачу</a>
-            <a class="pill" href="#cases" data-scroll>Кейсы</a>
-            <span class="tiny trust">Проекты от 500k: идея → продакшн → финальная форма</span>
+            <a class="pill ghost" href="#showreel" data-scroll>Смотреть showreel</a>
+            <span class="trust">Идея → продакшн → финальная форма</span>
+          </div>
+
+          <div class="hero-meta">
+            <span>Премиальная подача</span>
+            <span>·</span>
+            <span>Сильная типографика</span>
+            <span>·</span>
+            <span>Контент под задачу</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="products">
+    <section class="showreel-stage" id="showreel" aria-label="Showreel">
+      <div class="showreel-stage__sticky">
+        <div class="showreel-stage__frame" data-showreel-frame>
+          <div class="showreel-stage__media">
+            <img
+              src="./assets/posters/hero-showreel-poster.webp"
+              alt="Showreel агентства"
+              width="1600"
+              height="1000"
+              loading="eager"
+            />
+            <div class="showreel-stage__overlay">
+              <button class="showreel-play" type="button" aria-label="Запустить showreel" data-showreel-trigger>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                  <path d="M8 6.5v11l9-5.5-9-5.5Z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container statement-wrap">
+        <div class="giant-word" aria-hidden="true">Стратегия</div>
+        <div class="statement-block">
+          <div class="reveal">
+            <p class="eyebrow">Как мы мыслим</p>
+            <h2 class="statement">
+              Не просто
+              <span class="accent">снимаем</span>.
+              Уточняем задачу, аудиторию и смысл.
+              Формулируем
+              <span class="accent">целевой результат</span>.
+            </h2>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="solutions">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Решения</h2>
-          <p>Выбери формат — и мы подготовим предложение под задачу.</p>
         </div>
 
         <div class="product-grid">
-          <article class="card product-card">
-            <div class="product-media">
-              <img src="./assets/img/product-ads.webp" alt="Рекламные ролики — превью" loading="lazy" />
-            </div>
+          <article class="card product-card lift">
+            <div class="product-media"><video
+  src="./assets/video/product-brand-loop.mp4"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+  aria-label="Имидж бренда"
+></video></div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Рекламные ролики</h3>
-                <span class="tag">Performance</span>
-              </div>
-              <p class="value">Быстрый и точный ролик, который ведёт к заявкам.</p>
-              <div class="row">
-                <a class="pill primary" href="./products/ads.html">Подробнее</a>
-                <a class="pill ghost" href="#ads" data-scroll>К разделу</a>
-              </div>
+              <div class="product-top"><h3>Реклама</h3><span class="tag">Performance</span></div>
+              <p class="value">Ролики под продажи: ясная задача, сильный сценарий, точный монтаж и адаптации под площадки.</p>
+              <div class="row"><a class="pill primary" href="./products/ads.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
             </div>
           </article>
 
-          <article class="card product-card">
-            <div class="product-media">
-              <img src="./assets/img/product-brand.webp" alt="Имидж бренда — превью" loading="lazy" />
-            </div>
+          <article class="card product-card lift">
+            <div class="product-media"><img src="./assets/img/product-brand.webp" alt="Имидж бренда" width="1200" height="1500" loading="lazy" /></div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Имидж бренда</h3>
-                <span class="tag">Brand</span>
-              </div>
-              <p class="value">Ролики, которые усиливают восприятие и доверие.</p>
-              <div class="row">
-                <a class="pill primary" href="./products/brand.html">Подробнее</a>
-                <a class="pill ghost" href="#brand" data-scroll>К разделу</a>
-              </div>
+              <div class="product-top"><h3>Имидж бренда</h3><span class="tag">Brand</span></div>
+              <p class="value">Видео, которое формирует восприятие, держит уровень бренда и усиливает доверие.</p>
+              <div class="row"><a class="pill primary" href="./products/brand.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
             </div>
           </article>
 
-          <article class="card product-card">
-            <div class="product-media">
-              <img src="./assets/img/product-ai.webp" alt="AI‑продакшн — превью" loading="lazy" />
-            </div>
+          <article class="card product-card lift">
+            <div class="product-media"><video
+  src="./assets/video/product-ai-loop.mp4"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+  aria-label="AI-продакшн"
+></video></div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>AI‑продакшн</h3>
-                <span class="tag">AI</span>
-              </div>
-              <p class="value">Ускоряем визуальный продакшн: нейросцены, стилевые версии, масштабирование контента.</p>
-              <div class="row">
-                <a class="pill primary" href="./products/ai.html">Подробнее</a>
-                <a class="pill ghost" href="#ai" data-scroll>К разделу</a>
-              </div>
+              <div class="product-top"><h3>AI-продакшн</h3><span class="tag">AI</span></div>
+              <p class="value">Нейросцены, стилевые версии, вставки и масштабирование контента внутри реального продакшна.</p>
+              <div class="row"><a class="pill primary" href="./products/ai.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
             </div>
           </article>
 
-          <article class="card product-card">
-            <div class="product-media">
-              <img src="./assets/img/product-fpv.webp" alt="FPV‑съёмка — превью" loading="lazy" />
-            </div>
+          <article class="card product-card lift">
+            <div class="product-media"><video
+  src="./assets/video/product-fpv-loop.mp4"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+  aria-label="FPV-съёмка"
+></video></div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>FPV‑съёмка</h3>
-                <span class="tag">FPV</span>
-              </div>
-              <p class="value">Динамика и эффект присутствия: один проход — вау-результат.</p>
-              <div class="row">
-                <a class="pill primary" href="./products/fpv.html">Подробнее</a>
-                <a class="pill ghost" href="#fpv" data-scroll>К разделу</a>
-              </div>
+              <div class="product-top"><h3>FPV-съёмка</h3><span class="tag">FPV</span></div>
+              <p class="value">Эффект присутствия, динамика пространства и хук, который удерживает взгляд с первых секунд.</p>
+              <div class="row"><a class="pill primary" href="./products/fpv.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
             </div>
           </article>
         </div>
-
-        <div class="divider"></div>
       </div>
     </section>
 
-    <section class="section" id="ads">
-      <div class="container reveal-grid">
-        <div class="card reveal-copy">
-          <p class="eyebrow">Направление</p>
-          <h2>Рекламные ролики</h2>
-          <p class="subhead">Ролик, который удерживает внимание и приводит к действию.</p>
-          <ul class="bullets">
-            <li>Сценарий и ритм под задачу продаж</li>
-            <li>Форматы под площадки и воронку</li>
-            <li>Премиальный продакшн и монтаж</li>
-          </ul>
-          <div class="row">
-            <a class="pill primary" href="./products/ads.html">Получить предложение по Рекламным роликам</a>
-            <a class="pill ghost" href="#contact" data-scroll>Обсудить задачу</a>
-            <a class="tiny" href="#cases" data-scroll>Кейсы</a>
-          </div>
-        </div>
-        <div class="card reveal-media">
-          <img src="./assets/img/section-ads.webp" alt="Рекламные ролики — превью" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="brand">
-      <div class="container reveal-grid reverse">
-        <div class="card reveal-copy">
-          <p class="eyebrow">Направление</p>
-          <h2>Имидж бренда</h2>
-          <p class="subhead">Видео, которое усиливает восприятие и формирует доверие.</p>
-          <ul class="bullets">
-            <li>Сильная идея и точная подача</li>
-            <li>Картинка и звук, которые держат уровень</li>
-            <li>Контент для сайта, PR и соцсетей</li>
-          </ul>
-          <div class="row">
-            <a class="pill primary" href="./products/brand.html">Получить предложение по Имиджу бренда</a>
-            <a class="pill ghost" href="#contact" data-scroll>Обсудить задачу</a>
-            <a class="tiny" href="#cases" data-scroll>Кейсы</a>
-          </div>
-        </div>
-        <div class="card reveal-media">
-          <img src="./assets/img/section-brand.webp" alt="Имидж бренда — превью" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="ai">
-      <div class="container reveal-grid">
-        <div class="card reveal-copy">
-          <p class="eyebrow">Направление</p>
-          <h2>AI‑продакшн</h2>
-          <p class="subhead">Генеративные сцены и графика внутри реального пайплайна.</p>
-          <ul class="bullets">
-            <li>Идея и контроль результата, а не “случайный вау”</li>
-            <li>Интеграция в монтаж и продакшн‑процесс</li>
-            <li>Визуальные решения, недоступные классической съёмке</li>
-          </ul>
-          <div class="row">
-            <a class="pill primary" href="./products/ai.html">Получить предложение по AI‑продакшну</a>
-            <a class="pill ghost" href="#contact" data-scroll>Обсудить задачу</a>
-            <a class="tiny" href="#cases" data-scroll>Кейсы</a>
-          </div>
-        </div>
-        <div class="card reveal-media">
-          <img src="./assets/img/section-ai.webp" alt="AI‑продакшн — превью" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="fpv">
-      <div class="container reveal-grid reverse">
-        <div class="card reveal-copy">
-          <p class="eyebrow">Направление</p>
-          <h2>FPV‑съёмка</h2>
-          <p class="subhead">Один пролёт — и у зрителя эффект присутствия.</p>
-          <ul class="bullets">
-            <li>Динамика и точная траектория</li>
-            <li>Локации: рестораны, турбазы, производство, ивенты</li>
-            <li>Сцены для драматургии и монтажа: заходы, раскрытия, переходы.</li>
-          </ul>
-          <div class="row">
-            <a class="pill primary" href="./products/fpv.html">Получить предложение по FPV‑съёмке</a>
-            <a class="pill ghost" href="#contact" data-scroll>Обсудить задачу</a>
-            <a class="tiny" href="#cases" data-scroll>Кейсы</a>
-          </div>
-        </div>
-        <div class="card reveal-media">
-          <img src="./assets/img/section-fpv.webp" alt="FPV‑съёмка — превью" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="cases">
+    <section class="section section-light" id="cases">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Кейсы</h2>
-          <p>MVP: 3 карточки. Заменим на реальные работы на этапе S2.</p>
         </div>
 
         <div class="product-grid">
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media"><img src="./assets/img/case-01.webp" alt="Кейс 1 — превью" loading="lazy" onerror="this.style.display='none'"/></div>
-            <div class="product-body">
-              <div class="product-top"><h3>Кейс #1 (в разработке)</h3><span class="tag">Case</span></div>
-              <p class="value">Результат: +узнаваемость / +конверсия / +доверие (TODO).</p>
-              <div class="row"><a class="pill ghost" href="#contact" data-scroll>Обсудить похожее</a></div>
-            </div>
+          <article class="card product-card lift">
+            <div class="product-media">
+  <video
+    src="./assets/video/case-01-loop.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-label="Рекламный кейс — автосалон"
+  ></video>
+</div>
+            <div class="product-body"><div class="product-top"><h3>Рекламный кейс</h3><span class="tag">Case</span></div><p class="value">Сильный первый экран, понятный продуктовый фокус и визуальный ритм, который работает на конверсию.</p></div>
           </article>
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media"><img src="./assets/img/case-02.webp" alt="Кейс 2 — превью" loading="lazy" onerror="this.style.display='none'"/></div>
-            <div class="product-body">
-              <div class="product-top"><h3>Кейс #2 (в разработке)</h3><span class="tag">Case</span></div>
-              <p class="value">Результат: метрика / охват / заявки (TODO).</p>
-              <div class="row"><a class="pill ghost" href="#contact" data-scroll>Обсудить похожее</a></div>
-            </div>
+          <article class="card product-card lift">
+            <div class="product-media">
+  <video
+    src="./assets/video/case-02-loop.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-label="Имиджевый кейс — Технокабель"
+  ></video>
+</div>
+            <div class="product-body"><div class="product-top"><h3>Имиджевый кейс</h3><span class="tag">Brand</span></div><p class="value">Светлая editorial-подача, крупная типографика и медиа, которые создают ощущение статуса бренда.</p></div>
           </article>
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media"><img src="./assets/img/case-03.webp" alt="Кейс 3 — превью" loading="lazy" onerror="this.style.display='none'"/></div>
-            <div class="product-body">
-              <div class="product-top"><h3>Кейс #3 (в разработке)</h3><span class="tag">Case</span></div>
-              <p class="value">Результат: удержание / продажи / PR (TODO).</p>
-              <div class="row"><a class="pill ghost" href="#contact" data-scroll>Обсудить похожее</a></div>
-            </div>
+          <article class="card product-card lift">
+            <div class="product-media">
+  <video
+    src="./assets/video/case-03-loop.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-label="AI-визуал"
+  ></video>
+</div>
+            <div class="product-body"><div class="product-top"><h3>AI-визуал</h3><span class="tag">AI</span></div><p class="value">Генеративный блок как часть реального пайплайна: не абстракция, а контролируемый инструмент усиления ролика.</p></div>
+          </article>
+          <article class="card product-card lift">
+            <div class="product-media">
+  <video
+    src="./assets/video/case-04-loop.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-label="FPV-динамика"
+  ></video>
+</div>
+            <div class="product-body"><div class="product-top"><h3>FPV-динамика</h3><span class="tag">FPV</span></div><p class="value">Кадр, который даёт ощущение скорости, масштаба и эффект присутствия уже в первые секунды просмотра.</p></div>
           </article>
         </div>
-
-        <div class="divider"></div>
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section section-light" id="contact">
       <div class="container">
-        <div class="section-title">
-          <h2>Обсудим задачу</h2>
-          <p>Оставь контакт и пару слов — вернёмся с вопросами и предложением. Если удобнее — сразу в Telegram.</p>
+        <div class="section-title reveal">
+          <h2>Оставить заявку</h2>
         </div>
 
         <div class="contact-grid">
-          <form class="card form" action="mailto:hello@example.com" method="post" enctype="text/plain">
+          <form class="card form reveal" action="mailto:hello@example.com" method="post" enctype="text/plain">
             <label class="field">
               <span>Telegram / Email / Телефон <span class="req">*</span></span>
               <input name="contact" required placeholder="@telegram или email или +7..." />
             </label>
 
             <label class="field">
-              <span>Сообщение (опционально)</span>
-              <textarea name="message" rows="5" placeholder="Коротко: что необходимо сделать и к какому сроку"></textarea>
+              <span>Что нужно сделать</span>
+              <textarea name="message" rows="5" placeholder="Коротко: задача, формат, сроки, контекст"></textarea>
             </label>
 
-            <div class="row">
-              <button class="pill primary" type="submit">Обсудить задачу</button>
-              <a class="pill ghost" href="https://t.me/cooljobyougot" target="_blank" rel="noopener">Написать в Telegram</a>
+            <div class="form-note">
+              <div class="row">
+                <button class="pill primary" type="submit">Обсудить задачу</button>
+                <a class="pill ghost" href="https://t.me/cooljobyougot" target="_blank" rel="noopener">Написать в Telegram</a>
+              </div>
             </div>
-
-            <p class="tiny" style="margin:10px 0 0">MVP: отправка формы через mailto. На этапе следующей итерации подключим интеграцию.</p>
           </form>
 
-          <div class="card contact-card" aria-label="Контакты">
-            <h3 style="margin:0 0 8px">Контакты</h3>
-            <p class="tiny" style="margin:0 0 12px">Быстрый вход в диалог — выбери удобный канал.</p>
-
+          <div class="card contact-card lift" aria-label="Контакты">
+            <h3 style="font-size:1.3rem; letter-spacing:-0.03em; margin:0 0 8px;">Быстрый вход в диалог</h3>
             <div class="contact-line">
               <strong>AI партнёр</strong>
-              <span class="tiny"><a href="tel:+79394463156">+7 939 446‑31‑56</a> · <a href="https://t.me/kakayauvasinteresnayarabota">@kakayauvasinteresnayarabota</a></span>
+              <span class="tiny">
+                <a href="tel:+79394463156">+7 939 446-31-56</a> ·
+                <a href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener">@kakayauvasinteresnayarabota</a>
+              </span>
             </div>
-
-            <div class="contact-line" style="margin-top:10px">
+            <div class="contact-line" style="margin-top:10px;">
               <strong>СЕО Дмитрий Дроздов</strong>
-              <span class="tiny"><a href="tel:+79104721024">+7 910 472‑10‑24</a> · <a href="https://t.me/drozdovhumandevelopment">@drozdovhumandevelopment</a></span>
-            </div>
-
-            <div class="contact-actions">
-              <a class="pill primary" href="https://t.me/cooljobyougot" target="_blank" rel="noopener">Официальный рупор: t.me/cooljobyougot</a>
-              <a class="pill ghost" href="#products" data-scroll>Посмотреть решения</a>
+              <span class="tiny">
+                <a href="tel:+79104721024">+7 910 472-10-24</a> ·
+                <a href="https://t.me/drozdovhumandevelopment" target="_blank" rel="noopener">@drozdovhumandevelopment</a>
+              </span>
             </div>
           </div>
         </div>
@@ -342,10 +353,10 @@
 
         <div class="legal-right">
           <div class="legal-links" aria-label="Юридические ссылки">
-            <a href="legal/privacy.html">Политика</a>
-            <a href="legal/terms.html">Соглашение</a>
-            <a href="legal/data.html">Данные</a>
-            <a href="legal/cookies.html">Cookies</a>
+            <a href="./legal/privacy.html">Политика</a>
+            <a href="./legal/terms.html">Соглашение</a>
+            <a href="./legal/data.html">Данные</a>
+            <a href="./legal/cookies.html">Cookies</a>
             <a href="#" id="cookieSettings" aria-label="Настройки cookies">Настройки cookies</a>
           </div>
         </div>
@@ -353,13 +364,12 @@
     </div>
   </div>
 
-  <!-- Cookie consent -->
   <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Уведомление о cookies">
     <div class="cookie-card">
       <p>
-        Мы используем только необходимые cookies, чтобы запомнить ваши настройки (например, тему и выбор по cookies).
-        Аналитики и трекеров нет.
-        <a href="legal/cookies.html">Подробнее</a>
+        Мы используем только необходимые cookies, чтобы запомнить ваши настройки интерфейса и выбор по cookies.
+        Аналитики и сторонних трекеров нет.
+        <a href="./legal/cookies.html">Подробнее</a>
       </p>
       <div class="cookie-actions">
         <button class="pill ghost" type="button" id="cookieReject">Отказаться</button>
@@ -368,6 +378,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>

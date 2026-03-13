@@ -4,305 +4,293 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <title>Рекламные ролики — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
-  <meta name="description" content="Рекламный ролик начинается с задачи. Идея → сценарий → продакшн → монтаж → адаптации." />
-  <meta property="og:title" content="Рекламные ролики — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
-  <meta property="og:description" content="Рекламные ролики с ясной задачей: сценарий → продакшн → монтаж → адаптации." />
-  <meta property="og:type" content="website" />
 
-  <!-- Keep existing design system -->
+  <title>Рекламные ролики — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
+  <meta name="description" content="Рекламные ролики: идея, сценарий, продакшн, монтаж и адаптации под площадки. Ролик начинается с задачи и ведёт к действию." />
+
+  <meta property="og:title" content="Рекламные ролики — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
+  <meta property="og:description" content="Рекламные ролики: идея, сценарий, продакшн, монтаж и адаптации под площадки. Ролик начинается с задачи и ведёт к действию." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../meta/og-default.jpg" />
+
+  <link rel="icon" href="../meta/favicon.ico" />
+  <link rel="apple-touch-icon" href="../meta/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-
-  <!-- TOPBAR (keep site topbar, highlight Ads) -->
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="brand-title">
-          <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
-          <span>Стратегический видеопартнёр для бренда и продаж</span>
-        </div>
+        <a class="brand-logo" href="../index.html" aria-label="На главную">
+          <img
+            src="../assets/img/logo-main.png"
+            alt="Логотип агентства"
+            width="108"
+            height="108"
+            onerror="this.style.display='none';"
+          />
+          <div class="brand-title">
+            <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
+            <span>Стратегический видеопартнёр для бренда и продаж</span>
+          </div>
+        </a>
       </div>
 
-      <nav class="nav nav-compact" aria-label="Решения">
-        <a class="navpill" href="../index.html#ads" data-scroll aria-current="page"
-           style="border-color:var(--borderStrong); background: color-mix(in oklab, var(--surface2) 76%, transparent); box-shadow: var(--btn-shadow);">
-          Рекламные ролики
-        </a>
-        <a class="navpill" href="../index.html#brand" data-scroll>Имидж бренда</a>
-        <a class="navpill" href="../index.html#ai" data-scroll>AI‑продакшн</a>
-        <a class="navpill" href="../index.html#fpv" data-scroll>FPV‑съёмка</a>
+      <nav class="nav-compact" aria-label="Навигация по направлению">
+        <a class="navpill" href="../index.html#solutions">Решения</a>
+        <a class="navpill" href="#showreel" data-scroll>Showreel</a>
+        <a class="navpill" href="#workflow" data-scroll>Процесс</a>
+        <a class="navpill" href="#offer" data-scroll>Предложение</a>
       </nav>
 
       <div class="topbar-actions">
         <a class="pill ghost" href="../index.html">На главную</a>
-        <a class="pill ghost" href="../index.html#cases" data-scroll>Кейсы</a>
-        <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
+        <a class="pill primary" href="#offer" data-scroll>Получить предложение</a>
 
         <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+          <span class="burger"><span></span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="container reveal-grid">
-        <div class="card hero-copy">
-          <h1 class="hero-h1" style="margin-bottom:8px">Рекламные ролики</h1>
-         <p class="subhead" style="margin:0 0 10px">
-  Рекламный ролик начинается с задачи
-</p>
+  <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__head">
+      <div class="brand-title">
+        <strong>Рекламные ролики</strong>
+        <span>Навигация по странице</span>
+      </div>
 
-<p style="margin:0; color:var(--mutedText); line-height:var(--lh-relaxed)">
-  Идея → сценарий → продакшн → монтаж → адаптации<br/>
-  На выходе — ролик, готовый к размещению
-</p>
+      <button class="nav-toggle" id="navClose" type="button" aria-label="Закрыть меню" aria-expanded="true">
+        <span class="burger"><span></span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav__body" aria-label="Мобильная навигация">
+      <a href="#top" data-scroll>Вверх</a>
+      <a href="#showreel" data-scroll>Showreel</a>
+      <a href="#fit" data-scroll>Задачи</a>
+      <a href="#deliverables" data-scroll>Что вы получаете</a>
+      <a href="#accents" data-scroll>Акценты</a>
+      <a href="#workflow" data-scroll>Как работаем</a>
+      <a href="#offer" data-scroll>Получить предложение</a>
+      <a href="../index.html">На главную</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="section section-dark hero hero-wide" id="top">
+      <div class="container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Направление</p>
+
+          <h1 class="hero-h1 hero-h1--wide">
+            Рекламные
+            <span class="serif">ролики</span>,
+            которые не просто выглядят хорошо,
+            а ведут к
+            <span class="serif">действию</span>
+          </h1>
+
+          <p class="hero-sub hero-sub--wide">
+            Рекламный ролик начинается с задачи: идея, сценарий, продакшн, монтаж и адаптации под площадки собираются в один управляемый результат.
+          </p>
 
           <div class="cta-row">
             <a class="pill primary" href="#offer" data-scroll>Получить предложение</a>
-            <a class="pill ghost" href="../index.html">На главную</a>
-            <span class="tiny trust">Проекты от 500k: идея → продакшн → финальная форма</span>
+            <a class="pill ghost" href="#showreel" data-scroll>Смотреть showreel</a>
+            <span class="trust">Идея → сценарий → продакшн → монтаж</span>
           </div>
-        </div>
 
-        <div class="card reveal-media" aria-label="Hero изображение">
-          <img src="../assets/images/ads-hero.webp" alt="Рекламные ролики — hero" loading="eager" />
+          <div class="hero-meta">
+            <span>Performance</span>
+            <span>·</span>
+            <span>Brand response</span>
+            <span>·</span>
+            <span>Адаптации под площадки</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- КОМУ ПОДХОДИТ -->
-    <section class="section" id="fit">
+    <section class="showreel-stage" id="showreel" aria-label="Hero визуал направления">
+      <div class="showreel-stage__sticky">
+        <div class="showreel-stage__frame" data-showreel-frame>
+          <div class="showreel-stage__media">
+            <img
+              src="../assets/images/ads-hero.webp"
+              alt="Рекламные ролики — hero визуал"
+              width="1600"
+              height="1000"
+              loading="eager"
+              onerror="this.onerror=null;this.src='../assets/img/product-ads.webp';"
+            />
+            <div class="showreel-stage__overlay">
+              <span class="showreel-stage__label">Ads direction</span>
+              <button class="showreel-play" type="button" aria-label="Запустить превью" data-showreel-trigger>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                  <path d="M8 6.5v11l9-5.5-9-5.5Z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="fit">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Задачи, которые закрывает ролик</h2>
-          <p style="margin-bottom:12px">Запуски и трафик, где важно довести зрителя до действия</p>
+          <p>Рекламный ролик нужен там, где внимание должно перейти в интерес, а интерес — в действие.</p>
         </div>
 
-        <div class="card" style="padding:18px">
-          <ul class="bullets" style="margin:0">
-            <li>Запуск продукта / акции / предложения</li>
-            <li>Рост заявок с трафика</li>
-            <li>Сложный продукт — короткое объяснение</li>
-            <li>Просмотры есть — заявок нет</li>
-            <li>Обновление рекламы без падения уровня</li>
-          </ul>
+        <div class="reveal-grid">
+          <article class="card reveal-copy reveal">
+            <p class="eyebrow">Где это работает</p>
+            <ul class="bullets">
+              <li>Запуск продукта, предложения или новой услуги</li>
+              <li>Трафик есть, но ролик не доводит до заявки</li>
+              <li>Сложный продукт нужно объяснить быстро и ясно</li>
+              <li>Нужно обновить рекламу без потери уровня</li>
+              <li>Нужен материал сразу под несколько площадок</li>
+            </ul>
+          </article>
+
+          <article class="card reveal-media lift">
+            <img
+              src="../assets/images/ads-case-01.webp"
+              alt="Рекламные ролики — задача и контекст"
+              width="1400"
+              height="1600"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../assets/img/section-ads.webp';"
+            />
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ЧТО ВЫ ПОЛУЧАЕТЕ -->
-    <section class="section" id="deliverables">
+    <section class="section section-dark" id="deliverables">
       <div class="container reveal-grid reverse">
-<div class="card reveal-copy">
-  <h2>Что вы получаете</h2>
-  <p class="subhead">Готовый ролик и версии для размещения</p>
+        <article class="card reveal-copy reveal">
+          <p class="eyebrow">Что вы получаете</p>
+          <h2>Готовый ролик и версии для размещения</h2>
+          <p class="subhead">
+            Не просто один файл “на память”, а понятный deliverable-пакет под задачу и площадку.
+          </p>
 
-  <ul class="bullets">
-    <li>Видео — Landscape (16:9)</li>
-    <li>Звук и титры — по задаче</li>
-  </ul>
-
-  <p class="subhead" style="margin-top:16px;">Опциональные версии:</p>
-  <ul class="bullets">
-    <li>Версия Vertical (9:16)</li>
-    <li>Короткая версия 15 секунд</li>
-  </ul>
-</div>
-
-        <div class="card reveal-media" aria-label="Слот визуала deliverables">
-          <img src="../assets/images/ads-case-01.webp" alt="Пример — визуальный слот" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <!-- СМЫСЛОВЫЕ АКЦЕНТЫ -->
-    <section class="section" id="accents">
-      <div class="container">
-        <div class="section-title">
-          <h2>Смысловые акценты</h2>
-          <p>Один ролик. Несколько входов в зрителя.</p>
-        </div>
-
-        <div class="product-grid">
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ads-accent-benefit.webp" alt="Акцент на выгоду" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Акцент на выгоду</h3>
-                <span class="tag">Benefit</span>
-              </div>
-              <p class="value">сразу показываем, что человек получает</p>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ads-accent-emotion.webp" alt="Акцент на эмоцию" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Акцент на эмоцию</h3>
-                <span class="tag">Emotion</span>
-              </div>
-              <p class="value">сразу создаём состояние и желание</p>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ads-accent-fact.webp" alt="Акцент на факт" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Акцент на факт</h3>
-                <span class="tag">Fact</span>
-              </div>
-              <p class="value">сразу показываем, как это работает</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ПАРТНЁРСТВО -->
-    <section class="section" id="partnership">
-      <div class="container reveal-grid">
-        <div class="card reveal-copy">
-<h2>Партнёрство — это не один ролик</h2>
-<p class="subhead">Это единый уровень идеи и формы на дистанции</p>
-<ul class="bullets">
-  <li>Одна планка идеи</li>
-  <li>Одна планка формы</li>
-  <li>Единый язык бренда в роликах</li>
-</ul>
-          <div class="row">
-            <a class="pill primary" href="#offer" data-scroll>Обсудить партнёрство</a>
-            <a class="pill ghost" href="../index.html#cases" data-scroll>Кейсы</a>
-          </div>
-        </div>
-
-        <div class="card reveal-media" aria-label="Слот визуала partnership">
-          <img src="../assets/images/ads-case-02.webp" alt="Партнёрство — визуальный слот" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ПРИМЕРЫ -->
-    <section class="section" id="examples">
-      <div class="container">
-        <div class="section-title">
-          <h2>Примеры</h2>
-          <p>Заглушки превью — заменим на реальные материалы.</p>
-        </div>
-
-        <div class="product-grid">
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ads-case-01.webp" alt="Пример 1" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <p class="tiny" style="margin:0 0 12px">Задача — Формат — Итог</p>
-              <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ads-case-02.webp" alt="Пример 2" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <p class="tiny" style="margin:0 0 12px">Задача — Формат — Итог</p>
-              <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-            </div>
-          </article>
-
-          <article class="card product-card" style="grid-column: span 4;">
-            <div class="product-media">
-              <img src="../assets/images/ads-case-03.webp" alt="Пример 3" loading="lazy" />
-            </div>
-            <div class="product-body">
-              <p class="tiny" style="margin:0 0 12px">Задача — Формат — Итог</p>
-              <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-<!-- КАК МЫ РАБОТАЕМ -->
-<section class="section" id="workflow">
-  <div class="container">
-    <div class="section-title">
-      <h2>Как мы работаем</h2>
-      <p>4 шага от задачи — к ролику, который ведёт к действию</p>
-    </div>
-
-    <div class="product-grid">
-      <div class="card" style="grid-column: span 3; padding:18px">
-        <p class="eyebrow">01</p>
-        <p class="value">Собираем вводные. Анализируем аудиторию и контекст.</p>
-      </div>
-
-      <div class="card" style="grid-column: span 3; padding:18px">
-        <p class="eyebrow">02</p>
-        <p class="value">Рождаем идею. Это главный продукт проекта.</p>
-      </div>
-
-      <div class="card" style="grid-column: span 3; padding:18px">
-        <p class="eyebrow">03</p>
-        <p class="value">Упаковываем идею в сценарий и раскадровку. Утверждаем.</p>
-      </div>
-
-      <div class="card" style="grid-column: span 3; padding:18px">
-        <p class="eyebrow">04</p>
-        <p class="value">Снимаем и монтируем: сильный заход → раскрытие → финальный шаг (CTA).</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-title">
-          <h2>Вопросы</h2>
-        </div>
-
-        <div class="card" style="padding:18px">
-          <ul class="bullets" style="margin:0">
-            <li>Что нужно от вас на старте?</li>
-            <li>Сколько правок включено?</li>
-            <li>Сроки и этапы согласования?</li>
-            <li>В каких форматах отдаёте? (9:16 / 16:9 / 15 сек)</li>
-            <li>Сколько смысловых акцентов делаем в рамках пакета?</li>
+          <ul class="bullets">
+            <li>Основной ролик в landscape-формате 16:9</li>
+            <li>Монтаж, звук, титры и финальная упаковка</li>
+            <li>Версия vertical 9:16 — если она нужна под размещение</li>
+            <li>Короткая версия 15 секунд — при необходимости</li>
+            <li>Логика адаптаций заранее закладывается в сценарий</li>
           </ul>
+
+          <div class="row">
+            <a class="pill primary" href="#offer" data-scroll>Получить предложение</a>
+            <a class="pill ghost" href="#workflow" data-scroll>Как работаем</a>
+          </div>
+        </article>
+
+        <article class="card reveal-media lift">
+          <img
+            src="../assets/images/ads-case-02.webp"
+            alt="Рекламные ролики — deliverables"
+            width="1400"
+            height="1600"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='../assets/img/case-01.webp';"
+          />
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-light" id="accents">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Смысловые акценты</h2>
+          <p>Один ролик может заходить в зрителя через выгоду, эмоцию или факт. Важен не набор эффектов, а правильно выбранная точка входа.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img src="../assets/images/ads-accent-benefit.webp" alt="Акцент на выгоду" width="1200" height="1500" loading="lazy" onerror="this.onerror=null;this.src='../assets/images/ads-case-01.webp';" />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Акцент на выгоду</h3><span class="tag">Benefit</span></div>
+              <p class="value">Сразу показываем, что человек получает: экономию, удобство, результат, скорость, безопасность или другой ясный выигрыш.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img src="../assets/images/ads-accent-emotion.webp" alt="Акцент на эмоцию" width="1200" height="1500" loading="lazy" onerror="this.onerror=null;this.src='../assets/images/ads-case-02.webp';" />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Акцент на эмоцию</h3><span class="tag">Emotion</span></div>
+              <p class="value">Создаём состояние и желание: тревогу, облегчение, азарт, интерес, ощущение статуса или эффект присутствия.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img src="../assets/images/ads-accent-fact.webp" alt="Акцент на факт" width="1200" height="1500" loading="lazy" onerror="this.onerror=null;this.src='../assets/images/ads-case-03.webp';" />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Акцент на факт</h3><span class="tag">Fact</span></div>
+              <p class="value">Показываем, как это работает: демонстрируем продукт, сценарий использования, устройство процесса или доказательство результата.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img src="../assets/images/ads-case-03.webp" alt="Акцент на форму подачи" width="1200" height="1500" loading="lazy" onerror="this.onerror=null;this.src='../assets/img/product-ads.webp';" />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Акцент на форму</h3><span class="tag">Rhythm</span></div>
+              <p class="value">Ритм, монтаж, типографика и хук первого кадра определяют, удержит ли ролик внимание до самого важного момента.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- OFFER -->
-    <section class="section" id="offer">
+    <section class="section section-dark" id="workflow">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
+          <h2>Как мы работаем</h2>
+          <p>Четыре шага от задачи к ролику, который не просто красиво выглядит, а действительно двигает зрителя дальше.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>01 · Сбор вводных</h3><span class="tag">Start</span></div><p class="value">Разбираем задачу, продукт, аудиторию, ограничения, контекст размещения и то, что должно произойти после просмотра.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>02 · Рождение идеи</h3><span class="tag">Idea</span></div><p class="value">Формулируем главный смысловой заход. Идея — это основной продукт проекта, а не приложение к съёмке.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>03 · Сценарий и раскадровка</h3><span class="tag">Script</span></div><p class="value">Упаковываем идею в последовательность сцен, ритм, драматургию и визуальные решения под конкретный формат.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>04 · Продакшн и монтаж</h3><span class="tag">Finish</span></div><p class="value">Снимаем, собираем, усиливаем и адаптируем. На выходе — готовый рекламный инструмент, а не “просто видео”.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="offer">
+      <div class="container">
+        <div class="section-title reveal">
           <h2>Получить предложение</h2>
-          <p style="margin-bottom:12px">Коротко опишите задачу — соберём предложение по формату и срокам</p>
+          <p>Коротко опиши задачу — соберём предложение по формату, этапам и срокам.</p>
         </div>
 
         <div class="contact-grid">
-          <form class="card form" action="../index.html#contact" method="get">
+          <form class="card form reveal" action="../index.html#contact" method="get">
             <label class="field">
               <span>Контакт (Telegram / Email / Телефон) <span class="req">*</span></span>
               <input name="contact" required placeholder="@telegram или email или +7..." />
@@ -310,22 +298,30 @@
 
             <label class="field">
               <span>Сообщение</span>
-              <textarea name="message" rows="5" placeholder="Коротко: что нужно сделать и к какому сроку"></textarea>
+              <textarea name="message" rows="5" placeholder="Коротко: задача, формат, контекст, сроки"></textarea>
             </label>
 
-            <div class="row">
-              <button class="pill primary" type="submit">Получить предложение</button>
-              <a class="pill ghost" href="../index.html#contact" data-scroll>Перейти к контактам</a>
+            <div class="form-note">
+              <div class="row">
+                <button class="pill primary" type="submit">Получить предложение</button>
+                <a class="pill ghost" href="../index.html#contact">Открыть контакты на главной</a>
+              </div>
             </div>
-
-            <p class="tiny" style="margin:10px 0 0">MVP: без backend. Форма ведёт на контакты.</p>
           </form>
 
-          <div class="card contact-card">
-            <h3 style="margin:0 0 8px">Быстрый контакт</h3>
-            <p class="tiny" style="margin:0 0 12px">Если удобнее — сразу в Telegram</p>
+          <div class="card contact-card lift">
+            <h3 style="margin:0 0 8px; font-size:1.3rem; letter-spacing:-0.03em;">Быстрый вход в диалог</h3>
+            <p class="tiny" style="margin:0 0 12px;">
+Если удобнее, переходи сразу в 
+<a href="https://t.me/kakayauvasinteresnayarabota" 
+target="_blank" 
+rel="noopener" 
+style="color:#0088cc; font-weight:600;">Telegram</a> 
+или на главную страницу к общим контактам.
+</p>
+
             <div class="contact-actions">
-              <a class="pill primary" href="../index.html#contact" data-scroll>Открыть контакты на главной</a>
+              <a class="pill primary" href="../index.html#contact">Контакты на главной</a>
               <a class="pill ghost" href="../index.html">На главную</a>
             </div>
           </div>
@@ -355,12 +351,11 @@
     </div>
   </div>
 
-  <!-- Cookie consent -->
   <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Уведомление о cookies">
     <div class="cookie-card">
       <p>
-        Мы используем только необходимые cookies, чтобы запомнить ваши настройки (например, тему и выбор по cookies).
-        Аналитики и трекеров нет.
+        Мы используем только необходимые cookies, чтобы запомнить ваши настройки интерфейса и выбор по cookies.
+        Аналитики и сторонних трекеров нет.
         <a href="../legal/cookies.html">Подробнее</a>
       </p>
       <div class="cookie-actions">

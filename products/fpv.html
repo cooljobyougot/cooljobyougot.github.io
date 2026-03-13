@@ -4,312 +4,423 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <title>FPV‑съёмка — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
-  <meta name="description" content="FPV‑съёмка: FPV + AI‑сцены. Невозможный опыт, который удерживает взгляд." />
-  <meta property="og:title" content="FPV‑съёмка — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
-  <meta property="og:description" content="FPV + AI‑сцены. Невозможный опыт, который удерживает взгляд." />
-  <meta property="og:type" content="website" />
 
-  <!-- Design system: keep existing global styles -->
+  <title>FPV-съёмка — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
+  <meta name="description" content="FPV-съёмка: FPV + AI-сцены. Невозможный опыт, который удерживает взгляд, даёт масштаб и эффект присутствия." />
+
+  <meta property="og:title" content="FPV-съёмка — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
+  <meta property="og:description" content="FPV + AI-сцены. Невозможный опыт, который удерживает взгляд, даёт масштаб и эффект присутствия." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../meta/og-default.jpg" />
+
+  <link rel="icon" href="../meta/favicon.ico" />
+  <link rel="apple-touch-icon" href="../meta/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-
-  <!-- TOPBAR (keep current topbar; highlight FPV) -->
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="brand-title">
-          <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
-          <span>Стратегический видеопартнёр для бренда и продаж</span>
-        </div>
+        <a class="brand-logo" href="../index.html" aria-label="На главную">
+          <img
+            src="../assets/img/logo-main.png"
+            alt="Логотип агентства"
+            width="108"
+            height="108"
+            onerror="this.style.display='none';"
+          />
+          <div class="brand-title">
+            <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
+            <span>Стратегический видеопартнёр для бренда и продаж</span>
+          </div>
+        </a>
       </div>
 
-      <nav class="nav nav-compact" aria-label="Решения">
-        <a class="navpill" href="../index.html#ads" data-scroll>Рекламные ролики</a>
-        <a class="navpill" href="../index.html#brand" data-scroll>Имидж бренда</a>
-        <a class="navpill" href="../index.html#ai" data-scroll>AI‑продакшн</a>
-        <a class="navpill" href="../index.html#fpv" data-scroll aria-current="page"
-           style="border-color:var(--borderStrong); background: color-mix(in oklab, var(--surface2) 76%, transparent); box-shadow: var(--btn-shadow);">
-          FPV‑съёмка
-        </a>
+      <nav class="nav-compact" aria-label="Навигация по направлению">
+        <a class="navpill" href="../index.html#solutions">Решения</a>
+        <a class="navpill" href="#showreel" data-scroll>Showreel</a>
+        <a class="navpill" href="#workflow" data-scroll>Процесс</a>
+        <a class="navpill" href="#offer" data-scroll>Предложение</a>
       </nav>
 
       <div class="topbar-actions">
         <a class="pill ghost" href="../index.html">На главную</a>
-        <a class="pill ghost" href="../index.html#cases" data-scroll>Кейсы</a>
-        <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
+        <a class="pill primary" href="#offer" data-scroll>Получить предложение</a>
 
         <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+          <span class="burger"><span></span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- 2) HERO -->
-    <section class="hero" id="top">
-      <div class="container reveal-grid">
-        <div class="card hero-copy">
-          <h1 class="hero-h1" style="margin-bottom:8px">FPV‑съёмка</h1>
-<p class="subhead" style="margin:0 0 2em">
-  FPV + AI = опыт, который невозможно снять обычной камерой
-</p>
+  <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__head">
+      <div class="brand-title">
+        <strong>FPV-съёмка</strong>
+        <span>Навигация по странице</span>
+      </div>
 
-<div class="row" aria-label="Теги" style="margin-top:12px">
-  <span class="tag" style="text-transform:none; letter-spacing:0; font-weight:500">FPV — идеальный хук</span>
-  <span class="tag" style="text-transform:none; letter-spacing:0; font-weight:500">WOW эффект</span>
-  <span class="tag" style="text-transform:none; letter-spacing:0; font-weight:500">Запоминаемость ролика</span>
-</div>
+      <button class="nav-toggle" id="navClose" type="button" aria-label="Закрыть меню" aria-expanded="true">
+        <span class="burger"><span></span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav__body" aria-label="Мобильная навигация">
+      <a href="#top" data-scroll>Вверх</a>
+      <a href="#showreel" data-scroll>Showreel</a>
+      <a href="#why" data-scroll>Почему работает</a>
+      <a href="#where" data-scroll>Где раскрывается</a>
+      <a href="#montage" data-scroll>Кадры под монтаж</a>
+      <a href="#examples" data-scroll>Примеры</a>
+      <a href="#workflow" data-scroll>Как работаем</a>
+      <a href="#how" data-scroll>Как мы это делаем</a>
+      <a href="#offer" data-scroll>Получить предложение</a>
+      <a href="../index.html">На главную</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="section section-dark hero hero-wide" id="top">
+      <div class="container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Направление</p>
+
+          <h1 class="hero-h1 hero-h1--wide">
+            FPV-съёмка —
+            <span class="serif">опыт</span>,
+            который невозможно снять
+            обычной
+            <span class="serif">камерой</span>
+          </h1>
+
+          <p class="hero-sub hero-sub--wide">
+            FPV + AI-сцены дают ощущение невозможного движения, масштаба и полного присутствия. Это не просто пролёт, а управляемый визуальный хук для ролика.
+          </p>
 
           <div class="cta-row">
-            <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
-            <a class="pill ghost" href="../index.html">На главную</a>
+            <a class="pill primary" href="#offer" data-scroll>Обсудить задачу</a>
+            <a class="pill ghost" href="#showreel" data-scroll>Смотреть showreel</a>
+            <span class="trust">FPV → AI → монтаж → финальная форма</span>
           </div>
-        </div>
 
-        <div class="card reveal-media" aria-label="Hero изображение">
-          <img src="../assets/images/fpv-hero.webp" alt="FPV‑съёмка — hero" loading="eager" />
+          <div class="hero-meta">
+            <span>FPV — идеальный хук</span>
+            <span>·</span>
+            <span>WOW-эффект</span>
+            <span>·</span>
+            <span>Запоминаемость ролика</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 3) WHY IT WORKS -->
-    <section class="section" id="why">
+    <section class="showreel-stage" id="showreel" aria-label="Hero визуал направления">
+      <div class="showreel-stage__sticky">
+        <div class="showreel-stage__frame" data-showreel-frame>
+          <div class="showreel-stage__media">
+            <img
+              src="../assets/images/fpv-hero.webp"
+              alt="FPV-съёмка — hero визуал"
+              width="1600"
+              height="1000"
+              loading="eager"
+              onerror="this.onerror=null;this.src='../assets/img/product-fpv.webp';"
+            />
+            <div class="showreel-stage__overlay">
+              <span class="showreel-stage__label">FPV direction</span>
+              <button class="showreel-play" type="button" aria-label="Запустить превью" data-showreel-trigger>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                  <path d="M8 6.5v11l9-5.5-9-5.5Z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="why">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Почему это работает</h2>
+          <p>FPV хорош не сам по себе, а потому что он быстрее других решений создаёт эффект “вау” и удерживает внимание.</p>
         </div>
 
-        <div class="card" style="padding:18px">
-          <ul class="bullets" style="margin:0">
-            <li>WOW включается в первые секунды и удерживает взгляд</li>
-            <li>Пролёт запоминается сильнее набора планов</li>
-            <li>Объём кадра даёт ощущение масштаба</li>
-          </ul>
+        <div class="reveal-grid">
+          <article class="card reveal-copy reveal">
+            <p class="eyebrow">Сила формата</p>
+            <ul class="bullets">
+              <li>WOW включается в первые секунды и удерживает взгляд</li>
+              <li>Один пролёт запоминается сильнее набора отдельных планов</li>
+              <li>Объём кадра даёт ощущение реального масштаба</li>
+              <li>Камера ведёт зрителя через пространство, а не просто показывает его</li>
+            </ul>
+          </article>
+
+          <article class="card reveal-media lift">
+            <img
+              src="../assets/images/fpv-case-01.webp"
+              alt="FPV-съёмка — почему это работает"
+              width="1400"
+              height="1600"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../assets/img/section-fpv.webp';"
+            />
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- 4) WHERE IT REVEALS -->
-    <section class="section" id="where">
+    <section class="section section-dark" id="where">
       <div class="container">
-        <div class="section-title">
-          <h2>Где раскрывается</h2>
+        <div class="section-title reveal">
+          <h2>Где это раскрывается</h2>
+          <p>FPV особенно силён там, где пространство само становится частью драматургии ролика.</p>
         </div>
 
         <div class="product-grid">
-          <article class="card" style="grid-column: span 6; padding:18px">
-            <p class="value" style="margin:0 0 8px">Когда нужно пройти пространство на одном дыхании</p>
-            <p class="tiny" style="margin:0">зал, маршрут, толпа, сцена</p>
+          <article class="card product-card lift">
+            <div class="product-body">
+              <div class="product-top"><h3>Пространство на одном дыхании</h3><span class="tag">Flow</span></div>
+              <p class="value">Зал, маршрут, толпа, сцена, ресторан, турбаза или производственный блок — когда нужно пройти пространство без монтажных разрывов.</p>
+            </div>
           </article>
 
-          <article class="card" style="grid-column: span 6; padding:18px">
-            <p class="value" style="margin:0 0 8px">Когда нужен масштаб</p>
-            <p class="tiny" style="margin:0">открытая локация раскрывается в объём</p>
+          <article class="card product-card lift">
+            <div class="product-body">
+              <div class="product-top"><h3>Нужен масштаб</h3><span class="tag">Scale</span></div>
+              <p class="value">Открытая локация, большой объект, длинный маршрут или сложная архитектура, которые обычная камера “сжимает”.</p>
+            </div>
           </article>
 
-          <article class="card" style="grid-column: span 6; padding:18px">
-            <p class="value" style="margin:0 0 8px">Когда нужен неожиданный ход</p>
-            <p class="tiny" style="margin:0">кадр начинается привычно, затем камера делает ход, которого зритель не ждёт</p>
+          <article class="card product-card lift">
+            <div class="product-body">
+              <div class="product-top"><h3>Неожиданный ход</h3><span class="tag">Surprise</span></div>
+              <p class="value">Когда кадр начинается привычно, а потом камера делает траекторию, которой зритель не ожидает и не может “предсказать”.</p>
+            </div>
           </article>
 
-          <article class="card" style="grid-column: span 6; padding:18px">
-            <p class="value" style="margin:0 0 8px">Когда нужен вход в невозможное</p>
-            <p class="tiny" style="margin:0">FPV + AI = траектория × воображение</p>
+          <article class="card product-card lift">
+            <div class="product-body">
+              <div class="product-top"><h3>Вход в невозможное</h3><span class="tag">FPV + AI</span></div>
+              <p class="value">Когда реальная траектория продолжается в сцену, которую нельзя построить или снять физически. Здесь FPV и AI усиливают друг друга.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 5) MONTAGE -->
-    <section class="section" id="montage">
+    <section class="section section-light" id="montage">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Кадры под монтаж</h2>
-          <p>Заходы, раскрытия, переходы</p>
+          <p>FPV особенно ценен там, где ролик строится на заходах, раскрытиях и стыках между сценами.</p>
         </div>
 
         <div class="product-grid">
-          <article class="card product-card" style="grid-column: span 4;">
+          <article class="card product-card lift">
             <div class="product-media">
-              <img src="../assets/images/fpv-montage-hook.webp" alt="Заход — превью" loading="lazy" />
+              <img
+                src="../assets/images/fpv-montage-hook.webp"
+                alt="Заход — первый захват внимания"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/images/fpv-case-01.webp';"
+              />
             </div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Заход — первый захват внимания</h3>
-                <span class="tag">Hook</span>
-              </div>
+              <div class="product-top"><h3>Заход</h3><span class="tag">Hook</span></div>
+              <p class="value">Первый захват внимания: мощный пролёт, неожиданный вход, движение к главному объекту или резкое ощущение глубины пространства.</p>
             </div>
           </article>
 
-          <article class="card product-card" style="grid-column: span 4;">
+          <article class="card product-card lift">
             <div class="product-media">
-              <img src="../assets/images/fpv-montage-reveal.webp" alt="Раскрытие — превью" loading="lazy" />
+              <img
+                src="../assets/images/fpv-montage-reveal.webp"
+                alt="Раскрытие — смысл и переживание"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/images/fpv-case-02.webp';"
+              />
             </div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Раскрытие — смысл и переживание</h3>
-                <span class="tag">Reveal</span>
-              </div>
+              <div class="product-top"><h3>Раскрытие</h3><span class="tag">Reveal</span></div>
+              <p class="value">Момент, где зритель получает главное ощущение от места, события или объекта: масштаб, энергию, атмосферу, драматургию.</p>
             </div>
           </article>
 
-          <article class="card product-card" style="grid-column: span 4;">
+          <article class="card product-card lift">
             <div class="product-media">
-              <img src="../assets/images/fpv-montage-transition.webp" alt="Переход — превью" loading="lazy" />
+              <img
+                src="../assets/images/fpv-montage-transition.webp"
+                alt="Переход — стык, который не читается"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/images/fpv-case-03.webp';"
+              />
             </div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Переход — стык, который не читается</h3>
-                <span class="tag">Transition</span>
-              </div>
+              <div class="product-top"><h3>Переход</h3><span class="tag">Transition</span></div>
+              <p class="value">Стык между сценами, который не ломает ролик, а наоборот тянет зрителя вперёд как единый кинетический поток.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/fpv-case-03.webp"
+                alt="Усиление монтажа через FPV"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/product-fpv.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Усиление ритма</h3><span class="tag">Rhythm</span></div>
+              <p class="value">FPV даёт монтажу не просто эффектный кусок, а внутреннюю динамику, вокруг которой можно строить весь ролик.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 6) EXAMPLES -->
-    <section class="section" id="examples">
+    <section class="section section-dark" id="examples">
       <div class="container">
-        <div class="section-title">
-          <h2>Примеры</h2>
-          <p>Фрагменты работ</p>
+        <div class="section-title reveal">
+          <h2>Примеры и типы задач</h2>
+          <p>Эта страница уже собрана под реальные материалы: каждый слот заполнен и готов к последующей замене на финальные кейсы без перестройки архитектуры.</p>
         </div>
 
         <div class="product-grid">
-          <article class="card product-card" style="grid-column: span 4;">
+          <article class="card product-card lift">
             <div class="product-media">
-              <img src="../assets/images/fpv-case-01.webp" alt="Автосалон — превью" loading="lazy" />
+              <img
+                src="../assets/images/fpv-case-01.webp"
+                alt="FPV-кейс: автосалон"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/case-01.webp';"
+              />
             </div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Автосалон</h3>
-                <span class="tag">Example</span>
-              </div>
-              <p class="value">Скорость вдоль линии автомобилей, нырок в интерьер через окно, выход на флагман в финале</p>
-              <div class="row">
-                <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-              </div>
+              <div class="product-top"><h3>Автосалон</h3><span class="tag">Example</span></div>
+              <p class="value">Скорость вдоль линии автомобилей, вход в интерьер, резкий выход на флагман и ощущение маршрута, который невозможно показать обычным набором планов.</p>
             </div>
           </article>
 
-          <article class="card product-card" style="grid-column: span 4;">
+          <article class="card product-card lift">
             <div class="product-media">
-              <img src="../assets/images/fpv-case-02.webp" alt="Мероприятие — превью" loading="lazy" />
+              <img
+                src="../assets/images/fpv-case-02.webp"
+                alt="FPV-кейс: мероприятие"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/case-02.webp';"
+              />
             </div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Мероприятие</h3>
-                <span class="tag">Example</span>
-              </div>
-              <p class="value">Зал, толпа, эмоции на лицах, сцена и ключевые моменты в одном дыхании</p>
-              <div class="row">
-                <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-              </div>
+              <div class="product-top"><h3>Мероприятие</h3><span class="tag">Example</span></div>
+              <p class="value">Зал, толпа, эмоции на лицах, сцена и ключевые моменты в одном дыхании — когда событие нужно прожить, а не просто показать.</p>
             </div>
           </article>
 
-          <article class="card product-card" style="grid-column: span 4;">
+          <article class="card product-card lift">
             <div class="product-media">
-              <img src="../assets/images/fpv-case-03.webp" alt="Производство — превью" loading="lazy" />
+              <img
+                src="../assets/images/fpv-case-03.webp"
+                alt="FPV-кейс: производство"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/case-03.webp';"
+              />
             </div>
             <div class="product-body">
-              <div class="product-top">
-                <h3>Производство</h3>
-                <span class="tag">Example</span>
-              </div>
-              <p class="value">Масштаб пространства в одном проходе</p>
-              <div class="row">
-                <a class="pill ghost" href="../index.html#contact" data-scroll>Смотреть</a>
-              </div>
+              <div class="product-top"><h3>Производство</h3><span class="tag">Example</span></div>
+              <p class="value">Масштаб пространства, маршруты, линии, механика процессов и единый проход, который превращает сложный объект в понятный визуальный опыт.</p>
+            </div>
+          </article>
+
+          <article class="card product-card lift">
+            <div class="product-media">
+              <img
+                src="../assets/images/fpv-case-04.webp"
+                alt="FPV-кейс: пространство + AI"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../assets/img/product-fpv.webp';"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>FPV + AI</h3><span class="tag">Example</span></div>
+              <p class="value">Когда реальная траектория продолжается в невозможную сцену и именно этот стык становится главным хук-моментом ролика.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 7) HOW WE WORK -->
-    <section class="section" id="workflow">
+    <section class="section section-light" id="workflow">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Как мы работаем</h2>
-          <p>4 шага</p>
+          <p>FPV требует не только техники, но и дисциплины: траектория, безопасность, логика кадра и монтаж должны быть продуманы до вылета.</p>
         </div>
 
         <div class="product-grid">
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Собираем вводные по задаче и характеристикам пространства</p>
-          </div>
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Формируем идею</p>
-          </div>
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Согласовываем траектории и оформляем документы</p>
-          </div>
-          <div class="card" style="grid-column: span 3; padding:18px">
-            <p class="value" style="margin:0">Съёмка. Монтаж. Финальная форма</p>
-          </div>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>01 · Сбор вводных</h3><span class="tag">Start</span></div><p class="value">Разбираем задачу, характеристики пространства, ограничения площадки, зрительскую точку входа и то, что должен дать кадр в ролике.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>02 · Формируем идею</h3><span class="tag">Idea</span></div><p class="value">Определяем, зачем именно здесь нужен FPV: как хук, как масштаб, как проход, как неожиданная траектория или как вход в AI-сцену.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>03 · Траектории и документы</h3><span class="tag">Route</span></div><p class="value">Согласовываем маршрут, безопасность, площадку, условия доступа и все организационные моменты ещё до старта съёмки.</p></div></article>
+          <article class="card product-card lift"><div class="product-body"><div class="product-top"><h3>04 · Съёмка и монтаж</h3><span class="tag">Finish</span></div><p class="value">Снимаем, соединяем с остальным материалом, при необходимости усиливаем AI-сценами и доводим до финальной формы.</p></div></article>
         </div>
       </div>
     </section>
 
-    <!-- 8) HOW WE DO IT -->
-    <section class="section" id="how">
+    <section class="section section-dark" id="how">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Как мы это делаем</h2>
+          <p>FPV — это не только “дрон”. Это техника, дисциплина, безопасность и заранее просчитанная логика пространства.</p>
         </div>
 
-        <div class="card" style="padding:18px">
-          <ul class="bullets" style="margin:0">
-            <li>Дроны нескольких классов под задачу и пространство</li>
-            <li>Согласование траектории до вылета</li>
-            <li>Разрешительные документы и доступ на площадку</li>
-            <li>Безопасность людей и объекта как базовое правило</li>
+        <div class="card reveal-copy reveal">
+          <ul class="bullets">
+            <li>Используем дроны нескольких классов под задачу и тип пространства</li>
+            <li>Согласовываем траекторию до вылета и заранее фиксируем критические точки</li>
+            <li>Работаем с разрешительными документами и доступом на площадку, когда это необходимо</li>
+            <li>Ставим безопасность людей и объекта как базовое правило, а не как “опцию”</li>
+            <li>Собираем FPV не как трюк, а как часть ролика, которая должна выдержать монтаж и смысл</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 9) FAQ -->
-    <section class="section" id="faq">
+    <section class="section section-dark" id="offer">
       <div class="container">
-        <div class="section-title">
-          <h2>Вопросы</h2>
-        </div>
-
-        <div class="card" style="padding:18px">
-          <ul class="bullets" style="margin:0">
-            <li>Что нужно от вас на старте</li>
-            <li>Как происходит согласование траектории</li>
-            <li>Какие документы нужны для площадки</li>
-            <li>В каких форматах отдаёте</li>
-            <li>Можно ли встроить FPV в рекламный ролик или имидж</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-  
-  
-      <!-- 9) OFFER -->
-    <section class="section" id="offer">
-      <div class="container">
-        <div class="section-title">
+        <div class="section-title reveal">
           <h2>Получить предложение</h2>
-          <p style="margin-bottom:12px">Коротко опишите задачу — соберём предложение по формату и срокам</p>
+          <p>Коротко опиши задачу — соберём предложение по формату, площадке, траектории и логике использования FPV в ролике.</p>
         </div>
 
         <div class="contact-grid">
-          <form class="card form" action="../index.html#contact" method="get">
+          <form class="card form reveal" action="../index.html#contact" method="get">
             <label class="field">
               <span>Контакт (Telegram / Email / Телефон) <span class="req">*</span></span>
               <input name="contact" required placeholder="@telegram или email или +7..." />
@@ -317,22 +428,30 @@
 
             <label class="field">
               <span>Сообщение</span>
-              <textarea name="message" rows="5" placeholder="Коротко: что нужно сделать и к какому сроку"></textarea>
+              <textarea name="message" rows="5" placeholder="Коротко: задача, площадка, формат, сроки"></textarea>
             </label>
 
-            <div class="row">
-              <button class="pill primary" type="submit">Получить предложение</button>
-              <a class="pill ghost" href="../index.html#contact" data-scroll>Перейти к контактам</a>
+            <div class="form-note">
+              <div class="row">
+                <button class="pill primary" type="submit">Получить предложение</button>
+                <a class="pill ghost" href="../index.html#contact">Открыть контакты на главной</a>
+              </div>
             </div>
-
-            <p class="tiny" style="margin:10px 0 0">MVP: без backend. Кнопка ведёт на контакты.</p>
           </form>
 
-          <div class="card contact-card">
-            <h3 style="margin:0 0 8px">Быстрый контакт</h3>
-            <p class="tiny" style="margin:0 0 12px">Если удобнее — сразу на главную к контактам</p>
+          <div class="card contact-card lift">
+            <h3 style="margin:0 0 8px; font-size:1.3rem; letter-spacing:-0.03em;">Быстрый вход в диалог</h3>
+            <p class="tiny" style="margin:0 0 12px;">
+Если удобнее, переходи сразу в 
+<a href="https://t.me/kakayauvasinteresnayarabota" 
+target="_blank" 
+rel="noopener" 
+style="color:#0088cc; font-weight:600;">Telegram</a> 
+или на главную страницу к общим контактам.
+</p>
+
             <div class="contact-actions">
-              <a class="pill primary" href="../index.html#contact" data-scroll>Открыть контакты</a>
+              <a class="pill primary" href="../index.html#contact">Контакты на главной</a>
               <a class="pill ghost" href="../index.html">На главную</a>
             </div>
           </div>
@@ -340,7 +459,6 @@
       </div>
     </section>
   </main>
-  
 
   <div class="legal-footer" role="contentinfo" aria-label="Юридическая информация">
     <div class="container">
@@ -363,12 +481,11 @@
     </div>
   </div>
 
-  <!-- Cookie consent -->
   <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Уведомление о cookies">
     <div class="cookie-card">
       <p>
-        Мы используем только необходимые cookies, чтобы запомнить ваши настройки (например, тему и выбор по cookies).
-        Аналитики и трекеров нет.
+        Мы используем только необходимые cookies, чтобы запомнить ваши настройки интерфейса и выбор по cookies.
+        Аналитики и сторонних трекеров нет.
         <a href="../legal/cookies.html">Подробнее</a>
       </p>
       <div class="cookie-actions">

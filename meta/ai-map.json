@@ -1,0 +1,617 @@
+{
+  "version": "2.0",
+  "generated_for": "AI discovery, retrieval, routing, answer synthesis",
+  "site": {
+    "name": "#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+    "legal_name": "Креативное агентство #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+    "type": "creative-agency",
+    "category": [
+      "video-production",
+      "brand-content",
+      "ai-production",
+      "fpv-production"
+    ],
+    "domain": "https://какаяувасинтереснаяработа.рф",
+    "base_url": "https://какаяувасинтереснаяработа.рф",
+    "language": "ru",
+    "default_locale": "ru-RU",
+    "tagline": "Стратегический видеопартнёр для бренда и продаж",
+    "positioning": "Агентство, которое превращает бизнес-задачу в сильную видеоидею, продакшн и финальную форму для бренда, рекламы и продаж.",
+    "core_value": "Не просто снимаем. Собираем идею, превращаем её в форму и доводим до результата.",
+    "primary_offers": [
+      {
+        "key": "ads",
+        "name": "Рекламные ролики",
+        "summary": "Ролики под продажи: задача → идея → сценарий → продакшн → монтаж → адаптации."
+      },
+      {
+        "key": "brand",
+        "name": "Имидж бренда",
+        "summary": "Видео, которое формирует восприятие, усиливает доверие и удерживает уровень бренда."
+      },
+      {
+        "key": "ai",
+        "name": "AI-продакшн",
+        "summary": "Реальная съёмка + генеративные сцены, нейро-b-roll, расширение кадра, вставки и стилистические версии."
+      },
+      {
+        "key": "fpv",
+        "name": "FPV-съёмка",
+        "summary": "Динамика, эффект присутствия, масштаб пространства, невозможные траектории и сильный визуальный хук."
+      }
+    ],
+    "cta_primary": {
+      "label": "Обсудить задачу",
+      "target": "/index.html#contact",
+      "intent": "get_proposal"
+    },
+    "cta_secondary": {
+      "label": "Кейсы",
+      "target": "/index.html#cases",
+      "intent": "see_cases"
+    },
+    "discovery_files": {
+      "llms": "/llms.txt",
+      "llms_full": "/llms-full.txt",
+      "ai_map": "/meta/ai-map.json",
+      "structured_data": "/meta/structured-data.jsonld",
+      "robots_ai": "/robots-ai.txt",
+      "sitemap": "/meta/sitemap.xml"
+    }
+  },
+  "routing": {
+    "homepage": {
+      "path": "/index.html",
+      "canonical_url": "https://какаяувасинтереснаяработа.рф/index.html",
+      "role": "entrypoint"
+    },
+    "products": {
+      "ads": {
+        "path": "/products/ads.html",
+        "canonical_url": "https://какаяувасинтереснаяработа.рф/products/ads.html",
+        "role": "service-page"
+      },
+      "brand": {
+        "path": "/products/brand.html",
+        "canonical_url": "https://какаяувасинтереснаяработа.рф/products/brand.html",
+        "role": "service-page"
+      },
+      "ai": {
+        "path": "/products/ai.html",
+        "canonical_url": "https://какаяувасинтереснаяработа.рф/products/ai.html",
+        "role": "service-page"
+      },
+      "fpv": {
+        "path": "/products/fpv.html",
+        "canonical_url": "https://какаяувасинтереснаяработа.рф/products/fpv.html",
+        "role": "service-page"
+      }
+    },
+    "legal": {
+      "privacy": "/legal/privacy.html",
+      "terms": "/legal/terms.html",
+      "data": "/legal/data.html",
+      "cookies": "/legal/cookies.html"
+    },
+    "system_pages": {
+      "thank_you": "/thank-you.html",
+      "privacy_root_alias": "/privacy.html",
+      "terms_root_alias": "/terms.html"
+    }
+  },
+  "pages": [
+    {
+      "key": "index",
+      "file": "/index.html",
+      "canonical_url": "https://какаяувасинтереснаяработа.рф/index.html",
+      "title": "Креативное агентство — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "Портфолио и контакты креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.",
+      "page_type": "homepage",
+      "search_intent": [
+        "agency overview",
+        "service navigation",
+        "lead capture",
+        "case discovery"
+      ],
+      "h1": "Стратегический видеопартнёр для бренда и продаж",
+      "h2": [
+        "Решения",
+        "Рекламные ролики",
+        "Имидж бренда",
+        "AI-продакшн",
+        "FPV-съёмка",
+        "Кейсы",
+        "Обсудим задачу"
+      ],
+      "sections": [
+        {
+          "id": "top",
+          "role": "hero",
+          "summary": "Главный оффер и вход в диалог."
+        },
+        {
+          "id": "products",
+          "role": "service-selector",
+          "summary": "Выбор направления и переход на подробные страницы."
+        },
+        {
+          "id": "ads",
+          "role": "service-preview",
+          "summary": "Краткое раскрытие рекламных роликов."
+        },
+        {
+          "id": "brand",
+          "role": "service-preview",
+          "summary": "Краткое раскрытие имиджа бренда."
+        },
+        {
+          "id": "ai",
+          "role": "service-preview",
+          "summary": "Краткое раскрытие AI-продакшна."
+        },
+        {
+          "id": "fpv",
+          "role": "service-preview",
+          "summary": "Краткое раскрытие FPV-съёмки."
+        },
+        {
+          "id": "cases",
+          "role": "social-proof",
+          "summary": "Кейсы и примеры работ."
+        },
+        {
+          "id": "contact",
+          "role": "lead-form",
+          "summary": "Форма и контакты для заявки."
+        },
+        {
+          "id": "cookieBanner",
+          "role": "consent-ui",
+          "summary": "Интерфейс выбора cookies."
+        }
+      ],
+      "primary_actions": [
+        {
+          "label": "Обсудить задачу",
+          "href": "/index.html#contact",
+          "intent": "get_proposal"
+        },
+        {
+          "label": "Кейсы",
+          "href": "/index.html#cases",
+          "intent": "see_cases"
+        }
+      ],
+      "internal_links": [
+        {
+          "href": "/index.html#ads",
+          "text": "Рекламные ролики",
+          "relation": "section"
+        },
+        {
+          "href": "/index.html#brand",
+          "text": "Имидж бренда",
+          "relation": "section"
+        },
+        {
+          "href": "/index.html#ai",
+          "text": "AI-продакшн",
+          "relation": "section"
+        },
+        {
+          "href": "/index.html#fpv",
+          "text": "FPV-съёмка",
+          "relation": "section"
+        },
+        {
+          "href": "/products/ads.html",
+          "text": "Подробнее",
+          "relation": "service-detail"
+        },
+        {
+          "href": "/products/brand.html",
+          "text": "Подробнее",
+          "relation": "service-detail"
+        },
+        {
+          "href": "/products/ai.html",
+          "text": "Подробнее",
+          "relation": "service-detail"
+        },
+        {
+          "href": "/products/fpv.html",
+          "text": "Подробнее",
+          "relation": "service-detail"
+        },
+        {
+          "href": "/legal/privacy.html",
+          "text": "Политика",
+          "relation": "legal"
+        },
+        {
+          "href": "/legal/terms.html",
+          "text": "Соглашение",
+          "relation": "legal"
+        },
+        {
+          "href": "/legal/data.html",
+          "text": "Данные",
+          "relation": "legal"
+        },
+        {
+          "href": "/legal/cookies.html",
+          "text": "Cookies",
+          "relation": "legal"
+        }
+      ]
+    },
+    {
+      "key": "ads",
+      "file": "/products/ads.html",
+      "canonical_url": "https://какаяувасинтереснаяработа.рф/products/ads.html",
+      "title": "Рекламные ролики — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "Рекламный ролик начинается с задачи. Идея → сценарий → продакшн → монтаж → адаптации.",
+      "page_type": "service-page",
+      "service_key": "ads",
+      "service_name": "Рекламные ролики",
+      "search_intent": [
+        "commercial video production",
+        "ad creative",
+        "video campaign",
+        "request quote"
+      ],
+      "h1": "Рекламные ролики",
+      "core_promise": "Ролик с ясной задачей и понятным действием для размещения.",
+      "h2": [
+        "Задачи, которые закрывает ролик",
+        "Что вы получаете",
+        "Смысловые акценты",
+        "Партнёрство — это не один ролик",
+        "Примеры",
+        "Как мы работаем",
+        "Вопросы",
+        "Получить предложение"
+      ],
+      "sections": [
+        "top",
+        "fit",
+        "deliverables",
+        "accents",
+        "partnership",
+        "examples",
+        "workflow",
+        "faq",
+        "offer",
+        "cookieBanner"
+      ],
+      "primary_actions": [
+        {
+          "label": "Получить предложение",
+          "href": "/products/ads.html#offer",
+          "intent": "get_proposal"
+        },
+        {
+          "label": "Обсудить партнёрство",
+          "href": "/products/ads.html#offer",
+          "intent": "get_proposal"
+        }
+      ],
+      "related_pages": [
+        "/products/brand.html",
+        "/products/ai.html",
+        "/products/fpv.html",
+        "/index.html#cases"
+      ]
+    },
+    {
+      "key": "brand",
+      "file": "/products/brand.html",
+      "canonical_url": "https://какаяувасинтереснаяработа.рф/products/brand.html",
+      "title": "Имидж бренда — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "Имидж бренда: идея → форма → переживание. Ролик, который держит уровень бренда.",
+      "page_type": "service-page",
+      "service_key": "brand",
+      "service_name": "Имидж бренда",
+      "search_intent": [
+        "brand film",
+        "brand image video",
+        "premium positioning",
+        "request quote"
+      ],
+      "h1": "Имидж бренда",
+      "core_promise": "Видео, которое формирует образ, держит уровень и усиливает доверие.",
+      "h2": [
+        "Где нужен имидж бренда",
+        "Что вы получаете",
+        "Смысловые версии",
+        "Партнёрство — это не один ролик",
+        "Примеры",
+        "Как мы работаем",
+        "Вопросы",
+        "Получить предложение"
+      ],
+      "sections": [
+        "top",
+        "where",
+        "deliverables",
+        "versions",
+        "partnership",
+        "examples",
+        "workflow",
+        "faq",
+        "offer",
+        "cookieBanner"
+      ],
+      "primary_actions": [
+        {
+          "label": "Получить предложение",
+          "href": "/products/brand.html#offer",
+          "intent": "get_proposal"
+        },
+        {
+          "label": "Обсудить партнёрство",
+          "href": "/products/brand.html#offer",
+          "intent": "get_proposal"
+        }
+      ],
+      "related_pages": [
+        "/products/ads.html",
+        "/products/ai.html",
+        "/products/fpv.html",
+        "/index.html#cases"
+      ]
+    },
+    {
+      "key": "ai",
+      "file": "/products/ai.html",
+      "canonical_url": "https://какаяувасинтереснаяработа.рф/products/ai.html",
+      "title": "AI-продакшн — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "AI-продакшн: реальная съёмка + генеративные сцены в одном ролике.",
+      "page_type": "service-page",
+      "service_key": "ai",
+      "service_name": "AI-продакшн",
+      "search_intent": [
+        "generative video production",
+        "hybrid ai + live action",
+        "neural inserts",
+        "request quote"
+      ],
+      "h1": "AI-продакшн",
+      "core_promise": "Добавляем кадры, пространства и сцены, которые невозможно снять традиционным способом.",
+      "h2": [
+        "Что мы добавляем в реальное видео",
+        "Кадры под монтаж",
+        "Примеры",
+        "Как мы работаем",
+        "Вопросы",
+        "Получить предложение"
+      ],
+      "sections": [
+        "top",
+        "adds",
+        "montage",
+        "examples",
+        "workflow",
+        "faq",
+        "offer",
+        "cookieBanner"
+      ],
+      "primary_actions": [
+        {
+          "label": "Получить предложение",
+          "href": "/products/ai.html#offer",
+          "intent": "get_proposal"
+        }
+      ],
+      "related_pages": [
+        "/products/ads.html",
+        "/products/brand.html",
+        "/products/fpv.html",
+        "/index.html#cases"
+      ]
+    },
+    {
+      "key": "fpv",
+      "file": "/products/fpv.html",
+      "canonical_url": "https://какаяувасинтереснаяработа.рф/products/fpv.html",
+      "title": "FPV-съёмка — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+      "description": "FPV-съёмка: FPV + AI-сцены. Невозможный опыт, который удерживает взгляд.",
+      "page_type": "service-page",
+      "service_key": "fpv",
+      "service_name": "FPV-съёмка",
+      "search_intent": [
+        "fpv video production",
+        "immersive fly-through",
+        "event fpv",
+        "request quote"
+      ],
+      "h1": "FPV-съёмка",
+      "core_promise": "Пролёт, который становится хоком, переживанием и масштабом в одном кадре.",
+      "h2": [
+        "Почему это работает",
+        "Где раскрывается",
+        "Кадры под монтаж",
+        "Примеры",
+        "Как мы работаем",
+        "Как мы это делаем",
+        "Вопросы",
+        "Получить предложение"
+      ],
+      "sections": [
+        "top",
+        "why",
+        "where",
+        "montage",
+        "examples",
+        "workflow",
+        "how",
+        "faq",
+        "offer",
+        "cookieBanner"
+      ],
+      "primary_actions": [
+        {
+          "label": "Обсудить задачу",
+          "href": "/index.html#contact",
+          "intent": "get_proposal"
+        }
+      ],
+      "related_pages": [
+        "/products/ads.html",
+        "/products/brand.html",
+        "/products/ai.html",
+        "/index.html#cases"
+      ]
+    }
+  ],
+  "user_journeys": [
+    {
+      "journey": "first_visit",
+      "entry": "/index.html",
+      "steps": [
+        "/index.html#products",
+        "/products/{service}.html",
+        "/index.html#contact"
+      ],
+      "goal": "понять направление и оставить контакт"
+    },
+    {
+      "journey": "solution_comparison",
+      "entry": "/index.html#products",
+      "steps": [
+        "/products/ads.html",
+        "/products/brand.html",
+        "/products/ai.html",
+        "/products/fpv.html"
+      ],
+      "goal": "сравнить решения и выбрать формат"
+    },
+    {
+      "journey": "trust_building",
+      "entry": "/index.html#cases",
+      "steps": [
+        "/products/{service}.html#examples",
+        "/index.html#contact"
+      ],
+      "goal": "увидеть примеры и перейти к диалогу"
+    }
+  ],
+  "intents": [
+    {
+      "intent": "get_proposal",
+      "priority": "high",
+      "where": [
+        "/index.html#contact",
+        "/products/ads.html#offer",
+        "/products/brand.html#offer",
+        "/products/ai.html#offer",
+        "/products/fpv.html#offer"
+      ],
+      "outcome": "оставить контакт и получить предложение"
+    },
+    {
+      "intent": "browse_solutions",
+      "priority": "high",
+      "where": [
+        "/index.html#products",
+        "/index.html#ads",
+        "/index.html#brand",
+        "/index.html#ai",
+        "/index.html#fpv"
+      ],
+      "outcome": "выбрать подходящее направление"
+    },
+    {
+      "intent": "see_cases",
+      "priority": "medium",
+      "where": [
+        "/index.html#cases",
+        "/products/ads.html#examples",
+        "/products/brand.html#examples",
+        "/products/ai.html#examples",
+        "/products/fpv.html#examples"
+      ],
+      "outcome": "посмотреть примеры и оценить уровень"
+    },
+    {
+      "intent": "legal_review",
+      "priority": "low",
+      "where": [
+        "/legal/privacy.html",
+        "/legal/terms.html",
+        "/legal/data.html",
+        "/legal/cookies.html"
+      ],
+      "outcome": "получить юридическую и privacy-информацию"
+    }
+  ],
+  "contacts": {
+    "primary_channel": "telegram",
+    "telegram": "@kakayauvasinteresnayarabota",
+    "telegram_url": "https://t.me/kakayauvasinteresnayarabota",
+    "official_channel": "https://t.me/cooljobyougot",
+    "phone_ai_partner": "+7 939 446-31-56",
+    "phone_ceo": "+7 910 472-10-24",
+    "contact_anchor": "/index.html#contact",
+    "notes": [
+      "Все основные CTA ведут в contact flow.",
+      "Контактный сценарий построен вокруг короткой заявки и перехода в Telegram."
+    ]
+  },
+  "content_rules_for_ai": {
+    "preferred_summary_style": "кратко, премиально, по делу",
+    "do_not_invent": [
+      "цены, если их нет на странице",
+      "кейсы, которых нет в утверждённых HTML",
+      "сроки, если они не зафиксированы явно"
+    ],
+    "safe_inferences": [
+      "агентство работает с брендом, рекламой, AI-сценами и FPV",
+      "главный CTA — обсуждение задачи",
+      "основная цель сайта — перевод пользователя в диалог"
+    ],
+    "answer_priority": [
+      "точно назвать направление",
+      "дать короткий value proposition",
+      "дать ссылку на правильную страницу",
+      "показать следующий шаг — contact CTA"
+    ]
+  },
+  "assets_conventions": {
+    "images_dir": "./assets/images/",
+    "video_dir": "./assets/video/",
+    "naming": "используйте понятные имена: brand-hero.webp, ai-case-01.webp, fpv-montage-hook.webp.",
+    "formats": [
+      "webp (preferred)",
+      "jpg",
+      "png",
+      "mp4 (h264)"
+    ],
+    "principles": [
+      "пути только относительные",
+      "имена файлов на латинице",
+      "сохранять стабильные имена для переиндексации AI и кэша"
+    ]
+  },
+  "structured_data_alignment": {
+    "organization": true,
+    "website": true,
+    "webpage_nodes": true,
+    "recommended_next": [
+      "добавить Product/Service schema для каждой product-page",
+      "добавить FAQPage schema, если FAQ зафиксирован как финальный контент",
+      "добавить image metadata для hero и key visuals"
+    ]
+  },
+  "crawl_hints": {
+    "canonical_entrypoints": [
+      "/llms.txt",
+      "/llms-full.txt",
+      "/meta/ai-map.json",
+      "/meta/structured-data.jsonld",
+      "/meta/sitemap.xml"
+    ],
+    "stable_paths_required": true,
+    "root_files_preferred": true
+  }
+}

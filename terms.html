@@ -1,71 +1,169 @@
 <!doctype html>
-<html lang="ru" data-theme="light">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
+
   <title>Пользовательское соглашение — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
-  <meta name="description" content="Пользовательское соглашение." />
+  <meta name="description" content="Пользовательское соглашение креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА. Alias-страница, ведущая в основной legal-раздел." />
+
   <meta property="og:title" content="Пользовательское соглашение — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
-  <meta property="og:description" content="Пользовательское соглашение." />
-  <meta property="og:image" content="../meta/og-default.jpg" />
+  <meta property="og:description" content="Пользовательское соглашение креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА." />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="../meta/favicon.ico" />
-  <link rel="apple-touch-icon" href="../meta/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
+  <meta property="og:image" content="./meta/og-default.jpg" />
+
+  <link rel="icon" href="./meta/favicon.ico" />
+  <link rel="apple-touch-icon" href="./meta/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="brand-title">
-          <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
-          <span>Стратегический видеопартнёр для бренда и продаж</span>
-        </div>
+        <a class="brand-logo" href="./index.html" aria-label="На главную">
+          <img
+            src="./assets/img/logo-main.png"
+            alt="Логотип агентства"
+            width="108"
+            height="108"
+            onerror="this.style.display='none';"
+          />
+          <div class="brand-title">
+            <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
+            <span>Стратегический видеопартнёр для бренда и продаж</span>
+          </div>
+        </a>
       </div>
 
-      <nav class="nav nav-compact" aria-label="Решения">
-        <a class="navpill" href="../index.html#ads" data-scroll>Рекламные ролики</a>
-        <a class="navpill" href="../index.html#brand" data-scroll>Имидж бренда</a>
-        <a class="navpill" href="../index.html#ai" data-scroll>AI‑продакшн</a>
-        <a class="navpill" href="../index.html#fpv" data-scroll>FPV‑съёмка</a>
+      <nav class="nav-compact" aria-label="Навигация">
+        <a class="navpill" href="./index.html#solutions">Решения</a>
+        <a class="navpill" href="./index.html#cases">Кейсы</a>
+        <a class="navpill" href="./index.html#services">Услуги</a>
+        <a class="navpill" href="./index.html#contact">Контакты</a>
       </nav>
 
       <div class="topbar-actions">
-        <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
-        <a class="pill ghost" href="../index.html#cases" data-scroll>Кейсы</a>
+        <a class="pill ghost" href="./index.html">На главную</a>
+        <a class="pill primary" href="./index.html#contact">Обсудить задачу</a>
 
         <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+          <span class="burger"><span></span></span>
         </button>
       </div>
     </div>
   </header>
 
+  <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__head">
+      <div class="brand-title">
+        <strong>Пользовательское соглашение</strong>
+        <span>Alias-страница</span>
+      </div>
+
+      <button class="nav-toggle" id="navClose" type="button" aria-label="Закрыть меню" aria-expanded="true">
+        <span class="burger"><span></span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav__body" aria-label="Мобильная навигация">
+      <a href="#top" data-scroll>Вверх</a>
+      <a href="./legal/terms.html">Открыть основную страницу</a>
+      <a href="./index.html">На главную</a>
+      <a href="./index.html#contact">Обсудить задачу</a>
+      <a href="./legal/privacy.html">Политика</a>
+      <a href="./legal/data.html">Данные</a>
+      <a href="./legal/cookies.html">Cookies</a>
+    </nav>
+  </aside>
+
   <main>
-    <section class="hero">
+    <section class="section section-dark hero" id="top">
       <div class="container">
-        <div class="card hero-copy">
-          <h1 class="hero-h1">Пользовательское соглашение</h1>
-          <p class="subhead" style="margin:0 0 14px">TODO: текст будет добавлен позже.</p>
-          <div class="row">
-            <a class="pill ghost" href="../index.html">На главную</a>
-            <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Legal alias</p>
+
+            <h1 class="hero-h1">
+              Пользовательское
+              <span class="serif">соглашение</span>
+            </h1>
+
+            <p class="hero-sub">
+              Это корневая alias-страница. Основная версия документа находится внутри раздела <strong>/legal/</strong>, чтобы весь юридический слой жил в одной системе и не распадался на дубли.
+            </p>
+
+            <div class="cta-row">
+              <a class="pill primary" href="./legal/terms.html">Открыть основную страницу</a>
+              <a class="pill ghost" href="./index.html">На главную</a>
+              <span class="trust">Canonical: /legal/terms.html</span>
+            </div>
           </div>
+
+          <article class="card showreel-card lift" aria-label="Визуальный блок alias">
+            <div class="showreel-media">
+              <img
+                src="./assets/img/section-ai.webp"
+                alt="Визуальный блок страницы соглашения"
+                width="1600"
+                height="1000"
+                loading="eager"
+              />
+              <div class="showreel-overlay">
+                <span class="showreel-label">Terms alias</span>
+              </div>
+            </div>
+
+            <div class="showreel-copy">
+              <strong>Основной документ вынесен в legal-раздел</strong>
+              <p>
+                Эта страница сохранена как alias-слой, чтобы старые ссылки не ломались и пользователь всё равно попадал в правильную точку структуры сайта.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-light">
       <div class="container">
-        <div class="card" style="padding:18px">
-          <p class="tiny">Заглушка страницы. Разметка и стиль готовы.</p>
+        <div class="reveal-grid">
+          <article class="card reveal-copy reveal">
+            <p class="eyebrow">Что делать дальше</p>
+            <h2>Используй только основную legal-версию</h2>
+            <p class="subhead">
+              Для футера, sitemap, внутренних ссылок и любых новых переходов используй страницу <strong>./legal/terms.html</strong>. Эту root-версию лучше считать совместимым дублем.
+            </p>
+
+            <ul class="bullets">
+              <li>Footer и навигация должны вести в <strong>/legal/terms.html</strong></li>
+              <li>Эта страница нужна для совместимости со старыми ссылками</li>
+              <li>Юридический текст добавляй только в canonical-страницу</li>
+            </ul>
+
+            <div class="row">
+              <a class="pill primary" href="./legal/terms.html">Перейти в canonical</a>
+              <a class="pill ghost" href="./legal/privacy.html">Открыть политику</a>
+            </div>
+          </article>
+
+          <article class="card reveal-media lift">
+            <img
+              src="./assets/img/section-brand.webp"
+              alt="Дополнительный визуал alias-страницы"
+              width="1400"
+              height="1600"
+              loading="lazy"
+            />
+          </article>
         </div>
       </div>
     </section>
@@ -81,10 +179,10 @@
 
         <div class="legal-right">
           <div class="legal-links" aria-label="Юридические ссылки">
-            <a href="../legal/privacy.html">Политика</a>
-            <a href="../legal/terms.html">Соглашение</a>
-            <a href="../legal/data.html">Данные</a>
-            <a href="../legal/cookies.html">Cookies</a>
+            <a href="./legal/privacy.html">Политика</a>
+            <a href="./legal/terms.html">Соглашение</a>
+            <a href="./legal/data.html">Данные</a>
+            <a href="./legal/cookies.html">Cookies</a>
             <a href="#" id="cookieSettings" aria-label="Настройки cookies">Настройки cookies</a>
           </div>
         </div>
@@ -92,13 +190,12 @@
     </div>
   </div>
 
-  <!-- Cookie consent -->
   <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Уведомление о cookies">
     <div class="cookie-card">
       <p>
-        Мы используем только необходимые cookies, чтобы запомнить ваши настройки (например, тему и выбор по cookies).
-        Аналитики и трекеров нет.
-        <a href="../legal/cookies.html">Подробнее</a>
+        Мы используем только необходимые cookies, чтобы запомнить ваши настройки интерфейса и выбор по cookies.
+        Аналитики и сторонних трекеров нет.
+        <a href="./legal/cookies.html">Подробнее</a>
       </p>
       <div class="cookie-actions">
         <button class="pill ghost" type="button" id="cookieReject">Отказаться</button>
@@ -107,6 +204,6 @@
     </div>
   </div>
 
-  <script src=".../assets/js/main.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>

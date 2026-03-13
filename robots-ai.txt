@@ -1,0 +1,23 @@
+# robots-ai.txt
+# AI crawler guidance file for inference-time discovery and controlled crawling.
+# This file complements /robots.txt and points AI systems to the canonical discovery files.
+# Place in site root: /robots-ai.txt
+# Related files:
+# /llms.txt
+# /llms-full.txt
+# /meta/sitemap.xml
+
+User-agent: *
+Allow: /
+
+# Canonical AI discovery endpoints
+# /llms.txt
+# /llms-full.txt
+
+# Canonical crawl map
+# /meta/sitemap.xml
+
+# Notes
+# 1. robots directives guide compliant crawlers; they do not enforce access control.
+# 2. Keep this file as plain UTF-8 text in the site root.
+# 3. Keep paths stable so AI systems can re-fetch canonical context.

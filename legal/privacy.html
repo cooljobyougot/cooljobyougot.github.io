@@ -1,71 +1,187 @@
 <!doctype html>
-<html lang="ru" data-theme="light">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
+
   <title>Политика конфиденциальности — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</title>
-  <meta name="description" content="Политика конфиденциальности." />
+  <meta name="description" content="Политика конфиденциальности креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА. Страница подготовлена под последующее наполнение юридическим текстом." />
+
   <meta property="og:title" content="Политика конфиденциальности — #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" />
-  <meta property="og:description" content="Политика конфиденциальности." />
-  <meta property="og:image" content="./meta/og-default.jpg" />
+  <meta property="og:description" content="Политика конфиденциальности креативного агентства #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА." />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="./meta/favicon.ico" />
-  <link rel="apple-touch-icon" href="./meta/apple-touch-icon.png" />
-  <link rel="stylesheet" href="./assets/css/main.css" />
+  <meta property="og:image" content="../meta/og-default.jpg" />
+
+  <link rel="icon" href="../meta/favicon.ico" />
+  <link rel="apple-touch-icon" href="../meta/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="brand-title">
-          <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
-          <span>Стратегический видеопартнёр для бренда и продаж</span>
-        </div>
+        <a class="brand-logo" href="../index.html" aria-label="На главную">
+          <img
+            src="../assets/img/logo-main.png"
+            alt="Логотип агентства"
+            width="108"
+            height="108"
+            onerror="this.style.display='none';"
+          />
+          <div class="brand-title">
+            <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong>
+            <span>Стратегический видеопартнёр для бренда и продаж</span>
+          </div>
+        </a>
       </div>
 
-      <nav class="nav nav-compact" aria-label="Решения">
-        <a class="navpill" href="../index.html#ads" data-scroll>Рекламные ролики</a>
-        <a class="navpill" href="../index.html#brand" data-scroll>Имидж бренда</a>
-        <a class="navpill" href="../index.html#ai" data-scroll>AI‑продакшн</a>
-        <a class="navpill" href="../index.html#fpv" data-scroll>FPV‑съёмка</a>
+      <nav class="nav-compact" aria-label="Навигация">
+        <a class="navpill" href="../index.html#solutions">Решения</a>
+        <a class="navpill" href="../index.html#cases">Кейсы</a>
+        <a class="navpill" href="../index.html#services">Услуги</a>
+        <a class="navpill" href="../index.html#contact">Контакты</a>
       </nav>
 
       <div class="topbar-actions">
-        <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
-        <a class="pill ghost" href="../index.html#cases" data-scroll>Кейсы</a>
+        <a class="pill ghost" href="../index.html">На главную</a>
+        <a class="pill primary" href="../index.html#contact">Обсудить задачу</a>
 
         <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+          <span class="burger"><span></span></span>
         </button>
       </div>
     </div>
   </header>
 
+  <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__head">
+      <div class="brand-title">
+        <strong>Политика конфиденциальности</strong>
+        <span>Навигация</span>
+      </div>
+
+      <button class="nav-toggle" id="navClose" type="button" aria-label="Закрыть меню" aria-expanded="true">
+        <span class="burger"><span></span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav__body" aria-label="Мобильная навигация">
+      <a href="#top" data-scroll>Вверх</a>
+      <a href="#document" data-scroll>Документ</a>
+      <a href="../index.html">На главную</a>
+      <a href="../index.html#contact">Обсудить задачу</a>
+      <a href="./terms.html">Соглашение</a>
+      <a href="./data.html">Данные</a>
+      <a href="./cookies.html">Cookies</a>
+    </nav>
+  </aside>
+
   <main>
-    <section class="hero">
+    <section class="section section-dark hero" id="top">
       <div class="container">
-        <div class="card hero-copy">
-          <h1 class="hero-h1">Политика конфиденциальности</h1>
-          <p class="subhead" style="margin:0 0 14px">TODO: текст будет добавлен позже.</p>
-          <div class="row">
-            <a class="pill ghost" href="../index.html">На главную</a>
-            <a class="pill primary" href="../index.html#contact" data-scroll>Обсудить задачу</a>
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Legal</p>
+
+            <h1 class="hero-h1">
+              Политика
+              <span class="serif">конфиденциальности</span>
+            </h1>
+
+            <p class="hero-sub">
+              Страница подготовлена под финальное юридическое наполнение. Архитектура, mobile-логика и визуальная система уже приведены к общей структуре сайта.
+            </p>
+
+            <div class="cta-row">
+              <a class="pill ghost" href="../index.html">На главную</a>
+              <a class="pill primary" href="../index.html#contact">Обсудить задачу</a>
+              <span class="trust">Юридический раздел</span>
+            </div>
           </div>
+
+          <article class="card showreel-card lift" aria-label="Визуальный блок legal">
+            <div class="showreel-media">
+              <img
+                src="../assets/img/section-brand.webp"
+                alt="Абстрактный визуал юридического раздела"
+                width="1600"
+                height="1000"
+                loading="eager"
+              />
+
+              <div class="showreel-overlay">
+                <span class="showreel-label">Privacy</span>
+              </div>
+            </div>
+
+            <div class="showreel-copy">
+              <strong>Структура готова к финальному тексту</strong>
+              <p>
+                Здесь будет размещён утверждённый юридический текст без необходимости заново собирать страницу или менять общий стиль сайта.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-light" id="document">
       <div class="container">
-        <div class="card" style="padding:18px">
-          <p class="tiny">Заглушка страницы. Разметка и стиль готовы.</p>
+        <div class="section-title reveal">
+          <h2>Документ</h2>
+          <p>Пока это подготовленный legal-shell: чистая разметка, читаемая структура и готовность к вставке финальной политики.</p>
+        </div>
+
+        <div class="reveal-grid">
+          <article class="card reveal-copy reveal">
+            <p class="eyebrow">Статус</p>
+            <h2>Текст будет добавлен позже</h2>
+            <p class="subhead">
+              На текущем этапе страница выполняет две задачи: не выпадает из общего визуального качества сайта и уже готова к дальнейшему юридическому наполнению без переделки шаблона.
+            </p>
+
+            <ul class="bullets">
+              <li>Страница согласована с новым header/footer</li>
+              <li>Mobile-first структура уже применена</li>
+              <li>Юридический контент можно вставлять секционно</li>
+              <li>Ничего не выглядит как пустая техническая заглушка</li>
+            </ul>
+
+            <div class="row">
+              <a class="pill primary" href="./terms.html">Открыть соглашение</a>
+              <a class="pill ghost" href="./cookies.html">Открыть cookies</a>
+            </div>
+          </article>
+
+          <article class="card reveal-media lift">
+            <img
+              src="../assets/img/section-ai.webp"
+              alt="Дополнительный визуал юридического раздела"
+              width="1400"
+              height="1600"
+              loading="lazy"
+            />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="card reveal-copy reveal">
+          <p class="eyebrow">Комментарий</p>
+          <p class="subhead">
+            Когда ты дашь финальный юридический текст, его лучше вставлять в эту же страницу блоками: общие положения, состав данных, цели обработки, хранение, права пользователя, cookies, контакты для обращений.
+          </p>
         </div>
       </div>
     </section>
@@ -81,10 +197,10 @@
 
         <div class="legal-right">
           <div class="legal-links" aria-label="Юридические ссылки">
-            <a href="../legal/privacy.html">Политика</a>
-            <a href="../legal/terms.html">Соглашение</a>
-            <a href="../legal/data.html">Данные</a>
-            <a href="../legal/cookies.html">Cookies</a>
+            <a href="./privacy.html">Политика</a>
+            <a href="./terms.html">Соглашение</a>
+            <a href="./data.html">Данные</a>
+            <a href="./cookies.html">Cookies</a>
             <a href="#" id="cookieSettings" aria-label="Настройки cookies">Настройки cookies</a>
           </div>
         </div>
@@ -92,13 +208,12 @@
     </div>
   </div>
 
-  <!-- Cookie consent -->
   <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Уведомление о cookies">
     <div class="cookie-card">
       <p>
-        Мы используем только необходимые cookies, чтобы запомнить ваши настройки (например, тему и выбор по cookies).
-        Аналитики и трекеров нет.
-        <a href="../legal/cookies.html">Подробнее</a>
+        Мы используем только необходимые cookies, чтобы запомнить ваши настройки интерфейса и выбор по cookies.
+        Аналитики и сторонних трекеров нет.
+        <a href="./cookies.html">Подробнее</a>
       </p>
       <div class="cookie-actions">
         <button class="pill ghost" type="button" id="cookieReject">Отказаться</button>

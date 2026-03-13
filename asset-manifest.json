@@ -1,36 +1,498 @@
 {
-  "version": "1.0",
-  "generated_at": "2026-03-03T09:58:55.559060Z",
-  "assets": {
-    "images": [
-      "./assets/img/bg.webp",
-      "./assets/img/hero.webp",
-      "./assets/img/product-ads.webp",
-      "./assets/img/product-brand.webp",
-      "./assets/img/product-ai.webp",
-      "./assets/img/product-fpv.webp",
-      "./assets/img/section-ads.webp",
-      "./assets/img/section-brand.webp",
-      "./assets/img/section-ai.webp",
-      "./assets/img/section-fpv.webp",
-      "./assets/img/case-01.webp",
-      "./assets/img/case-02.webp",
-      "./assets/img/case-03.webp"
-    ],
-    "video": [
-      "./assets/video/README.txt"
-    ],
-    "fonts": [],
-    "meta": [
-      "./meta/og-default.jpg",
-      "./meta/favicon.ico",
-      "./meta/manifest.webmanifest",
-      "./meta/robots.txt",
-      "./meta/sitemap.xml"
-    ]
-  },
+  "version": "2.0",
+  "project": "#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА",
+  "generated_for": "site patch workflow",
   "notes": [
-    "Пути только относительные (./assets..., ./meta...).",
-    "Заменяй заглушки в assets/img и assets/video реальными файлами, сохраняя имена."
+    "Этот манифест фиксирует целевые ассеты для новой архитектуры сайта.",
+    "Если файла пока нет, слот всё равно должен оставаться осмысленно заполненным через временный визуал.",
+    "Canonical image directory: ./assets/images/",
+    "Canonical poster directory: ./assets/posters/",
+    "Canonical video directory: ./assets/video/"
+  ],
+  "directories": {
+    "images": "./assets/images/",
+    "posters": "./assets/posters/",
+    "video": "./assets/video/"
+  },
+  "global_assets": [
+    {
+      "id": "logo_main",
+      "path": "./assets/images/logo-main.png",
+      "type": "image",
+      "role": "Главный логотип в шапке и системных страницах",
+      "required": true,
+      "status": "pending",
+      "source": "user"
+    },
+    {
+      "id": "hero_showreel_poster",
+      "path": "./assets/posters/hero-showreel-poster.webp",
+      "type": "poster",
+      "role": "Постер для showreel на главной странице",
+      "required": true,
+      "status": "pending",
+      "source": "generate_or_user"
+    },
+    {
+      "id": "hero_showreel_video",
+      "path": "./assets/video/hero-showreel.mp4",
+      "type": "video",
+      "role": "Showreel в hero-блоке главной страницы",
+      "required": true,
+      "status": "pending",
+      "source": "user_or_final_edit",
+      "spec": {
+        "container": "mp4",
+        "codec": "h264",
+        "aspect_ratio": "16:9",
+        "audio": true
+      }
+    }
+  ],
+  "pages": [
+    {
+      "page": "./index.html",
+      "assets": [
+        {
+          "id": "home_service_ads",
+          "path": "./assets/images/home-service-ads.webp",
+          "type": "image",
+          "role": "Карточка решения: Рекламные ролики",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_service_brand",
+          "path": "./assets/images/home-service-brand.webp",
+          "type": "image",
+          "role": "Карточка решения: Имидж бренда",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_service_ai",
+          "path": "./assets/images/home-service-ai.webp",
+          "type": "image",
+          "role": "Карточка решения: AI-продакшн",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_service_fpv",
+          "path": "./assets/images/home-service-fpv.webp",
+          "type": "image",
+          "role": "Карточка решения: FPV-съёмка",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_case_01",
+          "path": "./assets/images/home-case-01.webp",
+          "type": "image",
+          "role": "Кейс-блок 01 на главной",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_case_02",
+          "path": "./assets/images/home-case-02.webp",
+          "type": "image",
+          "role": "Кейс-блок 02 на главной",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_case_03",
+          "path": "./assets/images/home-case-03.webp",
+          "type": "image",
+          "role": "Кейс-блок 03 на главной",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_case_04",
+          "path": "./assets/images/home-case-04.webp",
+          "type": "image",
+          "role": "Кейс-блок 04 на главной",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_founder",
+          "path": "./assets/images/home-founder.webp",
+          "type": "image",
+          "role": "Блок доверия / основатель",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "home_review_doc",
+          "path": "./assets/images/home-review-doc.webp",
+          "type": "image",
+          "role": "Proof-визуал / отзыв / документ доверия",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        }
+      ]
+    },
+    {
+      "page": "./products/ads.html",
+      "assets": [
+        {
+          "id": "ads_hero",
+          "path": "./assets/images/ads-hero.webp",
+          "type": "image",
+          "role": "Hero-визуал страницы рекламных роликов",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ads_case_01",
+          "path": "./assets/images/ads-case-01.webp",
+          "type": "image",
+          "role": "Контекст / задача / запуск",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ads_case_02",
+          "path": "./assets/images/ads-case-02.webp",
+          "type": "image",
+          "role": "Deliverables / экран поддержки",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ads_case_03",
+          "path": "./assets/images/ads-case-03.webp",
+          "type": "image",
+          "role": "Example / усиливающая форма",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ads_accent_benefit",
+          "path": "./assets/images/ads-accent-benefit.webp",
+          "type": "image",
+          "role": "Акцент: выгода",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ads_accent_emotion",
+          "path": "./assets/images/ads-accent-emotion.webp",
+          "type": "image",
+          "role": "Акцент: эмоция",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ads_accent_fact",
+          "path": "./assets/images/ads-accent-fact.webp",
+          "type": "image",
+          "role": "Акцент: факт",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        }
+      ]
+    },
+    {
+      "page": "./products/brand.html",
+      "assets": [
+        {
+          "id": "brand_hero",
+          "path": "./assets/images/brand-hero.webp",
+          "type": "image",
+          "role": "Hero-визуал страницы имиджа бренда",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "brand_case_01",
+          "path": "./assets/images/brand-case-01.webp",
+          "type": "image",
+          "role": "Контекст применения / премиальная подача",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "brand_case_02",
+          "path": "./assets/images/brand-case-02.webp",
+          "type": "image",
+          "role": "Deliverables / film / presentation use",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "brand_case_03",
+          "path": "./assets/images/brand-case-03.webp",
+          "type": "image",
+          "role": "Event / stage / public display",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "brand_version_status",
+          "path": "./assets/images/brand-version-status.webp",
+          "type": "image",
+          "role": "Смысловая версия: статус",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "brand_version_human",
+          "path": "./assets/images/brand-version-human.webp",
+          "type": "image",
+          "role": "Смысловая версия: человечность",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "brand_version_scale",
+          "path": "./assets/images/brand-version-scale.webp",
+          "type": "image",
+          "role": "Смысловая версия: масштаб",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        }
+      ]
+    },
+    {
+      "page": "./products/ai.html",
+      "assets": [
+        {
+          "id": "ai_hero",
+          "path": "./assets/images/ai-hero.webp",
+          "type": "image",
+          "role": "Hero-визуал страницы AI-продакшна",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ai_case_01",
+          "path": "./assets/images/ai-case-01.webp",
+          "type": "image",
+          "role": "Невозможная локация / интеграция в реальную съёмку",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ai_case_02",
+          "path": "./assets/images/ai-case-02.webp",
+          "type": "image",
+          "role": "Генеративные переходы / связка монтажа",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ai_case_03",
+          "path": "./assets/images/ai-case-03.webp",
+          "type": "image",
+          "role": "Стилевая версия / разная подача одного материала",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ai_case_04",
+          "path": "./assets/images/ai-case-04.webp",
+          "type": "image",
+          "role": "Усиление реальной съёмки / hybrid visual",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ai_montage_hook",
+          "path": "./assets/images/ai-montage-hook.webp",
+          "type": "image",
+          "role": "Монтажный слот: hook",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ai_montage_reveal",
+          "path": "./assets/images/ai-montage-reveal.webp",
+          "type": "image",
+          "role": "Монтажный слот: reveal",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "ai_montage_transition",
+          "path": "./assets/images/ai-montage-transition.webp",
+          "type": "image",
+          "role": "Монтажный слот: transition",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        }
+      ]
+    },
+    {
+      "page": "./products/fpv.html",
+      "assets": [
+        {
+          "id": "fpv_hero",
+          "path": "./assets/images/fpv-hero.webp",
+          "type": "image",
+          "role": "Hero-визуал страницы FPV",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "fpv_case_01",
+          "path": "./assets/images/fpv-case-01.webp",
+          "type": "image",
+          "role": "Пример: автосалон / траектория / скорость",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "fpv_case_02",
+          "path": "./assets/images/fpv-case-02.webp",
+          "type": "image",
+          "role": "Пример: мероприятие / зал / толпа / сцена",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "fpv_case_03",
+          "path": "./assets/images/fpv-case-03.webp",
+          "type": "image",
+          "role": "Пример: производство / масштаб пространства",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "fpv_case_04",
+          "path": "./assets/images/fpv-case-04.webp",
+          "type": "image",
+          "role": "Пример: FPV + AI / невозможный переход",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "fpv_montage_hook",
+          "path": "./assets/images/fpv-montage-hook.webp",
+          "type": "image",
+          "role": "Монтажный слот: hook",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "fpv_montage_reveal",
+          "path": "./assets/images/fpv-montage-reveal.webp",
+          "type": "image",
+          "role": "Монтажный слот: reveal",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "fpv_montage_transition",
+          "path": "./assets/images/fpv-montage-transition.webp",
+          "type": "image",
+          "role": "Монтажный слот: transition",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        }
+      ]
+    },
+    {
+      "page": "./legal/*.html and ./thank-you.html",
+      "assets": [
+        {
+          "id": "legal_abstract_01",
+          "path": "./assets/images/legal-abstract-01.webp",
+          "type": "image",
+          "role": "Абстрактный визуал для legal / thank-you страниц",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "legal_abstract_02",
+          "path": "./assets/images/legal-abstract-02.webp",
+          "type": "image",
+          "role": "Второй абстрактный визуал для legal / thank-you страниц",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        },
+        {
+          "id": "thank_you_visual",
+          "path": "./assets/images/thank-you-visual.webp",
+          "type": "image",
+          "role": "Главный визуал страницы thank-you",
+          "required": true,
+          "status": "pending",
+          "source": "generate_or_select"
+        }
+      ]
+    }
+  ],
+  "technical_requirements": {
+    "images": {
+      "preferred_format": "webp",
+      "allowed_fallbacks": ["jpg", "png"],
+      "color_profile": "sRGB",
+      "max_recommended_width": 2400,
+      "min_recommended_width": 1600,
+      "quality_target": "high visual quality, no obvious compression artifacts"
+    },
+    "posters": {
+      "preferred_format": "webp",
+      "aspect_ratio": "16:9",
+      "recommended_width": 1920
+    },
+    "video": {
+      "preferred_container": "mp4",
+      "preferred_codec": "h264",
+      "preferred_width": 1920,
+      "preferred_aspect_ratio": "16:9"
+    }
+  },
+  "migration_notes": [
+    "Новые файлы должны заполнять canonical path system через ./assets/images/, ./assets/posters/, ./assets/video/.",
+    "Папка ./assets/img/ может временно оставаться как legacy fallback, но новые ассеты туда не кладём.",
+    "Все новые ссылки в HTML уже должны смотреть на canonical paths.",
+    "После наполнения ассетами можно собирать patch.zip только с реально изменёнными файлами и новыми media-файлами."
   ]
 }
