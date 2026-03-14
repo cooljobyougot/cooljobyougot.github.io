@@ -299,14 +299,40 @@
     }
   }
 
+  function toArray(nodes) {
+    return Array.prototype.slice.call(nodes || []);
+  }
+
+  function getRevealGroup(node) {
+    return node.closest(".product-grid, .reveal-grid, .statement-block, .contact-grid, [data-reveal-group]");
+  }
+
+  function getRevealDelay(node) {
+    var group = getRevealGroup(node);
+    if (!group) return 0;
+
+    var grouped = toArray(group.querySelectorAll(".reveal, .lift"));
+    var index = grouped.indexOf(node);
+    if (index === -1) return 0;
+
+    var baseStep = parseFloat(group.getAttribute("data-reveal-step") || "70");
+    var maxDelay = parseFloat(group.getAttribute("data-reveal-max") || "280");
+    return Math.min(index * baseStep, maxDelay);
+  }
+
   function setupRevealObserver() {
-    var revealNodes = Array.prototype.slice.call(
-      doc.querySelectorAll(".reveal, .lift")
-    );
+    var revealNodes = toArray(doc.querySelectorAll(".reveal, .lift"));
 
     if (!revealNodes.length) return;
 
-    if (!("IntersectionObserver" in window) || prefersReducedMotion()) {
+    revealNodes.forEach(function (node) {
+      var delay = getRevealDelay(node);
+      if (delay > 0) {
+        node.style.transitionDelay = delay + "ms";
+      }
+    });
+
+    if (!('IntersectionObserver' in window) || prefersReducedMotion()) {
       revealNodes.forEach(function (node) {
         node.classList.add("visible");
       });
@@ -323,8 +349,8 @@
       },
       {
         root: null,
-        rootMargin: "0px 0px -10% 0px",
-        threshold: 0.16
+        rootMargin: "0px 0px -12% 0px",
+        threshold: 0.14
       }
     );
 
@@ -454,6 +480,113 @@
     window.addEventListener("load", onScroll);
   }
 
+  function setupPointerFx() {
+    if (prefersReducedMotion()) return;
+
+    var targets = toArray(doc.querySelectorAll("[data-pointer-fx]"));
+    if (!targets.length) return;
+
+    targets.forEach(function (target) {
+      var glow = doc.createElement("span");
+      glow.setAttribute("aria-hidden", "true");
+      glow.className = "pointer-fx-glow";
+      glow.style.position = "absolute";
+      glow.style.left = "0";
+      glow.style.top = "0";
+      glow.style.width = "220px";
+      glow.style.height = "220px";
+      glow.style.pointerEvents = "none";
+      glow.style.borderRadius = "999px";
+      glow.style.opacity = "0";
+      glow.style.transform = "translate3d(-50%, -50%, 0) scale(.86)";
+      glow.style.transition = "opacity 220ms ease, transform 260ms ease";
+      glow.style.mixBlendMode = target.getAttribute("data-pointer-blend") || "screen";
+      glow.style.filter = "blur(26px) saturate(120%)";
+      glow.style.background = target.getAttribute("data-pointer-gradient") || "radial-gradient(circle at center, rgba(112,140,255,.32) 0%, rgba(255,126,80,.22) 36%, rgba(255,255,255,0) 72%)";
+      glow.style.zIndex = "2";
+
+      var targetStyle = window.getComputedStyle(target);
+      if (targetStyle.position === "static") {
+        target.style.position = "relative";
+      }
+      if (targetStyle.overflow === "visible") {
+        target.style.overflow = "hidden";
+      }
+      if (!target.querySelector(":scope > .pointer-fx-glow")) {
+        target.appendChild(glow);
+      }
+
+      var media = null;
+      var mediaSelector = target.getAttribute("data-pointer-media");
+      if (mediaSelector) {
+        media = target.querySelector(mediaSelector);
+      }
+      if (!media) {
+        media = target.querySelector("img, video, picture img");
+      }
+
+      var rafId = 0;
+      var lastX = 0;
+      var lastY = 0;
+      var hovering = false;
+
+      function paint() {
+        rafId = 0;
+        glow.style.left = lastX + "px";
+        glow.style.top = lastY + "px";
+        if (hovering) {
+          glow.style.opacity = target.getAttribute("data-pointer-opacity") || ".92";
+          glow.style.transform = "translate3d(-50%, -50%, 0) scale(1)";
+        }
+
+        if (media) {
+          var rect = target.getBoundingClientRect();
+          var nx = rect.width ? (lastX / rect.width) : 0.5;
+          var ny = rect.height ? (lastY / rect.height) : 0.5;
+          var rx = ((ny - 0.5) * -4).toFixed(2);
+          var ry = ((nx - 0.5) * 5).toFixed(2);
+          var hue = (((nx - 0.5) * 12) + ((0.5 - ny) * 8)).toFixed(2);
+          media.style.transform = "scale(1.02) rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+          media.style.filter = "saturate(1.05) hue-rotate(" + hue + "deg)";
+          media.style.willChange = "transform, filter";
+          media.style.transformOrigin = "center center";
+          media.style.transition = "transform 180ms ease, filter 180ms ease";
+        }
+      }
+
+      function requestPaint() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(paint);
+      }
+
+      target.addEventListener("pointerenter", function (event) {
+        hovering = true;
+        var rect = target.getBoundingClientRect();
+        lastX = event.clientX - rect.left;
+        lastY = event.clientY - rect.top;
+        requestPaint();
+      }, { passive: true });
+
+      target.addEventListener("pointermove", function (event) {
+        var rect = target.getBoundingClientRect();
+        lastX = event.clientX - rect.left;
+        lastY = event.clientY - rect.top;
+        requestPaint();
+      }, { passive: true });
+
+      target.addEventListener("pointerleave", function () {
+        hovering = false;
+        glow.style.opacity = "0";
+        glow.style.transform = "translate3d(-50%, -50%, 0) scale(.86)";
+        if (media) {
+          media.style.transform = "";
+          media.style.filter = "";
+          media.style.willChange = "";
+        }
+      }, { passive: true });
+    });
+  }
+
   function setupAutoCloseOnResize() {
     window.addEventListener("resize", function () {
       if (window.innerWidth >= 960) {
@@ -472,6 +605,7 @@
     setupRevealObserver();
     setupShowreel();
     setupShowreelStageZoom();
+    setupPointerFx();
     setupAutoCloseOnResize();
   }
 

@@ -48,15 +48,17 @@
         <a class="pill ghost" href="../index.html">На главную</a>
         <a class="pill primary" href="#offer" data-scroll>Получить предложение</a>
 
-        <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
+        <button class="pill icon topbar-tool" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
             <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+          <span class="topbar-tool__label topbar-tool__label">Тема</span>
         </button>
 
-        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+        <button class="nav-toggle topbar-tool" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
           <span class="burger"><span></span></span>
+          <span class="topbar-tool__label topbar-tool__label">Меню</span>
         </button>
       </div>
     </div>
@@ -75,11 +77,7 @@
     </div>
 
     <nav class="mobile-nav__body" aria-label="Мобильная навигация">
-      <a href="#top" data-scroll>Вверх</a>
-      <a href="#showreel" data-scroll>Showreel</a>
       <a href="#adds" data-scroll>Что добавляем</a>
-      <a href="#montage" data-scroll>Кадры под монтаж</a>
-      <a href="#examples" data-scroll>Примеры</a>
       <a href="#workflow" data-scroll>Как работаем</a>
       <a href="#offer" data-scroll>Получить предложение</a>
       <a href="../index.html">На главную</a>
@@ -344,33 +342,33 @@
       <div class="container">
         <div class="section-title reveal">
           <h2>Получить предложение</h2>
-          <p>Коротко опиши задачу — соберём предложение по формату, сценарию и роли AI внутри проекта.</p>
+          <p>Коротко опишите задачу — соберём предложение по формату, сценарию и роли AI внутри проекта.</p>
         </div>
 
         <div class="contact-grid">
-          <form class="card form reveal" action="../index.html#contact" method="get">
-            <label class="field">
-              <span>Контакт (Telegram / Email / Телефон) <span class="req">*</span></span>
-              <input name="contact" required placeholder="@telegram или email или +7..." />
-            </label>
+<form class="card form reveal" action="https://formspree.io/f/myknpodj" method="POST">
+  <label class="field">
+    <span>Контакт (Telegram / Email / Телефон) <span class="req">*</span></span>
+    <input name="contact" required placeholder="@telegram или email или +7..." />
+  </label>
 
-            <label class="field">
-              <span>Сообщение</span>
-              <textarea name="message" rows="5" placeholder="Коротко: задача, формат, контекст, сроки"></textarea>
-            </label>
+  <label class="field">
+    <span>Сообщение</span>
+    <textarea name="message" rows="5" placeholder="Коротко: задача, формат, контекст, сроки"></textarea>
+  </label>
 
-            <div class="form-note">
-              <div class="row">
-                <button class="pill primary" type="submit">Получить предложение</button>
-                <a class="pill ghost" href="../index.html#contact">Открыть контакты на главной</a>
-              </div>
-            </div>
-          </form>
+  <div class="form-note">
+    <div class="row">
+      <button class="pill primary" type="submit">Получить предложение</button>
+      <a class="pill ghost" href="../index.html#contact">Открыть контакты на главной</a>
+    </div>
+  </div>
+</form>
 
           <div class="card contact-card lift">
             <h3 style="margin:0 0 8px; font-size:1.3rem; letter-spacing:-0.03em;">Быстрый вход в диалог</h3>
             <p class="tiny" style="margin:0 0 12px;">
-Если удобнее, переходи сразу в 
+Если удобнее, переходите сразу в 
 <a href="https://t.me/kakayauvasinteresnayarabota" 
 target="_blank" 
 rel="noopener" 

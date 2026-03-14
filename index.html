@@ -32,23 +32,26 @@
       </div>
 
       <nav class="nav-compact" aria-label="Навигация по сайту">
-        <a class="navpill" href="#solutions" data-scroll>Решения</a>
-
-        <a class="navpill" href="#cases" data-scroll>Кейсы</a>
-        <a class="navpill" href="#contact" data-scroll>Контакты</a>
+        <a class="navpill" href="./products/ads.html">Реклама</a>
+        <a class="navpill" href="./products/brand.html">Имидж</a>
+        <a class="navpill" href="./products/ai.html">AI</a>
+        <a class="navpill" href="./products/fpv.html">FPV</a>
+        <a class="navpill" href="#contact" data-scroll>Контакт</a>
       </nav>
 
       <div class="topbar-actions">
         <a class="pill ghost" href="#showreel" data-scroll>Showreel</a>
         <a class="pill primary" href="#contact" data-scroll>Обсудить задачу</a>
-        <button class="pill icon" id="themeToggle" type="button" aria-label="Переключить тему">
+        <button class="pill icon topbar-tool" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
             <path d="M12 2.7v2.1M12 19.2v2.1M21.3 12h-2.1M4.8 12H2.7M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5M18.7 18.7l-1.5-1.5M6.8 6.8 5.3 5.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
           </svg>
+          <span class="topbar-tool__label">Тема</span>
         </button>
-        <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+        <button class="nav-toggle topbar-tool" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
           <span class="burger"><span></span></span>
+          <span class="topbar-tool__label">Меню</span>
         </button>
       </div>
     </div>
@@ -66,16 +69,11 @@
     </div>
 
     <nav class="mobile-nav__body" aria-label="Мобильная навигация">
-      <a href="#top" data-scroll>Главная</a>
-      <a href="#showreel" data-scroll>Showreel</a>
-      <a href="#solutions" data-scroll>Решения</a>
-      <a href="#cases" data-scroll>Кейсы</a>
-      <a href="#services" data-scroll>Услуги</a>
-      <a href="#contact" data-scroll>Контакты</a>
       <a href="./products/ads.html">Рекламные ролики</a>
       <a href="./products/brand.html">Имидж бренда</a>
-      <a href="./products/ai.html">AI-продакшн</a>
-      <a href="./products/fpv.html">FPV-съёмка</a>
+      <a href="./products/ai.html">ИИ</a>
+      <a href="./products/fpv.html">ФПВ</a>
+      <a href="#contact" data-scroll>Контакты</a>
     </nav>
   </aside>
 
@@ -295,52 +293,54 @@
       </div>
     </section>
 
-    <section class="section section-light" id="contact">
-      <div class="container">
-        <div class="section-title reveal">
-          <h2>Оставить заявку</h2>
-        </div>
+<section class="section section-light" id="contact">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Оставить заявку</h2>
+    </div>
 
-        <div class="contact-grid">
-          <form class="card form reveal" action="mailto:hello@example.com" method="post" enctype="text/plain">
-            <label class="field">
-              <span>Telegram / Email / Телефон <span class="req">*</span></span>
-              <input name="contact" required placeholder="@telegram или email или +7..." />
-            </label>
+    <div class="contact-grid">
+      <form class="card form reveal" action="https://formspree.io/f/myknpodj" method="POST">
+        <label class="field">
+          <span>Telegram / Email / Телефон <span class="req">*</span></span>
+          <input name="contact" required placeholder="@telegram или email или +7..." />
+        </label>
 
-            <label class="field">
-              <span>Что нужно сделать</span>
-              <textarea name="message" rows="5" placeholder="Коротко: задача, формат, сроки, контекст"></textarea>
-            </label>
+        <label class="field">
+          <span>Что нужно сделать</span>
+          <textarea name="message" rows="5" placeholder="Коротко: задача, формат, сроки, контекст"></textarea>
+        </label>
 
-            <div class="form-note">
-              <div class="row">
-                <button class="pill primary" type="submit">Обсудить задачу</button>
-                <a class="pill ghost" href="https://t.me/cooljobyougot" target="_blank" rel="noopener">Написать в Telegram</a>
-              </div>
-            </div>
-          </form>
-
-          <div class="card contact-card lift" aria-label="Контакты">
-            <h3 style="font-size:1.3rem; letter-spacing:-0.03em; margin:0 0 8px;">Быстрый вход в диалог</h3>
-            <div class="contact-line">
-              <strong>AI партнёр</strong>
-              <span class="tiny">
-                <a href="tel:+79394463156">+7 939 446-31-56</a> ·
-                <a href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener">@kakayauvasinteresnayarabota</a>
-              </span>
-            </div>
-            <div class="contact-line" style="margin-top:10px;">
-              <strong>СЕО Дмитрий Дроздов</strong>
-              <span class="tiny">
-                <a href="tel:+79104721024">+7 910 472-10-24</a> ·
-                <a href="https://t.me/drozdovhumandevelopment" target="_blank" rel="noopener">@drozdovhumandevelopment</a>
-              </span>
-            </div>
+        <div class="form-note">
+          <div class="row">
+            <button class="pill primary" type="submit">Обсудить задачу</button>
+            <a class="pill ghost" href="https://t.me/cooljobyougot" target="_blank" rel="noopener">Написать в Telegram</a>
           </div>
         </div>
+      </form>
+
+      <div class="card contact-card lift" aria-label="Контакты">
+        <h3 style="font-size:1.3rem; letter-spacing:-0.03em; margin:0 0 8px;">Быстрый вход в диалог</h3>
+
+        <div class="contact-line">
+          <strong>AI партнёр</strong>
+          <span class="tiny">
+            <a href="tel:+79394463156">+7 939 446-31-56</a> ·
+            <a href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener">@kakayauvasinteresnayarabota</a>
+          </span>
+        </div>
+
+        <div class="contact-line" style="margin-top:10px;">
+          <strong>CEO Дмитрий Дроздов</strong>
+          <span class="tiny">
+            <a href="tel:+79104721024">+7 910 472-10-24</a> ·
+            <a href="https://t.me/drozdovhumandevelopment" target="_blank" rel="noopener">@drozdovhumandevelopment</a>
+          </span>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   </main>
 
   <div class="legal-footer" role="contentinfo" aria-label="Юридическая информация">
