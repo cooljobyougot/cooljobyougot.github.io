@@ -120,30 +120,32 @@
       </div>
     </section>
 
-    <section class="showreel-stage" id="showreel" aria-label="Hero визуал направления">
-      <div class="showreel-stage__sticky">
-        <div class="showreel-stage__frame" data-showreel-frame>
-          <div class="showreel-stage__media">
-            <img
-              src="../assets/images/ads-hero.webp"
-              alt="Рекламные ролики — hero визуал"
-              width="1600"
-              height="1000"
-              loading="eager"
-              onerror="this.onerror=null;this.src='../assets/img/product-ads.webp';"
-            />
-            <div class="showreel-stage__overlay">
-              <span class="showreel-stage__label">Ads direction</span>
-              <button class="showreel-play" type="button" aria-label="Запустить превью" data-showreel-trigger>
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                  <path d="M8 6.5v11l9-5.5-9-5.5Z"/>
-                </svg>
-              </button>
-            </div>
-          </div>
+<section class="showreel-stage" id="showreel" aria-label="Hero визуал направления">
+  <div class="showreel-stage__sticky">
+    <div class="showreel-stage__frame" data-showreel-frame>
+      <div class="showreel-stage__media">
+        <video
+          src="../assets/video/hero-showreel-ads.mp4"
+          aria-label="Рекламные ролики — hero showreel"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="../assets/images/ads-hero.webp"
+        ></video>
+        <div class="showreel-stage__overlay">
+          <span class="showreel-stage__label">Ads direction</span>
+          <button class="showreel-play" type="button" aria-label="Запустить превью" data-showreel-trigger>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M8 6.5v11l9-5.5-9-5.5Z"/>
+            </svg>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section class="section section-light" id="fit">
       <div class="container">
