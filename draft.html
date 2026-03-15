@@ -6,24 +6,24 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f6f4" />
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121418" />
-  <title>Семейная летопись — ответ по ТЗ</title>
-  <meta name="description" content="Ответ по ТЗ «Семейная летопись Новой Москвы» в формате отдельной веб-страницы." />
-  <meta property="og:title" content="Семейная летопись — ответ по ТЗ" />
-  <meta property="og:description" content="Отдельная веб-страница с ответом по ТЗ «Семейная летопись Новой Москвы»." />
+  <title>Семейная летопись Новой Москвы</title>
+  <meta name="description" content="Семейная летопись Новой Москвы." />
+  <meta property="og:title" content="Семейная летопись Новой Москвы" />
+  <meta property="og:description" content="Семейная летопись Новой Москвы." />
   <meta property="og:type" content="website" />
   <style>
     :root {
       color-scheme: light dark;
       --bg: #f6f6f4;
-      --surface: #ffffff;
-      --surface-soft: #fbfbf9;
+      --surface: #f1f1ee;
+      --surface-soft: #e9e9e5;
       --text: #191c22;
       --muted: #5e6573;
-      --line: rgba(25, 28, 34, 0.12);
-      --line-strong: rgba(25, 28, 34, 0.18);
+      --line: rgba(25, 28, 34, 0.14);
+      --line-strong: rgba(25, 28, 34, 0.20);
       --accent: #2f5dcb;
       --focus: rgba(47, 93, 203, 0.24);
-      --shadow: 0 12px 36px rgba(17, 20, 28, 0.06);
+      --shadow: 0 12px 36px rgba(17, 20, 28, 0.055);
       --container: 760px;
       --radius: 16px;
       --radius-sm: 12px;
@@ -247,6 +247,89 @@
       color: var(--muted);
     }
 
+
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .pill:hover {
+      border-color: var(--line-strong);
+      background: var(--surface);
+    }
+
+    .pill.primary {
+      background: var(--text);
+      color: var(--bg);
+      border-color: transparent;
+      text-decoration: none;
+    }
+
+    .pill.primary:hover {
+      opacity: 0.92;
+    }
+
+    .legal-footer {
+      margin-top: 18px;
+    }
+
+    .legal-shell {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .legal-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .legal-left p,
+    .legal-links a {
+      font-size: 0.88rem;
+    }
+
+    .legal-left p + p {
+      margin-top: 6px;
+    }
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      justify-content: flex-end;
+    }
+
+    .legal-links a {
+      color: var(--muted);
+      text-decoration-color: var(--line-strong);
+    }
+
     @media (max-width: 640px) {
       .page { padding: 12px 0 24px; }
       .shell { width: min(calc(100% - 20px), var(--container)); }
@@ -254,6 +337,11 @@
         align-items: flex-start;
         padding: 10px 12px;
       }
+      .topbar-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .pill,
       .theme-toggle {
         min-height: 38px;
         padding: 0 10px;
@@ -264,6 +352,16 @@
         padding: 18px 16px;
       }
       .brand-subtitle { display: none; }
+      .legal-shell {
+        width: min(calc(100% - 20px), var(--container));
+        padding: 16px;
+      }
+      .legal-row {
+        flex-direction: column;
+      }
+      .legal-links {
+        justify-content: flex-start;
+      }
       h1 { font-size: 1.32rem; }
       .lead,
       p,
@@ -309,10 +407,13 @@
     <header class="topbar">
       <div class="shell topbar-inner">
         <div class="brand" aria-label="Страница ответа по проекту">
-          <span class="brand-title">Семейная летопись</span>
-          <span class="brand-subtitle">Ответ по ТЗ в формате отдельной веб-страницы</span>
+          <span class="brand-title">Семейная летопись Новой Москвы</span>
+          <span class="brand-subtitle">Отдельная страница ответа по проекту</span>
         </div>
-        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Переключить тему">Тема</button>
+        <div class="topbar-actions">
+          <a class="pill" href="./index.html" aria-label="Перейти на главную">На главную</a>
+          <button class="theme-toggle" type="button" id="themeToggle" aria-label="Переключить тему">Тема</button>
+        </div>
       </div>
     </header>
 
@@ -324,55 +425,50 @@
           <p class="lead">После внутреннего разбора мы видим высокий потенциал проекта: через историю семей и профессий показать преемственность поколений и связь прошлого с современной Новой Москвой. При этом для точного расчёта сроков и бюджета необходимо сначала зафиксировать рабочую модель реализации.</p>
         </section>
 
-        <section class="section">
-          <h2>Краткая позиция</h2>
-          <div class="stack">
-            <div class="panel">
-              <strong>Концепция</strong>
-              <p class="muted">Сильная, визуально ёмкая и эмоционально точная.</p>
-            </div>
-            <div class="panel">
-              <strong>Ключевой риск текущей версии</strong>
-              <p class="muted">Высокая плотность образов, действий, переходов и персонажей на единицу времени.</p>
-            </div>
-            <div class="panel">
-              <strong>Рабочий вывод</strong>
-              <p class="muted">Наиболее реалистичным способом реализации сейчас выглядит генеративный или гибридный продакшн с обязательным пилотным тестом.</p>
-            </div>
-          </div>
-        </section>
+<section class="section">
+  <h2>Краткая позиция</h2>
+  <div class="stack">
+    <div class="panel">
+      <strong>Концепция</strong>
+      <p class="muted">Визуально ёмкая и эмоционально точная, с потенциалом дать глубокий отклик у зрителя.</p>
+    </div>
+    <div class="panel">
+      <strong>Что видим по текущему ТЗ</strong>
+      <p class="muted">Многие блоки перегружены по количеству событий и смыслов для заявленного тайминга. Часть сцен потребует переработки по ритму, приоритетам и драматургической ясности.</p>
+    </div>
+    <div class="panel">
+      <strong>По расчёту</strong>
+      <p class="muted">На текущем этапе сроки и бюджет можно определить только ориентировочно, поскольку ТЗ требует адаптации под реальную производственную модель.</p>
+    </div>
+    <div class="panel">
+      <strong>Рабочий вывод</strong>
+      <p class="muted">Наиболее реалистичным способом реализации сейчас выглядит генеративный или гибридный продакшн.</p>
+    </div>
+  </div>
+</section>
 
-        <section class="section">
-          <h2>Что мы видим по текущему ТЗ</h2>
-          <ul>
-            <li>Концепция потенциально может дать действительно сильный эмоциональный результат.</li>
-            <li>Многие блоки перегружены по количеству событий и смыслов для заявленного тайминга.</li>
-            <li>Часть сцен, вероятно, потребует переработки по ритму, приоритетам и внутренней плотности.</li>
-            <li>На текущем этапе расчёт сроков и бюджета будет неизбежно неточным.</li>
-          </ul>
-        </section>
 
         <section class="section">
           <h2>Почему сейчас нельзя корректно назвать точные цифры</h2>
-          <p>В документе очень высокая плотность образов, действий, переходов, персонажей и визуальных состояний на единицу времени. Из-за этого точный расчёт сроков и бюджета сейчас можно дать только с большой погрешностью. Чтобы посчитать проект корректно, сначала нужно проверить одну сцену в реальном производственном контуре.</p>
+          <p>Сейчас ТЗ описывает сильную творческую идею, но ещё не переведено в окончательную производственную модель. Поэтому точный расчёт сроков и бюджета на этом этапе неизбежно будет приблизительным: сначала нужно понять реальную трудоёмкость выбранного визуального подхода.</p>
         </section>
 
         <section class="section">
           <h2>Как предлагаем двигаться</h2>
           <div class="two-step">
             <div class="step">
-              <span class="step-title">Этап 1. Тестовый фрагмент</span>
-              <p>Сделать один пилотный эпизод длительностью около 10 секунд в целевом визуальном качестве.</p>
+              <span class="step-title">Этап 1. Проверка выбранного визуального подхода</span>
+              <p>Собрать один короткий фрагмент в целевом качестве, чтобы опереться не на предположения, а на реальный производственный результат.</p>
               <ul>
-                <li>Проверим достижимый уровень реализма.</li>
-                <li>Поймём реальную трудоёмкость одной сцены.</li>
+                <li>Поймём достижимый уровень реализма.</li>
+                <li>Оценим фактическую трудоёмкость сцены.</li>
                 <li>Увидим объём итераций на согласование.</li>
-                <li>Сможем точнее оценить производственную модель.</li>
+                <li>Зафиксируем рабочую производственную модель.</li>
               </ul>
             </div>
             <div class="step">
               <span class="step-title">Этап 2. Финальный расчёт полного проекта</span>
-              <p>После теста вернёмся с предметным предложением по всему объёму проекта.</p>
+              <p>После этого сможем вернуться с предметным предложением по всему объёму проекта.</p>
               <ul>
                 <li>Обоснованная смета.</li>
                 <li>Реалистичные сроки производства.</li>
@@ -389,22 +485,34 @@
             <li>Правильно ли мы понимаем, что речь идёт об одном цельном ролике, а не о серии отдельных самостоятельных видео?</li>
             <li>Какие у вас целевые сроки по проекту?</li>
             <li>Насколько принципиален именно максимально реалистичный визуальный результат?</li>
-            <li>Готовы ли вы рассмотреть короткий тестовый фрагмент как первый этап перед полным просчётом всего объёма?</li>
+            <li>Готовы ли вы утвердить промежуточный этап проверки визуального подхода перед полным просчётом всего объёма?</li>
           </ol>
         </section>
 
-        <section class="section">
-          <h2>Итоговая формулировка</h2>
-          <p>Мы не уходим от расчёта бюджета и сроков. Напротив, хотим дать его профессионально и ответственно — на основе реального теста, а не приблизительной оценки. Поэтому рабочий следующий шаг — согласовать пилотный тест, после которого мы сможем назвать уже предметные цифры по всему проекту.</p>
-        </section>
 
         <section class="document-foot">
           <h2>Следующий шаг</h2>
-          <p>Если такой формат вам подходит, далее можно согласовать, какой именно 10‑секундный фрагмент лучше взять в тест первым, чтобы он дал максимум информации и по визуалу, и по экономике производства.</p>
-          <div class="foot-note">Standalone page · один столбец · адаптирована под вертикальный смартфон</div>
+          <p>Если такой формат вам подходит, далее можно согласовать, какой именно короткий фрагмент лучше взять первым, чтобы он дал максимум информации по визуалу и экономике производства.</p>
         </section>
       </article>
     </main>
+
+    <footer class="legal-footer" role="contentinfo" aria-label="Подвал страницы">
+      <div class="legal-shell">
+        <div class="legal-row">
+          <div class="legal-left">
+            <p class="muted">Креативное агентство <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong></p>
+            <p class="muted">© <span id="year"></span> · Все права защищены</p>
+          </div>
+          <div class="legal-links" aria-label="Юридические ссылки">
+            <a href="./legal/privacy.html">Политика</a>
+            <a href="./legal/terms.html">Соглашение</a>
+            <a href="./legal/data.html">Данные</a>
+            <a href="./legal/cookies.html">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -413,6 +521,8 @@
       const key = 'family-chronicle-theme';
       const btn = document.getElementById('themeToggle');
       if (!btn) return;
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
       btn.addEventListener('click', () => {
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
