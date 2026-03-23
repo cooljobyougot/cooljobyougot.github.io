@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>19 марта. Саммари встречи по обсуждению концепции фильма «Волга. Живая артерия России»</title>
+  <meta name="description" content="Саммари встречи от 19 марта по концепции фильма о защите волжских природных территорий. В документе собраны ключевая суть, решения, план действий, сценарные ориентиры и подробная аналитическая записка по будущим взаимодействиям." />
+  <meta name="keywords" content="Волга, живая артерия России, Артемовский луг, Борская пойма, природный парк, фильм, сценарий, общественное мнение, правительство, интервью, задачи, договорённости" />
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --panel: rgba(255,255,255,0.06);
+      --panel-strong: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --line: rgba(255,255,255,0.12);
+      --accent: #7dd3fc;
+      --accent-2: #93c5fd;
+      --ok: #86efac;
+      --warn: #fde68a;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --radius-sm: 14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    html[data-theme="light"]{
+      --bg: #f7f8fb;
+      --panel: rgba(10,15,25,0.05);
+      --panel-strong: rgba(255,255,255,0.78);
+      --text: rgba(10,15,25,0.92);
+      --muted: rgba(10,15,25,0.65);
+      --line: rgba(10,15,25,0.12);
+      --accent: #2563eb;
+      --accent-2: #1d4ed8;
+      --ok: #15803d;
+      --warn: #a16207;
+      --shadow: 0 12px 30px rgba(10,15,25,0.10);
+    }
+
+    *{ box-sizing: border-box; }
+
+    html{
+      scroll-behavior: smooth;
+    }
+
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(125,211,252,0.10), transparent 45%),
+        radial-gradient(900px 700px at 100% 0%, rgba(37,99,235,0.10), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.56;
+      letter-spacing: 0.01em;
+    }
+
+    .wrap{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 22px 14px 64px;
+    }
+
+    header,
+    section,
+    footer{
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    header{
+      display:flex;
+      gap: 16px;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .topbar{
+      display:flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .titlebox{
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+      max-width: 780px;
+    }
+
+    .eyebrow{
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    h1{
+      font-size: clamp(24px, 4.2vw, 34px);
+      line-height: 1.16;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .lead{
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 760px;
+    }
+
+    .btn{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: .2s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(125,211,252,0.35);
+    }
+
+    html[data-theme="light"] .btn{
+      background: rgba(255,255,255,0.82);
+    }
+
+    .meta{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 760px){
+      .meta{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .chip{
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+    }
+
+    .k{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .v{
+      font-size: 14px;
+    }
+
+    main{
+      margin-top: 14px;
+      display:flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    section{
+      padding: 20px;
+    }
+
+    h2{
+      margin: 0 0 12px 0;
+      font-size: clamp(20px, 3vw, 26px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h3{
+      margin: 0 0 10px 0;
+      font-size: clamp(16px, 2.2vw, 20px);
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+    }
+
+    .section-intro{
+      margin: 0 0 14px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul.clean{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    ul.clean li{
+      position: relative;
+      padding-left: 18px;
+    }
+
+    ul.clean li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0.72em;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+      opacity: .95;
+    }
+
+    .list-card{
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    html[data-theme="light"] .list-card{
+      background: rgba(255,255,255,0.72);
+    }
+
+    .summary-grid{
+      display:grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 760px){
+      .summary-grid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .mini-card{
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .mini-card .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: rgba(125,211,252,0.15);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    html[data-theme="light"] .mini-card .num{
+      background: rgba(37,99,235,0.08);
+    }
+
+    .mini-card p{
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .tagline{
+      display:inline-block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .table-wrap{
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    html[data-theme="light"] .table-wrap{
+      background: rgba(255,255,255,0.68);
+    }
+
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+
+    thead th{
+      text-align: left;
+      vertical-align: top;
+      padding: 14px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    tbody td{
+      padding: 14px 14px 18px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    tbody tr:last-child td{
+      border-bottom: 0;
+    }
+
+    tbody tr:hover{
+      background: rgba(125,211,252,0.04);
+    }
+
+    .task-title{
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .task-note{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      margin-bottom: 6px;
+    }
+
+    .badge.high{ color: #fca5a5; }
+    .badge.mid{ color: var(--warn); }
+    .badge.low{ color: var(--ok); }
+
+    .owner{
+      font-weight: 700;
+      display:block;
+      margin-bottom: 6px;
+    }
+
+    .deadline{
+      font-weight: 700;
+      display:block;
+      margin-bottom: 6px;
+    }
+
+    .status{
+      font-weight: 700;
+      display:block;
+      margin-bottom: 6px;
+    }
+
+    .muted{
+      color: var(--muted);
+    }
+
+    .note{
+      padding: 14px 16px;
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      background: rgba(255,255,255,0.02);
+      margin-top: 14px;
+    }
+
+    .subsection{
+      margin-top: 16px;
+    }
+
+    details{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      overflow: hidden;
+    }
+
+    html[data-theme="light"] details{
+      background: rgba(255,255,255,0.66);
+    }
+
+    summary{
+      cursor: pointer;
+      list-style: none;
+      padding: 16px 18px;
+      font-weight: 800;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    details[open] summary{
+      border-bottom: 1px solid var(--line);
+    }
+
+    .details-body{
+      padding: 18px;
+    }
+
+    footer{
+      margin-top: 16px;
+      padding: 16px 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .spacer{
+      height: 2px;
+    }
+
+    @media (max-width: 780px){
+      .wrap{
+        padding: 14px 10px 44px;
+      }
+
+      section,
+      header{
+        padding: 16px;
+      }
+
+      .table-wrap{
+        overflow: visible;
+        border: 0;
+        background: transparent;
+      }
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr{
+        display: block;
+        width: 100%;
+        min-width: 0;
+      }
+
+      thead{
+        display: none;
+      }
+
+      tbody{
+        display: grid;
+        gap: 12px;
+      }
+
+      tbody tr{
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255,255,255,0.03);
+        padding: 12px 12px 2px;
+        box-shadow: var(--shadow);
+      }
+
+      html[data-theme="light"] tbody tr{
+        background: rgba(255,255,255,0.82);
+      }
+
+      tbody td{
+        border: 0;
+        padding: 0 0 14px 0;
+      }
+
+      tbody td::before{
+        content: attr(data-label);
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        font-weight: 800;
+        margin-bottom: 6px;
+      }
+    }
+
+    a{
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="topbar">
+        <div class="titlebox">
+          <div class="eyebrow">19 марта. Саммари встречи</div>
+          <h1>Саммари встречи по обсуждению концепции фильма «Волга. Живая артерия России»</h1>
+          <p class="lead">
+            Суть встречи, принятые решения, реальный план действий,
+            сценарные ориентиры и рабочая аналитическая записка по будущим вопросам и взаимодействиям.
+          </p>
+        </div>
+
+        <button class="btn" id="themeBtn" type="button" aria-label="Переключить тему">🌓 Тема</button>
+      </div>
+
+      <div class="meta">
+        <div class="chip">
+          <div class="k">Дата</div>
+          <div class="v">19 марта</div>
+        </div>
+
+        <div class="chip">
+          <div class="k">Проект</div>
+          <div class="v">Фильм «Волга. Живая артерия России» и повестка защиты Борской поймы, Артемовского луга и связанных территорий</div>
+        </div>
+
+        <div class="chip">
+          <div class="k">Участники</div>
+          <div class="v">Татьяна Сергеевна Созонтьева, Дмитрий Архипов, Вячеслав Александрович Зобов, Кира Коваль, Дмитрий Дроздов, Алексей Гроза, Маслов Виктор</div>
+        </div>
+
+        <div class="chip">
+          <div class="k">Теги</div>
+          <div class="v">Волга, Артемовский луг, Борская пойма, природный парк, фильм, сценарий, общественное мнение, интервью, правительство, экология</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>Ключевая суть встречи</h2>
+        <p class="section-intro">
+          Встреча была не про «ещё один красивый фильм о природе», а про создание медиa-инструмента, который должен
+          привести к реальному действию в защиту территории.
+        </p>
+
+        <div class="summary-grid">
+          <div class="mini-card">
+            <div class="num">01</div>
+            <p><strong>Главная задача фильма</strong> — усилить общественную и управленческую поддержку сохранения территории и приблизить решения, связанные с созданием природного парка.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="num">02</div>
+            <p><strong>Фактически обсуждаются два продукта:</strong> массовый эмоциональный фильм для общественного мнения и отдельный короткий адресный фильм для тех, кто принимает решения.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="num">03</div>
+            <p><strong>Приоритет сейчас</strong> — первый фильм: он должен быть сильным, понятным и действенным, но без дешёвого нагнетания и без потери доверия.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="num">04</div>
+            <p><strong>Ключевой творческий баланс:</strong> соединить красоту территории, чувство потери, реальные угрозы и понятный образ того, что именно исчезнет для природы, города и жителей.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="num">05</div>
+            <p><strong>Зрителю нужно пространственное понимание:</strong> где находятся территории, как они связаны между собой, почему это касается лично его и что произойдёт, если защиту не обеспечить.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="num">06</div>
+            <p><strong>У проекта уже есть база для старта:</strong> архивы, облёты, визуальные материалы, генплан, референсы, визитка «Арт Луга» и понимание, с кем дальше нужно разговаривать.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Решения и договорённости</h2>
+        <ul class="clean">
+          <li class="list-card">Принята общая логика из двух фильмов, но в работу первым запускается <strong>публичный фильм для широкой аудитории</strong>.</li>
+
+          <li class="list-card">Фильм должен быть <strong>инструментом воздействия</strong>, а не просто наблюдением за красивой природой.</li>
+
+          <li class="list-card">Сценарная подача строится на двух связках: <strong>как территория живёт сейчас</strong> и <strong>что будет потеряно, если её не защитить</strong>.</li>
+
+          <li class="list-card">Тон фильма должен держать <strong>баланс между нервом и доверием</strong>: напряжение допустимо, фальшь и искусственное нагнетание — нет.</li>
+
+          <li class="list-card">Первый фильм не нужно перегружать сложной управленческой логикой; тема дороги и застройки может присутствовать <strong>только как ясная и правдивая угроза</strong>, а не как тяжёлый экспертный разбор.</li>
+
+          <li class="list-card">Команда получает пространство сначала <strong>развернуть своё видение на материале</strong>, а обсуждение правок пойдёт уже по конкретным сценарным и визуальным решениям.</li>
+
+          <li class="list-card">Интервью для проекта нужны; их состав, формат и функция должны быть <strong>подготовлены отдельно и осмысленно</strong>.</li>
+
+          <li class="list-card">Для потенциального участия политиков и других фигур с репутационным весом нужно заранее показывать <strong>сценарий и понятную пользу их участия</strong>.</li>
+
+          <li class="list-card">Согласовано создать <strong>единую рабочую координацию</strong> по материалам, вопросам, сценарным версиям и следующим контактам.</li>
+
+          <li class="list-card">Ориентир на ближайший этап: <strong>рабочая сценарная версия в течение примерно двух недель</strong>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>План действий: задачи, ответственные, сроки</h2>
+        <p class="section-intro">
+          Ниже — собранный и дополненный рабочий план на основе всех разделов обсуждения. Сроки даны как рабочие ориентиры
+          следующего этапа, чтобы документ можно было использовать как управленческий.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Приоритет</th>
+                <th>Задача</th>
+                <th>Ответственный</th>
+                <th>Срок</th>
+                <th>Статус / результат</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge high">Высокий</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Создать общую рабочую группу и единый контур координации</span>
+                  <span class="task-note">Собрать в одном канале материалы, промежуточные версии сценария, список контактов, вопросы к экспертам, референсы и договорённости.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Алексей Гроза</span>
+                  <span class="muted">С участием ядра команды</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">Сразу / 1–2 дня</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">К запуску</span>
+                  <span class="muted">Результат: единый рабочий канал и понятный порядок обмена материалами</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge high">Высокий</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Передать творческой команде весь архив и текущую визуальную базу</span>
+                  <span class="task-note">Архив за 3–4 года, полёты, сезонные съёмки, птицы, свежие облёты, презентации, визитка «Арт Луга», цифровой генплан, карты и иные визуальные материалы.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Вячеслав Зобов</span>
+                  <span class="muted">При участии владельцев материалов</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">1–3 дня</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">К сборке</span>
+                  <span class="muted">Результат: полный пакет исходников в одном месте</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge high">Высокий</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Пересмотреть архив и выделить визуальный костяк будущего фильма</span>
+                  <span class="task-note">Найти кадры, которые работают на красоту территории, ощущение жизни, масштаб пространства, точки угрозы, сезонность, птиц, воду, нерестовые и рекреационные зоны.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Креативная команда / Дмитрий Дроздов</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">Параллельно, 3–5 дней после получения архива</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Следующий шаг</span>
+                  <span class="muted">Результат: предварительный визуальный отбор и понимание сильных материалов</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge high">Высокий</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Подготовить рабочую версию сценарного плана первого фильма</span>
+                  <span class="task-note">Собрать логику хука, эмоциональной дуги, пространственного объяснения, образа потери, финального действия зрителя и принципов визуализации угроз без перегруза.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Дмитрий Дроздов</span>
+                  <span class="muted">С обсуждением внутри творческой команды</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">Около 2 недель</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Главный ближайший результат</span>
+                  <span class="muted">Результат: рабочий сценарный план для следующего обсуждения</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge high">Высокий</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Сформировать пакет референсов и уже удачных решений по подаче</span>
+                  <span class="task-note">Отдельно собрать фильмы, примеры, визитку «Арт Луга» и те материалы, которые стоит держать «в сознании» при разработке структуры и тона.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Кира Коваль + инициаторы проекта</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">1 неделя</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Важно для тона</span>
+                  <span class="muted">Результат: короткий референс-пак с комментариями, что именно в нём работает</span>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge mid">Средний</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Подготовить цифровые материалы по генплану, зелёным зонам и пространственной логике территории</span>
+                  <span class="task-note">Нужно для наглядного объяснения зрителю, где именно находятся ключевые территории, как они связаны и что попадает в зону риска.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Инициаторы проекта / профильный блок по материалам</span>
+                  <span class="muted">Точного владельца процесса стоит назначить отдельно</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">1 неделя</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Нужно закрепить владельца</span>
+                  <span class="muted">Результат: карта-основа для инфографики и объясняющих вставок</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge mid">Средний</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Собрать достоверную аргументацию по экосистемным, социальным и экономическим эффектам ООПТ</span>
+                  <span class="task-note">Проанализировать исследования, близкие региональные кейсы, аргументы по качеству жизни, воздуху, рекреации и туризму.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Алексей Гроза, Дмитрий Дроздов</span>
+                  <span class="muted">С привлечением внешних экспертов</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">1–2 недели</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Критично для достоверности</span>
+                  <span class="muted">Результат: короткий пакет проверяемых цифр и формулировок с указанием источников, за которые не придётся оправдываться</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge mid">Средний</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Уточнить у Бафанова и других участников процедурный контур по проекту дороги</span>
+                  <span class="task-note">Выяснить, как проходили процедуры, был ли необходимый раздел оценок, почему не было понятных общественных обсуждений и какие факты можно использовать публично.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Алексей Гроза / инициаторы проекта</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">1–2 недели</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Точечная аналитика</span>
+                  <span class="muted">Результат: короткая справка по фактам, чтобы не перегружать первый фильм, но не терять фактическую опору</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge mid">Средний</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Подготовить дорожную карту по созданию природного парка</span>
+                  <span class="task-note">Нужна не только для внутреннего понимания, но и как стратегическая рамка: к какому реальному действию должен вести медиапродукт.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Алексей Гроза</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">2 недели</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Стратегический блок</span>
+                  <span class="muted">Результат: ясная последовательность шагов по теме парка и защите территории</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge high">Средний</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Отдельно проработать блок интервью</span>
+                  <span class="task-note">Определить, кто нужен в кадре, кто нужен как эксперт вне кадра, какие функции у каждого интервью и какие вопросы должны привести к нужным ответам.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Дмитрий Дроздов, Алексей Гроза</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">После первой рабочей версии сценария</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">В подготовке</span>
+                  <span class="muted">Результат: список спикеров + предварительные вопросы + назначение роли каждого интервью</span>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge mid">Средний</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Подготовить сценарий и подачу для показа политикам и влиятельным фигурам</span>
+                  <span class="task-note">Нужны короткая версия синопсиса, смысл участия для них, репутационно безопасная рамка и понимание, что именно у них хотят спросить.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Дмитрий Дроздов, Алексей Гроза</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">После первой рабочей версии сценария</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Следующий этап</span>
+                  <span class="muted">Результат: пакет для переговоров и приглашения к участию</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge low">Низкий</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Подготовить логику будущего адресного короткого фильма для власти</span>
+                  <span class="task-note">Определить точного адресата, его интерес, триггеры, формат разговора, ожидаемое решение и структуру отдельного материала.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Творческая команда + инициаторы проекта</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">После запуска первого фильма в рабочую стадию</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Отложенный, но подтверждённый блок</span>
+                  <span class="muted">Результат: концепт адресного фильма под конкретного зрителя</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge mid">Средний</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Собрать перечень следующих внешних контактов</span>
+                  <span class="task-note">Адмахов, Бафанов, Фетисов и связанный с ним контур, профильные эксперты по экосистемным услугам, возможные внешние заключения и экспертные структуры.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Алексей Гроза + инициаторы проекта</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">1 неделя</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Оргподготовка</span>
+                  <span class="muted">Результат: список контактов, цель контакта и ожидаемый результат разговора</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет">
+                  <span class="badge low">Низкий</span>
+                </td>
+                <td data-label="Задача">
+                  <span class="task-title">Провести короткий отдельный созвон для уточнения нюансов после общего разговора</span>
+                  <span class="task-note">Фиксировалась отдельная договорённость о короткой встрече / созвоне на полчаса для уточняющих вопросов.</span>
+                </td>
+                <td data-label="Ответственный">
+                  <span class="owner">Алексей Гроза, Кира Коваль</span>
+                </td>
+                <td data-label="Срок">
+                  <span class="deadline">По готовности сторон</span>
+                </td>
+                <td data-label="Статус / результат">
+                  <span class="status">Локальная задача</span>
+                  <span class="muted">Результат: уточнение деталей, которые не вошли в общий разговор</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          Важно: для задач, где в разговоре не был прямо назван владелец, здесь указан рабочий ответственный по смыслу обсуждения.
+          Такие пункты лучше утвердить отдельно при первом созвоне рабочей группы.
+        </div>
+      </section>
+
+      <section>
+        <h2>Сценарные ориентиры для первого фильма</h2>
+        <ul class="clean">
+          <li class="list-card"><strong>Сильный вход:</strong> фильм должен быстро захватывать внимание и сразу показывать, что речь идёт о живой, реальной и ценной территории, а не об абстрактной «зелёнке».</li>
+
+          <li class="list-card"><strong>Пространственная ясность:</strong> зритель должен понять, где именно всё находится, как это связано с городом и почему потеря касается не кого-то далёкого, а его самого.</li>
+
+          <li class="list-card"><strong>Две линии в одной драматургии:</strong> сначала жизнь территории, затем риск утраты — без ощущения манипуляции и без перегруза бюрократическими деталями.</li>
+
+          <li class="list-card"><strong>Правдивое напряжение:</strong> угрозы можно и нужно визуализировать, но только на достоверной фактуре, чтобы фильм усиливал доверие, а не обнулял его.</li>
+
+          <li class="list-card"><strong>Язык пользы, а не только потери:</strong> важно показать не просто что уничтожается, но и что даёт защита территории — воздух, отдых, экотропы, качество жизни, детские маршруты, туризм, городскую рекреацию.</li>
+
+          <li class="list-card"><strong>Финальная функция фильма:</strong> после просмотра у зрителя должно возникнуть не только чувство, но и внутреннее решение поддержать конкретное действие в защиту территории.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Кто у кого что будет спрашивать — краткое саммари</h2>
+        <p class="section-intro">
+          Сжатая версия блока будущих взаимодействий: только то, что реально определяет следующий контур работы.
+        </p>
+
+        <ul class="clean">
+          <li class="list-card"><strong>Творческая команда → инициаторы и эксперты по территории.</strong><br><br>Нужны факты, контекст, логика конфликта, пространственное понимание территории и ответы на «базовые» вопросы, без которых нельзя писать сценарий неформально, но точно.</li>
+
+          <li class="list-card"><strong>Инициаторы и эксперты → творческая команда.</strong><br><br>От команды ждут не общих слов, а конкретного сценарного видения: какой будет градус напряжения, как удержать доверие и как соединить красоту территории с образом потери.</li>
+
+          <li class="list-card"><strong>Организаторы → владельцы архива и материалов.</strong><br><br>Нужно передать архив, карты, генплан, презентации, референсы и всё, что может ускорить сборку фильма и сделать её предметной, а не интуитивной.</li>
+
+          <li class="list-card"><strong>Творческая команда → будущие герои и интервьюируемые.</strong><br><br>Следующий практический вопрос — кто должен говорить в кадре, кто нужен как экспертная опора и какие именно ответы необходимо получить для фильма.</li>
+
+          <li class="list-card"><strong>Инициаторы проекта → Бафанов и другие участники процедурного контура.</strong><br><br>Нужно выяснить, как шли процедуры по проекту дороги, что происходило с обязательными оценками и почему отсутствовали понятные общественные обсуждения.</li>
+
+          <li class="list-card"><strong>Инициаторы проекта → эксперты по экосистемным услугам и аналогичным кейсам.</strong><br><br>Нужны проверяемые цифры и формулировки по экологическим, социальным и экономическим эффектам охраняемых территорий.</li>
+
+          <li class="list-card"><strong>Команда и инициаторы → политики и влиятельные фигуры.</strong><br><br>Общение возможно только через сценарий, понятную рамку участия и ясный ответ на вопрос, какую пользу или репутационный плюс им даёт участие в проекте.</li>
+
+          <li class="list-card"><strong>Творческая команда → адресат второго фильма.</strong><br><br>Когда дойдёт очередь до адресного материала, разговор должен строиться не «для всех», а под конкретного зрителя: что именно он должен понять и к какому решению прийти.</li>
+
+          <li class="list-card"><strong>Инициаторы проекта → федеральный контур и посредники высокого уровня.</strong><br><br>Нужно понять, как упаковать тему так, чтобы она выглядела не локальной жалобой, а вопросом системного масштаба.</li>
+
+          <li class="list-card"><strong>Рабочая группа → сама себе.</strong><br><br>Необходим постоянный обмен материалами, вопросами, сценарными версиями, списками интервьюируемых и логикой следующих шагов, иначе процесс быстро распадётся на отдельные куски.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Подробная рабочая аналитическая записка</h2>
+
+        <details>
+          <summary>Открыть подробности для тех, кому нужно глубже</summary>
+          <div class="details-body">
+
+            <div class="subsection">
+              <h3>Развёрнутое саммари по содержанию встречи</h3>
+              <ul class="clean">
+                <li class="list-card">Во вводной части прозвучала линия на усиление общественной и политической работы через разные силы и через рамку «народного проекта», способного быть выгодным не одной стороне, а сразу нескольким участникам процесса.</li>
+
+                <li class="list-card">Обсуждались ближайшие взаимодействия с политическим и управленческим полем: комитеты, возможные встречи, дальнейшая логика движения темы природного парка и реакция на уже идущие процессы вокруг проекта дороги.</li>
+
+                <li class="list-card">Важным фоном стала информация о том, что связанный с дорогой проект был передан на госэкспертизу, при этом у команды есть вопросы к прозрачности процесса и к отсутствию понятной публичной процедуры обсуждения.</li>
+
+                <li class="list-card">Отдельный организационный слой касался самой команды и её возможностей — в том числе разговора о статусе социально ориентированной организации и связанных с этим последствий для дальнейшей работы.</li>
+
+                <li class="list-card">Творческая команда уже имеет первичный визуальный контакт с местностью: были сделаны облёты Борской поймы, Стрелки и Артемовского луга, что даёт не только архив, но и личное пространственное ощущение объекта.</li>
+
+                <li class="list-card">Ключевая творческая идея встречи — построить фильм на эмоциональной дуге: сначала показать живую, красивую и ценную территорию, затем провести зрителя через осознание её уязвимости и довести до внутреннего решения участвовать в защите.</li>
+
+                <li class="list-card">При этом внутри группы ясно обозначился спор о границе допустимого. Одна линия настаивает на более жёстком нерве, конфликте, контрасте и даже антиутопических образах будущего. Другая линия защищает доверие, подлинность, любовь к месту и созидательный способ вовлечения.</li>
+
+                <li class="list-card">Компромиссная рамка выглядит так: фильм должен быть сильным и цепляющим, но не должен скатываться в дешёвые драматические приёмы, фальшь или избыточную «медийность», которая разрушит доверие к сказанному.</li>
+
+                <li class="list-card">Отдельно проговаривалось, что первый фильм лучше не превращать в тяжёлую экспертную лекцию. Подробности дорожной процедуры, управленческих схем и специальных расчётов должны использоваться аккуратно и только настолько, насколько это помогает зрителю ясно понять угрозу.</li>
+
+                <li class="list-card">Сильной частью будущей аргументации является пространственное объяснение: зритель должен увидеть на карте и в кадре, где именно находятся территории, как они связаны с городом, водой, нерестовыми зонами, орнитологическими участками и городской жизнью.</li>
+
+                <li class="list-card">Визуализация угроз обсуждалась не только как текст или комментарий, но и как язык кино: карты, схемы, инфографика, образы будущего, красные зоны риска, исчезновение воды, птиц, деревьев, панорамы и маршрутов жизни.</li>
+
+                <li class="list-card">Отдельно звучала мысль, что фильм должен показывать не только экологическую, но и человеческую правду: дефицит зелёных зон, качество воздуха, повседневный отдых, детские маршруты, рекреацию, экопросвещение и туристический потенциал природного парка.</li>
+
+                <li class="list-card">В разговоре присутствовала модель природного парка как позитивного будущего: не просто «запретить стройку», а создать понятную для жителей систему — охранные зоны, экотропы, посещение, маршруты, допустимые форматы рекреации и экологически совместимый туризм.</li>
+
+                <li class="list-card">Участники упоминали, что для такого разговора нужны не неподтверждённые локальные цифры, а данные, за которые потом не придётся оправдываться. Поэтому важно опираться на существующие исследования и сравнимые кейсы по другим регионам.</li>
+
+                <li class="list-card">Важнейший итог встречи — подтверждение рабочей логики ближайшего этапа: собирается группа, передаются материалы, команда делает рабочую сценарную версию, и дальше обсуждение движется уже не вокруг общих ощущений, а вокруг конкретного сценария, визуального хода и системы контактов.</li>
+              </ul>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="subsection">
+              <h3>Кто у кого что будет спрашивать: детально</h3>
+              <ul class="clean">
+                <li class="list-card"><strong>Творческая команда → инициаторы проекта и эксперты по территории.</strong><br><br>Команде необходимо насыщение фактурой: что это за места, где проходят ключевые границы, в чём конфликт, что зритель обязан понять сразу, какие угрозы реальны, а какие нельзя преувеличивать.</li>
+
+                <li class="list-card"><strong>Инициаторы проекта и эксперты → творческая команда.</strong><br><br>После погружения в материалы от команды потребуется конкретный ответ: каким будет сценарный ход, где в нём появляется нерв, где проходит граница допустимой драматизации и как будет удерживаться доверие зрителя.</li>
+
+                <li class="list-card"><strong>Организаторы встречи → творческая команда.</strong><br><br>Был прямо поставлен практический вопрос, берёт ли команда на себя сценарную работу и способна ли в течение примерно двух недель показать хотя бы рабочую версию. Ответ по смыслу встречи — да, этот этап команда берёт на себя.</li>
+
+                <li class="list-card"><strong>Владельцы архива → творческая команда.</strong><br><br>Фактически звучит вопрос-ресурс: нужен ли накопленный архив и способен ли он стать опорой для фильма. Ответ очевиден — нужен, и не как фон, а как основа визуальной памяти территории.</li>
+
+                <li class="list-card"><strong>Творческая команда → владельцы архива и материалов.</strong><br><br>После получения базы у команды возникает прикладной вопрос: что из массива действительно работает на фильм, а что остаётся вспомогательным. Это уже этап осмысленного отбора, а не простого накопления файлов.</li>
+
+                <li class="list-card"><strong>Организаторы → авторы референсов и внутренних материалов.</strong><br><br>Нужно собрать не всё подряд, а именно то, что задаёт нужный уровень подачи: примеры, фильмы, удачные решения, визитку «Арт Луга», работающие эмоциональные приёмы и убедительные форматы объяснения.</li>
+
+                <li class="list-card"><strong>Творческая команда → организаторы и эксперты.</strong><br><br>Поскольку для фильма нужны интервью, следующим делом возникнут вопросы о спикерах: кто может говорить в кадре, кто должен звучать как эксперт, кто может быть осторожен, а кто способен выдержать более жёсткую формулировку.</li>
+
+                <li class="list-card"><strong>Инициаторы проекта → Адмахов и другие должностные лица.</strong><br><br>В этой линии нужны вопросы по процедуре, по позиции, по проекту дороги, по возможным комментариям и по степени готовности входить в разговор публично или непублично.</li>
+
+                <li class="list-card"><strong>Инициаторы проекта → Бафанов.</strong><br><br>Здесь вопросная рамка наиболее предметная: как именно была устроена процедура, был ли необходимый раздел оценок, что происходило с общественными обсуждениями и какие факты можно проверить документально.</li>
+
+                <li class="list-card"><strong>Инициаторы проекта → специалисты по экосистемным услугам.</strong><br><br>Их задача — помочь перейти от эмоционального языка к экспертной точности: какие исследования уже есть, какие цифры можно брать, какие кейсы из других регионов наиболее полезны и убедительны.</li>
+
+                <li class="list-card"><strong>Инициаторы проекта → внешние экспертные структуры.</strong><br><br>Если потребуется более весомая опора, логично заранее понять, кто может дать профессиональное заключение по экосистемным, экономическим и транспортным аспектам, чтобы команда не выглядела единственным источником утверждений.</li>
+
+                <li class="list-card"><strong>Организаторы проекта → творческая команда.</strong><br><br>От команды ожидается также ответ на вопрос о масштабе амбиции: способен ли фильм работать не только в интернете, но и на более высокостатусных площадках — фестивальных, медийных или телевизионных.</li>
+
+                <li class="list-card"><strong>Творческая команда → политики и влиятельные фигуры.</strong><br><br>Вопросы к ним должны быть очень точно подготовлены: без абстракции, без лишнего риска для них, но с понятным входом в тему, где они могут быть полезны и не чувствовать, что их втягивают вслепую.</li>
+
+                <li class="list-card"><strong>Политики и влиятельные фигуры → организаторы и команда.</strong><br><br>Их ожидаемый встречный вопрос уже предсказуем: «покажите сценарий». Пока нет сценария и ясной рамки пользы участия, серьёзного включения ждать трудно.</li>
+
+                <li class="list-card"><strong>Творческая команда → адресат второго фильма.</strong><br><br>Во втором, адресном материале вопросы должны быть уже не широкими, а хирургически точными: что конкретный человек должен увидеть, понять, принять и какое решение после этого для него становится логичным.</li>
+
+                <li class="list-card"><strong>Инициаторы проекта → федеральный контур и посредники высокого уровня.</strong><br><br>Чтобы выводить тему выше регионального уровня, придётся заранее ответить на вопрос, как упаковать её как вопрос системной ценности, а не локального конфликта одного участка земли.</li>
+
+                <li class="list-card"><strong>Кира Коваль → творческая команда.</strong><br><br>Её линия по смыслу встречи — держать вопрос формы и меры: что именно из уже удачных материалов работает тонко и достоверно, а что в новом фильме может показаться искусственным или навязчивым.</li>
+
+                <li class="list-card"><strong>Творческая команда → Кира Коваль и команда «Арт Луга».</strong><br><br>Ответный профессиональный вопрос здесь таков: какие элементы существующей визитки и подхода действительно можно масштабировать в большой фильм, а какие останутся только частью маленького формата.</li>
+
+                <li class="list-card"><strong>Рабочая группа → все участники будущей координации.</strong><br><br>Это постоянный слой вопросов: какие материалы уже есть, чего не хватает, какие промежуточные версии сценария обсуждаем, кто отвечает за интервью, кто за цифры, кто за карты и кто за внешние контакты.</li>
+
+                <li class="list-card"><strong>Алексей Гроза → Кира Коваль.</strong><br><br>В конце была обозначена отдельная линия на дополнительный короткий созвон или встречу, где можно снять тонкие вопросы уже после общего разговора и не перегружать ими общий контур.</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+      </section>
+
+    </main>
+
+    <footer>
+      Документ пересобран в более компактную и управленческую форму: без повторов, с усиленным планом действий,
+      мобильной таблицей задач и разделением краткого саммари от подробной аналитики.
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      const saved = localStorage.getItem('meeting-summary-theme');
+
+      if(saved === 'dark' || saved === 'light'){
+        root.setAttribute('data-theme', saved);
+      }
+
+      btn.addEventListener('click', function(){
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('meeting-summary-theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>19 марта — краткое саммари встречи</title>
+  <meta name="description" content="Краткое саммари встречи от 19 марта: суть, решения, план действий и подробности по проекту фильма «Волга. Живая артерия России»." />
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --panel: rgba(255,255,255,0.06);
+      --panel-strong: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --line: rgba(255,255,255,0.12);
+      --accent: #7dd3fc;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --radius-sm: 14px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    html[data-theme="light"]{
+      --bg: #f7f8fb;
+      --panel: rgba(10,15,25,0.05);
+      --panel-strong: rgba(255,255,255,0.78);
+      --text: rgba(10,15,25,0.92);
+      --muted: rgba(10,15,25,0.65);
+      --line: rgba(10,15,25,0.12);
+      --accent: #2563eb;
+      --shadow: 0 12px 30px rgba(10,15,25,0.10);
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(125,211,252,0.10), transparent 45%),
+        radial-gradient(900px 700px at 100% 0%, rgba(37,99,235,0.10), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.58;
+      letter-spacing: 0.01em;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 12px 56px;
+    }
+
+    header, section, footer{
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    header{
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow{
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(24px, 4.3vw, 34px);
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+    }
+
+    .lead{
+      margin: 8px 0 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 760px;
+    }
+
+    .btn{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    html[data-theme="light"] .btn{
+      background: rgba(255,255,255,0.82);
+    }
+
+    .meta{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 760px){
+      .meta{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .chip{
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+    }
+
+    .k{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .v{
+      font-size: 14px;
+    }
+
+    main{
+      margin-top: 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+
+    section{
+      padding: 18px;
+    }
+
+    h2{
+      margin: 0 0 12px 0;
+      font-size: clamp(20px, 3vw, 26px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h3{
+      margin: 0 0 10px 0;
+      font-size: clamp(16px, 2.2vw, 20px);
+      line-height: 1.26;
+    }
+
+    .section-intro{
+      margin: 0 0 14px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 760px){
+      .cards{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: rgba(125,211,252,0.15);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .card p{
+      margin:0;
+      font-size: 15px;
+    }
+
+    ul.clean{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap: 14px;
+    }
+
+    ul.clean li{
+      position:relative;
+      padding-left:18px;
+    }
+
+    ul.clean li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0.72em;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .list-card{
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    html[data-theme="light"] .list-card{
+      background: rgba(255,255,255,0.72);
+    }
+
+    .table-wrap{
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    html[data-theme="light"] .table-wrap{
+      background: rgba(255,255,255,0.68);
+    }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    thead th{
+      text-align:left;
+      padding: 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    tbody td{
+      padding: 14px 14px 18px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    tbody tr:last-child td{
+      border-bottom: 0;
+    }
+
+    .task-title{
+      display:block;
+      font-weight:800;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .task-note{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      margin-bottom: 6px;
+    }
+
+    .high{ color:#dc2626; }
+    .mid{ color:#a16207; }
+    .low{ color:#15803d; }
+
+    .muted{
+      color: var(--muted);
+    }
+
+    details{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      overflow: hidden;
+    }
+
+    html[data-theme="light"] details{
+      background: rgba(255,255,255,0.66);
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      padding: 16px 18px;
+      font-weight:800;
+      font-size: 16px;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    details[open] summary{
+      border-bottom: 1px solid var(--line);
+    }
+
+    .details-body{
+      padding: 18px;
+    }
+
+    footer{
+      margin-top: 14px;
+      padding: 16px 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 780px){
+      .wrap{
+        padding: 12px 10px 44px;
+      }
+
+      header, section{
+        padding: 16px;
+      }
+
+      .table-wrap{
+        overflow: visible;
+        border: 0;
+        background: transparent;
+      }
+
+      table, thead, tbody, th, td, tr{
+        display:block;
+        width:100%;
+        min-width:0;
+      }
+
+      thead{
+        display:none;
+      }
+
+      tbody{
+        display:grid;
+        gap: 12px;
+      }
+
+      tbody tr{
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255,255,255,0.03);
+        padding: 12px 12px 2px;
+        box-shadow: var(--shadow);
+      }
+
+      html[data-theme="light"] tbody tr{
+        background: rgba(255,255,255,0.82);
+      }
+
+      tbody td{
+        border:0;
+        padding:0 0 14px 0;
+      }
+
+      tbody td::before{
+        content: attr(data-label);
+        display:block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        font-weight: 800;
+        margin-bottom: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="top">
+        <div>
+          <div class="eyebrow">Краткая версия для быстрого чтения</div>
+          <h1>19 марта — саммари встречи по фильму «Волга. Живая артерия России»</h1>
+          <p class="lead">
+            Версия без лишнего: только суть, решения, ближайшие действия и блок подробностей для тех, кому нужно глубже.
+          </p>
+        </div>
+
+        <button class="btn" id="themeBtn" type="button">🌓 Тема</button>
+      </div>
+
+      <div class="meta">
+        <div class="chip">
+          <div class="k">Дата</div>
+          <div class="v">19 марта</div>
+        </div>
+
+        <div class="chip">
+          <div class="k">Фокус встречи</div>
+          <div class="v">Фильм как инструмент защиты территории, а не просто красивое видео о природе</div>
+        </div>
+
+        <div class="chip">
+          <div class="k">Главный продукт</div>
+          <div class="v">Сейчас в приоритете первый публичный фильм для широкой аудитории</div>
+        </div>
+
+        <div class="chip">
+          <div class="k">Второй продукт</div>
+          <div class="v">Отдельный короткий адресный фильм для людей, принимающих решения</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>Суть за 1 минуту</h2>
+
+        <div class="cards">
+          <div class="card">
+            <div class="num">01</div>
+            <p><strong>Цель фильма</strong> — сдвинуть ситуацию в сторону защиты территории и создания природного парка.</p>
+          </div>
+
+          <div class="card">
+            <div class="num">02</div>
+            <p><strong>Первый фильм</strong> делается для широкой аудитории: он должен вызвать поддержку и сделать тему личной для зрителя.</p>
+          </div>
+
+          <div class="card">
+            <div class="num">03</div>
+            <p><strong>Тон фильма</strong> — сильный, но достоверный: без фальши, без дешёвого нагнетания, без перегруза сложной бюрократией.</p>
+          </div>
+
+          <div class="card">
+            <div class="num">04</div>
+            <p><strong>Основа драматургии</strong> — показать живую ценность территории и затем ясно раскрыть, что именно может быть утрачено.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Что решили</h2>
+
+        <ul class="clean">
+          <li class="list-card">Берём в работу <strong>первый публичный фильм</strong>, адресный фильм для власти — следующим этапом.</li>
+
+          <li class="list-card">Фильм должен <strong>работать на действие</strong>, а не существовать как нейтральное наблюдение.</li>
+
+          <li class="list-card">Команда получает возможность сначала <strong>показать своё сценарное видение</strong>, а правки обсуждаются уже по конкретике.</li>
+
+          <li class="list-card">Нужны <strong>интервью, карты, генплан, архив, референсы и проверяемые аргументы</strong> — всё это должно войти в рабочий контур ближайшего этапа.</li>
+
+          <li class="list-card">Ориентир — <strong>подготовить рабочую сценарную версию примерно за 2 недели</strong>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ближайшие действия</h2>
+        <p class="section-intro">
+          Только то, что реально двигает проект в ближайшие дни и недели.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Приоритет</th>
+                <th>Задача</th>
+                <th>Ответственный</th>
+                <th>Срок</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Приоритет"><span class="badge high">Высокий</span></td>
+                <td data-label="Задача">
+                  <span class="task-title">Создать рабочую группу и единый канал координации</span>
+                  <span class="task-note">Собрать материалы, вопросы, контакты, сценарные версии и комментарии в одном месте.</span>
+                </td>
+                <td data-label="Ответственный">Алексей Гроза</td>
+                <td data-label="Срок">1–2 дня</td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет"><span class="badge high">Высокий</span></td>
+                <td data-label="Задача">
+                  <span class="task-title">Передать весь архив и визуальные материалы</span>
+                  <span class="task-note">Облёты, сезонные съёмки, генплан, карты, презентации, визитку «Арт Луга», референсы.</span>
+                </td>
+                <td data-label="Ответственный">Вячеслав Зобов</td>
+                <td data-label="Срок">1–3 дня</td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет"><span class="badge high">Высокий</span></td>
+                <td data-label="Задача">
+                  <span class="task-title">Отобрать визуальный костяк фильма</span>
+                  <span class="task-note">Определить сильные кадры по красоте территории, масштабу, угрозе и человеческой ценности места.</span>
+                </td>
+                <td data-label="Ответственный">Дмитрий Дроздов / креативная команда</td>
+                <td data-label="Срок">3–5 дней после получения архива</td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет"><span class="badge high">Высокий</span></td>
+                <td data-label="Задача">
+                  <span class="task-title">Подготовить рабочую версию сценария первого фильма</span>
+                  <span class="task-note">Собрать хук, драматургию, пространственное объяснение и ясную финальную функцию фильма.</span>
+                </td>
+                <td data-label="Ответственный">Дмитрий Дроздов</td>
+                <td data-label="Срок">Около 2 недель</td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет"><span class="badge mid">Средний</span></td>
+                <td data-label="Задача">
+                  <span class="task-title">Проработать блок интервью</span>
+                  <span class="task-note">Определить спикеров, функции интервью и вопросы, которые дадут нужные смыслы.</span>
+                </td>
+                <td data-label="Ответственный">Дмитрий Дроздов, Алексей Гроза</td>
+                <td data-label="Срок">До сценарной версии</td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет"><span class="badge mid">Средний</span></td>
+                <td data-label="Задача">
+                  <span class="task-title">Собрать проверяемую аргументацию</span>
+                  <span class="task-note">Экосистемные услуги, польза ООПТ, региональные аналоги, факты по качеству жизни и рекреации.</span>
+                </td>
+                <td data-label="Ответственный">Алексей Гроза + инициаторы проекта</td>
+                <td data-label="Срок">1–2 недели</td>
+              </tr>
+
+              <tr>
+                <td data-label="Приоритет"><span class="badge mid">Средний</span></td>
+                <td data-label="Задача">
+                  <span class="task-title">Подготовить список следующих внешних контактов</span>
+                  <span class="task-note">Эксперты, участники процедур, потенциальные влиятельные фигуры и посредники.</span>
+                </td>
+                <td data-label="Ответственный">Алексей Гроза</td>
+                <td data-label="Срок">1 неделя</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Что важно не потерять</h2>
+
+        <ul class="clean">
+          <li class="list-card"><strong>Не перегрузить фильм процедурой.</strong><br><br>Первый фильм должен быть понятным и эмоционально точным, а не превращаться в тяжёлый бюрократический разбор.</li>
+
+          <li class="list-card"><strong>Не уйти в фальшивый драматизм.</strong><br><br>Нерв нужен, но доверие важнее. Всё спорное должно иметь фактическую опору.</li>
+
+          <li class="list-card"><strong>Показать не только угрозу, но и ценность.</strong><br><br>Нужно ясно раскрыть, что даёт защита территории людям, городу и будущему.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Подробнее</h2>
+
+        <details>
+          <summary>Открыть расширенную записку</summary>
+          <div class="details-body">
+            <ul class="clean">
+              <li class="list-card"><strong>Про два фильма.</strong><br><br>Встреча подтвердила двухконтурную логику проекта: один фильм — для общественного мнения, второй — для точечного разговора с принимающими решения людьми. Но сейчас весь фокус на первом.</li>
+
+              <li class="list-card"><strong>Про главный драматургический принцип.</strong><br><br>Сначала показывается жизнь территории, её масштаб, красота, смысл и связь с городом. Затем — ясный образ того, что будет потеряно без защиты.</li>
+
+              <li class="list-card"><strong>Про спор внутри подхода.</strong><br><br>Одна линия тянет в сторону более жёсткой и тревожной подачи, другая — в сторону мягкой и созидательной. Рабочий вывод: нужен сильный, но честный баланс.</li>
+
+              <li class="list-card"><strong>Про материалы.</strong><br><br>У проекта уже есть серьёзная база: архив за несколько лет, облёты, карты, генплан, презентации, референсы и визуальные наработки. Это позволяет быстро стартовать не с пустого листа.</li>
+
+              <li class="list-card"><strong>Про интервью.</strong><br><br>Интервью нужны не как формальность, а как управляемый инструмент: каждый спикер должен отвечать за конкретную функцию в будущем фильме.</li>
+
+              <li class="list-card"><strong>Про фактическую опору.</strong><br><br>Нужны проверяемые данные по экологии, экосистемным услугам, качеству жизни, рекреации и кейсам аналогичных территорий. Это важно и для доверия к фильму, и для внешних переговоров.</li>
+
+              <li class="list-card"><strong>Про следующий контур работы.</strong><br><br>Рабочая группа, сбор материалов, отбор сильных визуальных блоков, сценарная версия и только после этого — более предметный разговор о правках, спикерах и политическом контуре.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+    </main>
+
+    <footer>
+      Краткая версия документа: для быстрого чтения, мобильного просмотра и управленческого использования.
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      const saved = localStorage.getItem('meeting-summary-short-theme');
+
+      if(saved === 'dark' || saved === 'light'){
+        root.setAttribute('data-theme', saved);
+      }
+
+      btn.addEventListener('click', function(){
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('meeting-summary-short-theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
