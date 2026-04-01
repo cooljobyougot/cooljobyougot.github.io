@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Саммари встречи — проект «Зелёные»</title>
+  <meta name="description" content="Подробное управленческое HTML-саммари по транскриптам обсуждения проекта «Зелёные»." />
+  <meta name="keywords" content="саммари встречи, зелёные, короткометражный фильм, сценарная разработка, html-отчёт" />
+  <style>
+    :root{
+      --bg: #0b1220; --bg-soft: #10192c; --panel: rgba(255,255,255,0.07); --panel-strong: rgba(255,255,255,0.10); --text: rgba(255,255,255,0.95); --muted: rgba(255,255,255,0.70); --line: rgba(255,255,255,0.11); --line-strong: rgba(255,255,255,0.18);
+      --accent: #7dd3fc; --accent-strong: #38bdf8; --accent-soft: rgba(125,211,252,0.14); --success: #86efac; --warn: #fde68a; --danger: #fca5a5; --info: #c4b5fd;
+      --shadow-xl: 0 28px 70px rgba(0,0,0,0.34); --shadow-lg: 0 18px 40px rgba(0,0,0,0.22); --radius-xl: 24px; --radius-lg: 18px; --radius-md: 14px; --radius-sm: 12px; --max-width: 1180px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html[data-theme="light"]{
+      --bg: #f4f7fb; --bg-soft: #eef3f9; --panel: rgba(255,255,255,0.72); --panel-strong: rgba(255,255,255,0.93); --text: rgba(11,18,32,0.94); --muted: rgba(11,18,32,0.64); --line: rgba(11,18,32,0.10); --line-strong: rgba(11,18,32,0.16);
+      --accent: #2563eb; --accent-strong: #1d4ed8; --accent-soft: rgba(37,99,235,0.10); --success: #15803d; --warn: #a16207; --danger: #b91c1c; --info: #6d28d9; --shadow-xl: 0 24px 70px rgba(15,23,42,0.10); --shadow-lg: 0 14px 34px rgba(15,23,42,0.08);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:var(--sans);color:var(--text);background:radial-gradient(1000px 600px at 0% 0%, rgba(56,189,248,0.12), transparent 45%),radial-gradient(1000px 700px at 100% 0%, rgba(59,130,246,0.10), transparent 45%),linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);line-height:1.62;letter-spacing:.01em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .page{width:min(calc(100% - 24px), var(--max-width));margin:0 auto;padding:20px 0 56px}.stack{display:flex;flex-direction:column;gap:16px}
+    .surface,.section,.footer{border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow-lg)}
+    .hero{position:relative;overflow:hidden;border-radius:var(--radius-xl);padding:24px;background:radial-gradient(1200px 800px at 0% 0%, rgba(125,211,252,0.12), transparent 50%),radial-gradient(900px 700px at 100% 0%, rgba(37,99,235,0.10), transparent 48%),var(--panel);box-shadow:var(--shadow-xl)}
+    .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg, rgba(255,255,255,0.04), transparent 40%, rgba(255,255,255,0.02));opacity:.6}
+    .hero-top{position:relative;z-index:1;display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}.hero-titlebox{max-width:860px;display:flex;flex-direction:column;gap:10px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;width:max-content;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,0.04);color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.10em;text-transform:uppercase}
+    html[data-theme="light"] .eyebrow{background:rgba(255,255,255,.86)}
+    h1{margin:0;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-.03em;max-width:980px}.lead{margin:0;color:var(--muted);font-size:16px;max-width:860px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,0.04);color:var(--text);font-weight:700;font-size:14px;line-height:1;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease;text-decoration:none}.btn:hover{transform:translateY(-1px);border-color:rgba(125,211,252,0.30);text-decoration:none}.btn-primary{background:linear-gradient(180deg, rgba(125,211,252,0.18), rgba(125,211,252,0.08));border-color:rgba(125,211,252,0.28)} html[data-theme="light"] .btn{background:rgba(255,255,255,.86)} html[data-theme="light"] .btn-primary{background:linear-gradient(180deg, rgba(37,99,235,0.12), rgba(37,99,235,0.06));border-color:rgba(37,99,235,0.20)}
+    .meta-grid,.cards,.summary-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.meta-grid{position:relative;z-index:1;margin-top:18px}.meta-card{grid-column:span 6;padding:14px 15px 15px;border-radius:16px;border:1px solid var(--line);background:var(--panel-strong);min-height:88px}.meta-k{font-size:11px;text-transform:uppercase;letter-spacing:.10em;color:var(--muted);font-weight:800;margin-bottom:8px}.meta-v{font-size:14px;line-height:1.55}
+    .section{border-radius:var(--radius-xl);padding:22px;overflow:hidden}.section-head{display:flex;gap:16px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}.section-titlebox{display:flex;flex-direction:column;gap:8px;max-width:880px} h2{margin:0;font-size:clamp(22px,3vw,30px);line-height:1.14;letter-spacing:-.025em}.section-intro{margin:0;color:var(--muted);font-size:15px;max-width:860px} h3{margin:0 0 10px 0;font-size:clamp(17px,2.2vw,21px);line-height:1.25;letter-spacing:-.015em} p{margin:0 0 14px 0} p:last-child{margin-bottom:0}
+    .summary-card,.card{grid-column:span 6;border:1px solid var(--line);background:var(--panel-strong);border-radius:18px;padding:16px 16px 18px;min-height:100%}.card-wide{grid-column:span 12}.card-index{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;margin-bottom:12px}.kicker{display:inline-flex;margin-bottom:8px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid var(--line);color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+    .list{display:grid;gap:14px;margin:0;padding:0;list-style:none}.list-item{position:relative;padding:16px 16px 18px 18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,0.03)} html[data-theme="light"] .list-item{background:rgba(255,255,255,0.68)} .list-item::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:999px;background:linear-gradient(180deg,var(--accent),transparent);opacity:.9}
+    .muted{color:var(--muted)} .badge-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.badge{display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:6px 10px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(255,255,255,0.04);font-size:12px;font-weight:800;white-space:nowrap;line-height:1}.badge-priority-high{color:var(--danger)}.badge-priority-medium{color:var(--warn)}.badge-priority-low{color:var(--success)}.badge-info{color:var(--info)}.badge-neutral{color:var(--muted)}.badge-hypothesis{color:var(--warn);background:rgba(253,230,138,0.08);border-style:dashed}.badge-unapproved{color:var(--danger);background:rgba(252,165,165,0.08);border-style:dashed}
+    .table-shell{overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--panel-strong)}.table-scroll{width:100%;overflow-x:auto} table{width:100%;min-width:920px;border-collapse:collapse} thead th{padding:15px 14px;text-align:left;vertical-align:top;font-size:11px;text-transform:uppercase;letter-spacing:.10em;color:var(--muted);font-weight:800;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.03)} tbody td{padding:16px 14px 18px;vertical-align:top;border-bottom:1px solid var(--line);font-size:14px} tbody tr:last-child td{border-bottom:0} tbody tr:hover{background:rgba(125,211,252,0.04)} .task-title,.cell-title{display:block;font-weight:800;margin-bottom:6px}.task-note{font-size:13px;line-height:1.55;color:var(--muted)}
+    details{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,0.03)} html[data-theme="light"] details{background:rgba(255,255,255,.70)} summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:800} summary::-webkit-details-marker{display:none}.details-meta{display:block;color:var(--muted);font-weight:500;font-size:13px;margin-top:4px}.details-body{padding:0 18px 18px}
+    .footer{border-radius:var(--radius-xl);padding:20px;background:radial-gradient(800px 500px at 0% 0%, rgba(125,211,252,0.10), transparent 45%),var(--panel)}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:14px}.footer-brand{display:flex;flex-direction:column;gap:10px}.brand-title{font-size:18px;font-weight:900;line-height:1.25;letter-spacing:-.02em}.brand-subtitle{color:var(--muted);font-size:14px;max-width:520px}.footer-col{border:1px solid var(--line);background:rgba(255,255,255,0.03);border-radius:16px;padding:14px} html[data-theme="light"] .footer-col{background:rgba(255,255,255,0.70)} .footer-k{font-size:11px;text-transform:uppercase;letter-spacing:.10em;color:var(--muted);font-weight:800;margin-bottom:8px}.footer-v{font-size:14px;line-height:1.6}.footer-v strong{display:block;margin-bottom:4px;font-size:14px}.footer-bottom{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;color:var(--muted);font-size:13px}.site-link{display:inline-flex;align-items:center;gap:8px;font-weight:800}
+    @media (max-width:980px){.meta-card,.card,.summary-card{grid-column:span 12}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:760px){.page{width:min(calc(100% - 16px), var(--max-width));padding:10px 0 36px}.hero,.section,.footer{padding:16px;border-radius:20px}.hero-actions{width:100%}.btn{flex:1 1 auto}.lead{font-size:15px}.meta-grid,.cards,.summary-grid{gap:10px}.table-shell{overflow:visible;border:0;background:transparent}.table-scroll{overflow:visible} table,thead,tbody,th,td,tr{display:block;width:100%;min-width:0} thead{display:none} tbody{display:grid;gap:10px} tbody tr{display:block;padding:12px 12px 2px;border:1px solid var(--line);border-radius:18px;background:var(--panel-strong);box-shadow:var(--shadow-lg)} tbody td{border:0;padding:0 0 14px 0} tbody td::before{content:attr(data-label);display:block;margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:.10em;color:var(--muted);font-weight:800}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}}
+    @media print{body{background:#fff}.page{width:100%;max-width:none;padding:0}.hero-actions,#themeToggle{display:none !important}.surface,.section,.footer{box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="stack">
+      <header class="hero surface">
+        <div class="hero-top">
+          <div class="hero-titlebox">
+            <div class="eyebrow">Итоговый документ встречи</div>
+            <h1>Саммари встречи — проект «Зелёные»</h1>
+            <p class="lead">Подробное управленческое саммари по монологам и сценарным наброскам: ядро истории, структура фильма, логика персонажей, сценография, производственные ориентиры и рабочие вопросы без повторяющихся смыслов.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://какаяувасинтереснаяработа.рф" target="_blank" rel="noopener noreferrer">Корпоративный сайт</a>
+            <button class="btn" id="themeToggle" type="button" aria-label="Переключить тему">Сменить тему</button>
+          </div>
+        </div>
+        <div class="meta-grid">
+          <div class="meta-card"><div class="meta-k">Дата</div><div class="meta-v">2026-04-01</div></div>
+          <div class="meta-card"><div class="meta-k">Проект</div><div class="meta-v">«Зелёные»</div></div>
+          <div class="meta-card"><div class="meta-k">Участники</div><div class="meta-v">не указано в транскрипте; по содержанию — один основной спикер, местами появляется второй голос</div></div>
+          <div class="meta-card"><div class="meta-k">Фокус</div><div class="meta-v">Разработка короткометражного фильма: сюжет, персонажи, визуальный язык, драматургия, логика презентации проекта заказчику</div></div>
+          <div class="meta-card"><div class="meta-k">Теги</div><div class="meta-v">короткий метр · экология · контраст города и природы · pitch · сценарная структура</div></div>
+          <div class="meta-card"><div class="meta-k">Версия</div><div class="meta-v">Полная версия</div></div>
+        </div>
+      </header>
+
+      <main class="stack">
+        <section class="section">
+          <div class="section-head"><div class="section-titlebox"><h2>Ключевая суть встречи</h2><p class="section-intro">Главное, что нужно понять о встрече без лишних повторов.</p></div></div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="card-index">01</div>
+              <h3>Это не просто идея про экологию, а история о резкой внутренней смене мира</h3>
+              <p>В центре проекта — девушка, живущая рядом с богатством, статусом и городской роскошью, но внутренне не принимающая эту жизнь. Сюжет строится на том, как её привычная картина мира разрушается и уступает место другой системе ценностей: природе, живому, свободе и ощущению подлинности.</p>
+            </div>
+            <div class="summary-card">
+              <div class="card-index">02</div>
+              <h3>Основа драматургии — столкновение двух параллельных миров</h3>
+              <p>Одна линия — город, шум, застройка, дорогая эстетика, мужик-застройщик, сделки и доминирующая маскулинность. Вторая линия — «зелёный» герой, лес, велосипед, собака, спокойствие, философичность и связь с природой. Эти линии должны идти параллельно и сплестись примерно к середине фильма.</p>
+            </div>
+            <div class="summary-card">
+              <div class="card-index">03</div>
+              <h3>Проект мыслится как короткометражный фильм с сильным хронометражным ритмом</h3>
+              <p>Речь идёт не о сериальном разворачивании, а о мини-фильме, где за ограниченное время нужно провести зрителя от хука через две сходящиеся сюжетные линии к яркому переосмыслению и эмоционально ясному финалу. Рабочий коридор по длительности сейчас считывается как 30–40 минут: есть ориентир на 25–30 минут, но также отдельно звучит желание дать истории развернуться ближе к 40 минутам.</p>
+            </div>
+            <div class="summary-card">
+              <div class="card-index">04</div>
+              <h3>Главная задача проекта — заставить зрителя поверить, досмотреть и внутренне согласиться</h3>
+              <p>Спикер многократно возвращается к одному и тому же управленческому требованию: зритель не должен тратить усилия на то, чтобы понять, куда смотреть и что происходит. Картинка, монтаж, композиция, музыка и ритм должны удерживать внимание до финального эмоционального удара, после которого человеку должно стать ближе экологическое решение, а не логика бездушной застройки.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><div class="section-titlebox"><h2>Решения и договорённости</h2><p class="section-intro">Только зафиксированные решения и согласованные рамки.</p></div></div>
+          <ul class="list">
+            <li class="list-item"><strong>Базовый формат</strong><br/>Фильм собирается как короткий метр, а не как сериал. Сериал используется как референс по ритму, структуре сцены и склейке параллельных линий, но не как целевая форма проекта.</li>
+            <li class="list-item"><strong>Референсная логика</strong><br/>В качестве рабочего драматургического ориентира отдельно фиксируется сериал «Жить по вызову»: не по теме, а по устройству. Важны ощущение мини-фильма внутри блока, ясные параллельные линии, музыкальные перебивки и сцены, которые живут короткими, законченными отрезками примерно по 2,5–5 минут.</li>
+            <li class="list-item"><strong>Продуктовая рамка</strong><br/>Помимо одного фильма, в обсуждении присутствует идея более широкой конструкции: один и тот же базовый сюжет при желании может существовать в нескольких версиях или с разными вариантами развязки. Это пока не утверждено как обязательное решение, но зафиксировано как сильный потенциал проекта.</li>
+            <li class="list-item"><strong>Ядро истории</strong><br/>Главной героиней остаётся девушка; история строится вокруг её переосознания и перехода из искусственного, дорогого, но внутренне чужого мира в живую и осмысленную реальность.</li>
+            <li class="list-item"><strong>Система персонажей</strong><br/>В текущем рабочем контуре зафиксированы три главные фигуры: девушка, её мужчина из мира застройки/сделок и «зелёный» герой как носитель альтернативного мировоззрения.</li>
+            <li class="list-item"><strong>Структурный принцип</strong><br/>Сюжет должен опираться на две параллельные линии, которые сплетаются ближе к середине фильма и выводят к кульминации примерно к последней трети.</li>
+            <li class="list-item"><strong>Хронометражный коридор</strong><br/>Финальная длительность пока не утверждена жёстко: внутри материалов читается рабочий диапазон 30–40 минут. В практической разработке это означает, что структуру нужно собирать так, чтобы она выдерживала как более собранную, так и более развернутую версию.</li>
+            <li class="list-item"><strong>Открывающий хук</strong><br/>Фильм начинается не с экспозиции, а с сильного эмоционального куска из будущего финала: плач, боль, непонятная для зрителя ситуация, которую потом сюжет расшифровывает.</li>
+            <li class="list-item"><strong>Финал</strong><br/>Финал мыслится позитивным по направлению: героиня меняется, становится «зелёной», начинает действовать в сторону экологии и выглядит счастливой в новой роли.</li>
+            <li class="list-item"><strong>Петиция или прямой призыв в конце</strong><br/>Прямой призыв к подписи/петиции в текущем виде не считается хорошим решением: есть опасение, что он «смажет» концовку. Вопрос оставлен открытым.</li>
+            <li class="list-item"><strong>Визуальная планка</strong><br/>Картинка должна выглядеть дорого. На уровне намерения выбран курс на сильную операторскую работу, стабилизацию, хорошую покраску и продуманную композицию.</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><div class="section-titlebox"><h2>План действий: задачи, ответственные, сроки</h2><p class="section-intro">Собранный рабочий план по итогам встречи.</p></div></div>
+          <div class="table-shell"><div class="table-scroll"><table><thead><tr><th>Приоритет</th><th>Задача</th><th>Ответственный</th><th>Срок</th><th>Статус</th></tr></thead><tbody>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+              <td data-label="Задача"><span class="task-title">Собрать одностраничное или двухстраничное тезисное описание фильма для заказчиков</span><span class="task-note">Нужен короткий pitch-документ, который можно дать спикеру или использовать как основу презентации проекта.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">нужно назначить</span><span class="badge badge-unapproved">Не утверждено</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">критично для следующего этапа</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+              <td data-label="Задача"><span class="task-title">Собрать полную последовательность сцен от хука до финала</span><span class="task-note">Нужно превратить разрозненные куски монолога в единую драматургическую цепочку с логикой переходов и местом каждой сцены.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">рабочая гипотеза: автор идеи / сценарный редактор</span><span class="badge badge-hypothesis">Рабочая гипотеза</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">нужно сделать в первую очередь</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+              <td data-label="Задача"><span class="task-title">Дописать центральную сцену переосознания героини</span><span class="task-note">Требуется выбрать окончательный триггер: шокирующая сцена с гибелью животных, прямое разоблачение деятельности мужчины, измена, или комбинация этих элементов.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">требует подтверждения</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+              <td data-label="Задача"><span class="task-title">Зафиксировать рабочий хронометраж: 30 или 40 минут</span><span class="task-note">Во втором файле длительность считывается как плавающая. Без этого трудно правильно разложить сцены, темп и объём кульминации.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+              <td data-label="Срок"><span class="cell-title">до сборки итогового посценника</span></td>
+              <td data-label="Статус"><span class="cell-title">обязательное уточнение</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+              <td data-label="Задача"><span class="task-title">Выбрать модель антагониста и собрать посценник до написания диалогов</span><span class="task-note">Нужно решить, каким именно будет мужчина из мира застройки: сразу мерзким или сначала понятным, а затем раскрытым. После этого — собрать сухой посценник по действиям и только потом писать диалоги.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">сценарный блок / редактор</span><span class="badge badge-hypothesis">Рабочая гипотеза</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">критично для сборки истории</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-medium">Средний</span></div></td>
+              <td data-label="Задача"><span class="task-title">Проработать диалоги</span><span class="task-note">Особенно важны диалоги в ресторане, финальном разговоре и будущих сценах взаимодействия девушки с «зелёным» героем.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">зависит от финальной структуры сцен</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-medium">Средний</span></div></td>
+              <td data-label="Задача"><span class="task-title">Собрать визуальный референс-пак</span><span class="task-note">Нужны референсы по свету, покраске, дорогой городской эстетике, лесным сценам, ритму монтажа и финальным slow-motion кадрам трансформации.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">подготовительный этап</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-medium">Средний</span></div></td>
+              <td data-label="Задача"><span class="task-title">Определить форму презентации проекта заказчикам</span><span class="task-note">Нужно решить, что именно будет сопровождать устный питч: текстовый синопсис, видеоряд, mood video, раскадровка или их комбинация.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">открытый вопрос</span></td>
+            </tr>
+            <tr>
+              <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-low">Низкий</span></div></td>
+              <td data-label="Задача"><span class="task-title">Решить, нужен ли альтернативный финал или два сценарных трека</span><span class="task-note">Идея с несколькими версиями развязки звучит как потенциальная франшизная рамка, но пока не оформлена как обязательное решение.</span></td>
+              <td data-label="Ответственный"><span class="cell-title">нужно назначить</span><span class="badge badge-hypothesis">Рабочая гипотеза</span></td>
+              <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+              <td data-label="Статус"><span class="cell-title">не утверждено</span></td>
+            </tr>
+          </tbody></table></div></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><div class="section-titlebox"><h2>Стратегические / сценарные ориентиры</h2><p class="section-intro">Ориентиры, которые задают правильное направление следующего этапа.</p></div></div>
+          <div class="cards">
+            <div class="card"><span class="kicker">Контраст</span><h3>Город против природы</h3><p>Город должен ощущаться не просто фоном, а системой раздражения: шум, сирены, бибиканье, застройка, суета, холодная статусность. Природа, наоборот, — пространство покоя, воздуха и живого интеллекта.</p></div>
+            <div class="card"><span class="kicker">Архетип</span><h3>«Зелёный» герой</h3><p>Это не хиппи-карикатура и не религиозный проводник. Нужен привлекательный, хорошо выглядящий, свободный, умный персонаж: эколог, философ, путешественник, человек, с которым хочется вступать в содержательный диалог.</p></div>
+            <div class="card"><span class="kicker">Трансформация</span><h3>Героиня не просто уходит от мужчины — она меняет систему координат</h3><p>Изменение имиджа, одежды, среды и способа движения в пространстве — не косметический жест, а визуальное доказательство переосмысления.</p></div>
+            <div class="card"><span class="kicker">Антагонист</span><h3>Мужчина должен быть сложнее, чем просто «злой застройщик»</h3><p>Внутри обсуждения есть желание показать его сначала неприятным, затем частично понятным, а затем снова морально обрушить. Это делает линию глубже и усиливает финальный удар.</p></div>
+            <div class="card card-wide"><span class="kicker">Монтаж и ритм</span><h3>Внимание зрителя — центральный KPI фильма</h3><p>Картинка не должна вынуждать зрителя разбираться, куда смотреть. Монтаж должен вести. Музыка должна либо создавать напряжение, либо отпускать его. Композиция должна нести смысл без визуального шума. Вся конструкция оценивается через способность удержать человека до последней сцены.</p></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><div class="section-titlebox"><h2>Кто у кого что будет спрашивать — краткое саммари</h2><p class="section-intro">Ключевые линии будущих взаимодействий в сжатом виде.</p></div></div>
+          <ul class="list">
+            <li class="list-item"><strong>Сценарный блок → автору идеи:</strong><br/>Какой именно триггер окончательно запускает переосознание героини: сцены с гибелью животных, разоблачение деятельности мужчины, измена, разговор или сочетание нескольких факторов?</li>
+            <li class="list-item"><strong>Продюсерский блок → команде проекта:</strong><br/>Нужен ли сразу один сценарий или стоит упаковывать идею как минимум в две версии одной истории с разными концовками?</li>
+            <li class="list-item"><strong>Режиссёрский блок → сценарному блоку:</strong><br/>Где именно и как пересекаются линии девушки и «зелёного» героя, чтобы это не выглядело искусственным столкновением?</li>
+            <li class="list-item"><strong>Кастинг → сценарному блоку:</strong><br/>Какой точный типаж у главной героини: холодная лакшери-девушка с внутренней трещиной или более дерзкая, почти неприятная фигура, которой предстоит пройти более радикальный путь?</li>
+            <li class="list-item"><strong>Кастинг → автору идеи:</strong><br/>Насколько интеллектуальным, привлекательным и «не бытовым» должен быть «зелёный» герой, чтобы встреча с ним выглядела притяжением, а не случайностью?</li>
+            <li class="list-item"><strong>Режиссёр / монтаж → операторскому блоку:</strong><br/>Как снять дорогую картинку без визуальной суеты и как развести по цвету и звуку городскую и природную линии?</li>
+            <li class="list-item"><strong>Pitch / продажи → команде:</strong><br/>Что лучше работает на заказчика: синопсис на 1–2 страницы, визуальная раскадровка, mood-video или комбинированная презентация?</li>
+            <li class="list-item"><strong>Редакторский блок → режиссуре и сценаристу:</strong><br/>Как удержать экологическую тему внутри драмы и образов, чтобы фильм не начал звучать как прямолинейная агитка или морализаторский манифест?</li>
+            <li class="list-item"><strong>Финальный блок → автору идеи:</strong><br/>Нужен ли в конце прямой социальный призыв или фильм должен закончиться на сильной эмоциональной трансформации без внешнего CTA?</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><div class="section-titlebox"><h2>Подробная рабочая аналитическая записка</h2><p class="section-intro">Расширенный слой для тех, кому нужен подробный рабочий контекст.</p></div></div>
+
+          <details open>
+            <summary>1. Что именно разрабатывалось<span class="details-meta">Развёрнутая фиксация сути обсуждения</span></summary>
+            <div class="details-body">
+              <p>Обсуждение не было встречей в классическом формате. По содержанию это большой авторский монолог с постоянным возвращением к одним и тем же смысловым осям: как устроить сюжет, как разложить его по времени, какие типажи нужны, как должна работать картинка, какие сцены обязаны быть эмоционально пробивными и как вообще этот проект потом продавать заказчику.</p>
+              <p>Самый важный редакторский вывод: проект уже имеет сильный концептуальный каркас, но пока существует в виде интенсивного потока идей. Поэтому задача саммари — не пересказать поток, а собрать из него рабочий документ, в котором команде будет понятно, что именно уже найдено, а что ещё только нащупывается.</p>
+              <p>Дополнительно во втором файле звучит не только логика одного короткометражного фильма, но и потенциал более крупной продуктовой рамки: один и тот же сюжетный стержень может существовать в нескольких версиях и даже в нескольких развязках. Это пока не решение, а зафиксированный сценарно-продуктовый резерв.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>2. Сверхкраткая модель сюжета<span class="details-meta">Одна ось, на которую нанизывается вся история</span></summary>
+            <div class="details-body">
+              <p>Есть девушка, находящаяся рядом с влиятельным мужчиной из мира больших денег, сделок и застройки. Эта жизнь красива внешне, но не совпадает с её внутренней правдой. Есть второй мужской полюс — «зелёный» герой, связанный с природой, свободой и другим типом интеллекта. Есть событие или серия событий, после которых героиня больше не может жить по-старому. Она проходит эмоциональный слом, пересобирает себя и выходит в новую идентичность, уже связанную с экологией и действием.</p>
+              <p>Во втором файле эта ось уточняется ещё жёстче: фильм должен не просто завершить личную трансформацию героини, а довести зрителя до внутреннего согласия с тем, что живая среда, природа и экологический выбор ценнее логики бездушной застройки.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>3. Персонажи и их функции<span class="details-meta">Не просто список героев, а их драматургические роли</span></summary>
+            <div class="details-body">
+              <div class="cards">
+                <div class="card">
+                  <h3>Главная героиня</h3>
+                  <p>Красивая, статусная, визуально дорогая. Но главное не в красоте, а в скрытом внутреннем несоответствии среде. В разных частях монолога спикер то делает её более умной и тонкой, то допускает более резкий, даже неприятный вариант характера. Общее неизменно: она должна пройти большой путь.</p>
+                </div>
+                <div class="card">
+                  <h3>Мужчина из мира застройки</h3>
+                  <p>Не обязательно карикатурный злодей. Он связан с деньгами, влиянием, девелоперской или смежной деятельностью, хвастается сделками, несёт в себе городской мир. При этом спикер хочет не только осудить его, но и попробовать раскрыть: зритель в какой-то момент может почти начать его понимать, прежде чем история снова обрушит ему статус.</p>
+                </div>
+                <div class="card">
+                  <h3>«Зелёный» герой</h3>
+                  <p>Свободный, привлекательный, живой, не маргинальный. Может быть экологом, экологом-философом, путешественником, серфером, человеком «с вайбом». Его линия нужна не только для романтического интереса, но и как носитель иной интеллектуальной и эмоциональной модели жизни. Через него в фильм входит не проповедь, а опыт природы как сверхразумного живого организма.</p>
+                </div>
+                <div class="card">
+                  <h3>Второстепенные фигуры</h3>
+                  <p>Во втором файле дополнительно фиксируются подруги главной героини как часть мира роскоши, официантка как маркер измены и скользкости мужчины из мира застройки, девушка из голосового сообщения в линии «зелёного» героя, а также собака как важная деталь его естественной, живой среды.</p>
+                </div>
+              </div>
+              <p style="margin-top:14px"><strong>Символическая схема, явно проявленная во втором файле:</strong> девушка — точка выбора между двумя мирами; мужчина-застройщик — город, деньги, тревога и разрушение природы; «зелёный» герой — свобода, интеллект, здоровье и живой порядок; сама природа — не фон, а сверхорганизм и сверхинтеллект, противопоставленный искусственной городской логике.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>4. Предварительная структура фильма по блокам<span class="details-meta">Собрано из всех фрагментов о хронометраже и порядке сцен</span></summary>
+            <div class="details-body">
+              <ul class="list">
+                <li class="list-item"><strong>Хук / открытие:</strong><br/>Перед первой сильной сценой может стоять очень короткий старт с логотипом или кинокомпанией. Дальше — заплаканная героиня, эмоциональная боль, кадр, который сначала непонятен зрителю. Возможен образ девушки в дорогой одежде, но в простой машине, с болью и слезами в движении.</li>
+                <li class="list-item"><strong>Заставка:</strong><br/>После резкого обрыва — природа, цветы, растения, пейзажи, название фильма. Важна интонация перехода от боли к ощущению большого скрытого смысла.</li>
+                <li class="list-item"><strong>Линия «зелёного» героя:</strong><br/>Лес, велосипед или пробежка, собака, солнце, яркая, но киношно-яркая картинка. Затем голосовое сообщение от пустой городской девушки, которое он игнорирует, демонстрируя интерес не к поверхностному вниманию, а к содержательному общению.</li>
+                <li class="list-item"><strong>Линия города и героини:</strong><br/>Ночной шумный город, панорамы, сирены, потом ресторан с видом на застройку. Мужчина рассказывает о сделке, ведёт себя доминантно, а героиня считывается как внутренняя противница происходящего, хотя внешне сцена выглядит благополучной.</li>
+                <li class="list-item"><strong>Сцена туалета:</strong><br/>Героиня уходит «припудрить носик». Мужчина в это время заигрывает с официанткой; во втором файле добавляется ещё и деталь с запиской, которую официантка передаёт ему, а он прячет. Внутри туалета героиня замечает цветок, логотипы, детали природы — как пасхалки её будущей реальности. Это важный мягкий, не лобовой способ внедрения природной линии в её сознание.</li>
+                <li class="list-item"><strong>Сплетение линий:</strong><br/>К середине фильма две истории должны сойтись. Именно здесь нужно придумать правдоподобный механизм встречи девушки и «зелёного» героя.</li>
+                <li class="list-item"><strong>Кульминационный слом:</strong><br/>Нужен резкий эмоциональный триггер. Рабочие варианты: сцены гибели животных, прямое понимание связи мужчины с разрушением, финальный разговор, в котором он «вываливает всю свою суть», или дополнительный удар через измену. Во втором файле экологический шок описывается особенно жёстко — вплоть до образа «концлагеря для природы».</li>
+                <li class="list-item"><strong>Финал:</strong><br/>Slow-motion трансформации, смена образа, уже другая героиня, участие в экологических инициативах, ощущение счастья, возможное появление вместе с «зелёным» героем в более живом пространстве. В качестве конкретных образов во втором файле дополнительно звучат велосипеды, лес, поля и арт-луга.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>5. Что найдено по визуальному языку<span class="details-meta">Ключевые принципы изображения</span></summary>
+            <div class="details-body">
+              <p><strong>Во-первых,</strong> контрастный мирострой: город и природа должны считываться не только как разные локации, но и как разные физиологии кадра — звук, цвет, ритм, плотность воздуха, скорость движения внутри сцены.</p>
+              <p><strong>Во-вторых,</strong> дорогая операторская подача — не ради статуса, а ради доверия. По логике спикера, если зритель не верит картинке, он не поверит и сюжету. Поэтому важны стабилизация, композиция, покраска, сильная команда, хорошая оптика и такая база съёмки, которую не придётся бесконечно «спасать» на посте.</p>
+              <p><strong>В-третьих,</strong> монтаж должен быть невидимым в плохом смысле и точным в хорошем: зритель не должен «выпадать» из истории. Монтаж — это не украшение, а инструмент удержания внимания.</p>
+              <p><strong>В-четвёртых,</strong> музыка нужна не для навязывания морали, а для регуляции напряжения: где-то нейтральная, где-то поджимающая, где-то отпускающая. Отдельным рабочим ориентиром остаётся логика «Жить по вызову», где перебивки и ритм помогают склеивать параллельные линии и вести зрителя без потери внимания.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>6. Сильные идеи, которые уже можно считать активом проекта<span class="details-meta">То, что важно не потерять на следующем этапе</span></summary>
+            <div class="details-body">
+              <ul class="list">
+                <li class="list-item">Хук с плачущей героиней — сильная открывающая рамка, если потом фильм действительно даёт на него ответ.</li>
+                <li class="list-item">Идея природы как «умного организма», а не как декорации — это смысловое отличие проекта от банальной агитки.</li>
+                <li class="list-item">Сцена в туалете с пасхалками будущей реальности — тонкий способ показать начало сдвига в сознании героини.</li>
+                <li class="list-item">Ресторан на фоне застройки — хорошая концентрированная сцена, где городская линия считывается без прямых лозунгов.</li>
+                <li class="list-item">Неодномерный антагонист — возможность сделать историю взрослее и убедительнее.</li>
+                <li class="list-item">Позитивный финал через смену роли, а не только через разрыв отношений — сильнее, чем просто наказать плохого мужчину.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>7. Основные риски и узкие места<span class="details-meta">Где проект пока ещё не собран до конца</span></summary>
+            <div class="details-body">
+              <ul class="list">
+                <li class="list-item"><strong>Не до конца найден механизм встречи двух миров.</strong><br/>В монологе есть много сцен до и после, но пока нет окончательно собранного моста между девушкой и «зелёным» героем.</li>
+                <li class="list-item"><strong>Слишком много сильных идей конкурируют за кульминацию.</strong><br/>Гибель животных, разоблачение мужчины, измена, финальный разговор — всё это не поместится одинаково громко. Нужен один главный удар и один вспомогательный.</li>
+                <li class="list-item"><strong>Типаж героини пока колеблется.</strong><br/>Она то тонкая и умная, то почти неприятная и резкая. Это нужно стабилизировать, иначе к финалу будет трудно выстроить нужный уровень эмпатии.</li>
+                <li class="list-item"><strong>Есть риск перегруза смыслами.</strong><br/>Сам спикер чувствует, что смыслов очень много. Без жёсткой редакторской сборки фильм может начать распадаться на красивые, но не до конца связанные сцены.</li>
+                <li class="list-item"><strong>Есть риск морализаторства.</strong><br/>Экологическая линия заявлена жёстко, поэтому её нужно держать через драму, образ и зрительское сопереживание, а не через прямые декларации. Иначе фильм может начать звучать как агитка.</li>
+                <li class="list-item"><strong>Есть риск недособранного антагониста.</strong><br/>Если мужчина из мира застройки окажется слишком плоским «злом», история упростится. Во втором файле отдельно поддерживается мысль, что он должен быть сначала хотя бы частично понятным, а уже затем раскрываться глубже.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>8. Редакторский вывод<span class="details-meta">Что делать с этим материалом дальше</span></summary>
+            <div class="details-body">
+              <p>На текущем этапе проект уже не нуждается в ещё одном свободном монологе. Ему нужен переход в следующий формат: <strong>сценарная схема → синопсис → презентационный пакет</strong>.</p>
+              <p>Оптимальный следующий шаг — из этого подробного документа собрать короткий жёсткий pitch на 1–2 страницы и отдельную сценографическую схему с последовательностью эпизодов. Только после этого имеет смысл уходить глубже в кастинг, раскадровку и техническую подготовку.</p>
+              <p>Если опираться на уточнения второго файла, практическая последовательность следующая: зафиксировать рабочий хронометраж — ближе к 30 или к 40 минутам; утвердить точку встречи девушки и «зелёного» героя; выбрать модель антагониста; собрать посценник без диалогов; и лишь затем отдельно писать диалоги, потому что именно они в таком материале легко становятся слабым местом.</p>
+            </div>
+          </details>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-title">Подготовлено креативным агентством #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</div>
+            <div class="brand-subtitle">Редакторская сборка управленческих саммари, визуальных документов и материалов для принятия решений.</div>
+            <div class="footer-col"><div class="footer-k">Сайт</div><div class="footer-v"><a class="site-link" href="https://какаяувасинтереснаяработа.рф" target="_blank" rel="noopener noreferrer">https://какаяувасинтереснаяработа.рф</a></div></div>
+            <div class="footer-col"><div class="footer-k">Официальный рупор агентства</div><div class="footer-v"><a href="https://t.me/cooljobyougot" target="_blank" rel="noopener noreferrer">https://t.me/cooljobyougot</a></div></div>
+          </div>
+          <div class="footer-col"><div class="footer-k">AI партнер</div><div class="footer-v"><strong>AI партнер</strong><div>+79394463156</div><div><a href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener noreferrer">@kakayauvasinteresnayarabota</a></div></div></div>
+          <div class="footer-col"><div class="footer-k">CEO</div><div class="footer-v"><strong>Дмитрий Дроздов</strong><div>+79104721024</div><div><a href="https://t.me/drozdovhumandevelopment" target="_blank" rel="noopener noreferrer">@drozdovhumandevelopment</a></div></div></div>
+          <div class="footer-col"><div class="footer-k">FPV / Video Production</div><div class="footer-v"><strong>Виктор Маслов</strong><div>+79138721192</div><div><a href="https://t.me/Flying_Diamond" target="_blank" rel="noopener noreferrer">@Flying_Diamond</a></div><br /><strong>Дмитрий Клещев</strong><div>+79049299977</div><div><a href="https://t.me/kleshovpro" target="_blank" rel="noopener noreferrer">@kleshovpro</a></div></div></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 · #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</span><span>Документ собран в HTML-формате для удобного чтения на телефоне и компьютере.</span></div>
+      </footer>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const storageKey = 'meeting-summary-theme';
+      const allowed = ['light', 'dark'];
+      const initialTheme = root.getAttribute('data-theme');
+      const savedTheme = localStorage.getItem(storageKey);
+      if (savedTheme && allowed.includes(savedTheme)) root.setAttribute('data-theme', savedTheme);
+      else if (!allowed.includes(initialTheme)) root.setAttribute('data-theme', 'light');
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          const next = current === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem(storageKey, next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
