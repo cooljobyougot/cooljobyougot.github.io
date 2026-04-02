@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Саммари встречи — проект «Зелёные»</title>
+  <meta name="description" content="Подробное управленческое HTML-саммари по обновлённому обсуждению проекта «Зелёные»: пересборка сценария, новая драматургическая рамка, рабочие решения и следующие шаги." />
+  <meta name="keywords" content="саммари встречи, зелёные, короткометражный фильм, сценарная разработка, html-отчёт" />
+  <style>
+    :root{
+      --bg:#0b1220; --bg-soft:#10192c; --panel:rgba(255,255,255,0.07); --panel-strong:rgba(255,255,255,0.10);
+      --text:rgba(255,255,255,0.95); --muted:rgba(255,255,255,0.70); --line:rgba(255,255,255,0.11); --line-strong:rgba(255,255,255,0.18);
+      --accent:#7dd3fc; --accent-strong:#38bdf8; --accent-soft:rgba(125,211,252,0.14); --success:#86efac; --warn:#fde68a; --danger:#fca5a5; --info:#c4b5fd;
+      --shadow-xl:0 28px 70px rgba(0,0,0,0.34); --shadow-lg:0 18px 40px rgba(0,0,0,0.22);
+      --radius-xl:24px; --radius-lg:18px; --radius-md:14px; --radius-sm:12px; --max-width:1180px;
+      --sans:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html[data-theme="light"]{
+      --bg:#f4f7fb; --bg-soft:#eef3f9; --panel:rgba(255,255,255,0.72); --panel-strong:rgba(255,255,255,0.93);
+      --text:rgba(11,18,32,0.94); --muted:rgba(11,18,32,0.64); --line:rgba(11,18,32,0.10); --line-strong:rgba(11,18,32,0.16);
+      --accent:#2563eb; --accent-strong:#1d4ed8; --accent-soft:rgba(37,99,235,0.10); --success:#15803d; --warn:#a16207; --danger:#b91c1c; --info:#6d28d9;
+      --shadow-xl:0 24px 70px rgba(15,23,42,0.10); --shadow-lg:0 14px 34px rgba(15,23,42,0.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:var(--sans); color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 0% 0%, rgba(56,189,248,0.12), transparent 45%),
+        radial-gradient(1000px 700px at 100% 0%, rgba(59,130,246,0.10), transparent 45%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      line-height:1.62; letter-spacing:.01em; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .page{width:min(calc(100% - 24px), var(--max-width)); margin:0 auto; padding:20px 0 56px}
+    .stack{display:flex; flex-direction:column; gap:16px}
+    .surface,.section,.footer{
+      border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:var(--shadow-lg);
+    }
+    .hero{
+      position:relative; overflow:hidden; border-radius:var(--radius-xl); padding:24px;
+      background:
+        radial-gradient(1200px 800px at 0% 0%, rgba(125,211,252,0.12), transparent 50%),
+        radial-gradient(900px 700px at 100% 0%, rgba(37,99,235,0.10), transparent 48%),
+        var(--panel);
+      box-shadow:var(--shadow-xl);
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:linear-gradient(135deg, rgba(255,255,255,0.04), transparent 40%, rgba(255,255,255,0.02)); opacity:.6;
+    }
+    .hero-top{position:relative; z-index:1; display:flex; gap:16px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+    .hero-titlebox{max-width:860px; display:flex; flex-direction:column; gap:10px}
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:8px; width:max-content; padding:7px 12px; border-radius:999px;
+      border:1px solid var(--line); background:rgba(255,255,255,0.04); color:var(--accent); font-size:12px; font-weight:800; letter-spacing:.10em; text-transform:uppercase;
+    }
+    html[data-theme="light"] .eyebrow{background:rgba(255,255,255,.86)}
+    h1{margin:0; font-size:clamp(28px,4vw,42px); line-height:1.08; letter-spacing:-.03em; max-width:980px}
+    .lead{margin:0; color:var(--muted); font-size:16px; max-width:860px}
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 16px; border-radius:14px;
+      border:1px solid var(--line); background:rgba(255,255,255,0.04); color:var(--text); font-weight:700; font-size:14px; line-height:1; cursor:pointer;
+      transition:transform .18s ease,border-color .18s ease,background .18s ease; text-decoration:none;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(125,211,252,0.30); text-decoration:none}
+    .btn-primary{background:linear-gradient(180deg, rgba(125,211,252,0.18), rgba(125,211,252,0.08)); border-color:rgba(125,211,252,0.28)}
+    html[data-theme="light"] .btn{background:rgba(255,255,255,.86)}
+    html[data-theme="light"] .btn-primary{background:linear-gradient(180deg, rgba(37,99,235,0.12), rgba(37,99,235,0.06)); border-color:rgba(37,99,235,0.20)}
+    .meta-grid,.cards,.summary-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:12px}
+    .meta-grid{position:relative; z-index:1; margin-top:18px}
+    .meta-card{grid-column:span 6; padding:14px 15px 15px; border-radius:16px; border:1px solid var(--line); background:var(--panel-strong); min-height:88px}
+    .meta-k{font-size:11px; text-transform:uppercase; letter-spacing:.10em; color:var(--muted); font-weight:800; margin-bottom:8px}
+    .meta-v{font-size:14px; line-height:1.55}
+    .section{border-radius:var(--radius-xl); padding:22px; overflow:hidden}
+    .section-head{display:flex; gap:16px; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; margin-bottom:14px}
+    .section-titlebox{display:flex; flex-direction:column; gap:8px; max-width:880px}
+    h2{margin:0; font-size:clamp(22px,3vw,30px); line-height:1.14; letter-spacing:-.025em}
+    .section-intro{margin:0; color:var(--muted); font-size:15px; max-width:860px}
+    h3{margin:0 0 10px 0; font-size:clamp(17px,2.2vw,21px); line-height:1.25; letter-spacing:-.015em}
+    p{margin:0 0 14px 0}
+    p:last-child{margin-bottom:0}
+    .summary-card,.card{grid-column:span 6; border:1px solid var(--line); background:var(--panel-strong); border-radius:18px; padding:16px 16px 18px; min-height:100%}
+    .card-wide{grid-column:span 12}
+    .card-index{display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-size:13px; font-weight:800; margin-bottom:12px}
+    .kicker{display:inline-flex; margin-bottom:8px; padding:5px 10px; border-radius:999px; background:rgba(255,255,255,0.04); border:1px solid var(--line); color:var(--muted); font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:800}
+    .list{display:grid; gap:14px; margin:0; padding:0; list-style:none}
+    .list-item{position:relative; padding:16px 16px 18px 18px; border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,0.03)}
+    html[data-theme="light"] .list-item{background:rgba(255,255,255,0.68)}
+    .list-item::before{content:""; position:absolute; left:0; top:18px; bottom:18px; width:3px; border-radius:999px; background:linear-gradient(180deg,var(--accent),transparent); opacity:.9}
+    .muted{color:var(--muted)}
+    .badge-row{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+    .badge{
+      display:inline-flex; align-items:center; gap:6px; min-height:28px; padding:6px 10px; border-radius:999px; border:1px solid var(--line-strong);
+      background:rgba(255,255,255,0.04); font-size:12px; font-weight:800; white-space:nowrap; line-height:1;
+    }
+    .badge-priority-high{color:var(--danger)}
+    .badge-priority-medium{color:var(--warn)}
+    .badge-priority-low{color:var(--success)}
+    .badge-info{color:var(--info)}
+    .badge-neutral{color:var(--muted)}
+    .badge-hypothesis{color:var(--warn); background:rgba(253,230,138,0.08); border-style:dashed}
+    .badge-unapproved{color:var(--danger); background:rgba(252,165,165,0.08); border-style:dashed}
+    .table-shell{overflow:hidden; border-radius:18px; border:1px solid var(--line); background:var(--panel-strong)}
+    .table-scroll{width:100%; overflow-x:auto}
+    table{width:100%; min-width:920px; border-collapse:collapse}
+    thead th{
+      padding:15px 14px; text-align:left; vertical-align:top; font-size:11px; text-transform:uppercase; letter-spacing:.10em; color:var(--muted); font-weight:800;
+      border-bottom:1px solid var(--line); background:rgba(255,255,255,0.03)
+    }
+    tbody td{padding:16px 14px 18px; vertical-align:top; border-bottom:1px solid var(--line); font-size:14px}
+    tbody tr:last-child td{border-bottom:0}
+    tbody tr:hover{background:rgba(125,211,252,0.04)}
+    .task-title,.cell-title{display:block; font-weight:800; margin-bottom:6px}
+    .task-note{font-size:13px; line-height:1.55; color:var(--muted)}
+    details{border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,0.03)}
+    html[data-theme="light"] details{background:rgba(255,255,255,.70)}
+    summary{cursor:pointer; list-style:none; padding:16px 18px; font-weight:800}
+    summary::-webkit-details-marker{display:none}
+    .details-meta{display:block; color:var(--muted); font-weight:500; font-size:13px; margin-top:4px}
+    .details-body{padding:0 18px 18px}
+    .note-box{
+      margin-top:14px; padding:14px 16px; border-radius:16px; border:1px dashed var(--line-strong); color:var(--muted); background:rgba(255,255,255,0.03); font-size:14px;
+    }
+    .footer{border-radius:var(--radius-xl); padding:20px; background:radial-gradient(800px 500px at 0% 0%, rgba(125,211,252,0.10), transparent 45%),var(--panel)}
+    .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:14px}
+    .footer-brand{display:flex; flex-direction:column; gap:10px}
+    .brand-title{font-size:18px; font-weight:900; line-height:1.25; letter-spacing:-.02em}
+    .brand-subtitle{color:var(--muted); font-size:14px; max-width:520px}
+    .footer-col{border:1px solid var(--line); background:rgba(255,255,255,0.03); border-radius:16px; padding:14px}
+    html[data-theme="light"] .footer-col{background:rgba(255,255,255,0.70)}
+    .footer-k{font-size:11px; text-transform:uppercase; letter-spacing:.10em; color:var(--muted); font-weight:800; margin-bottom:8px}
+    .footer-v{font-size:14px; line-height:1.6}
+    .footer-v strong{display:block; margin-bottom:4px; font-size:14px}
+    .footer-bottom{margin-top:14px; padding-top:14px; border-top:1px solid var(--line); display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap; color:var(--muted); font-size:13px}
+    .site-link{display:inline-flex; align-items:center; gap:8px; font-weight:800}
+    @media (max-width:980px){
+      .meta-card,.card,.summary-card{grid-column:span 12}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:760px){
+      .page{width:min(calc(100% - 16px), var(--max-width)); padding:10px 0 36px}
+      .hero,.section,.footer{padding:16px; border-radius:20px}
+      .hero-actions{width:100%}
+      .btn{flex:1 1 auto}
+      .lead{font-size:15px}
+      .meta-grid,.cards,.summary-grid{gap:10px}
+      .table-shell{overflow:visible; border:0; background:transparent}
+      .table-scroll{overflow:visible}
+      table,thead,tbody,th,td,tr{display:block; width:100%; min-width:0}
+      thead{display:none}
+      tbody{display:grid; gap:10px}
+      tbody tr{display:block; padding:12px 12px 2px; border:1px solid var(--line); border-radius:18px; background:var(--panel-strong); box-shadow:var(--shadow-lg)}
+      tbody td{border:0; padding:0 0 14px 0}
+      tbody td::before{content:attr(data-label); display:block; margin-bottom:6px; font-size:11px; text-transform:uppercase; letter-spacing:.10em; color:var(--muted); font-weight:800}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column; align-items:flex-start}
+    }
+    @media print{
+      body{background:#fff}
+      .page{width:100%; max-width:none; padding:0}
+      .hero-actions,#themeToggle{display:none !important}
+      .surface,.section,.footer{box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="stack">
+      <header class="hero surface">
+        <div class="hero-top">
+          <div class="hero-titlebox">
+            <div class="eyebrow">Итоговый документ встречи</div>
+            <h1>Саммари встречи — проект «Зелёные»</h1>
+            <p class="lead">Обновлённое управленческое саммари по пересборке сценария: эмоциональная логика фильма, столкновение двух миров, отказ от прежней фиксации героев, короткий хронометраж, рабочие решения и следующие шаги без повторов и достраивания фактов.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://какаяувасинтереснаяработа.рф" target="_blank" rel="noopener noreferrer">Корпоративный сайт</a>
+            <button class="btn" id="themeToggle" type="button" aria-label="Переключить тему">Сменить тему</button>
+          </div>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta-card"><div class="meta-k">Дата</div><div class="meta-v">2026-04-01</div></div>
+          <div class="meta-card"><div class="meta-k">Проект</div><div class="meta-v">«Зелёные»</div></div>
+          <div class="meta-card"><div class="meta-k">Участники</div><div class="meta-v">не указано в транскрипте; по записи — два голоса</div></div>
+          <div class="meta-card"><div class="meta-k">Фокус</div><div class="meta-v">Пересборка короткометражного фильма: что должно вызывать эмоцию, как удержать столкновение миров без прежней схемы героев и как сузить рабочую модель до реализуемого сценария.</div></div>
+          <div class="meta-card"><div class="meta-k">Теги</div><div class="meta-v">короткий метр · город против природы · фильм в фильме · сценарная пересборка · эмоциональный триггер</div></div>
+          <div class="meta-card"><div class="meta-k">Версия</div><div class="meta-v">Полная версия</div></div>
+        </div>
+      </header>
+
+      <main class="stack">
+
+        <section class="section">
+          <div class="section-head">
+            <div class="section-titlebox">
+              <h2>Ключевая суть встречи</h2>
+              <p class="section-intro">Главное, что нужно понять о встрече без лишних повторов.</p>
+            </div>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="card-index">01</div>
+              <h3>Проект ушёл в полноценную пересборку сценария</h3>
+              <p>Команда зафиксировала, что прежняя версия истории больше не удерживает нужный эффект. Решение — не косметически править старую схему, а пересобрать фильм заново, сохранив только те элементы, которые действительно работают как опорные.</p>
+            </div>
+            <div class="summary-card">
+              <div class="card-index">02</div>
+              <h3>Центр обсуждения — не персонаж сам по себе, а механизм сильной эмоции у зрителя</h3>
+              <p>Важный сдвиг встречи: задача фильма формулируется не как «показать переосознание героя», а как добиться у зрителя чувства правды, внутреннего отклика и эмоционального удара. Само по себе переосознание признано слабым триггером, если оно не переживается как правда.</p>
+            </div>
+            <div class="summary-card">
+              <div class="card-index">03</div>
+              <h3>Столкновение двух миров сохраняется, но прежняя фиксация героев снимается</h3>
+              <p>Рабочая конструкция остаётся прежней по оси конфликта: город, застройка, дорогая эстетика и доминирующее давление — против живой среды, природы, тишины и подлинности. Но прежняя героическая схема больше не считается утверждённой: ядро пока пустое, конкретных героев ищут.</p>
+            </div>
+            <div class="summary-card">
+              <div class="card-index">04</div>
+              <h3>Фильм собирается как короткий метр с плотной формой и комбинированной подачей</h3>
+              <p>Рабочий коридор длительности сокращён до 12–15 минут, при точке отсчёта в районе 12 минут плюс. Конструкция мыслится как короткий фильм с приёмом «фильм в фильме»: внутри эмоциональной художественной линии может существовать более технический или документальный слой.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div class="section-titlebox">
+              <h2>Решения и договорённости</h2>
+              <p class="section-intro">Только зафиксированные решения и согласованные рамки.</p>
+            </div>
+          </div>
+          <ul class="list">
+            <li class="list-item"><strong>Сценарий пересобирается заново.</strong><br/>Прежняя драматургическая модель не дорабатывается по верхам; принято решение полностью пересобрать сценарий фильма.</li>
+            <li class="list-item"><strong>Из предыдущей версии сохраняются две опоры.</strong><br/>В новую сборку точно переносятся: идея природы как сверхинтеллекта и приём «фильм в фильме».</li>
+            <li class="list-item"><strong>Столкновение двух миров остаётся базовым принципом.</strong><br/>Фильм продолжает держаться на контрасте городской логики застройки и логики живой среды. Сам конфликт сохраняется даже при пересборке персонажной модели.</li>
+            <li class="list-item"><strong>Прежнее ядро истории снято с фиксации.</strong><br/>Раньше ядром была девушка и трансформация внутри неё; теперь это не считается закреплённым решением. На текущем этапе ядро признано пустым, новых героев ещё ищут.</li>
+            <li class="list-item"><strong>Рабочий хронометраж сужен.</strong><br/>Ориентир по длительности — 12–15 минут; базовая точка отсчёта — около 12 минут плюс, а не более длинный формат.</li>
+            <li class="list-item"><strong>Внутри формы допускается смешанный способ рассказа.</strong><br/>Короткий метр может включать художественную линию, работающую на эмоцию, и встроенный технический / документальный слой, который даёт зрителю пространственные акценты, интервью и инфографику.</li>
+            <li class="list-item"><strong>Команда ищет один финал.</strong><br/>Логика альтернативных концовок на текущем этапе не поддерживается: задача — найти одну сильную и удерживающую развязку.</li>
+            <li class="list-item"><strong>Открывающий хук остаётся важным приёмом.</strong><br/>В начале нужен сильный эмоциональный фрагмент, который сначала работает как загадка, а затем расшифровывается по ходу фильма.</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div class="section-titlebox">
+              <h2>План действий: задачи, ответственные, сроки</h2>
+              <p class="section-intro">Собранный рабочий план по итогам встречи.</p>
+            </div>
+          </div>
+
+          <div class="table-shell">
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Приоритет</th>
+                    <th>Задача</th>
+                    <th>Ответственный</th>
+                    <th>Срок</th>
+                    <th>Статус</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+                    <td data-label="Задача">
+                      <span class="task-title">Пересобрать модель сюжета без прежней фиксации героев</span>
+                      <span class="task-note">Нужно заново собрать драматургический каркас фильма: удержать столкновение миров, но не опираться на прежнюю героиню и не считать «зелёного героя» утверждённой фигурой. Сейчас персонажные места фактически открыты.</span>
+                    </td>
+                    <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+                    <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+                    <td data-label="Статус">
+                      <div class="badge-row">
+                        <span class="badge badge-info">В работе</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+                    <td data-label="Задача">
+                      <span class="task-title">Найти новое ядро истории и определить состав героев</span>
+                      <span class="task-note">В текущем состоянии ядро признано пустым. Нужно определить, через кого и через что будет проходить основной эмоциональный маршрут зрителя.</span>
+                    </td>
+                    <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+                    <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+                    <td data-label="Статус">
+                      <div class="badge-row">
+                        <span class="badge badge-info">Открыто</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-high">Высокий</span></div></td>
+                    <td data-label="Задача">
+                      <span class="task-title">Сформулировать эмоциональный механизм фильма</span>
+                      <span class="task-note">Нужно не просто описать переосознание, а найти драматургический ход, который ощущается зрителем как правда и вызывает сильный отклик: страх, боль, неловкость, узнавание или внутренний слом.</span>
+                    </td>
+                    <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+                    <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+                    <td data-label="Статус">
+                      <div class="badge-row">
+                        <span class="badge badge-info">В работе</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-medium">Средний</span></div></td>
+                    <td data-label="Задача">
+                      <span class="task-title">Подобрать научные материалы по влиянию природы на качество жизни</span>
+                      <span class="task-note">Нужно найти релевантные исследования и цифры по регионам, которые можно встроить в инфографику и использовать в момент столкновения миров.</span>
+                    </td>
+                    <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+                    <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+                    <td data-label="Статус">
+                      <div class="badge-row">
+                        <span class="badge badge-info">Не начато</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-medium">Средний</span></div></td>
+                    <td data-label="Задача">
+                      <span class="task-title">Собрать визуальный и монтажный принцип под короткий метр</span>
+                      <span class="task-note">Нужно закрепить, как именно картинка, контрасты, композиция, объективы и монтаж будут управлять вниманием зрителя в коротком формате 12–15 минут.</span>
+                    </td>
+                    <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+                    <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+                    <td data-label="Статус">
+                      <div class="badge-row">
+                        <span class="badge badge-info">В работе</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td data-label="Приоритет"><div class="badge-row"><span class="badge badge-priority-medium">Средний</span></div></td>
+                    <td data-label="Задача">
+                      <span class="task-title">Определить единый финал и отказаться от расползания в варианты</span>
+                      <span class="task-note">Финал нужен один. Следующий этап — не размножать версии, а выбрать концовку, которая удержит идею фильма и эмоциональный выход.</span>
+                    </td>
+                    <td data-label="Ответственный"><span class="cell-title">нужно назначить</span></td>
+                    <td data-label="Срок"><span class="cell-title">срок не зафиксирован</span></td>
+                    <td data-label="Статус">
+                      <div class="badge-row">
+                        <span class="badge badge-info">Открыто</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="note-box">
+            В транскрипте не зафиксированы утверждённые ответственные и сроки. Поэтому в таблице они не достраиваются и помечены как незаполненные рабочие поля.
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div class="section-titlebox">
+              <h2>Стратегические / сценарные ориентиры</h2>
+              <p class="section-intro">Ориентиры, которые задают правильное направление следующего этапа.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <div class="kicker">Ориентир 01</div>
+              <h3>Главная ценность фильма — не объяснение, а переживание</h3>
+              <p>Фильм должен не просто сообщить позицию про экологию, а довести зрителя до эмоционального согласия с ней. Рациональный тезис здесь вторичен по отношению к переживаемой правде.</p>
+            </div>
+            <div class="card">
+              <div class="kicker">Ориентир 02</div>
+              <h3>Столкновение миров важнее описания отдельных фигур</h3>
+              <p>Пока идёт поиск персонажей, опираться надо не на прежний состав героев, а на сам конфликт: застройка, статус и давление против природы, живого пространства, тишины и подлинности.</p>
+            </div>
+            <div class="card">
+              <div class="kicker">Ориентир 03</div>
+              <h3>Пустое место в персонажной схеме — это рабочий ресурс, а не провал</h3>
+              <p>Отказ от прежней фиксации героев не ослабляет проект автоматически. Напротив, это даёт возможность найти более сильную и правдивую конструкцию, если не подменять поиск прежними клише.</p>
+            </div>
+            <div class="card">
+              <div class="kicker">Ориентир 04</div>
+              <h3>Короткий хронометраж требует жёсткой смысловой дисциплины</h3>
+              <p>При длительности около 12–15 минут фильм не может позволить себе длинное объяснение мира. Нужны сильный хук, быстрое считывание конфликта и точная работа с ритмом.</p>
+            </div>
+            <div class="card">
+              <div class="kicker">Ориентир 05</div>
+              <h3>«Фильм в фильме» должен работать на усиление, а не на размывание</h3>
+              <p>Документальный или технический слой полезен только в том случае, если он усиливает эмоциональную линию, добавляет масштаб, пространственные акценты и подтверждает конфликт конкретикой.</p>
+            </div>
+            <div class="card">
+              <div class="kicker">Ориентир 06</div>
+              <h3>Визуальный язык — часть драматургии</h3>
+              <p>Монтаж, композиция, объективы, контрасты и качество изображения обсуждаются не как украшение, а как инструмент управления вниманием и эмоцией зрителя.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div class="section-titlebox">
+              <h2>Кто у кого что будет спрашивать — краткое саммари</h2>
+              <p class="section-intro">Ключевые линии будущих взаимодействий в сжатом виде.</p>
+            </div>
+          </div>
+          <ul class="list">
+            <li class="list-item"><strong>Сценарный блок ↔ режиссёрская логика</strong><br/>Нужно подтвердить, за счёт какого именно хода фильм будет вызывать сильную эмоцию, а не просто проговаривать идею.</li>
+            <li class="list-item"><strong>Команда разработки ↔ концепция персонажей</strong><br/>Нужно решить, кто занимает пустое место в ядре истории и какие фигуры реально понесут конфликт двух миров.</li>
+            <li class="list-item"><strong>Сценарий ↔ визуальная группа</strong><br/>Нужно согласовать, как хук, монтаж и визуальные контрасты помогают считывать конфликт за короткое экранное время.</li>
+            <li class="list-item"><strong>Исследовательский контур ↔ сценарный контур</strong><br/>Нужно понять, какие цифры и какие исследования о влиянии природы на качество жизни можно честно встроить в ткань фильма.</li>
+            <li class="list-item"><strong>Художественная часть ↔ документальный слой</strong><br/>Нужно решить, где именно внутри фильма появляется технический или картографический слой, чтобы он не ломал, а усиливал эмоцию.</li>
+            <li class="list-item"><strong>Команда ↔ финальная структура</strong><br/>Нужно договориться о единственном финале и перестать распыляться на параллельные развязки.</li>
+            <li class="list-item"><strong>Сценарный каркас ↔ хронометраж</strong><br/>Нужно проверить, что вся конструкция реально помещается в 12–15 минут без потери понятности.</li>
+            <li class="list-item"><strong>Идея проекта ↔ зрительский опыт</strong><br/>Нужно удержать простую проверку: зритель должен не просто понять тезис, а почувствовать, что живая среда ценнее бездушной логики застройки.</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div class="section-titlebox">
+              <h2>Подробная рабочая аналитическая записка</h2>
+              <p class="section-intro">Расширенный слой для тех, кому нужен подробный рабочий контекст.</p>
+            </div>
+          </div>
+
+          <details>
+            <summary>1. Что именно изменилось по сравнению с прежней логикой<span class="details-meta">Ключевой сдвиг в модели фильма</span></summary>
+            <div class="details-body">
+              <p>Главное изменение встречи в том, что проект перестал опираться на прежнюю устойчивую схему персонажей. Раньше конструкция держалась на трансформации девушки и контрасте между двумя мужскими полюсами. Теперь эта ось перестала считаться рабочей в утверждённом виде.</p>
+              <p>Команда оставляет сам конфликт миров, но снимает фиксацию с прежнего состава героев. Это означает более честную стадию разработки: ядро истории пока не найдено окончательно, а персонажные места открыты для новой сборки.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>2. Почему просто «переосознание» признано недостаточным<span class="details-meta">Драматургический вывод встречи</span></summary>
+            <div class="details-body">
+              <p>В обсуждении отдельно проговаривается, что сам по себе сюжет про переосознание не даёт автоматической эмоции. Зритель не плачет и не включается только потому, что герой что-то понял. Эмоция возникает там, где событие считывается как правда и задевает личный опыт зрителя.</p>
+              <p>Из этого следует важный рабочий вывод: следующая версия сценария должна искать не абстрактную трансформацию, а конкретный эмоциональный механизм. Фильм обязан либо ранить узнаваемостью, либо зацепить страхом, неловкостью, болью, стыком с правдой — но не остаться на уровне правильной идеи.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>3. Как теперь работает конструкция двух миров<span class="details-meta">Не про героев, а про полюса конфликта</span></summary>
+            <div class="details-body">
+              <p>Хотя прежняя система героев распалась, конфликтная ось не исчезла. Один полюс — город, застройка, дорогая эстетика, доминирование, плотная мужская энергия и логика внешнего успеха. Другой — природа, тишина, лес, ощущение жизни, философичность и связь с живым.</p>
+              <p>Это важно удержать как основной уровень конструкции. Даже если конкретные персонажи будут заменены или пересобраны, фильм всё равно должен считываться как столкновение этих двух способов существования.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>4. Статус героев на текущем этапе<span class="details-meta">Что считается неактуальным, а что пока открыто</span></summary>
+            <div class="details-body">
+              <p>В текущей версии нельзя подавать «зелёного героя» как утверждённого персонажа. Это уже не рабочий факт. По состоянию обсуждения геройский контур открыт: соответствующее место в конструкции скорее пустое, чем закреплённое.</p>
+              <p>То же касается и прежней обязательной центральности девушки. Она фигурирует как часть предыдущей логики, но не как окончательное ядро новой версии. Правильная редакторская подача здесь — не подменять поиск видимостью готового решения.</p>
+              <div class="note-box">
+                Рабочий принцип обновлённой версии: герои ищутся. Любая прежняя персонажная сборка должна читаться максимум как старая модель, а не как действующее утверждение.
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>5. Что даёт приём «фильм в фильме»<span class="details-meta">Структурная польза, а не декоративный ход</span></summary>
+            <div class="details-body">
+              <p>Приём сохраняется как один из двух опорных элементов новой сборки. Его функция — позволить фильму работать сразу в двух регистрах: через эмоциональную художественную часть и через более технический или документальный слой.</p>
+              <p>Такой слой может включать карту, пространственные акценты, интервью с политиками и детьми, а также инфографику по изменению территории. Но он должен быть встроен в драматургию так, чтобы не превращаться в отдельный объясняющий ролик поверх фильма.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>6. Визуальная логика и монтаж<span class="details-meta">Где картинка становится частью смысла</span></summary>
+            <div class="details-body">
+              <p>В обсуждении монтаж и операторский уровень рассматриваются как активный инструмент управления вниманием зрителя. Контрасты, композиция, выбор оптики и общий уровень съёмки нужны не ради «дороговизны» картинки, а ради точного ведения эмоционального маршрута.</p>
+              <p>Это особенно критично при коротком хронометраже. Фильм не может долго объяснять, он должен быстро включать зрителя и удерживать фокус через визуальную дисциплину.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>7. Где сейчас находится главная рабочая неопределённость<span class="details-meta">Что пока не найдено и не надо подменять уверенностью</span></summary>
+            <div class="details-body">
+              <p>Самый честный вывод встречи: команда знает, что сохраняет, но ещё не знает окончательно, через кого именно это будет прожито. Сохранены идея природы как сверхинтеллекта, ось «город против природы», короткий хронометраж и комбинированная форма. Но новое ядро и новые герои ещё в поиске.</p>
+              <p>Это не слабость документа, а правильное отражение стадии проекта. Следующий этап — не украшать этот пробел, а превратить его в внятную следующую итерацию сценария.</p>
+            </div>
+          </details>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-title">Подготовлено креативным агентством #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</div>
+            <div class="brand-subtitle">Редакторская сборка управленческих саммари, визуальных документов и материалов для принятия решений.</div>
+
+            <div class="footer-col">
+              <div class="footer-k">Сайт</div>
+              <div class="footer-v"><a class="site-link" href="https://какаяувасинтереснаяработа.рф" target="_blank" rel="noopener noreferrer">https://какаяувасинтереснаяработа.рф</a></div>
+            </div>
+
+            <div class="footer-col">
+              <div class="footer-k">Официальный рупор агентства</div>
+              <div class="footer-v"><a href="https://t.me/cooljobyougot" target="_blank" rel="noopener noreferrer">https://t.me/cooljobyougot</a></div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <div class="footer-k">AI партнер</div>
+            <div class="footer-v">
+              <strong>AI партнер</strong>
+              <div>+79394463156</div>
+              <div><a href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener noreferrer">@kakayauvasinteresnayarabota</a></div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <div class="footer-k">CEO</div>
+            <div class="footer-v">
+              <strong>Дмитрий Дроздов</strong>
+              <div>+79104721024</div>
+              <div><a href="https://t.me/drozdovhumandevelopment" target="_blank" rel="noopener noreferrer">@drozdovhumandevelopment</a></div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <div class="footer-k">FPV / Video Production</div>
+            <div class="footer-v">
+              <strong>Виктор Маслов</strong>
+              <div>+79138721192</div>
+              <div><a href="https://t.me/Flying_Diamond" target="_blank" rel="noopener noreferrer">@Flying_Diamond</a></div>
+              <br />
+              <strong>Дмитрий Клещев</strong>
+              <div>+79049299977</div>
+              <div><a href="https://t.me/kleshovpro" target="_blank" rel="noopener noreferrer">@kleshovpro</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 · #КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</span>
+          <span>Документ собран в HTML-формате для удобного чтения на телефоне и компьютере.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const storageKey = 'meeting-summary-theme';
+      const allowed = ['light', 'dark'];
+      const initialTheme = root.getAttribute('data-theme');
+      const savedTheme = localStorage.getItem(storageKey);
+
+      if (savedTheme && allowed.includes(savedTheme)) root.setAttribute('data-theme', savedTheme);
+      else if (!allowed.includes(initialTheme)) root.setAttribute('data-theme', 'light');
+
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          const next = current === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem(storageKey, next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
