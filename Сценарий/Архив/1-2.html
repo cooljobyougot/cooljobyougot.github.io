@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Файл 2 — Фильм в фильме: последовательность сцен</title>
+  <style>
+    :root{
+      --bg:#eef3f8;
+      --page:#ffffff;
+      --text:#0f172a;
+      --muted:#526077;
+      --line:#d8e0ea;
+
+      --doc-bg:#0f1b2d;
+      --doc-soft:#16253c;
+      --doc-text:#f5f8fc;
+      --doc-muted:#b4c2d8;
+
+      --light-bg:#ffffff;
+      --light-soft:#f9fbfd;
+
+      --accent-river:#3b82f6;
+      --accent-nature:#22c55e;
+      --accent-warn:#f59e0b;
+      --accent-loss:#ef4444;
+      --accent-hope:#a855f7;
+
+      --trigger-awe:#dbeafe;
+      --trigger-warm:#dcfce7;
+      --trigger-fear:#fef3c7;
+      --trigger-loss:#fee2e2;
+      --trigger-hope:#ede9fe;
+
+      --radius:18px;
+      --radius-sm:14px;
+      --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+      --max:820px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    .page{
+      width:min(calc(100% - 20px), var(--max));
+      margin:0 auto;
+      padding:16px 0 40px;
+    }
+
+    .hero{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px 16px;
+      box-shadow:var(--shadow);
+      margin-bottom:14px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--accent-river);
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size:28px;
+      line-height:1.1;
+      letter-spacing:-.02em;
+    }
+
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .section{
+      margin-top:14px;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid var(--line);
+      background:var(--page);
+    }
+
+    .section-head{
+      padding:16px;
+      background:linear-gradient(180deg,#ffffff 0%, #f7faff 100%);
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-head h2{
+      margin:0 0 6px;
+      font-size:20px;
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .summary-card{
+      margin:14px 0 0;
+      padding:14px;
+      border-radius:16px;
+      background:#f7fafc;
+      border:1px solid var(--line);
+    }
+
+    .summary-card b{
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .stack{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      padding:14px;
+    }
+
+    .scene{
+      background:var(--doc-bg);
+      color:var(--doc-text);
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      overflow:hidden;
+    }
+
+    .scene-top{
+      padding:14px 14px 10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+    }
+
+    .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .scene h3{
+      margin:0 0 8px;
+      font-size:20px;
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+
+    .scene p{
+      margin:0;
+      font-size:15px;
+      color:var(--doc-text);
+    }
+
+    .scene-body{
+      padding:0 14px 14px;
+      display:grid;
+      gap:10px;
+    }
+
+    .mini{
+      padding:12px;
+      border-radius:14px;
+      background:var(--doc-soft);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini .k{
+      display:block;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      color:var(--doc-muted);
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    .mini .v{
+      font-size:14px;
+      color:var(--doc-text);
+    }
+
+    .trigger{
+      padding:12px;
+      border-radius:14px;
+      color:#111827;
+      background:#fff;
+    }
+
+    .trigger b{
+      display:block;
+      margin-bottom:6px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .awe{background:var(--trigger-awe)}
+    .warm{background:var(--trigger-warm)}
+    .fear{background:var(--trigger-fear)}
+    .loss{background:var(--trigger-loss)}
+    .hope{background:var(--trigger-hope)}
+
+    .film1-boost{
+      padding:12px;
+      border-radius:14px;
+      background:var(--light-bg);
+      color:var(--text);
+      border:1px solid #e7edf5;
+    }
+
+    .film1-boost .k{
+      display:block;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      color:var(--accent-nature);
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    details{
+      background:#fff;
+      border-top:1px solid var(--line);
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    .details-body{
+      padding:0 16px 16px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .interview{
+      border-radius:16px;
+      padding:14px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+
+    .interview h3{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+
+    .quote{
+      padding:12px;
+      border-radius:12px;
+      background:#f7fafc;
+      border-left:4px solid var(--accent-river);
+      margin-top:10px;
+      color:var(--text);
+    }
+
+    .footer-note{
+      margin-top:14px;
+      padding:14px;
+      border-radius:16px;
+      background:#ffffff;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <div class="eyebrow">Файл 2</div>
+      <h1>Фильм в фильме</h1>
+      <p class="lead">
+        Полная последовательность документальной линии: от величия живой системы к угрозе, потере и надежде.
+        Внутри каждой сцены фиксируется не только смысл, но и то, какое переживание она должна запускать в зрителе.
+      </p>
+      <div class="summary-card">
+        <b>Принцип построения</b>
+        Тёмная и светлая стороны чередуются не как сухое “за” и “против”, а как сердечные удары фильма:
+        восхищение → тепло → тревога → несправедливость → потеря → достоинство → надежда.
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Короткий костяк</h2>
+        <p>Эта короткая версия нужна как быстрый экранный маршрут для презентации.</p>
+      </div>
+      <div class="stack">
+        <div class="interview">1. Волга как живая артерия</div>
+        <div class="interview">2. Коридор Городец — Работки</div>
+        <div class="interview">3. Артёмовские луга как сердце</div>
+        <div class="interview">4. Птицы и живая насыщенность поймы</div>
+        <div class="interview">5. Борская пойма как часть системы</div>
+        <div class="interview">6. Историческая и наследственная ценность</div>
+        <div class="interview">7. Что здесь хотят делать люди</div>
+        <div class="interview">8. Дороги, освоение, инфраструктурное давление</div>
+        <div class="interview">9. Свет городов поглощает природу</div>
+        <div class="interview">10. Люди, которые умеют видеть</div>
+        <div class="interview">11. Дети как голос будущего</div>
+        <div class="interview">12. Политики и язык решений</div>
+        <div class="interview">13. Перелом</div>
+        <div class="interview">14. Свет природы нарастает обратно</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Полная последовательность сцен</h2>
+        <p>Здесь фильм 2 уже выстроен как отдельное произведение, которое фильм 1 будет эмоционально усиливать.</p>
+      </div>
+
+      <div class="stack">
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">01</div>
+            <h3>Пролог. Живая артерия</h3>
+            <p>Над водой лежит ранний туман. Река кажется не ландшафтом, а огромным живым телом, которое дышит, движется и помнит время.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Открыть фильм не экологической темой, а чувством величия живой системы.</div></div>
+            <div class="trigger awe"><b>Триггер переживания</b>Вызвать тихое восхищение и почти физическое чувство простора, чтобы зритель внутренне расслабился и стал восприимчивым.</div>
+            <div class="film1-boost"><span class="k">Как усиливает фильм 1</span>Если сразу после этого появится девочка, зритель уже будет знать: она входит не просто в природу, а в нечто большее, чем сама понимает.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">02</div>
+            <h3>Карта-коридор. Городец — Работки</h3>
+            <p>На тёмном фоне проступает светящийся коридор Волги. Города и природа светятся по-разному: город — сеткой и напряжением, природа — глубиной и пульсом.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Собрать территорию в единое пространство, а не в россыпь красивых мест.</div></div>
+            <div class="trigger awe"><b>Триггер переживания</b>Перевести восхищение в понимание масштаба: зритель должен почувствовать, что на кону стоит не точка на карте, а целая живая система.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">03</div>
+            <h3>Артёмовские луга. Сердце весны</h3>
+            <p>Вода разливается по пойме, трава только поднимается, в воздухе много света и движения. Луга выглядят как пространство, которое не придумано человеком и потому особенно драгоценно.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Сделать Артёмовские луга главным эмоциональным узлом документальной линии.</div></div>
+            <div class="trigger warm"><b>Триггер переживания</b>Запустить нежность и привязанность: не просто “красиво”, а “не хочу, чтобы это исчезло”.</div>
+            <div class="film1-boost"><span class="k">Как усиливает фильм 1</span>Именно здесь художественная линия девочки должна чувствоваться как найденное место тепла и понимания.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">04</div>
+            <h3>Птицы как доказательство жизни</h3>
+            <p>Камера не просто любуется птицами, а наблюдает за логикой их присутствия: возвращение, маршруты, тревога, гнездование, резкие взлёты и тихие остановки.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Показать, что территория обитаема и незаменима, а не пуста. По материалам проекта именно орнитологическая ценность — одна из центральных опор. </div></div>
+            <div class="trigger warm"><b>Триггер переживания</b>Сделать живое конкретным: зритель должен начать воспринимать птиц как обитателей дома, а не как декоративный фон.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">05</div>
+            <h3>Люди, которые умеют видеть</h3>
+            <p>Фотонатуралист подносит к глазу объектив. В его спокойствии нет позы — только внимание к тому, что обычно проходит мимо людей. Мир становится крупнее и точнее.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Ввести фигуру свидетеля: человек не агитирует, а показывает то, что он действительно видит. Здесь можно использовать линию фотонатуралистов как носителей подлинного взгляда.</div></div>
+            <div class="trigger warm"><b>Триггер переживания</b>Вызвать доверие. Зрителю легче верить не лозунгу, а тихому, внимательному человеку.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">06</div>
+            <h3>Ребёнок у воды</h3>
+            <p>Ребёнок смотрит на стаю птиц и задаёт самый простой вопрос, который взрослые давно разучились задавать: “Они всегда сюда возвращаются?”</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Ввести детский взгляд как самый прямой путь к сердцу зрителя.</div></div>
+            <div class="trigger warm"><b>Триггер переживания</b>Вызвать мягкое тепло и тонкую боль: через ребёнка зритель начинает чувствовать не абстрактную природу, а будущее, которое может быть лишено этой встречи.</div></div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">07</div>
+            <h3>Борская пойма. Вторая сторона живой системы</h3>
+            <p>Фильм выходит за пределы одной территории и показывает, что Артёмовские луга — не исключение, а часть большой пойменной логики Волги.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Расширить взгляд от одного эмоционального узла к системе пойм и связей.</div></div>
+            <div class="trigger awe"><b>Триггер переживания</b>Усилить чувство масштаба: зритель должен понять, что исчезновение одной территории потянет за собой ослабление целого организма.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">08</div>
+            <h3>История и наследие</h3>
+            <p>Пойма показывается не как случайный пустырь, а как реликтовый и культурный ландшафт, где природное время и человеческая история много лет шли рядом.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Поднять разговор на уровень наследия и достоинства территории.</div></div>
+            <div class="trigger warm"><b>Триггер переживания</b>Запустить уважение: зрителю важно почувствовать, что он видит не просто ресурс, а то, что должно быть передано дальше.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">09</div>
+            <h3>Что здесь хотят делать люди</h3>
+            <p>Появляется человеческая воля к преобразованию: дороги, освоение, развитие, новые сценарии использования. Это ещё не зло в лоб, а уверенное движение чужой логики внутрь живой ткани.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Ввести темную сторону не карикатурно, а как реальную модель будущего, которая кажется кому-то рациональной и полезной.</div></div>
+            <div class="trigger fear"><b>Триггер переживания</b>Вызвать внутреннее напряжение: зритель должен почувствовать, что угроза идёт не от монстра, а от нормализованного человеческого решения.</div>
+            <div class="film1-boost"><span class="k">Как усиливает фильм 1</span>Если в этот момент в художественной линии девочка уже полюбила это место, документальный конфликт ударит не в голову, а прямо в сердце.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">10</div>
+            <h3>Инфраструктурное давление</h3>
+            <p>Документы, схемы, линии трасс, официальная риторика, обещание разгрузки и эффективности. Язык решений вторгается в пространство, которое до этого жило светом, водой и птицами.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Сделать угрозу конкретной и административно осязаемой. По новым данным тема Восточного обхода продолжает двигаться институционально, а территории пока ещё не имеют завершённого статуса ООПТ. </div></div>
+            <div class="trigger fear"><b>Триггер переживания</b>Вызвать ощущение бессилия перед машиной решений, чтобы потом особенно сильно сработало возвращение человеческого голоса.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">11</div>
+            <h3>Интервью с политиком</h3>
+            <p>Политик говорит не лозунгом, а словами ответственности: о наследии, о выборе региона, о том, что территория может быть утрачена необратимо.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Ввести язык принятия решений, но удержать его на человеческом уровне, без сухого канцелярита и без агитационного пафоса.</div></div>
+            <div class="trigger fear"><b>Триггер переживания</b>Перевести тревогу в серьёзность: зритель должен понять, что это уже не красивый спор о вкусах, а вопрос исторического решения.</div>
+            <div class="film1-boost"><span class="k">Как усиливает фильм 1</span>После речи политика особенно сильной станет короткая тихая реакция девочки — взгляд, пауза, сжатие внутри. Это соединит высокий уровень решения с личной болью.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">12</div>
+            <h3>Интервью с детьми</h3>
+            <p>Дети говорят не об экологии как термине, а о простых вещах: птицах, воде, страхе, что всё это исчезнет, и желании, чтобы сюда можно было возвращаться.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Разрушить взрослую дистанцию и вернуть разговор к тому, ради кого вообще существует будущее территории.</div></div>
+            <div class="trigger loss"><b>Триггер переживания</b>Это один из самых сильных эмоциональных ударов: когда дети говорят спокойно и честно, у зрителя должна возникать та самая влага в глазах от сочетания нежности и уязвимости.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">13</div>
+            <h3>Пустота, которую можно не заметить</h3>
+            <p>Камера показывает пространство так, как его видят те, кто спешит мимо: просто земля, вода, заросли, ничто особенное. А затем этот взгляд ломается и раскрывается внутренняя сложность места.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Поймать главную оптическую ошибку: то, что кажется пустым, на самом деле полно жизни и связей.</div></div>
+            <div class="trigger fear"><b>Триггер переживания</b>Вызвать тревогу узнавания: зритель должен с болью понять, как легко уничтожается то, чью ценность сначала не распознали.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">14</div>
+            <h3>Свет городов поглощает природу</h3>
+            <p>На ночной карте городское свечение начинает усиливаться, расползаться, заполнять тёмное пространство. Свет природы сначала отступает, как будто становится тоньше и слабее.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Собрать весь конфликт фильма в один ясный образ, который понимается без слов.</div></div>
+            <div class="trigger loss"><b>Триггер переживания</b>Это пик внутреннего сжатия. Зритель должен почувствовать почти телесную потерю, как будто у него на глазах исчезает не территория, а чей-то живой голос.</div>
+            <div class="film1-boost"><span class="k">Как усиливает фильм 1</span>Если сюда точно врезать исчезновение пианиста или момент одиночества девочки, два фильма сложатся в один удар: карта покажет масштаб потери, а девочка — её человеческую цену.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">15</div>
+            <h3>Точка тишины</h3>
+            <p>После сильного визуального давления фильм почти замирает. Меньше слов, меньше движения, только воздух, вода и пауза, в которой зритель остаётся наедине с тем, что он уже понял.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Дать сердцу догнать смысл. Без такой сцены даже сильный конфликт может проскочить поверхностно.</div></div>
+            <div class="trigger loss"><b>Триггер переживания</b>Запустить глубокое внутреннее молчание, из которого рождаются не лозунги, а личная боль и желание сохранить.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">16</div>
+            <h3>Люди, которые не отворачиваются</h3>
+            <p>Возвращаются лица тех, кто смотрит, наблюдает, фиксирует, объясняет, бережёт. Не победители, а люди, которые остались рядом с территорией и не разучились её видеть.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Развернуть фильм от диагноза к человеческому ответу.</div></div>
+            <div class="trigger hope"><b>Триггер переживания</b>Вызвать уважение и внутреннее выпрямление: зритель должен почувствовать не только боль, но и достоинство тех, кто остаётся верен живому миру.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">17</div>
+            <h3>Свет природы начинает нарастать</h3>
+            <p>На той же карте живое свечение возвращается. Оно не становится агрессивнее города — оно становится глубже, связаннее и устойчивее.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Дать образ ответа: не фантазийную победу, а восстановление силы живой системы в восприятии зрителя.</div></div>
+            <div class="trigger hope"><b>Триггер переживания</b>Вызвать чувство тихой надежды и внутреннего света после тяжёлого сжатия предыдущих сцен.</div>
+          </div>
+        </article>
+
+        <article class="scene">
+          <div class="scene-top">
+            <div class="num">18</div>
+            <h3>Финал. Живой коридор</h3>
+            <p>Коридор Волги снова видится как единое живое пространство. Не всё спасено, не всё гарантировано, но связь ещё существует — и именно поэтому за неё стоит отвечать.</p>
+          </div>
+          <div class="scene-body">
+            <div class="mini"><span class="k">Функция</span><div class="v">Закончить не отчётом о победе, а состоянием ответственности и надежды.</div></div>
+            <div class="trigger hope"><b>Триггер переживания</b>Оставить зрителя не в опустошении, а в зрелом желании сохранить то, что ещё можно удержать.</div>
+            <div class="film1-boost"><span class="k">Как усиливает фильм 1</span>Если последним откликом будет уже взрослая героиня, зритель почувствует: документальный конфликт нашёл в человеке продолжение и голос.</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Интервью: как встроить в структуру</h2>
+        <p>Не как телевизионные “говорящие головы”, а как разные типы правды внутри фильма.</p>
+      </div>
+      <div class="stack">
+        <div class="interview">
+          <h3>Интервью с политиками</h3>
+          <p>Ставить в средней трети фильма, когда зритель уже полюбил территорию и готов услышать язык решений. Политик должен говорить о выборе региона, ответственности, необратимости потерь и уровне наследия.</p>
+          <div class="quote">Эмоциональная функция: перевести тревогу в серьёзность и легитимность темы.</div>
+        </div>
+        <div class="interview">
+          <h3>Интервью с детьми</h3>
+          <p>Ставить ближе к пику конфликта, когда документальный фильм уже показал угрозу. Детские фразы должны быть короткими, ясными и неотрепетированными.</p>
+          <div class="quote">Эмоциональная функция: стать тем местом, где у особенно чувствительного зрителя впервые подступают слёзы.</div>
+        </div>
+      </div>
+    </section>
+
+    <details class="section">
+      <summary>Как именно фильм 1 должен докручивать фильм 2</summary>
+      <div class="details-body">
+        Фильм 2 даёт карту, масштаб, конфликт и цену решений. Фильм 1 должен входить туда в трёх точках: 
+        <br><br>
+        1. После первых сцен красоты — чтобы зритель полюбил место не только глазами, но и через девочку.  
+        <br>
+        2. В момент вторжения человеческих планов — чтобы угроза стала личной.  
+        <br>
+        3. В пике сцены со светящейся картой — чтобы исчезновение природы совпало с исчезновением её внутренней связи с миром.
+      </div>
+    </details>
+
+    <div class="footer-note">
+      Следующий логичный шаг — собрать <b>Файл 3</b>: интеграцию двух фильмов, таблицу переходов, координаты опорных объектов и общую жёсткую таблицу сценария.
+    </div>
+
+  </div>
+</body>
+</html>

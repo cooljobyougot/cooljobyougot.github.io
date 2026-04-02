@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.html — Фильм в фильме</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#e9eef5;
+      --bg-soft:#dde5ef;
+      --phone:#ffffff;
+      --text:#0f172a;
+      --muted:#5f6b7a;
+      --line:#dbe3ec;
+
+      --doc:#0f1b2d;
+      --doc-soft:#16253c;
+      --doc-text:#f4f7fb;
+      --doc-muted:#b7c4d6;
+
+      --film1:#f8fbf8;
+      --film1-line:#87c79a;
+
+      --accent-blue:#2563eb;
+      --accent-green:#16a34a;
+      --accent-gold:#d4a64f;
+      --accent-red:#dc2626;
+      --accent-violet:#7c3aed;
+
+      --tr-pain:#fee2e2;
+      --tr-awe:#dbeafe;
+      --tr-warm:#dcfce7;
+      --tr-fear:#fef3c7;
+      --tr-loss:#ffe4e6;
+      --tr-hope:#ede9fe;
+
+      --shadow-xl:0 40px 100px rgba(15,23,42,.16);
+      --shadow-lg:0 18px 50px rgba(15,23,42,.10);
+
+      --phone-width:430px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 0% 0%, rgba(37,99,235,.09), transparent 45%),
+        radial-gradient(900px 600px at 100% 0%, rgba(22,163,74,.08), transparent 45%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      min-height:100vh;
+    }
+
+    .stage{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:28px 14px 40px;
+    }
+
+    .phone-shell{
+      width:min(100%, var(--phone-width));
+      background:#0b1020;
+      border-radius:40px;
+      padding:10px;
+      box-shadow:var(--shadow-xl);
+      position:relative;
+    }
+
+    .phone-shell::before{
+      content:"";
+      position:absolute;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%);
+      width:120px;
+      height:24px;
+      border-radius:0 0 18px 18px;
+      background:#0b1020;
+      z-index:2;
+    }
+
+    .phone{
+      background:var(--phone);
+      border-radius:30px;
+      overflow:hidden;
+      min-height:820px;
+      border:1px solid rgba(255,255,255,.35);
+    }
+
+    .top-space{
+      height:18px;
+      background:linear-gradient(180deg,#f8fbff 0%, #ffffff 100%);
+    }
+
+    .page{
+      padding:14px 14px 28px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .hero{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:18px 16px;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--accent-blue);
+      font-weight:800;
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    h1,h2,h3{
+      font-family:"Inter Tight","Inter",sans-serif;
+      margin:0;
+      color:var(--text);
+    }
+
+    h1{
+      font-size:clamp(33px, 9vw, 42px);
+      line-height:.96;
+      letter-spacing:-.05em;
+      font-weight:500;
+      max-width:10ch;
+    }
+
+    h2{
+      font-size:26px;
+      line-height:1.04;
+      letter-spacing:-.045em;
+      font-weight:600;
+      max-width:12ch;
+    }
+
+    .lead,.section-intro,.text,.details-body{
+      font-size:14px;
+      line-height:1.72;
+      color:var(--muted);
+    }
+
+    .lead{margin:12px 0 0}
+
+    .accent-word{
+      font-family:"Cormorant Garamond", serif;
+      font-style:italic;
+      color:var(--accent-gold);
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .section{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .section-head{
+      padding:16px 16px 12px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff 0%, #f9fbfd 100%);
+    }
+
+    .section-intro{margin:8px 0 0}
+
+    .stack{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:12px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:#fff;
+    }
+
+    .doc-card{
+      background:var(--doc);
+      border-color:rgba(255,255,255,.08);
+      color:var(--doc-text);
+    }
+
+    .doc-card .title,
+    .doc-card .text{
+      color:var(--doc-text);
+    }
+
+    .doc-card .text{
+      color:var(--doc-muted);
+    }
+
+    .film1-card{
+      background:var(--film1);
+      border-color:#d9efdf;
+    }
+
+    .bridge-card{
+      background:#faf5ff;
+      border-color:#eadffd;
+    }
+
+    .label{
+      display:inline-block;
+      margin-bottom:8px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+    }
+
+    .l-doc{color:var(--accent-blue)}
+    .l-f1{color:var(--accent-green)}
+    .l-bridge{color:var(--accent-violet)}
+    .l-warn{color:var(--accent-red)}
+
+    .title{
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:21px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:600;
+      margin-bottom:8px;
+    }
+
+    .scene{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    .scene-top{
+      padding:14px;
+      border-bottom:1px solid var(--line);
+      background:#fcfdff;
+    }
+
+    .scene-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      background:#eef4ff;
+      color:var(--accent-blue);
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .scene-title{
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:19px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    .scene-desc{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .scene-body{
+      padding:12px;
+      display:grid;
+      gap:8px;
+    }
+
+    .chip{
+      padding:11px 12px;
+      border-radius:14px;
+      font-size:13px;
+      line-height:1.62;
+      border:1px solid var(--line);
+    }
+
+    .chip b{
+      display:block;
+      margin-bottom:4px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .pain{background:var(--tr-pain); border-color:#f6caca}
+    .awe{background:var(--tr-awe); border-color:#cce0ff}
+    .warm{background:var(--tr-warm); border-color:#c9efcf}
+    .fear{background:var(--tr-fear); border-color:#f2dea0}
+    .loss{background:var(--tr-loss); border-color:#f5c9d3}
+    .hope{background:var(--tr-hope); border-color:#e0d6fb}
+    .bridge{background:#faf5ff; border-color:#eadffd}
+    .light{background:#f8fbf8; border-color:#d9efdf}
+
+    .quote-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:#fff;
+    }
+
+    .quote{
+      margin-top:10px;
+      padding:12px;
+      border-radius:12px;
+      background:#f7fafc;
+      border-left:4px solid var(--accent-blue);
+      color:var(--text);
+      font-size:14px;
+      line-height:1.68;
+    }
+
+    details{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:18px;
+      line-height:1.08;
+      letter-spacing:-.035em;
+      font-weight:600;
+    }
+
+    summary::-webkit-details-marker{display:none}
+    .details-body{padding:0 16px 16px}
+
+    .next{
+      display:block;
+      text-decoration:none;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:linear-gradient(180deg,#ffffff 0%, #f9fbfd 100%);
+      box-shadow:var(--shadow-lg);
+      color:var(--text);
+    }
+
+    .next small{
+      display:block;
+      margin-bottom:6px;
+      color:var(--accent-blue);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .next strong{
+      display:block;
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:22px;
+      line-height:1.02;
+      letter-spacing:-.04em;
+      margin-bottom:6px;
+      font-weight:600;
+    }
+
+    .next span{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="phone">
+        <div class="top-space"></div>
+
+        <main class="page">
+
+          <section class="hero">
+            <div class="eyebrow">Файл 2 · фильм в фильме</div>
+            <h1>Боль <span class="accent-word">начинает</span> видеть.</h1>
+            <p class="lead">
+              Этот файл собирает последовательность документального слоя внутри фильма.
+              Здесь важна не только информация, но и порядок её проникновения:
+              мир Волги, поймы и живой территории раскрывается через состояние героини,
+              через её взгляд, её напряжение и её постепенное внутреннее размягчение.
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Роль файла 2</h2>
+              <p class="section-intro">
+                Если файл 1 задаёт архитектуру, то файл 2 показывает, как именно документальная реальность
+                становится частью переживания, а не отдельной вставкой.
+              </p>
+            </div>
+            <div class="stack">
+              <div class="card doc-card">
+                <div class="label l-doc">Главная задача</div>
+                <div class="title">Раскрыть живой мир так, чтобы он ранил при утрате</div>
+                <div class="text">
+                  Зритель не должен получать территорию как сухую информацию. Он должен пройти путь:
+                  сначала заметить её следы, затем почувствовать её как место облегчения,
+                  потом понять её масштаб и наконец пережить, что эта реальность может быть поглощена.
+                </div>
+              </div>
+
+              <div class="card film1-card">
+                <div class="label l-f1">Связь с героиней</div>
+                <div class="title">Состояние девочки открывает документальный слой</div>
+                <div class="text">
+                  У девочки уже есть боль, слёзы, пирсинг как маркер жёсткой собранности и внутреннего сопротивления.
+                  Через неё в фильм входят экраны, отражения, звук птиц, детские голоса, карты, чужие лица и сама территория.
+                </div>
+              </div>
+
+              <div class="card bridge-card">
+                <div class="label l-bridge">Результат</div>
+                <div class="title">Фильм 2 становится продолжением её внутреннего маршрута</div>
+                <div class="text">
+                  Он начинается не географией, а вниманием. Не общим видом Волги, а тем моментом,
+                  когда раненый человек впервые начинает замечать мир, который говорит с ним иначе, чем всё остальное.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Порядок раскрытия</h2>
+              <p class="section-intro">
+                Это не перечень тем, а логика движения: каждая следующая сцена делает предыдущую глубже и больнее.
+              </p>
+            </div>
+            <div class="stack">
+
+              <div class="card">
+                <div class="label l-doc">Этап 1</div>
+                <div class="title">Следы чужой реальности</div>
+                <div class="text">
+                  Экраны, школьные мониторы, наушники, звук, отражения, обрывки карт и чужих видео.
+                  Зритель сначала замечает, что в мире девочки существует второй пласт — ещё не понятный,
+                  но настойчиво возникающий.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Этап 2</div>
+                <div class="title">Первое облегчение</div>
+                <div class="text">
+                  Через живой мир девочка впервые перестаёт тонуть. Именно здесь документальная линия
+                  становится красивой, но эта красота уже заряжена будущей потерей.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Этап 3</div>
+                <div class="title">Понимание масштаба</div>
+                <div class="text">
+                  Когда зритель уже подключён сердцем, фильм показывает, что это не один уголок,
+                  а коридор Волги, поймы, живые связи, Артёмовские луга, Борская пойма и более широкий участок
+                  Городец — Работки.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Этап 4</div>
+                <div class="title">Вторжение решений</div>
+                <div class="text">
+                  После тепла в кадр входит язык преобразования: дороги, освоение, проекты, административный взгляд.
+                  И именно теперь зритель понимает, что под угрозой находится то, что недавно стало для героини спасительным местом.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Этап 5</div>
+                <div class="title">Коллективный ответ</div>
+                <div class="text">
+                  После пика давления документальный слой открывает тех, кто уже видит, помнит, наблюдает и готов быть лицами фильма.
+                  Здесь появляется сообщество, которое может стать не только сценой, но и живым путём распространения фильма.
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Последовательность сцен</h2>
+              <p class="section-intro">
+                Это уже рабочая драматургическая цепочка без лишних повторов: каждая сцена выполняет собственную функцию.
+              </p>
+            </div>
+
+            <div class="stack">
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">01</div>
+                  <div class="scene-title">Хук. Девочка в слезах</div>
+                  <div class="scene-desc">
+                    Первое изображение фильма — героиня в боли. Мы не знаем причины. Мы видим только внутренний надлом,
+                    слёзы и ощущение, что что-то уже разрушено или вот-вот разрушится.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip pain">
+                    <b>Что происходит со зрителем</b>
+                    Возникает не понимание, а эмоциональное включение. Зритель входит в фильм через рану.
+                  </div>
+                  <div class="chip bridge">
+                    <b>Для спикера</b>
+                    Важно проговорить: причина этой боли раскроется позднее, и именно тогда первая сцена вернётся как сильный обратный удар.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">02</div>
+                  <div class="scene-title">Экраны, звук, следы</div>
+                  <div class="scene-desc">
+                    Девочка начинает замечать на экранах, в наушниках, в отражениях и случайных фрагментах
+                    нечто иное: птиц, карту, воду, чужое видео, чьи-то голоса. Мир фильма 2 входит в неё тонко и постепенно.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip awe">
+                    <b>Что происходит со зрителем</b>
+                    Внутри привычной городской среды возникает ощущение трещины, через которую проступает другая правда.
+                  </div>
+                  <div class="chip light">
+                    <b>Деталь героини</b>
+                    Пирсинг ещё на месте. Девочка остаётся в жёсткой защитной форме, но её внимание уже начинает меняться.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">03</div>
+                  <div class="scene-title">Первый живой отклик</div>
+                  <div class="scene-desc">
+                    Звук птиц, вода, движение воздуха, отражение поймы, карта Волги — всё это впервые
+                    действует не как информация, а как живой зов.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip awe">
+                    <b>Что происходит со зрителем</b>
+                    Боль впервые получает просвет. Это не радость, а начало внутреннего расширения.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">04</div>
+                  <div class="scene-title">Артёмовские луга. Первое облегчение</div>
+                  <div class="scene-desc">
+                    Весенняя пойма раскрывается как пространство, где девочке впервые становится легче:
+                    вода, свет, птицы, воздух, тишина и ощущение, что мир может быть не только давящим.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip warm">
+                    <b>Что происходит со зрителем</b>
+                    Появляется нежность и редкая привязанность. Это первое место фильма, которое хочется защитить ещё до всяких тезисов.
+                  </div>
+                  <div class="chip light">
+                    <b>Деталь героини</b>
+                    Здесь начинается её светлая дуга. Визуально она становится мягче, позже пирсинг исчезнет совсем.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">05</div>
+                  <div class="scene-title">Птицы как жители этого мира</div>
+                  <div class="scene-desc">
+                    Птицы показаны не как украшение, а как обитатели живого дома: возвращение, гнездование, движение, уязвимость,
+                    цикличность и постоянство присутствия.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip warm">
+                    <b>Что происходит со зрителем</b>
+                    Возникает чувство, что речь идёт о реально inhabited-пространстве, а не о пустоте, которую можно чем-то заменить.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">06</div>
+                  <div class="scene-title">Дети говорят о живом</div>
+                  <div class="scene-desc">
+                    Дети говорят очень просто — про птиц, воду, возвращение, страх исчезновения. Их речь работает как беззащитная правда,
+                    которая в фильме звучит сильнее многих взрослых формулировок.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip loss">
+                    <b>Что происходит со зрителем</b>
+                    Здесь у чувствительных зрителей может появляться первая влага в глазах: из-за сочетания нежности, уязвимости и серьёзности темы.
+                  </div>
+                  <div class="chip bridge">
+                    <b>Интонационный ориентир</b>
+                    Это должно звучать как дети, поющие взрослую серьёзную песню: честно, хрупко и очень сильно.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">07</div>
+                  <div class="scene-title">Коридор Городец — Работки</div>
+                  <div class="scene-desc">
+                    Теперь фильм расширяется: Артёмовские луга оказываются частью большой живой системы —
+                    Волги, поймы, Борской поймы, узлов, связей, масштаба, который нельзя заменить одним новым проектом.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip awe">
+                    <b>Что происходит со зрителем</b>
+                    Привязанность к одному месту превращается в уважение к целому организму.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">08</div>
+                  <div class="scene-title">Что здесь хотят сделать люди</div>
+                  <div class="scene-desc">
+                    В кадр входит человеческая логика преобразования: освоение, развитие, дороги, удобство, рациональные планы.
+                    Документальный слой показывает, что угроза приходит как нормализованная человеческая воля.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip fear">
+                    <b>Что происходит со зрителем</b>
+                    Привязанность сталкивается с ощущением несправедливости. То, что недавно дало выдох, начинает восприниматься как уязвимое.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">09</div>
+                  <div class="scene-title">Политики и язык решений</div>
+                  <div class="scene-desc">
+                    В фильме появляются люди, от которых зависит вес выбора. Их слова должны звучать как разговор о цене решения,
+                    о наследии и об ответственности, а не как сухой бюрократический комментарий.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip fear">
+                    <b>Что происходит со зрителем</b>
+                    Тревога получает реальный масштаб. Зритель чувствует: это уже вопрос не метафоры, а реальных последствий.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">10</div>
+                  <div class="scene-title">Свет городов начинает поглощать природу</div>
+                  <div class="scene-desc">
+                    На ночной карте городской свет расползается, усиливается, начинает захватывать живое свечение поймы.
+                    Образ собирает весь конфликт в один понятный и болезненный визуальный удар.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip loss">
+                    <b>Что происходит со зрителем</b>
+                    Это главный пик сжатия. В этот момент и начальная боль героини, и масштаб территории соединяются в один смысл.
+                  </div>
+                  <div class="chip bridge">
+                    <b>Для спикера</b>
+                    Здесь стоит подчеркнуть, что именно теперь зритель по-настоящему понимает первую сцену фильма.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">11</div>
+                  <div class="scene-title">Люди, которые не отворачиваются</div>
+                  <div class="scene-desc">
+                    Появляется калейдоскоп лиц: жители, наблюдатели, дети, фотографы, участники, вовлечённые люди.
+                    Из отдельных лиц складывается сообщество, которое уже способно быть не только сценой фильма, но и его живым продолжением.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip hope">
+                    <b>Что происходит со зрителем</b>
+                    После пика боли появляется опора: ощущение, что это видят и чувствуют многие.
+                  </div>
+                  <div class="chip bridge">
+                    <b>Амбассадорская функция</b>
+                    Эти люди могут стать амбассадорами фильма: показывать его близким, распространять, поддерживать и встраивать в живую сеть доверия.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">12</div>
+                  <div class="scene-title">Свет природы возвращается</div>
+                  <div class="scene-desc">
+                    На той же карте живое свечение начинает нарастать. Это не финал-победа, а ощущение,
+                    что связь ещё существует и может быть удержана человеческим выбором.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip hope">
+                    <b>Что происходит со зрителем</b>
+                    Возникает тихая зрелая надежда. Не облегчение любой ценой, а чувство ответственности и продолжения.
+                  </div>
+                  <div class="chip light">
+                    <b>Финальный образ героини</b>
+                    К этой точке её облик уже мягче, детскость возвращается, пирсинг исчезает как знак завершённой жёсткой фазы.
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Интервью и лица внутри фильма</h2>
+              <p class="section-intro">
+                Эти блоки не дублируют сцены, а объясняют, зачем именно здесь нужны дети, политики и люди-амбассадоры.
+              </p>
+            </div>
+            <div class="stack">
+              <div class="quote-card">
+                <div class="label l-doc">Дети</div>
+                <div class="title">Чистая сила уязвимого голоса</div>
+                <div class="text">
+                  Детские реплики должны появляться после того, как зритель уже полюбил пространство.
+                  Тогда они не “объясняют”, а пробивают сердце.
+                </div>
+                <div class="quote">
+                  Их присутствие нужно не ради умиления, а ради того, чтобы взрослый конфликт зазвучал через тех,
+                  кому с этим жить дальше.
+                </div>
+              </div>
+
+              <div class="quote-card">
+                <div class="label l-doc">Политики</div>
+                <div class="title">Язык решения, а не отчётности</div>
+                <div class="text">
+                  Политический голос здесь нужен как индикатор реальности: территория находится не в воображении,
+                  а в зоне конкретного выбора и конкретной ответственности.
+                </div>
+                <div class="quote">
+                  Их слова должны удерживать достоинство темы и поднимать её на уровень наследия, а не снижать до сухой бюрократии.
+                </div>
+              </div>
+
+              <div class="quote-card">
+                <div class="label l-doc">Амбассадоры</div>
+                <div class="title">Лица, которые несут фильм дальше</div>
+                <div class="text">
+                  Лица тех, кто уже вовлечён, формируют у фильма вторую жизнь. Это уже не просто зрители,
+                  а потенциальная среда распространения и доверия.
+                </div>
+                <div class="quote">
+                  Их появление в кадре должно ощущаться как переход от одиночной боли к общему человеческому ответу.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <details>
+            <summary>Итоговая формула файла 2</summary>
+            <div class="details-body">
+              Фильм 2 идёт от следов к присутствию, от присутствия к масштабу, от масштаба к угрозе, от угрозы к коллективному ответу.
+              Он не повторяет архитектуру фильма, а раскрывает её изнутри: через конкретные сцены, эмоциональные триггеры,
+              лица детей, людей решений и людей, которые готовы нести фильм дальше.
+            </div>
+          </details>
+
+          <a class="next" href="3.html">
+            <small>Следующий файл</small>
+            <strong>3.html</strong>
+            <span>Интеграция двух фильмов: где именно художественная линия усиливает документальную ветвь и как это монтировать в одну систему.</span>
+          </a>
+
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

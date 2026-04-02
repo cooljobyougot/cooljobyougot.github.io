@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Файл 3 — Интеграция двух фильмов</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#e9eef5;
+      --bg-soft:#dde5ef;
+      --phone:#ffffff;
+      --text:#0f172a;
+      --muted:#5f6b7a;
+      --line:#dbe3ec;
+
+      --film1:#f6fbf7;
+      --film1-line:#7acb92;
+      --film2:#0f1b2d;
+      --film2-soft:#16253c;
+      --film2-text:#f5f8fc;
+      --film2-muted:#b6c3d5;
+
+      --accent-blue:#2563eb;
+      --accent-green:#16a34a;
+      --accent-gold:#d4a64f;
+      --accent-red:#dc2626;
+      --accent-violet:#7c3aed;
+
+      --shadow-xl:0 40px 100px rgba(15,23,42,.16);
+      --shadow-lg:0 18px 50px rgba(15,23,42,.10);
+
+      --radius-xl:32px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --radius-sm:12px;
+
+      --phone-width:430px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 0% 0%, rgba(37,99,235,.09), transparent 45%),
+        radial-gradient(900px 600px at 100% 0%, rgba(22,163,74,.08), transparent 45%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      min-height:100vh;
+      letter-spacing:.01em;
+    }
+
+    .stage{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:28px 14px 40px;
+    }
+
+    .phone-shell{
+      width:min(100%, var(--phone-width));
+      background:#0b1020;
+      border-radius:40px;
+      padding:10px;
+      box-shadow:var(--shadow-xl);
+      position:relative;
+    }
+
+    .phone-shell::before{
+      content:"";
+      position:absolute;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%);
+      width:120px;
+      height:24px;
+      border-radius:0 0 18px 18px;
+      background:#0b1020;
+      z-index:3;
+    }
+
+    .phone{
+      background:var(--phone);
+      border-radius:30px;
+      overflow:hidden;
+      min-height:820px;
+      border:1px solid rgba(255,255,255,.35);
+      position:relative;
+    }
+
+    .top-space{
+      height:18px;
+      background:linear-gradient(180deg,#f8fbff 0%, #ffffff 100%);
+    }
+
+    .page{
+      padding:14px 14px 28px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .hero{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:18px 16px 18px;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--accent-blue);
+      font-weight:800;
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    h1,h2,h3{
+      font-family:"Inter Tight", "Inter", sans-serif;
+      margin:0;
+      color:var(--text);
+    }
+
+    h1{
+      font-size:clamp(34px, 9vw, 42px);
+      line-height:.96;
+      letter-spacing:-.05em;
+      font-weight:500;
+      max-width:10ch;
+    }
+
+    .lead{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .accent-word{
+      font-family:"Cormorant Garamond", serif;
+      font-style:italic;
+      color:var(--accent-gold);
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .section{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .section-head{
+      padding:16px 16px 12px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff 0%, #f9fbfd 100%);
+    }
+
+    h2{
+      font-size:26px;
+      line-height:1.04;
+      letter-spacing:-.045em;
+      font-weight:600;
+      max-width:13ch;
+    }
+
+    .section-intro{
+      margin:8px 0 0;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.72;
+    }
+
+    .stack{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:12px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:#fff;
+    }
+
+    .label{
+      display:inline-block;
+      margin-bottom:8px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+    }
+
+    .label.film1{color:var(--accent-green)}
+    .label.film2{color:var(--accent-blue)}
+    .label.mix{color:var(--accent-violet)}
+    .label.warn{color:var(--accent-red)}
+
+    .title{
+      font-family:"Inter Tight", "Inter", sans-serif;
+      font-size:21px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:600;
+      margin-bottom:8px;
+    }
+
+    .text{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .duo{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+
+    .film1-card{
+      background:var(--film1);
+      border-color:#d9efdf;
+    }
+
+    .film2-card{
+      background:var(--film2);
+      border-color:rgba(255,255,255,.08);
+    }
+
+    .film2-card .title,
+    .film2-card .text{
+      color:var(--film2-text);
+    }
+
+    .film2-card .text{
+      color:var(--film2-muted);
+    }
+
+    .bridge{
+      background:linear-gradient(180deg,#fbf8ff 0%, #f6f1ff 100%);
+      border-color:#eadffd;
+    }
+
+    .tiny-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .mini{
+      border-radius:14px;
+      padding:12px;
+      background:#f8fafc;
+      border:1px solid var(--line);
+    }
+
+    .mini strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      color:#4b5563;
+    }
+
+    .mini p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .scene-row{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    .scene-row-top{
+      padding:14px;
+      border-bottom:1px solid var(--line);
+      background:#fcfdff;
+    }
+
+    .scene-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      background:#eef4ff;
+      color:var(--accent-blue);
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .scene-title{
+      font-family:"Inter Tight", "Inter", sans-serif;
+      font-size:19px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    .scene-desc{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .scene-body{
+      padding:12px;
+      display:grid;
+      gap:8px;
+      background:#fff;
+    }
+
+    .chip{
+      padding:11px 12px;
+      border-radius:14px;
+      font-size:13px;
+      line-height:1.62;
+      border:1px solid var(--line);
+    }
+
+    .chip b{
+      display:block;
+      margin-bottom:4px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .chip.f1{
+      background:#f6fbf7;
+      border-color:#d9efdf;
+    }
+
+    .chip.f1 b{color:var(--accent-green)}
+
+    .chip.f2{
+      background:#f7fbff;
+      border-color:#dbe7fb;
+    }
+
+    .chip.f2 b{color:var(--accent-blue)}
+
+    .chip.mix{
+      background:#faf5ff;
+      border-color:#ecdfff;
+    }
+
+    .chip.mix b{color:var(--accent-violet)}
+
+    .chip.emo{
+      background:#fff8e8;
+      border-color:#f7e3a8;
+    }
+
+    .chip.emo b{color:#b7791f}
+
+    details{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:18px;
+      line-height:1.08;
+      letter-spacing:-.035em;
+      font-weight:600;
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    .details-body{
+      padding:0 16px 16px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .footer-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f9fbfd 100%);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .footer-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    @media (min-width:900px){
+      .stage{
+        padding-top:34px;
+      }
+      .phone-shell{
+        transform:translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="phone">
+        <div class="top-space"></div>
+
+        <main class="page">
+
+          <section class="hero">
+            <div class="eyebrow">Файл 3 · интеграция</div>
+            <h1>Два фильма. <span class="accent-word">Один</span> удар.</h1>
+            <p class="lead">
+              Этот документ показывает, как художественная линия и документальная ветвь
+              должны работать не параллельно, а в сцепке: один фильм объясняет масштаб,
+              второй заставляет его пережить лично.
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Как читать этот файл</h2>
+              <p class="section-intro">
+                На ноутбуке он должен ощущаться как мобильная история: короткие экраны,
+                одна доминанта на блок, ясный ритм чтения и чувство вертикального просмотра.
+              </p>
+            </div>
+            <div class="stack">
+              <div class="card film1-card">
+                <div class="label film1">Фильм 1</div>
+                <div class="title">Личная история</div>
+                <div class="text">
+                  Девочка, связь с природой, утрата, превращение в человека,
+                  который уже не может отвернуться.
+                </div>
+              </div>
+
+              <div class="card film2-card">
+                <div class="label film2">Фильм 2</div>
+                <div class="title">Живая система</div>
+                <div class="text">
+                  Волга, пойма, Артёмовские луга, Борская пойма, коридор от Городца до Работок,
+                  решения, угрозы, язык наследия и масштаба.
+                </div>
+              </div>
+
+              <div class="card bridge">
+                <div class="label mix">Главный принцип</div>
+                <div class="title">Не “сначала одно, потом другое”</div>
+                <div class="text">
+                  Документальная ветвь даёт знание и напряжение, а художественная каждый раз
+                  переводит это знание в сердце зрителя. Именно так один фильм докручивает другой.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Три точки сцепки</h2>
+              <p class="section-intro">
+                Это главные места, где монтажно и эмоционально два фильма должны складываться особенно сильно.
+              </p>
+            </div>
+            <div class="stack">
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">01</div>
+                  <div class="scene-title">После красоты — личная привязанность</div>
+                  <div class="scene-desc">
+                    Сначала фильм 2 показывает величие живой системы, а потом фильм 1 даёт лицу этой системы человека.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2">
+                    <b>Фильм 2</b>
+                    Пролог Волги, карта-коридор, весенние Артёмовские луга, птицы.
+                  </div>
+                  <div class="chip f1">
+                    <b>Фильм 1</b>
+                    Девочка впервые чувствует, что это место понимает её лучше, чем дом и школа.
+                  </div>
+                  <div class="chip emo">
+                    <b>Переживание</b>
+                    Не просто восхищение природой, а рождение привязанности. Зритель начинает бояться будущей утраты ещё до того, как угроза названа.
+                  </div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">02</div>
+                  <div class="scene-title">После угрозы — личная цена решения</div>
+                  <div class="scene-desc">
+                    Когда фильм 2 показывает человеческие планы, фильм 1 должен немедленно показать, что именно у человека отнимут.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2">
+                    <b>Фильм 2</b>
+                    Что здесь хотят делать люди, инфраструктурное давление, интервью с политиками, язык решений.
+                  </div>
+                  <div class="chip f1">
+                    <b>Фильм 1</b>
+                    Девочка уже полюбила это пространство; каждое рациональное решение начинает звучать как вторжение в её единственное место тепла.
+                  </div>
+                  <div class="chip emo">
+                    <b>Переживание</b>
+                    Несправедливость. У зрителя должно возникнуть чувство, что большой безличный механизм заходит в пространство живой хрупкости.
+                  </div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">03</div>
+                  <div class="scene-title">На пике — одна общая потеря</div>
+                  <div class="scene-desc">
+                    Карта поглощения и исчезновение внутренней связи должны совпасть почти в один удар.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2">
+                    <b>Фильм 2</b>
+                    Свет городов начинает поглощать природу, карта сжимает весь конфликт в один образ.
+                  </div>
+                  <div class="chip f1">
+                    <b>Фильм 1</b>
+                    Пианист исчезает, девочка остаётся без единственного голоса, который с ней говорил.
+                  </div>
+                  <div class="chip emo">
+                    <b>Переживание</b>
+                    Это главный шанс на слёзы: зритель переживает исчезновение не территории отдельно и не человека отдельно, а одной живой связи.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Общая последовательность интеграции</h2>
+              <p class="section-intro">
+                Ниже — жёсткий маршрут, в каком порядке один фильм должен эмоционально усиливать другой.
+              </p>
+            </div>
+            <div class="stack">
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">1. Мир больше человека</div>
+                <div class="text">
+                  Фильм 2 открывает Волгу и пойму как живую систему, прежде чем герой получает к ней личный доступ.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">2. Человек входит в мир</div>
+                <div class="text">
+                  Фильм 1 вводит девочку и превращает природную ценность в личное переживание тепла, убежища и понимания.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">3. Мир начинает раскрываться умом</div>
+                <div class="text">
+                  Фильм 2 расширяет взгляд: птицы, пойма, Бор, карта, историческое и природное наследие.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">4. Человек начинает любить</div>
+                <div class="text">
+                  Фильм 1 закрепляет привязанность — зритель должен почувствовать, что для героини это уже не пейзаж, а дом души.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">5. Приходит рациональная тьма</div>
+                <div class="text">
+                  Фильм 2 вводит язык освоения, дорог, проектов и решений, не как карикатурное зло, а как холодную норму.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">6. Боль становится личной</div>
+                <div class="text">
+                  Фильм 1 немедленно показывает, что эта угроза вторгается в самое тонкое и уязвимое место героини.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">7. Масштаб потери и человеческая потеря совпадают</div>
+                <div class="text">
+                  Пик обоих фильмов должен собраться в один узел: карта сжатия природы и исчезновение того, через что героиня слышала живой мир.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label mix">Маршрут</div>
+                <div class="title">8. Ответ приходит через человека</div>
+                <div class="text">
+                  Фильм 2 возвращает достоинство и коллективный взгляд, а фильм 1 показывает, что у этой силы есть лицо — взрослая героиня.
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Жёсткая таблица сценария</h2>
+              <p class="section-intro">
+                Упрощённая мобильная версия: одна строка = один монтажный блок, один смысловой удар.
+              </p>
+            </div>
+
+            <div class="stack">
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">01</div>
+                  <div class="scene-title">Волга как живая артерия</div>
+                  <div class="scene-desc">Туман, вода, пространство. Мир больше человека.</div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2"><b>Роль фильма 2</b>Открыть масштаб и достоинство живой системы.</div>
+                  <div class="chip f1"><b>Роль фильма 1</b>Пока молчит, готовит вход человека в этот мир.</div>
+                  <div class="chip emo"><b>Что должно произойти со зрителем</b>Восхищение и внутренняя тишина.</div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">02</div>
+                  <div class="scene-title">Артёмовские луга / первое тепло</div>
+                  <div class="scene-desc">Документальная красота встречается с личным переживанием героини.</div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2"><b>Роль фильма 2</b>Показать ценность места: вода, птицы, весенняя пойма.</div>
+                  <div class="chip f1"><b>Роль фильма 1</b>Сделать это место внутренним убежищем девочки.</div>
+                  <div class="chip emo"><b>Что должно произойти со зрителем</b>Привязанность. Переход от “красиво” к “не трогайте”.</div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">03</div>
+                  <div class="scene-title">Пойма как система, а не точка</div>
+                  <div class="scene-desc">Карта от Городца до Работок, Борская пойма, наследие, масштаб.</div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2"><b>Роль фильма 2</b>Дать интеллектуальный объём и пространственную логику.</div>
+                  <div class="chip f1"><b>Роль фильма 1</b>Поддерживать зрителя эмоционально через присутствие героини.</div>
+                  <div class="chip emo"><b>Что должно произойти со зрителем</b>Удивление и уважение.</div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">04</div>
+                  <div class="scene-title">Что здесь хотят делать люди</div>
+                  <div class="scene-desc">Язык освоения, проекты, дороги, инфраструктура, решения.</div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2"><b>Роль фильма 2</b>Назвать тёмную сторону и ввести логику давления.</div>
+                  <div class="chip f1"><b>Роль фильма 1</b>Мгновенно показать, что для героини это вторжение в живое сердце.</div>
+                  <div class="chip emo"><b>Что должно произойти со зрителем</b>Несправедливость и тревога.</div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">05</div>
+                  <div class="scene-title">Дети и политики</div>
+                  <div class="scene-desc">Будущее и решение звучат рядом, но разными языками.</div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2"><b>Роль фильма 2</b>Собрать общественный масштаб: будущее, ответственность, выбор.</div>
+                  <div class="chip f1"><b>Роль фильма 1</b>Сделать этот масштаб снова личным и хрупким.</div>
+                  <div class="chip emo"><b>Что должно произойти со зрителем</b>У особенно чувствительных — первая влага в глазах.</div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">06</div>
+                  <div class="scene-title">Поглощение / исчезновение</div>
+                  <div class="scene-desc">Городской свет съедает природу, внутренняя связь девочки исчезает.</div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2"><b>Роль фильма 2</b>Дать главный символический образ утраты.</div>
+                  <div class="chip f1"><b>Роль фильма 1</b>Дать человеческую цену этой утраты.</div>
+                  <div class="chip emo"><b>Что должно произойти со зрителем</b>Главный эмоциональный пик фильма.</div>
+                </div>
+              </div>
+
+              <div class="scene-row">
+                <div class="scene-row-top">
+                  <div class="scene-num">07</div>
+                  <div class="scene-title">Ответ / взрослая героиня</div>
+                  <div class="scene-desc">После пустоты приходит не отчёт о победе, а ответственное продолжение.</div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip f2"><b>Роль фильма 2</b>Вернуть достоинство, масштаб и живую систему.</div>
+                  <div class="chip f1"><b>Роль фильма 1</b>Показать лицо этого ответа — человека, который вырос из утраты.</div>
+                  <div class="chip emo"><b>Что должно произойти со зрителем</b>Надежда без фальши.</div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <details>
+            <summary>Как это презентовать заказчику голосом</summary>
+            <div class="details-body">
+              Сначала мы показываем, что речь идёт не об одном красивом месте, а о большой живой системе Волги.
+              Затем даём человеку войти в неё сердцем через девочку. После этого вводим угрозу как рациональный язык освоения.
+              В момент, когда документальная ветвь показывает масштаб потери, художественная линия делает эту потерю личной.
+              И в финале оба фильма сходятся в одном выводе: живой мир может продолжиться только через человеческий выбор и ответственность.
+            </div>
+          </details>
+
+          <section class="footer-card">
+            <p>
+              Этот файл уже можно показывать как вертикальную презентацию.
+              Следующий шаг — либо собрать **обновлённый Файл 2 в этой же мобильной системе**, либо перейти к финальной сводке всех трёх файлов в одном стиле.
+            </p>
+          </section>
+
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

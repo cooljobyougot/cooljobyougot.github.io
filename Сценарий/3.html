@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.html — Интеграция двух фильмов</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#e9eef5;
+      --bg-soft:#dde5ef;
+      --phone:#ffffff;
+      --text:#0f172a;
+      --muted:#5f6b7a;
+      --line:#dbe3ec;
+
+      --doc:#0f1b2d;
+      --doc-soft:#16253c;
+      --doc-text:#f4f7fb;
+      --doc-muted:#b7c4d6;
+
+      --film1:#f8fbf8;
+      --film1-line:#87c79a;
+
+      --accent-blue:#2563eb;
+      --accent-green:#16a34a;
+      --accent-gold:#d4a64f;
+      --accent-red:#dc2626;
+      --accent-violet:#7c3aed;
+
+      --tr-pain:#fee2e2;
+      --tr-awe:#dbeafe;
+      --tr-warm:#dcfce7;
+      --tr-fear:#fef3c7;
+      --tr-loss:#ffe4e6;
+      --tr-hope:#ede9fe;
+
+      --shadow-xl:0 40px 100px rgba(15,23,42,.16);
+      --shadow-lg:0 18px 50px rgba(15,23,42,.10);
+
+      --phone-width:430px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 0% 0%, rgba(37,99,235,.09), transparent 45%),
+        radial-gradient(900px 600px at 100% 0%, rgba(22,163,74,.08), transparent 45%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      min-height:100vh;
+    }
+
+    .stage{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:28px 14px 40px;
+    }
+
+    .phone-shell{
+      width:min(100%, var(--phone-width));
+      background:#0b1020;
+      border-radius:40px;
+      padding:10px;
+      box-shadow:var(--shadow-xl);
+      position:relative;
+    }
+
+    .phone-shell::before{
+      content:"";
+      position:absolute;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%);
+      width:120px;
+      height:24px;
+      border-radius:0 0 18px 18px;
+      background:#0b1020;
+      z-index:2;
+    }
+
+    .phone{
+      background:var(--phone);
+      border-radius:30px;
+      overflow:hidden;
+      min-height:820px;
+      border:1px solid rgba(255,255,255,.35);
+    }
+
+    .top-space{
+      height:18px;
+      background:linear-gradient(180deg,#f8fbff 0%, #ffffff 100%);
+    }
+
+    .page{
+      padding:14px 14px 28px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .hero{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:18px 16px;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--accent-blue);
+      font-weight:800;
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    h1,h2,h3{
+      font-family:"Inter Tight","Inter",sans-serif;
+      margin:0;
+      color:var(--text);
+    }
+
+    h1{
+      font-size:clamp(33px, 9vw, 42px);
+      line-height:.96;
+      letter-spacing:-.05em;
+      font-weight:500;
+      max-width:10ch;
+    }
+
+    h2{
+      font-size:26px;
+      line-height:1.04;
+      letter-spacing:-.045em;
+      font-weight:600;
+      max-width:12ch;
+    }
+
+    .lead,.section-intro,.text,.details-body{
+      font-size:14px;
+      line-height:1.72;
+      color:var(--muted);
+    }
+
+    .lead{margin:12px 0 0}
+
+    .accent-word{
+      font-family:"Cormorant Garamond", serif;
+      font-style:italic;
+      color:var(--accent-gold);
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .section{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .section-head{
+      padding:16px 16px 12px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff 0%, #f9fbfd 100%);
+    }
+
+    .section-intro{margin:8px 0 0}
+
+    .stack{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:12px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:#fff;
+    }
+
+    .film1-card{
+      background:var(--film1);
+      border-color:#d9efdf;
+    }
+
+    .doc-card{
+      background:var(--doc);
+      border-color:rgba(255,255,255,.08);
+      color:var(--doc-text);
+    }
+
+    .doc-card .title,
+    .doc-card .text{
+      color:var(--doc-text);
+    }
+
+    .doc-card .text{
+      color:var(--doc-muted);
+    }
+
+    .bridge-card{
+      background:#faf5ff;
+      border-color:#eadffd;
+    }
+
+    .label{
+      display:inline-block;
+      margin-bottom:8px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+    }
+
+    .l-doc{color:var(--accent-blue)}
+    .l-f1{color:var(--accent-green)}
+    .l-bridge{color:var(--accent-violet)}
+    .l-warn{color:var(--accent-red)}
+
+    .title{
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:21px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:600;
+      margin-bottom:8px;
+    }
+
+    .scene{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    .scene-top{
+      padding:14px;
+      border-bottom:1px solid var(--line);
+      background:#fcfdff;
+    }
+
+    .scene-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      background:#eef4ff;
+      color:var(--accent-blue);
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .scene-title{
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:19px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    .scene-desc{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .scene-body{
+      padding:12px;
+      display:grid;
+      gap:8px;
+    }
+
+    .chip{
+      padding:11px 12px;
+      border-radius:14px;
+      font-size:13px;
+      line-height:1.62;
+      border:1px solid var(--line);
+    }
+
+    .chip b{
+      display:block;
+      margin-bottom:4px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .pain{background:var(--tr-pain); border-color:#f6caca}
+    .awe{background:var(--tr-awe); border-color:#cce0ff}
+    .warm{background:var(--tr-warm); border-color:#c9efcf}
+    .fear{background:var(--tr-fear); border-color:#f2dea0}
+    .loss{background:var(--tr-loss); border-color:#f5c9d3}
+    .hope{background:var(--tr-hope); border-color:#e0d6fb}
+    .bridge{background:#faf5ff; border-color:#eadffd}
+    .light{background:#f8fbf8; border-color:#d9efdf}
+
+    details{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:18px;
+      line-height:1.08;
+      letter-spacing:-.035em;
+      font-weight:600;
+    }
+
+    summary::-webkit-details-marker{display:none}
+    .details-body{padding:0 16px 16px}
+
+    .next{
+      display:block;
+      text-decoration:none;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:linear-gradient(180deg,#ffffff 0%, #f9fbfd 100%);
+      box-shadow:var(--shadow-lg);
+      color:var(--text);
+    }
+
+    .next small{
+      display:block;
+      margin-bottom:6px;
+      color:var(--accent-blue);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .next strong{
+      display:block;
+      font-family:"Inter Tight","Inter",sans-serif;
+      font-size:22px;
+      line-height:1.02;
+      letter-spacing:-.04em;
+      margin-bottom:6px;
+      font-weight:600;
+    }
+
+    .next span{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="phone">
+        <div class="top-space"></div>
+
+        <main class="page">
+
+          <section class="hero">
+            <div class="eyebrow">Файл 3 · интеграция</div>
+            <h1>Два слоя. <span class="accent-word">Одна</span> рана.</h1>
+            <p class="lead">
+              Этот файл показывает, как художественная линия и документальный слой собираются в одну драматургическую систему.
+              Здесь нет новых тем. Здесь есть точные места сцепки: где личная боль открывает документальный мир,
+              где документальный конфликт усиливает личную утрату и где финал сводит оба уровня в зрелый человеческий ответ.
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Задача файла 3</h2>
+              <p class="section-intro">
+                После архитектуры и последовательности сцен нужен отдельный файл,
+                который ясно показывает: что с чем соединяется, в каком месте и ради какого эмоционального эффекта.
+              </p>
+            </div>
+            <div class="stack">
+              <div class="card bridge-card">
+                <div class="label l-bridge">Главный принцип</div>
+                <div class="title">Одна и та же боль проходит через оба фильма</div>
+                <div class="text">
+                  Художественная линия даёт зрителю внутреннюю точку входа. Документальный слой расширяет эту точку до масштаба территории,
+                  решений, угрозы и наследия. Они не идут параллельно. Они всё время переоткрывают друг друга.
+                </div>
+              </div>
+
+              <div class="card film1-card">
+                <div class="label l-f1">Личная линия</div>
+                <div class="title">Девочка проходит путь от сжатия к мягкости</div>
+                <div class="text">
+                  Слёзы, внутренний надлом, пирсинг как знак закрытости, затем редкое облегчение,
+                  медленное снятие защитной формы и возвращение более детского, живого состояния.
+                </div>
+              </div>
+
+              <div class="card doc-card">
+                <div class="label l-doc">Документальная линия</div>
+                <div class="title">Территория проходит путь от сигнала к ставке</div>
+                <div class="text">
+                  Экраны, карты, вода, птицы, коридор Волги, язык решений, лица людей, светящаяся карта,
+                  коллективное присутствие и ощущение, что живая система ещё может быть удержана.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Три главные точки сцепки</h2>
+              <p class="section-intro">
+                Это не общие слова, а ключевые узлы монтажа и смысла. Если они работают, оба фильма начинают усиливать друг друга по-настоящему.
+              </p>
+            </div>
+            <div class="stack">
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">01</div>
+                  <div class="scene-title">Боль открывает внимание</div>
+                  <div class="scene-desc">
+                    Сначала зритель видит девочку в боли. Затем в её реальность начинают входить экраны,
+                    звук, следы, отражения и чужие сигналы живого мира.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip pain">
+                    <b>Что делает фильм 1</b>
+                    Даёт сердцу зрителя первую точку входа — сочувствие, беспокойство, желание понять.
+                  </div>
+                  <div class="chip awe">
+                    <b>Что делает фильм 2</b>
+                    Наполняет это беспокойство содержанием и тонко показывает: рядом с ней существует другой мир.
+                  </div>
+                  <div class="chip bridge">
+                    <b>Смысл сцепки</b>
+                    Документальный слой становится не внешней информацией, а тем, что входит прямо в трещину её боли.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">02</div>
+                  <div class="scene-title">Облегчение делает угрозу личной</div>
+                  <div class="scene-desc">
+                    Как только в фильме появляется пространство, где девочке становится легче,
+                    всё, что приходит туда как язык освоения и давления, начинает восприниматься зрителем как вторжение.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip warm">
+                    <b>Что делает фильм 1</b>
+                    Даёт зрителю внутренний опыт: здесь ей впервые не так больно, здесь возникает доверие к миру.
+                  </div>
+                  <div class="chip fear">
+                    <b>Что делает фильм 2</b>
+                    Вводит проекты, дороги, планы, решения, делая угрозу конкретной и структурной.
+                  </div>
+                  <div class="chip bridge">
+                    <b>Смысл сцепки</b>
+                    Рациональный конфликт перестаёт быть абстракцией, потому что он вторгается в уже любимое пространство.
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">03</div>
+                  <div class="scene-title">Потеря совпадает с масштабом</div>
+                  <div class="scene-desc">
+                    Светящаяся карта, где город поглощает природу, и раскрытие причины начальной боли
+                    должны звучать почти одновременно, как один эмоциональный удар.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip loss">
+                    <b>Что делает фильм 1</b>
+                    Возвращает хук в полной силе: теперь зритель понимает, почему девочка плакала в самом начале.
+                  </div>
+                  <div class="chip loss">
+                    <b>Что делает фильм 2</b>
+                    Показывает, что речь идёт не об одном личном переживании, а о потере живой системы и пространства смысла.
+                  </div>
+                  <div class="chip bridge">
+                    <b>Смысл сцепки</b>
+                    Личная боль и территориальный конфликт становятся одной раной.
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Общая схема монтажа</h2>
+              <p class="section-intro">
+                Здесь собран маршрут фильма как последовательность усилений, без повторения сцен из файла 2.
+              </p>
+            </div>
+            <div class="stack">
+
+              <div class="card">
+                <div class="label l-doc">Шаг 1</div>
+                <div class="title">Хук задаёт недосказанность</div>
+                <div class="text">
+                  Боль героини делает фильм эмоционально открытым, но ещё непонятым. Это создаёт напряжение,
+                  которое будет работать до самого момента раскрытия причины.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Шаг 2</div>
+                <div class="title">Документальный мир входит порциями</div>
+                <div class="text">
+                  Он не обрушивается на зрителя блоком. Он входит через короткие сигналы:
+                  экраны, звук, чужие лица, фрагменты карт и кадры живой территории.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Шаг 3</div>
+                <div class="title">Светлая фаза делает ставку высокой</div>
+                <div class="text">
+                  Как только девочка начинает дышать легче, фильм получает то пространство,
+                  которое зритель уже не готов потерять без боли.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Шаг 4</div>
+                <div class="title">Документальная ясность усиливает эмоциональный риск</div>
+                <div class="text">
+                  Когда фильм показывает масштаб территории, птиц, детей, коридор Волги и логику решений,
+                  личное переживание героини становится многократно значимее.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Шаг 5</div>
+                <div class="title">Пик собирает всё назад в начало</div>
+                <div class="text">
+                  Фильм возвращает зрителя к первой сцене, но теперь уже с полным пониманием.
+                  Начальная боль становится не просто сильным образом, а раскрытой причиной и итогом.
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="label l-doc">Шаг 6</div>
+                <div class="title">Ответ идёт через человека и сообщество</div>
+                <div class="text">
+                  Финал удерживает обе линии: взрослеющая героиня и люди, которые не отворачиваются,
+                  дают ощущение, что живое пространство может продолжиться в человеческом действии.
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Жёсткая карта усилений</h2>
+              <p class="section-intro">
+                Это краткий блок для спикера: где именно один слой усиливает другой и какой эффект должен возникнуть.
+              </p>
+            </div>
+            <div class="stack">
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">A</div>
+                  <div class="scene-title">Личная боль → документальное внимание</div>
+                  <div class="scene-desc">
+                    Девочка в боли делает зрителя восприимчивым к миру, который начинает проступать в следах и сигналах.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip pain"><b>Эффект</b>Сочувствие превращается в внимательность.</div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">B</div>
+                  <div class="scene-title">Светлая территория → страх утраты</div>
+                  <div class="scene-desc">
+                    Артёмовские луга и живая среда успевают стать для зрителя местом облегчения ещё до прихода конфликта.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip warm"><b>Эффект</b>Нежность делает будущую угрозу по-настоящему болезненной.</div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">C</div>
+                  <div class="scene-title">Масштаб территории → масштаб боли</div>
+                  <div class="scene-desc">
+                    Чем больше зритель понимает про Волгу, пойму и систему мест, тем больше начальная рана героини выходит за пределы частной драмы.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip awe"><b>Эффект</b>Личная история обретает общественный и исторический вес.</div>
+                </div>
+              </article>
+
+              <article class="scene">
+                <div class="scene-top">
+                  <div class="scene-num">D</div>
+                  <div class="scene-title">Коллективный ответ → зрелая надежда</div>
+                  <div class="scene-desc">
+                    Люди-амбассадоры, наблюдатели, дети, вовлечённые лица и взрослая героиня возвращают фильму не пафос, а достоинство.
+                  </div>
+                </div>
+                <div class="scene-body">
+                  <div class="chip hope"><b>Эффект</b>После боли остаётся не пустота, а ощущение живого продолжения.</div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Визуальная дуга героини</h2>
+              <p class="section-intro">
+                Это не отдельная тема, а важный поддерживающий слой, который должен быть заметен, но не проговорён в лоб.
+              </p>
+            </div>
+            <div class="stack">
+              <div class="card film1-card">
+                <div class="label l-f1">Тёмная фаза</div>
+                <div class="title">Жёсткость, пирсинг, внутренняя защита</div>
+                <div class="text">
+                  В начале облик героини собран так, будто она старается не дать миру приблизиться.
+                  Это не “стиль ради стиля”, а внешний признак её внутреннего зажима.
+                </div>
+              </div>
+
+              <div class="card film1-card">
+                <div class="label l-f1">Светлая фаза</div>
+                <div class="title">Смягчение, снятие пирсинга, возвращение детскости</div>
+                <div class="text">
+                  По мере того как в её жизнь входит живой мир, визуальная жёсткость уходит.
+                  Она становится мягче, проще, ближе к себе настоящей.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <details>
+            <summary>Итоговая формула файла 3</summary>
+            <div class="details-body">
+              Файл 3 не повторяет архитектуру и не дублирует последовательность сцен.
+              Он показывает, как боль героини становится порталом в документальный слой,
+              как документальный слой усиливает цену её личной утраты и как оба уровня сходятся
+              в финале, где остаются свет, ответственность и человеческое продолжение.
+            </div>
+          </details>
+
+          <a class="next" href="1.html">
+            <small>Следующий файл</small>
+            <strong>1.html</strong>
+            <span>Возврат к архитектуре: ядро фильма, хук, дуга героини и общая система подачи.</span>
+          </a>
+
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
