@@ -44,17 +44,7 @@
         </a>
       </div>
 
-      <nav class="nav-compact" aria-label="Навигация по сайту">
-        <a class="navpill" href="./products/ads.html">Реклама</a>
-        <a class="navpill" href="./products/brand.html">Имидж</a>
-        <a class="navpill" href="./products/ai.html">AI</a>
-        <a class="navpill" href="./products/fpv.html">FPV</a>
-        <a class="navpill" href="#contact" data-scroll>Контакт</a>
-      </nav>
-
       <div class="topbar-actions">
-        <a class="pill ghost" href="#showreel" data-scroll>Showreel</a>
-        <a class="pill primary" href="#contact" data-scroll>Обсудить задачу</a>
         <button class="pill icon topbar-tool" id="themeToggle" type="button" aria-label="Переключить тему">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 18.5a6.5 6.5 0 1 1 6.26-8.3 7.3 7.3 0 0 1-6.26 8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
@@ -62,33 +52,11 @@
           </svg>
           <span class="topbar-tool__label">Тема</span>
         </button>
-        <button class="nav-toggle topbar-tool" id="navToggle" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
-          <span class="burger"><span></span></span>
-          <span class="topbar-tool__label">Меню</span>
-        </button>
+
+        <a class="pill primary" href="#contact" data-scroll>Обсудить задачу</a>
       </div>
     </div>
   </header>
-
-  <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
-    <div class="mobile-nav__head">
-      <div class="brand-title">
-        <strong>КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</strong>
-        <span>Навигация</span>
-      </div>
-      <button class="nav-toggle" id="navClose" type="button" aria-label="Закрыть меню" aria-expanded="true">
-        <span class="burger"><span></span></span>
-      </button>
-    </div>
-
-    <nav class="mobile-nav__body" aria-label="Мобильная навигация">
-      <a href="./products/ads.html">Реклама</a>
-      <a href="./products/brand.html">Имидж</a>
-      <a href="./products/ai.html">AI</a>
-      <a href="./products/fpv.html">FPV</a>
-      <a href="#contact" data-scroll>Контакт</a>
-    </nav>
-  </aside>
 
   <main>
     <section class="section section-dark hero hero-wide">
@@ -96,13 +64,13 @@
         <div class="hero-copy reveal">
           <p class="eyebrow">Креативное агентство</p>
 
-<h1 class="hero-h1 hero-h1--wide">
-  Создаём
-  <span class="serif">видео</span>,
-  которые усиливают бренд
-  <span class="serif">и работают</span><br class="desktop-break">
-  <span class="serif">на результат</span>
-</h1>
+          <h1 class="hero-h1 hero-h1--wide">
+            Создаём
+            <span class="serif">видео</span>,
+            которые усиливают бренд
+            <span class="serif">и работают</span><br class="desktop-break">
+            <span class="serif">на результат</span>
+          </h1>
 
           <p class="hero-sub hero-sub--wide">
             Рекламные ролики, имиджевые форматы, FPV-съёмка и AI-продакшн — как единая система под задачи бизнеса.
@@ -110,10 +78,8 @@
 
           <div class="cta-row">
             <a class="pill primary" href="#contact" data-scroll>Обсудить задачу</a>
-            <a class="pill ghost" href="#showreel" data-scroll>Смотреть showreel</a>
             <span class="trust">Идея → продакшн → финальная форма</span>
           </div>
-
         </div>
       </div>
     </section>
@@ -143,7 +109,7 @@
 
     <section class="section section-dark">
       <div class="container statement-wrap">
-<div class="giant-word" aria-hidden="true" style="font-size:clamp(42px,22vw,180px); line-height:.9; max-width:100%; overflow:hidden; white-space:nowrap;">Стратегия</div>
+        <div class="giant-word" aria-hidden="true" style="font-size:clamp(42px,22vw,180px); line-height:.9; max-width:100%; overflow:hidden; white-space:nowrap;">Стратегия</div>
         <div class="statement-block">
           <div class="reveal">
             <p class="eyebrow">Как мы мыслим</p>
@@ -151,7 +117,6 @@
               Уточняем аудиторию, этап воронки<span class="accent"> и собираем точный сценарий</span>
               с понятным целевым <span class="accent">результатом.</span>
             </h2>
-          </div>
           </div>
         </div>
       </div>
@@ -165,62 +130,94 @@
 
         <div class="product-grid">
           <article class="card product-card lift">
-            <div class="product-media"><video
-  src="./assets/video/product-brand-loop.mp4"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="auto"
-  aria-label="Имидж бренда"
-></video></div>
+            <div class="product-media">
+              <video
+                src="./assets/video/product-brand-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Реклама"
+              ></video>
+            </div>
             <div class="product-body">
-              <div class="product-top"><h3>Реклама</h3><span class="tag">Performance</span></div>
-              <p class="value">Ролики под продажи: ясная задача, сильный сценарий, точный монтаж и адаптации под площадки.</p>
-              <div class="row"><a class="pill primary" href="./products/ads.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
+              <div class="product-top">
+                <h3>Реклама</h3>
+                <span class="tag">Performance</span>
+              </div>
+              <p class="value">
+                Ролики под продажи: ясная задача, сильный сценарий, точный монтаж и адаптации под площадки.
+              </p>
             </div>
           </article>
 
           <article class="card product-card lift">
-            <div class="product-media"><img src="./assets/img/product-brand.webp" alt="Имидж бренда" width="1200" height="1500" loading="lazy" /></div>
+            <div class="product-media">
+              <video
+                src="./assets/video/product-brand.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Имидж бренда"
+              ></video>
+            </div>
             <div class="product-body">
-              <div class="product-top"><h3>Имидж бренда</h3><span class="tag">Brand</span></div>
-              <p class="value">Видео, которое формирует восприятие, держит уровень бренда и усиливает доверие.</p>
-              <div class="row"><a class="pill primary" href="./products/brand.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
+              <div class="product-top">
+                <h3>Имидж бренда</h3>
+                <span class="tag">Brand</span>
+              </div>
+              <p class="value">
+                Видео, которое формирует восприятие, держит уровень бренда и усиливает доверие.
+              </p>
             </div>
           </article>
 
           <article class="card product-card lift">
-            <div class="product-media"><video
-  src="./assets/video/product-ai-loop.mp4"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="auto"
-  aria-label="AI-продакшн"
-></video></div>
+            <div class="product-media">
+              <video
+                src="./assets/video/product-ai-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="AI-продакшн"
+              ></video>
+            </div>
             <div class="product-body">
-              <div class="product-top"><h3>AI-продакшн</h3><span class="tag">AI</span></div>
-              <p class="value">Нейросцены, стилевые версии, вставки и масштабирование контента внутри реального продакшна.</p>
-              <div class="row"><a class="pill primary" href="./products/ai.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
+              <div class="product-top">
+                <h3>AI-продакшн</h3>
+                <span class="tag">AI</span>
+              </div>
+              <p class="value">
+                Нейросцены, стилевые версии, вставки и масштабирование контента внутри реального продакшна.
+              </p>
             </div>
           </article>
 
           <article class="card product-card lift">
-            <div class="product-media"><video
-  src="./assets/video/product-fpv-loop.mp4"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="auto"
-  aria-label="FPV-съёмка"
-></video></div>
+            <div class="product-media">
+              <video
+                src="./assets/video/product-fpv-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="FPV-съёмка"
+              ></video>
+            </div>
             <div class="product-body">
-              <div class="product-top"><h3>FPV-съёмка</h3><span class="tag">FPV</span></div>
-              <p class="value">Эффект присутствия, динамика пространства и хук, который удерживает взгляд с первых секунд.</p>
-              <div class="row"><a class="pill primary" href="./products/fpv.html">Подробнее</a><a class="pill ghost" href="#contact" data-scroll>Обсудить</a></div>
+              <div class="product-top">
+                <h3>FPV-съёмка</h3>
+                <span class="tag">FPV</span>
+              </div>
+              <p class="value">
+                Эффект присутствия, динамика пространства и хук, который удерживает взгляд с первых секунд.
+              </p>
             </div>
           </article>
         </div>
@@ -236,91 +233,106 @@
         <div class="product-grid">
           <article class="card product-card lift">
             <div class="product-media">
-  <video
-    src="./assets/video/case-01-loop.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    aria-label="Рекламный кейс — автосалон"
-  ></video>
-</div>
-            <div class="product-body"><div class="product-top"><h3>Рекламный кейс</h3><span class="tag">Case</span></div><p class="value">Сильный первый экран, понятный продуктовый фокус и визуальный ритм, который работает на конверсию.</p></div>
+              <video
+                src="./assets/video/case-01-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-label="Рекламный кейс — автосалон"
+              ></video>
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Рекламный кейс</h3><span class="tag">Case</span></div>
+              <p class="value">Сильный первый экран, понятный продуктовый фокус и визуальный ритм, который работает на конверсию.</p>
+            </div>
           </article>
+
           <article class="card product-card lift">
             <div class="product-media">
-  <video
-    src="./assets/video/case-02-loop.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    aria-label="Имиджевый кейс — Технокабель"
-  ></video>
-</div>
-            <div class="product-body"><div class="product-top"><h3>Имиджевый кейс</h3><span class="tag">Brand</span></div><p class="value">Светлая editorial-подача, крупная типографика и медиа, которые создают ощущение статуса бренда.</p></div>
+              <video
+                src="./assets/video/case-02-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-label="Имиджевый кейс — Технокабель"
+              ></video>
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>Имиджевый кейс</h3><span class="tag">Brand</span></div>
+              <p class="value">Светлая editorial-подача, крупная типографика и медиа, которые создают ощущение статуса бренда.</p>
+            </div>
           </article>
+
           <article class="card product-card lift">
             <div class="product-media">
-  <video
-    src="./assets/video/case-03-loop.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    aria-label="AI-визуал"
-  ></video>
-</div>
-            <div class="product-body"><div class="product-top"><h3>AI-визуал</h3><span class="tag">AI</span></div><p class="value">Генеративный блок как часть реального пайплайна: не абстракция, а контролируемый инструмент усиления ролика.</p></div>
+              <video
+                src="./assets/video/case-03-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-label="AI-визуал"
+              ></video>
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>AI-визуал</h3><span class="tag">AI</span></div>
+              <p class="value">Генеративный блок как часть реального пайплайна: не абстракция, а контролируемый инструмент усиления ролика.</p>
+            </div>
           </article>
+
           <article class="card product-card lift">
             <div class="product-media">
-  <video
-    src="./assets/video/case-04-loop.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    aria-label="FPV-динамика"
-  ></video>
-</div>
-            <div class="product-body"><div class="product-top"><h3>FPV-динамика</h3><span class="tag">FPV</span></div><p class="value">Кадр, который даёт ощущение скорости, масштаба и эффект присутствия уже в первые секунды просмотра.</p></div>
+              <video
+                src="./assets/video/case-04-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-label="FPV-динамика"
+              ></video>
+            </div>
+            <div class="product-body">
+              <div class="product-top"><h3>FPV-динамика</h3><span class="tag">FPV</span></div>
+              <p class="value">Кадр, который даёт ощущение скорости, масштаба и эффект присутствия уже в первые секунды просмотра.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-<section class="section section-light" id="contact">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Оставить заявку</h2>
-    </div>
-    <div class="contact-grid">
-      <div class="card contact-card lift reveal" aria-label="Контакты компании">
-        <h3 style="font-size:1.3rem; letter-spacing:-0.03em; margin:0 0 12px;">Менеджер</h3>
+    <section class="section section-light" id="contact">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Связаться с нами</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="card contact-card lift reveal" aria-label="Контакты компании">
+            <h3 style="font-size:1.3rem; letter-spacing:-0.03em; margin:0 0 12px;">Менеджер</h3>
 
-        <div class="row" style="flex-wrap:wrap; gap:10px; margin-bottom:14px;">
-          <a class="pill primary" href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener">Telegram</a>
-          <a class="pill ghost" href="https://max.ru/u/f9LHodD0cOJC20Mf6g1GH2nSNHu3G6kt1rCWJZlJWWKab9ufxwUxt0z-OhU" target="_blank" rel="noopener">MAX</a>
-          <a class="pill ghost" href="tel:+79394463156">Позвонить</a>
+            <div class="row" style="flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+              <a class="pill primary" href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener">Telegram</a>
+              <a class="pill ghost" href="https://max.ru/u/f9LHodD0cOJC20Mf6g1GH2nSNHu3G6kt1rCWJZlJWWKab9ufxwUxt0z-OhU" target="_blank" rel="noopener">MAX</a>
+              <a class="pill ghost" href="tel:+79394463156">Позвонить</a>
+            </div>
+          </div>
+          <div class="card contact-card lift reveal" aria-label="Контакты CEO">
+            <h3 style="font-size:1.3rem; letter-spacing:-0.03em; margin:0 0 12px;">CEO Дмитрий Дроздов</h3>
+
+            <div class="row" style="flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+              <a class="pill primary" href="https://t.me/drozdovhumandevelopment" target="_blank" rel="noopener">Telegram</a>
+              <a class="pill ghost" href="https://max.ru/u/f9LHodD0cOJC20Mf6g1GH2nSNHu3G6kt1rCWJZlJWWKab9ufxwUxt0z-OhU" target="_blank" rel="noopener">MAX</a>
+              <a class="pill ghost" href="tel:+79104721024">Позвонить</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card contact-card lift reveal" aria-label="Контакты CEO">
-        <h3 style="font-size:1.3rem; letter-spacing:-0.03em; margin:0 0 12px;">CEO Дмитрий Дроздов</h3>
-
-        <div class="row" style="flex-wrap:wrap; gap:10px; margin-bottom:14px;">
-          <a class="pill primary" href="https://t.me/drozdovhumandevelopment" target="_blank" rel="noopener">Telegram</a>
-          <a class="pill ghost" href="https://max.ru/u/f9LHodD0cOJC20Mf6g1GH2nSNHu3G6kt1rCWJZlJWWKab9ufxwUxt0z-OhU" target="_blank" rel="noopener">MAX</a>
-          <a class="pill ghost" href="tel:+79104721024">Позвонить</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
   <div class="legal-footer" role="contentinfo" aria-label="Юридическая информация">
