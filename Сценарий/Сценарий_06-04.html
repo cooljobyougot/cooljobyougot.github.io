@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Зелёные — последовательная презентационная версия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#edf2f7;
+      --bg2:#e0e8f1;
+      --paper:#ffffff;
+      --ink:#0f172a;
+      --muted:#5d6b7a;
+      --line:#d8e2ee;
+      --pain:#fee2e2;
+      --pain-line:#efb7b7;
+      --fracture:#fef3c7;
+      --fracture-line:#ecd78c;
+      --search:#dbeafe;
+      --search-line:#bad3ff;
+      --pause:#ecfccb;
+      --pause-line:#cde790;
+      --threat:#ffe4e6;
+      --threat-line:#f2bcc8;
+      --loss:#fce7f3;
+      --loss-line:#edbdd2;
+      --hope:#ede9fe;
+      --hope-line:#d4c8fb;
+      --rise:#dcfce7;
+      --rise-line:#bde7c7;
+      --doc:#0f1b2d;
+      --doc-line:#2a3b58;
+      --doc-text:#eef4fb;
+      --doc-muted:#b6c5d8;
+      --fix:#166534;
+      --hyp:#7c3aed;
+      --open:#b45309;
+      --risk:#b91c1c;
+      --shadow-xl:0 40px 90px rgba(15,23,42,.14);
+      --shadow-lg:0 18px 48px rgba(15,23,42,.10);
+      --phone-width:1200px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 500px at 0% 0%, rgba(37,99,235,.08), transparent 45%),
+        radial-gradient(900px 600px at 100% 0%, rgba(22,163,74,.08), transparent 45%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+    }
+    .wrap{max-width:var(--phone-width);margin:0 auto;padding:28px 18px 48px}
+    .hero,.section,.scene,.meta-card,details,.summary-card,.legend-chip{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+    .hero{border-radius:32px;padding:28px;box-shadow:var(--shadow-xl);margin-bottom:18px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:#2563eb;margin-bottom:16px}
+    h1,h2,h3,h4{margin:0;font-family:"Inter Tight","Inter",sans-serif;letter-spacing:-.045em}
+    h1{font-size:clamp(38px,6vw,68px);line-height:.95;max-width:11ch}
+    h2{font-size:30px;line-height:1.03}
+    h3{font-size:24px;line-height:1.05}
+    h4{font-size:18px;line-height:1.1}
+    .accent{font-family:"Cormorant Garamond",serif;font-style:italic;color:#b78c38;font-weight:600;white-space:nowrap}
+    .lead,.text,.small,.details-body,.scene-desc,.meta-text,li{font-size:15px;line-height:1.72;color:var(--muted)}
+    .lead{max-width:90ch;margin:14px 0 0}
+    .grid-4,.grid-3,.grid-2{display:grid;gap:12px}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .meta-card{border-radius:22px;padding:16px}
+    .meta-title{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:8px;color:#2563eb}
+    .meta-text strong{color:var(--ink)}
+    .section{border-radius:28px;overflow:hidden;margin-top:18px}
+    .section-head{padding:20px 22px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#f8fbff)}
+    .section-intro{margin-top:10px;max-width:88ch}
+    .section-body{padding:16px}
+    .summary-card{border-radius:22px;padding:18px;background:linear-gradient(180deg,#fff,#f8fbff)}
+    .summary-card p{margin:0}
+    .legend{display:flex;flex-wrap:wrap;gap:10px}
+    .legend-chip{border-radius:999px;padding:10px 12px;font-size:12px;font-weight:700}
+    .pain{background:var(--pain);border-color:var(--pain-line)}
+    .fracture{background:var(--fracture);border-color:var(--fracture-line)}
+    .search{background:var(--search);border-color:var(--search-line)}
+    .pause{background:var(--pause);border-color:var(--pause-line)}
+    .threat{background:var(--threat);border-color:var(--threat-line)}
+    .loss{background:var(--loss);border-color:var(--loss-line)}
+    .hope{background:var(--hope);border-color:var(--hope-line)}
+    .rise{background:var(--rise);border-color:var(--rise-line)}
+    .scene-list{display:flex;flex-direction:column;gap:16px}
+    .scene{border-radius:28px;overflow:hidden}
+    .scene-head{padding:18px 18px 14px;border-bottom:1px solid var(--line)}
+    .scene-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+    .scene-tag{display:inline-flex;padding:7px 10px;border-radius:999px;border:1px solid rgba(15,23,42,.08);font-size:11px;text-transform:uppercase;letter-spacing:.11em;font-weight:800;background:rgba(255,255,255,.7)}
+    .scene-num{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:38px;border-radius:999px;background:#fff;border:1px solid rgba(15,23,42,.08);font-weight:800;font-size:13px}
+    .scene-title{font-size:28px;margin-bottom:8px}
+    .scene-desc{max-width:90ch}
+    .scene-body{padding:16px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+    .block{border:1px solid var(--line);border-radius:20px;padding:14px;background:rgba(255,255,255,.72)}
+    .block h4{margin-bottom:8px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+    .status{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border:1px solid currentColor;background:#fff}
+    .fix{color:var(--fix)} .hyp{color:var(--hyp)} .open{color:var(--open)} .risk{color:var(--risk)}
+    ul{margin:0;padding-left:18px}
+    details{border-radius:20px;overflow:hidden}
+    summary{list-style:none;cursor:pointer;padding:14px 16px;font-size:18px;font-family:"Inter Tight","Inter",sans-serif;font-weight:700;letter-spacing:-.03em}
+    summary::-webkit-details-marker{display:none}
+    .details-body{padding:0 16px 16px}
+    .doc-strip{background:var(--doc);border-color:var(--doc-line);color:var(--doc-text)}
+    .doc-strip h3,.doc-strip h4{color:var(--doc-text)}
+    .doc-strip .text,.doc-strip li,.doc-strip .small{color:var(--doc-muted)}
+    .footer-note{margin-top:18px;padding:18px 20px;border-radius:24px;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+    @media (max-width:980px){.grid-4,.grid-3,.grid-2,.scene-body{grid-template-columns:1fr}}
+    @media (max-width:640px){.wrap{padding:16px 12px 32px}.hero{padding:20px}.scene-title{font-size:24px}h2{font-size:26px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Один файл · последовательная презентационная версия</div>
+      <h1>От раны к действию. <span class="accent">Через зов, паузу и утрату.</span></h1>
+      <p class="lead">
+        Это единая презентационная сборка сценария после встречи: не посценник для съёмки, а подробный маршрут фильма,
+        где сцены идут последовательно, художественная и документальная линии прошиваются друг через друга,
+        а цвет каждого блока отражает состояние героини и состояние зрителя в этой точке.
+      </p>
+    </section>
+
+    <section class="grid-4">
+      <div class="meta-card">
+        <div class="meta-title">Главный сдвиг</div>
+        <div class="meta-text">История стала <strong>не набором двух фильмов</strong>, а одной дугой: хук боли → зов → касания второго слоя → пауза → телесная угроза → обратный хук → взросление как ответ.</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-title">Форма</div>
+        <div class="meta-text">Документальный слой теперь не вставляется блоками, а <strong>входит в маршрут девочки порциями</strong>: через звук, экраны, интервью, карты, лица, исчезающие дома и инфографику.</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-title">Героиня</div>
+        <div class="meta-text">В начале она закрытая, колючая, протестная, в чёрном, с пирсингом. В финале — не «пай-девочка», а <strong>собранная Жанна д’Арк</strong> проекта.</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-title">Презентационная задача</div>
+        <div class="meta-text">Показать команде и внешним участникам <strong>как фильм работает эмоционально, визуально и общественно</strong>, не смешивая утверждённое и рабочие гипотезы.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Цветовая драматургия</h2>
+        <p class="section-intro text">Цвет блока = не жанр сцены, а эмоциональный режим, в котором одновременно находится героиня и зритель.</p>
+      </div>
+      <div class="section-body">
+        <div class="legend">
+          <div class="legend-chip pain">Боль / внутренний надлом</div>
+          <div class="legend-chip fracture">Трещина / тревога / давление</div>
+          <div class="legend-chip search">Зов / внимание / проводник</div>
+          <div class="legend-chip pause">Пауза / первый выдох / наблюдение</div>
+          <div class="legend-chip threat">Угроза / вторжение / сжатие</div>
+          <div class="legend-chip loss">Потеря / обратный удар</div>
+          <div class="legend-chip hope">Сообщество / возможность / продолжение</div>
+          <div class="legend-chip rise">Сборка / действие / новая собранность</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Суть версии</h2>
+        <p class="section-intro text">Это версия, в которой сохранены почти все проговорённые идеи, но они разложены по функциям сцены. Там, где решение не зафиксировано, это отмечено прямо.</p>
+      </div>
+      <div class="section-body grid-2">
+        <div class="summary-card">
+          <h3>Основной вектор</h3>
+          <p class="text">Девочка не объясняет свою боль словами. Она несёт на себе городское давление и протестует против системы даже внешним кодом. Сквозь трещины привычного города в её жизнь начинает проникать второй слой фильма — природа, пойма, карта территории, голоса и музыка пианиста. Этот зов ведёт её к паузе, которая даёт первый выдох, но сразу после этого фильм не успокаивается, а проваливается глубже: угроза становится физической, масштабной и документально ясной. Тогда первая слеза из хука получает содержание. Финал переводит утрату не в истерику, а в действие, образ, сообщество и проектное продолжение.</p>
+        </div>
+        <div class="summary-card doc-strip">
+          <h3>Ключевой принцип сборки</h3>
+          <p class="text">Девочка <strong>не живёт внутри второго фильма постоянно</strong>. Она касается его краем, проходит мимо, пересекает, задевает, входит в интервью, выходит обратно, видит фрагменты, слышит музыку, ловит исчезновения и проявления. Именно поэтому документальный слой остаётся документальным, но при этом переживается как часть её маршрута.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Последовательная версия фильма</h2>
+        <p class="section-intro text">Ниже — одна развернутая цепочка. Каждая сцена содержит: функцию, встроенные идеи встречи, визуальную механику, состояние зрителя и статус решений.</p>
+      </div>
+      <div class="section-body scene-list">
+
+        <article class="scene pain">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">01</div>
+              <div class="scene-tag">Хук</div>
+              <div class="scene-tag">Внутренний надлом</div>
+              <div class="scene-tag">Причина скрыта</div>
+            </div>
+            <div class="scene-title">Девочка в слезах</div>
+            <div class="scene-desc">Первое изображение фильма должно ранить до появления объяснений: напряжённое лицо, слёзы, ощущение, что что-то уже разрушено или вот-вот разрушится. Причину мы не называем. Это не кадр с ответом, а кадр, который вцепляется в зрителя раньше смысла.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Что здесь встроено</h4>
+              <ul>
+                <li>Хук работает через боль до объяснения, чтобы позже вернуться обратной волной.</li>
+                <li>Внешний код героини уже считывается: протест, закрытость, колючесть, чёрная одежда, пирсинг как безопасная провокация мира, а не самоповреждение.</li>
+                <li>Причина боли остаётся совокупностью среды, а не одной лобовой бытовой причиной.</li>
+                <li>Мёртвая птица обсуждалась как возможный образ, но для этой версии не обязательна и не должна превращаться в единственный ответ.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано: хук без объяснения</span><span class="status hyp">гипотеза: предмет в руках</span></div>
+            </div>
+            <div class="block">
+              <h4>Что чувствует зритель</h4>
+              <p class="text">Не понимание, а немедленное эмоциональное включение. Возникает тревога и желание остаться в фильме, чтобы понять, откуда эта рана и почему она так сильна.</p>
+              <h4 style="margin-top:12px">Что важно для презентации</h4>
+              <p class="text">Это не «девочка страдает вообще». Это первый удар всей конструкции: позже фильм вернёт нас сюда уже с содержанием.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene fracture">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">02</div>
+              <div class="scene-tag">Перебивка</div>
+              <div class="scene-tag">Интро</div>
+              <div class="scene-tag">Монтажный жест</div>
+            </div>
+            <div class="scene-title">Отсечка после хука: интро и название</div>
+            <div class="scene-desc">После слёз нужна отдельная перебивка, чтобы хук не просто перетёк в историю, а был отсечён самостоятельным монтажным жестом. Здесь появляется название фильма. Это не ленивый титр, а шов между раной и движением.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Функция</h4>
+              <ul>
+                <li>Отрезать стартовую боль от основного движения фильма.</li>
+                <li>Дать зрителю секунду на внутренний вдох перед запуском маршрута.</li>
+                <li>Сразу заявить, что фильм работает не бытово, а собранно и монтажно осмысленно.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Визуальная подача</h4>
+              <p class="text">Короткий сочный монтажный удар: обрывок музыки, резкая типографика, возможно, след от слёз, затем название. Смысл — не объяснить, а отделить хук от маршрута.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene fracture">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">03</div>
+              <div class="scene-tag">Городское давление</div>
+              <div class="scene-tag">Без лиц</div>
+              <div class="scene-tag">Фон травмы</div>
+            </div>
+            <div class="scene-title">Микросцены давления среды</div>
+            <div class="scene-desc">До того, как зов станет различим, мы на уровне фрагментов показываем, от чего она живёт в сжатии: школа, парта, толчки, безликие фигуры, чужие руки, тряска, сломанный карандаш, жесты отбора, давление нормы. Не сцены объяснения, а удары среды.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Что здесь важно</h4>
+              <ul>
+                <li>Среда давит не через длинные диалоги, а через безличные, узнаваемые бытовые фрагменты.</li>
+                <li>Родители и взрослые не обязаны быть показаны в лоб; достаточно ощущения, что у ребёнка нет языка и нет услышанности.</li>
+                <li>Эти эпизоды могут появляться как до зова, так и повторно, когда зритель вспоминает, откуда она бежала.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано: режим без лиц</span><span class="status open">открыто: точный набор фрагментов</span></div>
+            </div>
+            <div class="block">
+              <h4>Что чувствует зритель</h4>
+              <p class="text">Здесь не нужна расшифровка «что случилось». Достаточно, чтобы стало телесно ясно: девочка не драматизирует, она действительно живёт под давлением системы.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene search">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">04</div>
+              <div class="scene-tag">Первый сигнал</div>
+              <div class="scene-tag">Музыка</div>
+              <div class="scene-tag">Проводник</div>
+            </div>
+            <div class="scene-title">Автобус / улица: музыкальный удар и исчезнувший источник</div>
+            <div class="scene-desc">Конкретный микроэпизод зова: в автобусе или на улице её кто-то задевает; на долю секунды вспыхивает кусок музыки пианиста; она разворачивается, пытается догнать источник, выскакивает, но человека уже нет. Мир дал знак и тут же спрятал его.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Зачем эта сцена</h4>
+              <ul>
+                <li>Перевести зов из абстракции в конкретное кинематографическое событие.</li>
+                <li>Запустить логику «Алисы»: кто-то или что-то ведёт её через город, но не как персонаж-проводник, а как след.</li>
+                <li>Показать, что она пока понимает этот мир только через удар, обрывок, тревожный знак.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано: эпизод нужен</span><span class="status hyp">гипотеза: автобус как лучшая форма</span></div>
+            </div>
+            <div class="block">
+              <h4>Что происходит со зрителем</h4>
+              <p class="text">Зритель впервые понимает: второй слой фильма не просто «появится позже», он уже зовёт её и ведёт. Но источник не человек в лоб. В пределе зовёт сама природа.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene search">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">05</div>
+              <div class="scene-tag">Маршрут</div>
+              <div class="scene-tag">Кролик</div>
+              <div class="scene-tag">Касания второго фильма</div>
+            </div>
+            <div class="scene-title">Она идёт за зовом сквозь город</div>
+            <div class="scene-desc">Дальше девочка движется как будто без цели, но всё время за чем-то. Она не принимает решение «поехать проверять». Она просто идёт, скорее убегая от себя и от среды, а город начинает проступать трещинами: экраны, отражения, школьные мониторы, наушники, фрагменты карт, видео, чужие голоса, обрывки интервью.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Главный принцип сцены</h4>
+              <ul>
+                <li>Она всё время как будто идёт за «кроликом», но кролик — это не конкретный человек, а зов второго слоя.</li>
+                <li>Документальный фильм не берёт её себе полностью: она касается его, проходит через него, пересекает кадр, но не живёт внутри него без остановки.</li>
+                <li>Работает логика «фильм в фильме»: зритель понимает, что она проходит через второй слой, а она ещё нет.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Эпизоды внутри этой зоны</h4>
+              <ul>
+                <li>Она видит интервью на мониторе, а позже буквально входит в пространство интервью и проходит между интервьюером и героем, затем снова выпадает обратно в свой маршрут.</li>
+                <li>Где-то документальный материал существует как экран, где-то как отражение, где-то как звуковой след, где-то как проход сквозь чужую реальность.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene fracture">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">06</div>
+              <div class="scene-tag">Этический узел</div>
+              <div class="scene-tag">Связка трансформации</div>
+              <div class="scene-tag">Первая половина</div>
+            </div>
+            <div class="scene-title">Кража до паузы</div>
+            <div class="scene-desc">До попадания в пустоту и первый выдох у девочки должен быть поступок, который позже вернётся: она что-то крадёт. Не как криминальный твист, а как ещё одно проявление разболтанной, оборонительной, сломанной связи с миром.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Функция связки</h4>
+              <ul>
+                <li>Дать не только внутреннюю, но и поведенческую трансформацию.</li>
+                <li>Показать, что протест и боль уже заражают действие.</li>
+                <li>Подготовить поздний жест возврата: не вещь, а деньги.</li>
+              </ul>
+              <div class="chips"><span class="status hyp">рабочая гипотеза, но сильная</span><span class="status open">открыто: что именно украдено</span></div>
+            </div>
+            <div class="block">
+              <h4>Презентационный смысл</h4>
+              <p class="text">Это маленькая драматургическая пружина, которая в финале даст тихое, человеческое доказательство перемены без плакатности.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene pause">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">07</div>
+              <div class="scene-tag">Пауза</div>
+              <div class="scene-tag">Первый выдох</div>
+              <div class="scene-tag">Артёмовские луга</div>
+            </div>
+            <div class="scene-title">Пустота как самостоятельная сцена</div>
+            <div class="scene-desc">Девочка добирается до живой территории. Но это не рекламная «красота природы» и не облегчение в лоб. Здесь возникает отдельный режим наблюдения: тишина, воздух, вода, птицы, ритм, в котором как будто ничего специального не происходит, а зритель всё равно не может оторваться.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Что зафиксировано</h4>
+              <ul>
+                <li>Это должна быть именно пауза в духе наблюдения, а не «природа и стало хорошо».</li>
+                <li>Фильм как будто сбрасывает напряжение, но не обещает счастья.</li>
+                <li>Красота живого мира здесь уже заражена будущей потерей.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано: пауза нужна</span></div>
+            </div>
+            <div class="block">
+              <h4>Что чувствует зритель</h4>
+              <p class="text">Не радость и не катарсис, а странное зависание, первый настоящий выдох. Именно поэтому следующий удар будет больнее: зритель уже успеет признать это место своим.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene search">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">08</div>
+              <div class="scene-tag">Пианист</div>
+              <div class="scene-tag">Проявление</div>
+              <div class="scene-tag">Проводит до паузы</div>
+            </div>
+            <div class="scene-title">Пианист проявляется со спины — на реальном пианино в озере</div>
+            <div class="scene-desc">В этой версии пианист уже не просто музыкальная сила и не абстрактный проводник. Он именно проявляется: со спины, без обязательного лица, но телесно и неоспоримо. Он сидит на стуле, который как будто вырастает прямо из воды. Пианино стоит буквально на глади озера. Его пятки чуть-чуть в воде, педали висят в воздухе, и он босыми пальцами ног нажимает на педали.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Зачем это нужно</h4>
+              <ul>
+                <li>Зафиксировать один сильный, уникальный образ фильма, который невозможно спутать с иллюстрацией или клиповой метафорой.</li>
+                <li>Сделать пианиста не рассказчиком, а реальной силой пространства: он не комментирует природу, он вступает с ней в прямое физическое соединение.</li>
+                <li>Сохранить тайну за счёт того, что он виден, но не раскрыт до конца: спина есть, лицо не обязательно.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Что важно для презентации</h4>
+              <p class="text">Этот образ нужно удерживать буквально: озеро, гладь воды, стул из воды, босые ноги, педали в воздухе. Это уже не рабочая атмосфера, а один из ключевых опознавательных знаков всего проекта.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene search">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">09</div>
+              <div class="scene-tag">Граница миров</div>
+              <div class="scene-tag">Переход</div>
+              <div class="scene-tag">Исчезающие дома</div>
+            </div>
+            <div class="scene-title">Пианист музыкой отодвигает город, а город возвращается, когда мелодия ломается</div>
+            <div class="scene-desc">Один из центральных переходных образов теперь работает так: именно пианист своей музыкой отодвигает город. Дома и застройка как будто отступают, проступает природа, воздух, вода, живая глубина пространства. Но когда музыка сбавляет темп, когда мелодия даёт трещину, ломается или теряет силу, город начинает наступать обратно. Это не просто визуальный фокус, а сама механика конфликта.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Зачем этот образ</h4>
+              <ul>
+                <li>Связать музыку пианиста с самой тканью мира: он не сопровождает изображение, а реально влияет на видимость пространства.</li>
+                <li>Сделать конфликт наглядным: живое не исчезает само, его всё время приходится отвоёвывать у наступающего города.</li>
+                <li>Подвести историю к экватору накала: музыка ещё держит линию, но город уже научился возвращаться.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Расширение формы</h4>
+              <p class="text">Именно здесь особенно органично может появиться рисованная / акварельная / генеративная вставка: граница между городом и живым миром становится не только физической, но и символической, будто фильм на секунду проходит сквозь другой способ видеть.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene threat">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">10</div>
+              <div class="scene-tag">После выдоха</div>
+              <div class="scene-tag">Сжатие</div>
+              <div class="scene-tag">Административный взгляд</div>
+            </div>
+            <div class="scene-title">Давление входит в кадр</div>
+            <div class="scene-desc">Как только зрителю начинает казаться, что фильм сейчас разомкнётся в сторону облегчения, начинается обратное: дороги, освоение, проекты, инфраструктура, рациональный язык преобразования, светящиеся карты, инфографика, логика «заселим и осветим тёмные места». И вроде бы красивее — всё в огоньках, — но эта красота оказывается ложной.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Что здесь встроено</h4>
+              <ul>
+                <li>Тёмные, неосвещённые пространства начинают заполняться огнями, и это сначала выглядит как улучшение.</li>
+                <li>Потом камера ныряет ближе и показывает цену такого «улучшения».</li>
+                <li>Музыка пианиста не исчезает, а усиливается и начинает звучать на конфликте с миром вокруг.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано: после паузы должно стать хуже</span></div>
+            </div>
+            <div class="block">
+              <h4>Что чувствует зритель</h4>
+              <p class="text">Он успел сделать вдох — и тут же получает новый уровень тревоги. Возникает чувство: под угрозой не просто красивое место, а пространство, где только что появился первый выдох героини.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene threat">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">11</div>
+              <div class="scene-tag">Физическое разрушение</div>
+              <div class="scene-tag">Звук / техника</div>
+              <div class="scene-tag">Телесность угрозы</div>
+            </div>
+            <div class="scene-title">Разрушение становится физическим через звук, технику и наступление города</div>
+            <div class="scene-desc">Буквальный образ мёртвой птицы из этой версии убирается. Физическое ощущение разрушения строится иначе: через лязг, технику, тяжёлый звук, вторжение инфраструктуры, через то, как музыка уже не удерживает пространство и город наваливается обратно всё телеснее и грубее.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Главная задача эпизода</h4>
+              <ul>
+                <li>Показать, что разрушение природы — не абстрактная тема, а физическое вторжение в живое пространство.</li>
+                <li>Сделать угрозу телесной и слышимой без буквального символа мёртвой птицы.</li>
+                <li>Усилить переход от поэзии и паузы к экватору накала, где мир уже начинает дрожать под давлением города.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Режиссёрская логика</h4>
+              <p class="text">Для презентации важно зафиксировать сам принцип: не иллюстративная жестокость, а телесный опыт вторжения. Звук, вибрация, техника, давление и наступление города здесь сильнее прямолинейного знака.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene loss">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">12</div>
+              <div class="scene-tag">Обратный хук</div>
+              <div class="scene-tag">Потеря</div>
+              <div class="scene-tag">Возврат в начало</div>
+            </div>
+            <div class="scene-title">Обратный хук: слёзы возвращаются, а крик становится сильнее музыки</div>
+            <div class="scene-desc">Стартовая сцена возвращается, но теперь она наполнена содержанием: девочка увидела другой мир, увидела, как музыка отвоёвывает для него пространство и как город наступает обратно. Где-то здесь обратный хук может перейти в крик — и этот крик оказывается сильнее пианино и сильнее музыки. Он не просто выражает боль, а рушит город.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Что здесь должно сработать</h4>
+              <ul>
+                <li>Зритель неожиданно понимает, зачем был первый кадр со слезами.</li>
+                <li>Боль перестаёт быть только внутренней и становится действующей силой.</li>
+                <li>Крик героини подхватывает то, что музыка уже не может удержать одна, и переводит фильм к кульминационному разрушению города.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span><span class="status hyp">точное место крика ещё можно донастроить</span></div>
+            </div>
+            <div class="block">
+              <h4>Что важно удержать</h4>
+              <p class="text">Это не истерика и не эмоциональный перегрев ради эффекта. Крик нужен как момент, когда героиня становится силой того же масштаба, что и сама музыка: теперь уже она воздействует на мир.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene hope">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">13</div>
+              <div class="scene-tag">Коллективный ответ</div>
+              <div class="scene-tag">Лица</div>
+              <div class="scene-tag">Амбассадоры</div>
+            </div>
+            <div class="scene-title">Короткие лица сообщества</div>
+            <div class="scene-desc">После пика давления появляется не один большой комментарий, а монтажный блок лиц: дети, наблюдатели, жители, фотографы, лидеры мнений, люди, которые говорят по несколько секунд. Из этих коротких лиц собирается не только аргумент, но и общественное тело фильма.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Что встроено в этот блок</h4>
+              <ul>
+                <li>Это не просто «финальный смысл», а отдельный эпизодический конструктор.</li>
+                <li>Рабочая модель — собрать около двадцати лиц по несколько секунд, с возможностью нарастить больше.</li>
+                <li>Через них кино получает амбассадоров и живой путь распространения.</li>
+                <li>Детские лица здесь особенно важны: фильм говорит не только о птицах, но и о будущем людей.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Что пока не решено</h4>
+              <p class="text">Дебаты, губернатор и открытая полемика обсуждались как отдельная сильная, но опасная ветка. Для этой версии она не вшивается в основную цепь как обязательная сцена, а сохраняется как возможное расширение документального слоя.</p>
+              <div class="chips"><span class="status risk">риск: дебаты и полемика</span><span class="status open">открыто: нужен ли политический блок</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene hope">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">14</div>
+              <div class="scene-tag">Альтернатива</div>
+              <div class="scene-tag">Спасённое будущее</div>
+              <div class="scene-tag">Городской парк</div>
+            </div>
+            <div class="scene-title">Не только угроза, но и образ спасённого места</div>
+            <div class="scene-desc">Фильм должен показать не только то, что отнимают, но и то, что сохраняется в случае победы: живой городской парк, дорожки, прогулки, велосипедисты, собаки, дети, нормальное человеческое пользование пространством, в котором город и природа не уничтожают друг друга.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Зачем это нужно</h4>
+              <ul>
+                <li>Сделать ставку понятной не только эмоционально, но и социально.</li>
+                <li>Показать, что речь идёт не о «запретить всё», а о защите будущего места для жизни людей.</li>
+                <li>Подключить зрителя через узнаваемый образ живого городского парка, а не только через птиц и абстрактную ценность природы.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано как важный финальный образ</span></div>
+            </div>
+            <div class="block">
+              <h4>Возможная форма</h4>
+              <p class="text">Этот блок хорошо работает в связке с инфографикой: «что будет, если уничтожить» ↔ «что может быть, если сохранить». Не агитация, а чувственно понятная альтернатива.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene rise">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">15</div>
+              <div class="scene-tag">Жест перемены</div>
+              <div class="scene-tag">Возврат денег</div>
+              <div class="scene-tag">Тихое доказательство</div>
+            </div>
+            <div class="scene-title">Послесвечение финала: мир гаснет и на мгновение вспыхивает возврат украденного</div>
+            <div class="scene-desc">Финальная связка кражи теперь работает как постскриптум после уже завершившегося фильма. Самые последние кадры: девочка ударяет по клавише пианино, мир домов содрогается, экран затухает. Затем он на мгновение вспыхивает — и мы видим, как она возвращает украденное. Это не бытовая развязка, а ясный месседж: необходимо вернуть планете украденное у неё.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Почему это сильнее предыдущей версии</h4>
+              <ul>
+                <li>Жест возврата перестаёт быть просто доказательством личной перемены и становится последним смысловым ударом фильма.</li>
+                <li>Личная кража связывается с большой темой присвоения, отъёма и необходимости возвращения.</li>
+                <li>Экранное затухание и короткая вспышка дают ощущение, что фильм уже закончился, но всё же оставляет зрителю последнее обязательство.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Месседж</h4>
+              <p class="text">Возвращается не только вещь. Возвращается мысль: планете нужно вернуть то, что было у неё украдено — пространство, дыхание, право оставаться живой.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene rise">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">16</div>
+              <div class="scene-tag">Переход формы</div>
+              <div class="scene-tag">Акварель</div>
+              <div class="scene-tag">Пятый элемент</div>
+            </div>
+            <div class="scene-title">Генеративная / рисованная / акварельная вставка</div>
+            <div class="scene-desc">В поздней части фильма физическая съёмка может пройти через более условную форму — рисованную, генеративную, акварельную. Это не украшение, а способ сделать её символической фигурой проекта и визуально показать действия, которые сложно собрать только реальностью.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Зачем вводить условную форму</h4>
+              <ul>
+                <li>Показать исчезновение и возвращение миров более свободно, чем позволяет натура.</li>
+                <li>Перевести героиню из частного персонажа в образ, который удерживает весь проект.</li>
+                <li>Подчеркнуть мотив «пятого элемента»: она становится тем недостающим звеном, через которое живая система может быть защищена.</li>
+              </ul>
+              <div class="chips"><span class="status hyp">рабочая гипотеза</span><span class="status open">открыто: объём и техника</span></div>
+            </div>
+            <div class="block">
+              <h4>Как это не испортить</h4>
+              <p class="text">Условная форма должна быть легче реальности, а не имитировать её. Акварельность здесь сильнее, чем «почти фотореализм»: она помогает выйти в символ без дешёвого эффекта.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene rise">
+          <div class="scene-head">
+            <div class="scene-meta">
+              <div class="scene-num">17</div>
+              <div class="scene-tag">Финальный образ</div>
+              <div class="scene-tag">Новый код</div>
+              <div class="scene-tag">Жанна д’Арк</div>
+            </div>
+            <div class="scene-title">Переодевание и выход в новую собранность</div>
+            <div class="scene-desc">Финальный образ героини — не бытовая смена костюма, а отдельный визуальный эпизод: от тёмного, протестного, колючего внешнего кода к светлому платью, другой собранности, другой осанке. Но это не послушная хорошая девочка. Это всё та же решительная сила, только теперь выведенная наружу и собранная.</div>
+          </div>
+          <div class="scene-body">
+            <div class="block">
+              <h4>Что должно остаться в образе</h4>
+              <ul>
+                <li>Не стереть её протестную природу, а перевести её в форму силы.</li>
+                <li>Считать её не как «исправили девочку», а как «Жанна д’Арк вышла из заднего двора на открытую сцену».</li>
+                <li>Сделать этот образ презентационно узнаваемым: она становится лицом и символом всего проекта.</li>
+              </ul>
+              <div class="chips"><span class="status fix">зафиксировано</span></div>
+            </div>
+            <div class="block">
+              <h4>Что чувствует зритель</h4>
+              <p class="text">Не сладость и не утешение, а зрелую готовность. Фильм заканчивается не агитацией, а ощущением, что у проекта появилось человеческое лицо, которое можно помнить и за которым можно идти дальше.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Что ещё обязательно удержать в презентации</h2>
+        <p class="section-intro text">Это не отдельные сцены, а сквозные опоры, которые должны быть слышны во всей версии.</p>
+      </div>
+      <div class="section-body grid-3">
+        <div class="meta-card">
+          <div class="meta-title">Эмоциональное ядро</div>
+          <div class="meta-text">Фильм не о том, чтобы «доказать позицию», а о том, чтобы провести зрителя от неясной боли к моменту, когда он уже не может смотреть на угрозу как на абстракцию.</div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-title">Природа как сила</div>
+          <div class="meta-text">Природа не фон и не красивая заставка. Она второй язык фильма, проводник, альтернатива системе и место, где впервые появляется выдох.</div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-title">Почему досматривают до конца</div>
+          <div class="meta-text">Потому что фильм всё время обещает ответ на первый кадр и всё время подбрасывает новые уровни ставки: зов, пауза, угроза, масштаб, возврат к слезам, коллективный ответ, новая фигура героини.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Плавающие зоны и незакрытые развилки</h2>
+        <p class="section-intro text">Эти точки не нужно прятать. Для презентационного документа полезно назвать их прямо, чтобы команда не путала найденное с недоопределённым.</p>
+      </div>
+      <div class="section-body">
+        <details open>
+          <summary>Что ещё не зафиксировано до конца</summary>
+          <div class="details-body">
+            <ul>
+              <li>Точный предмет стартового хука: пустые руки, мёртвая птица или другой материальный образ.</li>
+              <li>Степень явленности пианиста: чисто звуковая сила, краткое присутствие или более полноценный персонаж-проводник.</li>
+              <li>Как именно оформляется телесный удар разрушения: птица, техника, вспугнутая стая, лязг, другой физический образ.</li>
+              <li>Объём генеративной / акварельной части: единичный переход, повторяющийся приём или кульминационная зона.</li>
+              <li>Нужен ли отдельный политический дебатный блок или эта ветка остаётся за пределами основной презентационной версии.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Следующие шаги после этой версии</h2>
+        <p class="section-intro text">Чтобы перейти от презентационной сборки к следующей итерации сценария, лучше двигаться в таком порядке.</p>
+      </div>
+      <div class="section-body grid-2">
+        <div class="summary-card">
+          <h3>Нужно утвердить</h3>
+          <ul>
+            <li>точную форму телесного кульминационного удара;</li>
+            <li>степень материализации пианиста;</li>
+            <li>состав финального блока сообщества;</li>
+            <li>масштаб условной / акварельной формы;</li>
+            <li>насколько политический документальный слой входит в основную версию.</li>
+          </ul>
+        </div>
+        <div class="summary-card">
+          <h3>Потом собирать</h3>
+          <ul>
+            <li>сухой посценник по уже утверждённой цепочке;</li>
+            <li>визуальный референс-лист по каждому режиму цвета;</li>
+            <li>карточки персонажей и функций;</li>
+            <li>отдельную презентацию общественного / амбассадорского блока;</li>
+            <li>финальную pitch-версию, где героиня уже выступает лицом проекта.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      <h3>Результат этой сборки</h3>
+      <p class="text">Получилась не рассыпанная карта идей, а один последовательный файл, в котором сцены сменяют друг друга, документальный слой касается художественного без подмены, а почти все проговорённые на встрече идеи встроены по месту: как утверждённые опоры, как сильные рабочие гипотезы или как открытые развилки, которые ещё нельзя выдавать за фикс.</p>
+    </div>
+  </div>
+</body>
+</html>
