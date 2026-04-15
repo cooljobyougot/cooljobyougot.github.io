@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ВОЛГА — календарь, график платежей, смета</title>
+  <meta name="description" content="Производственный план проекта «Волга»: календарь, график поступления средств и подробная смета." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#edf2f7;
+      --bg2:#e0e8f1;
+      --paper:#ffffffcc;
+      --paper-strong:#ffffff;
+      --ink:#0f172a;
+      --muted:#5d6b7a;
+      --line:#d8e2ee;
+      --line-strong:#c2d1e0;
+      --accent:#2563eb;
+      --accent-2:#14b8a6;
+      --gold:#b78c38;
+      --shadow-xl:0 40px 90px rgba(15,23,42,.14);
+      --shadow-lg:0 18px 48px rgba(15,23,42,.10);
+      --shadow-md:0 10px 24px rgba(15,23,42,.08);
+      --success:#166534;
+      --warning:#b45309;
+      --danger:#b91c1c;
+      --radius-xl:32px;
+      --radius-lg:24px;
+      --radius-md:18px;
+      --radius-sm:14px;
+      --wrap:1280px;
+    }
+
+    html[data-theme="dark"]{
+      --bg:#07101d;
+      --bg2:#0d1728;
+      --paper:rgba(13,23,40,.78);
+      --paper-strong:#101b2e;
+      --ink:#ebf2ff;
+      --muted:#aac0dd;
+      --line:rgba(186,209,235,.14);
+      --line-strong:rgba(186,209,235,.22);
+      --accent:#7cb3ff;
+      --accent-2:#53d9c8;
+      --gold:#e5c37a;
+      --shadow-xl:0 40px 90px rgba(0,0,0,.34);
+      --shadow-lg:0 18px 48px rgba(0,0,0,.22);
+      --shadow-md:0 10px 24px rgba(0,0,0,.18);
+      --success:#5be38f;
+      --warning:#f4b563;
+      --danger:#ff8c8c;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 500px at 0% 0%, rgba(37,99,235,.10), transparent 45%),
+        radial-gradient(900px 600px at 100% 0%, rgba(20,184,166,.08), transparent 45%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+    }
+    a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+    a:hover{opacity:.9}
+    button{font:inherit}
+    .wrap{max-width:var(--wrap);margin:0 auto;padding:28px 18px 56px}
+    .topbar{
+      position:sticky;top:0;z-index:30;backdrop-filter:blur(18px);
+      background:color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{max-width:var(--wrap);margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+    .brand-dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 8px color-mix(in srgb, var(--accent) 16%, transparent)}
+    .nav{display:flex;gap:18px;flex-wrap:wrap}
+    .nav a{font-size:13px;font-weight:600;color:var(--muted)}
+    .theme-toggle{
+      min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line-strong);
+      background:var(--paper);color:var(--ink);box-shadow:var(--shadow-md);cursor:pointer
+    }
+    .hero,.section,.card,.table-wrap,.timeline-item,.budget-line,.payment-card,.summary-card{
+      background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow-lg)
+    }
+    .hero{border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-xl);margin-top:20px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper-strong);font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:16px}
+    h1,h2,h3,h4{margin:0;font-family:"Inter Tight","Inter",sans-serif;letter-spacing:-.045em}
+    h1{font-size:clamp(38px,6vw,74px);line-height:.94;max-width:11ch}
+    h2{font-size:32px;line-height:1.02}
+    h3{font-size:24px;line-height:1.08}
+    h4{font-size:18px;line-height:1.14}
+    .accent{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--gold);font-weight:600;white-space:nowrap}
+    .lead,.text,.small,li,td,th,p{font-size:15px;line-height:1.72;color:var(--muted)}
+    .lead{max-width:86ch;margin:16px 0 0}
+    .hero-grid,.grid-4,.grid-3,.grid-2{display:grid;gap:14px}
+    .hero-grid{grid-template-columns:1.3fr .9fr;align-items:end;margin-top:24px}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .card,.summary-card,.payment-card,.timeline-item,.budget-line{border-radius:var(--radius-lg);padding:18px}
+    .meta-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:8px;color:var(--accent)}
+    .metric{font-size:34px;line-height:1;font-weight:800;color:var(--ink);font-family:"Inter Tight","Inter",sans-serif;letter-spacing:-.05em}
+    .section{border-radius:28px;overflow:hidden;margin-top:20px}
+    .section-head{padding:22px 24px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,color-mix(in srgb, var(--paper-strong) 94%, transparent), color-mix(in srgb, var(--paper-strong) 70%, transparent))}
+    .section-body{padding:18px}
+    .section-intro{margin-top:10px;max-width:88ch}
+    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid var(--line-strong);background:var(--paper-strong);color:var(--ink)}
+    .table-wrap{border-radius:24px;overflow:hidden}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:16px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+    th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:color-mix(in srgb, var(--paper-strong) 86%, transparent);font-weight:800}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:color-mix(in srgb, var(--accent) 5%, transparent)}
+    .period{min-width:170px;font-weight:700;color:var(--ink)}
+    .block-badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:linear-gradient(135deg,color-mix(in srgb, var(--accent) 14%, transparent),color-mix(in srgb, var(--accent-2) 14%, transparent));border:1px solid var(--line-strong);font-size:12px;font-weight:700;color:var(--ink)}
+    .tasks{margin:0;padding-left:18px}
+    .tasks li+li{margin-top:4px}
+    .timeline{display:grid;gap:14px}
+    .timeline-item{display:grid;grid-template-columns:180px 1fr 220px;gap:16px;align-items:start}
+    .timeline-date{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+    .timeline-title{font-size:22px;margin-bottom:8px}
+    .timeline-right{padding:14px;border-radius:18px;background:color-mix(in srgb, var(--accent) 7%, transparent);border:1px solid var(--line)}
+    .timeline-right .small{margin:0}
+    .bar{position:relative;height:12px;border-radius:999px;background:color-mix(in srgb, var(--line-strong) 55%, transparent);overflow:hidden}
+    .bar > span{position:absolute;inset:0 auto 0 0;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+    .money{white-space:nowrap;font-weight:800;color:var(--ink)}
+    .payment-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    .payment-list{display:grid;gap:12px}
+    .payment-card .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:10px}
+    .payment-card .pct{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    .payment-note{border-radius:20px;padding:18px;background:linear-gradient(180deg,color-mix(in srgb, var(--paper-strong) 96%, transparent),color-mix(in srgb, var(--accent) 4%, transparent));border:1px solid var(--line)}
+    .payment-note strong{color:var(--ink)}
+    .budget-group{display:grid;gap:14px}
+    .budget-line{display:grid;grid-template-columns:1.1fr .8fr 120px;gap:14px;align-items:start}
+    .budget-share{display:flex;align-items:center;gap:10px}
+    .budget-share .bar{flex:1}
+    .budget-items{margin:8px 0 0;padding-left:18px}
+    .budget-items li{font-size:14px;line-height:1.64}
+    .total-box{border-radius:24px;padding:22px;background:linear-gradient(135deg,color-mix(in srgb, var(--accent) 14%, transparent),color-mix(in srgb, var(--accent-2) 12%, transparent));border:1px solid var(--line-strong);box-shadow:var(--shadow-md)}
+    .total-box .metric{font-size:42px}
+    .footer-note{margin-top:18px;padding:18px 20px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb, var(--paper-strong) 96%, transparent),color-mix(in srgb, var(--paper-strong) 72%, transparent));border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+    .muted{color:var(--muted)}
+    :focus-visible{outline:3px solid color-mix(in srgb, var(--accent) 45%, transparent);outline-offset:3px;border-radius:10px}
+    @media (max-width:1080px){.hero-grid,.payment-grid,.timeline-item,.budget-line,.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
+    @media (max-width:720px){
+      .wrap{padding:18px 12px 34px}
+      .topbar-inner{padding:12px}
+      .nav{display:none}
+      .hero{padding:22px}
+      h2{font-size:28px}
+      .metric{font-size:30px}
+      .table-wrap{overflow:auto}
+      table{min-width:900px}
+    }
+  </style>
+  <script>
+    (() => {
+      const storageKey = 'lc_theme';
+      const root = document.documentElement;
+      const saved = localStorage.getItem(storageKey);
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (systemDark ? 'dark' : 'light');
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="brand-dot"></span> ВОЛГА · production overview</div>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#calendar">Календарь</a>
+        <a href="#payments">Платежи</a>
+        <a href="#budget">Смета</a>
+      </nav>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Переключить тему">Тема</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Волга · производственная страница · без изображений</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Календарь, платежи и смета <span class="accent">в одной компоновке</span></h1>
+          <p class="lead">Страница собрана на основе визуального языка «Сценария ВОЛГА»: плотная editorial-компоновка, светлые карточки, акцентные блоки и крупная типографика. Логика данных выстроена ровно в нужном порядке: сначала календарный план, затем график поступления средств, затем подробная смета.</p>
+          <div class="pill-row" aria-label="Ключевые параметры проекта">
+            <span class="pill">7 производственных блоков</span>
+            <span class="pill">20 апреля — 2 августа</span>
+            <span class="pill">Бюджет: 2 490 000 ₽</span>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="meta-kicker">Период проекта</div>
+            <div class="metric">105 дней</div>
+            <p class="small">От запуска сценария и первых интервью до финальной версии и экспорта мастер-файла.</p>
+          </div>
+          <div class="card">
+            <div class="meta-kicker">Финансовый ритм</div>
+            <div class="metric">6 траншей</div>
+            <p class="small">Средства распределены по ключевым точкам подготовки, съёмок, ИИ-блока и монтажа.</p>
+          </div>
+          <div class="card">
+            <div class="meta-kicker">Крупнейшая статья</div>
+            <div class="metric">520 000 ₽</div>
+            <p class="small">Административный блок, безопасность и резерв — главный буфер проекта.</p>
+          </div>
+          <div class="card">
+            <div class="meta-kicker">Съёмочный фокус</div>
+            <div class="metric">4–24 мая</div>
+            <p class="small">Критическое окно для озера, рояля, зелени и первого производственного массива.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="calendar">
+      <div class="section-head">
+        <h2>1. Таблица календарь</h2>
+        <p class="section-intro text">Полная структура по периодам, целям и ключевым результатам к концу каждого блока.</p>
+      </div>
+      <div class="section-body">
+        <div class="table-wrap" role="region" aria-label="Календарный план проекта">
+          <table>
+            <thead>
+              <tr>
+                <th>Период</th>
+                <th>Блок</th>
+                <th>Главная цель</th>
+                <th>Что должно быть сделано к концу блока</th>
+                <th>Ключевая зависимость</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="period">20 апреля — 3 мая</td>
+                <td><span class="block-badge">1. Сценарий и запуск процесса</span></td>
+                <td>Собрать рабочую основу фильма.</td>
+                <td>
+                  <ul class="tasks">
+                    <li>Полный рабочий сценарий и список всех сцен.</li>
+                    <li>Разделение на игровые, документальные, озеро/рояль и ИИ-сцены.</li>
+                    <li>Старт интервью, поиск рояля, озера и точки под постамент.</li>
+                    <li>Запуск первичных визуальных тестов.</li>
+                  </ul>
+                </td>
+                <td>Без этого нельзя правильно сгруппировать съёмку.</td>
+              </tr>
+              <tr>
+                <td class="period">4 мая — 24 мая</td>
+                <td><span class="block-badge">2. Производственная компоновка + озеро / рояль / зелень</span></td>
+                <td>Снять самый важный материал как можно раньше.</td>
+                <td>
+                  <ul class="tasks">
+                    <li>Сгруппированы сцены по логике производства.</li>
+                    <li>Куплен и доставлен рояль, собран постамент в воде.</li>
+                    <li>Сняты озеро, вода, зелень, фактуры и все сцены с пианистом.</li>
+                    <li>Старт ИИ-генерации по первому пригодному массиву.</li>
+                    <li>Документальные интервью идут параллельно.</li>
+                  </ul>
+                </td>
+                <td>Окно яркой зелени; готовность рояля и площадки.</td>
+              </tr>
+              <tr>
+                <td class="period">25 мая — 7 июня</td>
+                <td><span class="block-badge">3. Досъём озера и сборка следующего массива</span></td>
+                <td>Быстро закрыть недостающее, пока не ушла среда.</td>
+                <td>
+                  <ul class="tasks">
+                    <li>Досъём озера, рояля и среды при необходимости.</li>
+                    <li>Продолжение разбора первого массива и уточнение ИИ-задач.</li>
+                    <li>Определён список недостающих городских и игровых сцен.</li>
+                    <li>Добраны фактуры и переходы.</li>
+                  </ul>
+                </td>
+                <td>Нужно быстро обработать первый материал.</td>
+              </tr>
+              <tr>
+                <td class="period">8 июня — 21 июня</td>
+                <td><span class="block-badge">4. Основной игровой съёмочный блок</span></td>
+                <td>Снять город, девочку, переходы и недостающую постановку.</td>
+                <td>
+                  <ul class="tasks">
+                    <li>Сняты основные игровые сцены и городской материал.</li>
+                    <li>Добраны переходы и постановочные узлы.</li>
+                    <li>Документальный слой продолжается параллельно.</li>
+                    <li>ИИ идёт по уже ясным задачам.</li>
+                  </ul>
+                </td>
+                <td>Зависит от сценарной и производственной компоновки.</td>
+              </tr>
+              <tr>
+                <td class="period">22 июня — 5 июля</td>
+                <td><span class="block-badge">5. Черновой монтаж и параллельный пост</span></td>
+                <td>Собрать фильм и увидеть слабые места.</td>
+                <td>
+                  <ul class="tasks">
+                    <li>Есть черновой монтаж.</li>
+                    <li>Встроен документальный слой.</li>
+                    <li>Отмечены проблемные зоны.</li>
+                    <li>Идёт ИИ и визуальная сборка фильма.</li>
+                  </ul>
+                </td>
+                <td>Нужен полный массив основного материала.</td>
+              </tr>
+              <tr>
+                <td class="period">6 июля — 19 июля</td>
+                <td><span class="block-badge">6. Финальный пост</span></td>
+                <td>Довести фильм до финальной формы.</td>
+                <td>
+                  <ul class="tasks">
+                    <li>Монтажная доработка, звук и музыка.</li>
+                    <li>Цвет, цифровая доработка кадра, сведение изображения.</li>
+                    <li>Графика, титры, карты и интеграция ИИ.</li>
+                  </ul>
+                </td>
+                <td>Нужен зафиксированный черновой монтаж.</td>
+              </tr>
+              <tr>
+                <td class="period">20 июля — 2 августа</td>
+                <td><span class="block-badge">7. Финализация</span></td>
+                <td>Выпустить готовую версию.</td>
+                <td>
+                  <ul class="tasks">
+                    <li>Финальная версия фильма.</li>
+                    <li>Проверка структуры и экспорт мастер-файла.</li>
+                    <li>Контроль всех финальных материалов.</li>
+                  </ul>
+                </td>
+                <td>Все предыдущие блоки должны быть закрыты.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="payments">
+      <div class="section-head">
+        <h2>2. График платежей</h2>
+        <p class="section-intro text">Шесть точек поступления средств, распределённых под запуск, съёмочный пик, досъём и монтажный контур.</p>
+      </div>
+      <div class="section-body">
+        <div class="payment-grid">
+          <div class="payment-list">
+            <article class="payment-card">
+              <div class="top"><h3>До 20 апреля</h3><div class="money">300 000 ₽</div></div>
+              <div class="pct">12.0% бюджета · накопительно 300 000 ₽</div>
+              <div class="bar" aria-hidden="true"><span style="width:12.05%"></span></div>
+            </article>
+            <article class="payment-card">
+              <div class="top"><h3>До 4 мая</h3><div class="money">800 000 ₽</div></div>
+              <div class="pct">32.1% бюджета · накопительно 1 100 000 ₽</div>
+              <div class="bar" aria-hidden="true"><span style="width:44.18%"></span></div>
+            </article>
+            <article class="payment-card">
+              <div class="top"><h3>До 18 мая</h3><div class="money">300 000 ₽</div></div>
+              <div class="pct">12.0% бюджета · накопительно 1 400 000 ₽</div>
+              <div class="bar" aria-hidden="true"><span style="width:56.22%"></span></div>
+            </article>
+            <article class="payment-card">
+              <div class="top"><h3>До 25 мая</h3><div class="money">300 000 ₽</div></div>
+              <div class="pct">12.0% бюджета · накопительно 1 700 000 ₽</div>
+              <div class="bar" aria-hidden="true"><span style="width:68.27%"></span></div>
+            </article>
+            <article class="payment-card">
+              <div class="top"><h3>До 8 июня</h3><div class="money">500 000 ₽</div></div>
+              <div class="pct">20.1% бюджета · накопительно 2 200 000 ₽</div>
+              <div class="bar" aria-hidden="true"><span style="width:88.35%"></span></div>
+            </article>
+            <article class="payment-card">
+              <div class="top"><h3>До 22 июня</h3><div class="money">290 000 ₽</div></div>
+              <div class="pct">11.6% бюджета · накопительно 2 490 000 ₽</div>
+              <div class="bar" aria-hidden="true"><span style="width:100%"></span></div>
+            </article>
+          </div>
+          <aside class="payment-note">
+            <div class="meta-kicker">Ключевая логика</div>
+            <h3>Деньги приходят до узловых производственных развилок</h3>
+            <p class="text"><strong>Первый массив</strong> покрывает запуск, подготовку и вход в съёмочный пик. <strong>Крупнейший транш до 4 мая</strong> открывает окно для рояля, озера, зелени и первого приоритетного съёмочного блока. Дальше поступления поддерживают досъём, основной игровой период и переход к монтажу. Финальная точка закрывает весь объём бюджета.</p>
+            <div class="grid-2" style="margin-top:14px">
+              <div class="summary-card">
+                <div class="meta-kicker">Всего поступлений</div>
+                <div class="metric">2 490 000 ₽</div>
+                <p class="small">Полностью совпадает с общим производственным бюджетом.</p>
+              </div>
+              <div class="summary-card">
+                <div class="meta-kicker">Пиковый транш</div>
+                <div class="metric">800 000 ₽</div>
+                <p class="small">Самый крупный платёж приходит перед главным съёмочным окном.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="budget">
+      <div class="section-head">
+        <h2>3. Смета подробно</h2>
+        <p class="section-intro text">Полный бюджет проекта с разбивкой по статьям, внутренним подпунктам и доле в общем производственном объёме.</p>
+      </div>
+      <div class="section-body">
+        <div class="grid-2" style="margin-bottom:14px">
+          <div class="total-box">
+            <div class="meta-kicker">Общий производственный бюджет</div>
+            <div class="metric">2 490 000 ₽</div>
+            <p class="small">Весь объём, указанный в смете и графике поступления средств.</p>
+          </div>
+          <div class="summary-card">
+            <div class="meta-kicker">Структура бюджета</div>
+            <p class="text">Самые крупные блоки: административный резерв, съёмочная группа и исполнители, постпродакшн, логистика с роялем и ИИ-контур. Такая структура поддерживает и съёмочную фазу, и тяжёлый финальный пост.</p>
+          </div>
+        </div>
+
+        <div class="budget-group">
+          <article class="budget-line">
+            <div>
+              <h3>1. Подготовка</h3>
+              <ul class="budget-items">
+                <li>Режиссёрско-продюсерская подготовка — 100 000 ₽</li>
+                <li>Линейная подготовка, логистика, поиск локаций, выезды, подтверждения, техническая подготовка, тесты — 60 000 ₽</li>
+                <li>Кастинг, примерки, репетиции — 20 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:7.23%"></span></div>
+            </div>
+            <div class="money">180 000 ₽</div>
+          </article>
+
+          <article class="budget-line">
+            <div>
+              <h3>2. Съёмочная группа и исполнители</h3>
+              <ul class="budget-items">
+                <li>Оператор-постановщик — 180 000 ₽</li>
+                <li>Световая группа — 50 000 ₽</li>
+                <li>Звук на площадке — 35 000 ₽</li>
+                <li>Организация съёмок, администрирование, помощник режиссёра — 95 000 ₽</li>
+                <li>Костюм, грим, контроль непрерывности — 20 000 ₽</li>
+                <li>Юная исполнительница — 30 000 ₽</li>
+                <li>Пианист / специальный исполнитель — 30 000 ₽</li>
+                <li>Документальные участники и организационные расходы по документальному блоку — 20 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:18.47%"></span></div>
+            </div>
+            <div class="money">460 000 ₽</div>
+          </article>
+
+          <article class="budget-line">
+            <div>
+              <h3>3. Техника</h3>
+              <ul class="budget-items">
+                <li>Камерный комплект, объективы, операторская оснастка и механика камеры — 150 000 ₽</li>
+                <li>Световой комплект — 70 000 ₽</li>
+                <li>Звуковой комплект — 30 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:10.04%"></span></div>
+            </div>
+            <div class="money">250 000 ₽</div>
+          </article>
+
+          <article class="budget-line">
+            <div>
+              <h3>4. Логистика, площадка, рояль</h3>
+              <ul class="budget-items">
+                <li>Транспорт группы и оборудования — 40 000 ₽</li>
+                <li>Рояль: покупка, доставка, перевозка, площадка / постамент в воде, монтаж и демонтаж — 220 000 ₽</li>
+                <li>Питание группы — 25 000 ₽</li>
+                <li>Расходные материалы площадки — 15 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:12.05%"></span></div>
+            </div>
+            <div class="money">300 000 ₽</div>
+          </article>
+
+          <article class="budget-line">
+            <div>
+              <h3>5. Постпродакшн</h3>
+              <ul class="budget-items">
+                <li>Монтаж — 180 000 ₽</li>
+                <li>Звук: чистка, сведение, звуковое решение — 50 000 ₽</li>
+                <li>Изображение после съёмок: цветокоррекция, финальная сборка изображения, цифровая доработка кадра, сведение изображения, графика, титры, карты, экранные вставки — 180 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:16.47%"></span></div>
+            </div>
+            <div class="money">410 000 ₽</div>
+          </article>
+
+          <article class="budget-line">
+            <div>
+              <h3>6. Музыкальный блок</h3>
+              <ul class="budget-items">
+                <li>Композитор, музыкальный продюсер, аранжировка — 90 000 ₽</li>
+                <li>Права, очистка, юридический резерв — 30 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:4.82%"></span></div>
+            </div>
+            <div class="money">120 000 ₽</div>
+          </article>
+
+          <article class="budget-line">
+            <div>
+              <h3>7. ИИ-блок</h3>
+              <ul class="budget-items">
+                <li>Разработка визуального подхода и тесты — 70 000 ₽</li>
+                <li>Генерация нужных материалов — 120 000 ₽</li>
+                <li>Резерв на пересборку и повторные проходы — 60 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:10.04%"></span></div>
+            </div>
+            <div class="money">250 000 ₽</div>
+          </article>
+
+          <article class="budget-line">
+            <div>
+              <h3>8. Административный блок, безопасность, резерв</h3>
+              <ul class="budget-items">
+                <li>Договорный и бухгалтерский блок — 40 000 ₽</li>
+                <li>Техника безопасности и медицинский резерв — 40 000 ₽</li>
+                <li>Расходы, не учтённые и не расписанные в этой смете — 440 000 ₽</li>
+              </ul>
+            </div>
+            <div class="budget-share">
+              <div class="bar" aria-hidden="true"><span style="width:20.88%"></span></div>
+            </div>
+            <div class="money">520 000 ₽</div>
+          </article>
+        </div>
+
+        <div class="footer-note">
+          <h4>Итого по верхнему уровню</h4>
+          <p class="text">Подготовка — 180 000 ₽ · Съёмочная группа и исполнители — 460 000 ₽ · Техника — 250 000 ₽ · Логистика, площадка, рояль — 300 000 ₽ · Постпродакшн — 410 000 ₽ · Музыкальный блок — 120 000 ₽ · ИИ-блок — 250 000 ₽ · Административный блок, безопасность, резерв — 520 000 ₽.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const storageKey = 'lc_theme';
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      btn?.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(storageKey, next);
+      });
+    })();
+  </script>
+</body>
+</html>
