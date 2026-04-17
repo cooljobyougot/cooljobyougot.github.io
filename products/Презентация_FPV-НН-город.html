@@ -494,7 +494,7 @@
             <div class="showreel-stage__frame" data-showreel-frame>
               <div class="showreel-stage__media">
                 <img
-                  src="./assets/posters/hero-showreel-poster.webp"
+                  src="../assets/posters/hero-showreel-poster.webp"
                   alt="Showreel агентства"
                   width="1600"
                   height="1000"
@@ -618,7 +618,7 @@
         controls
         playsinline
         preload="metadata"
-        poster="./assets/posters/parkpobed-poster.webp"
+        poster="../assets/posters/parkpobed-poster.webp"
         width="1200"
         height="800"
       >
@@ -685,7 +685,7 @@
         if (media.querySelector('video')) return;
 
         const video = document.createElement('video');
-        video.src = '../video/hero-showreel.mp4';
+        video.src = '../assets/video/hero-showreel.mp4';
         video.autoplay = true;
         video.muted = true;
         video.controls = true;
