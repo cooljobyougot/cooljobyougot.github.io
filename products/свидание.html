@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бережно собранное доказательство внимания</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f1e9;
+      --paper: #fffaf2;
+      --paper-soft: #fbf5ec;
+      --ink: #201b16;
+      --muted: #6f665d;
+      --line: rgba(32, 27, 22, 0.12);
+      --line-strong: rgba(32, 27, 22, 0.2);
+      --accent: #9b6a3f;
+      --accent-soft: #ead8c3;
+      --green-soft: #e7eadf;
+      --shadow: 0 24px 80px rgba(59, 42, 26, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 4%, rgba(224, 198, 165, 0.38), transparent 34rem),
+        radial-gradient(circle at 90% 18%, rgba(233, 222, 207, 0.8), transparent 38rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      width: min(66vw, 1040px);
+      margin: 0 auto;
+      padding: 34px 0 48px;
+    }
+
+    .brand-shell {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 22px 0 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-name {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      font-size: clamp(24px, 2.4vw, 40px);
+      line-height: 0.96;
+    }
+
+    .brand-copy {
+      max-width: 430px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .brand-copy strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hero {
+      padding: 76px 0 58px;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 26px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .label::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    h1, h2, h3 {
+      font-family: "Inter Tight", sans-serif;
+      margin: 0;
+      letter-spacing: -0.048em;
+    }
+
+    h1 {
+      max-width: 920px;
+      font-size: clamp(58px, 8vw, 122px);
+      line-height: 0.92;
+      font-weight: 500;
+    }
+
+    h1 em {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      color: var(--accent);
+    }
+
+    .lead {
+      max-width: 770px;
+      margin: 34px 0 0;
+      font-size: clamp(20px, 2vw, 30px);
+      line-height: 1.38;
+      letter-spacing: -0.025em;
+      color: #3d352d;
+    }
+
+    .thesis {
+      margin-top: 40px;
+      padding: 30px;
+      background: rgba(255, 250, 242, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .thesis p {
+      margin: 0;
+      max-width: 810px;
+      font-size: 24px;
+      line-height: 1.45;
+      letter-spacing: -0.025em;
+    }
+
+    .section {
+      padding: 54px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section:first-of-type { border-top: 0; }
+
+    .section h2 {
+      font-size: clamp(36px, 4.5vw, 68px);
+      line-height: 1.02;
+      font-weight: 600;
+      max-width: 770px;
+      margin-bottom: 22px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .card {
+      background: rgba(255, 250, 242, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 18px 60px rgba(65, 45, 25, 0.055);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .stack { display: grid; gap: 18px; }
+
+    .card h3 {
+      font-size: 26px;
+      line-height: 1.08;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .card ul, .card ol {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .card li + li { margin-top: 8px; }
+
+    .quote {
+      position: relative;
+      padding: 34px 36px;
+      border-radius: 34px;
+      background: #211b16;
+      color: #fff8ee;
+      overflow: hidden;
+    }
+
+    .quote::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -140px auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: rgba(221, 180, 128, 0.22);
+      filter: blur(6px);
+    }
+
+    .quote p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 760px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: clamp(30px, 3.8vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .quote small {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 18px;
+      color: rgba(255, 248, 238, 0.68);
+      font-size: 14px;
+    }
+
+    .timeline {
+      counter-reset: step;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 250, 242, 0.68);
+      border: 1px solid var(--line);
+    }
+
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: #76502f;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 22px;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .two-mode {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .mode-a { background: rgba(234, 216, 195, 0.34); }
+    .mode-b { background: rgba(231, 234, 223, 0.72); }
+
+    .scene-line {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(155, 106, 63, 0.1);
+      color: #76502f;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .location {
+      min-height: 360px;
+      display: grid;
+      align-items: end;
+      padding: 34px;
+      border-radius: 38px;
+      color: #fff8ee;
+      background:
+        linear-gradient(180deg, rgba(32, 27, 22, 0.08), rgba(32, 27, 22, 0.78)),
+        radial-gradient(circle at 22% 16%, rgba(255, 235, 202, 0.36), transparent 18rem),
+        linear-gradient(135deg, #b9aa96, #73685c 48%, #2e2a25);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .location h2 {
+      color: #fff8ee;
+      max-width: 760px;
+      margin-bottom: 18px;
+    }
+
+    .location p {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255, 248, 238, 0.78);
+      font-size: 18px;
+    }
+
+    .accent-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .accent-item {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255, 250, 242, 0.65);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .accent-item strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .contact {
+      margin-top: 58px;
+      padding: 34px;
+      border-radius: 38px;
+      background: #211b16;
+      color: #fff8ee;
+      display: grid;
+      gap: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact h2 {
+      font-size: clamp(38px, 5vw, 72px);
+      color: #fff8ee;
+      margin-bottom: 0;
+    }
+
+    .contact p {
+      margin: 0;
+      max-width: 680px;
+      color: rgba(255, 248, 238, 0.72);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .contact-card {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 21px;
+      letter-spacing: -0.025em;
+    }
+
+    .contact-card a {
+      display: block;
+      color: #fff8ee;
+      text-decoration: none;
+      opacity: 0.82;
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-primary {
+      background: #fff8ee;
+      color: #211b16;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff8ee;
+    }
+
+    footer {
+      padding: 34px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+      margin-top: 42px;
+    }
+
+    footer strong { color: var(--ink); }
+
+    @media (max-width: 980px) {
+      .page { width: min(88vw, 760px); }
+      .brand-shell { flex-direction: column; }
+      .grid, .two-mode, .contact-grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(52px, 13vw, 96px); }
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(92vw, 520px); padding-top: 20px; }
+      .hero { padding: 48px 0 42px; }
+      .section { padding: 40px 0; }
+      .card, .thesis, .quote, .contact, .location { padding: 24px; border-radius: 26px; }
+      .step { grid-template-columns: 1fr; }
+      .step::before { width: 42px; height: 42px; }
+      .lead { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="brand-shell" aria-label="Бренд агентства">
+      <div class="brand-name">КАКАЯУВАС<br>ИНТЕРЕСНАЯРАБОТА.РФ</div>
+    </header>
+
+    <section class="hero">
+      <div class="label">Сценарная сцена</div>
+      <h1>Доказательство <em>внимания</em></h1>
+      <p class="lead">Виктор создаёт для Марии свидание: прогулка, еда из ресторана, вид с высоты и в даль, небо, чай из термоса и видео, которое она получает после расставания.</p>
+      <div class="thesis">
+        <p>Главный финальный жест события: Мария понимает, что вечер был заранее собран как подарок — точный, мягкий и невозможный без настоящего внимания.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="quote">
+        <p>Виктор умеет делать то, что другие не делают</p>
+        <small>Не через масштаб жеста, а через точность, подготовку и бережность</small>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Рабочая драматургия вечера</h2>
+      <p class="section-intro">Встреча устроена как мягкое раскрытие: сначала понятный повод, затем небольшая неопределённость, потом место, еда, вид и только в финале — видео как чувственное доказательство.</p>
+      <div class="timeline">
+        <div class="step"><div><strong>Встреча в парке</strong><span>Воскресенье, примерно за четыре часа до заката. Они встречаются в городе и идут гулять перед ужином.</span></div></div>
+        <div class="step"><div><strong>«Случайный» фотограф</strong><span>Фотограф появляется естественно, без давления: «У вас очень красивый кадр. Можно сделать пару снимков?» Для Марии это случайность, для Виктора — первый слой будущего ролика.</span></div></div>
+<div class="step"><div><strong>Переход к приключению</strong><span>После прогулки Виктор не ведёт Марию в ресторан привычным образом. Они едут на его машине; если Мария приехала на своей, он предлагает оставить её здесь и спокойно говорит: «Мы вернёмся сюда. Доверься мне, поедем на моей». У ресторана Виктор просит Марию остаться в машине: «Я сейчас вернусь. Хочу тебя удивить. Доверься мне» — и уходит забирать заранее заказанную еду, подобранную под её вкусы.</span></div></div>
+<div class="step"><div><strong>Место с видом в даль с высоты</strong><span>Они приезжают в безлюдное место: высокий берег Волги, край отработанного карьера, холм более 200 метров, куда можно добраться по просёлочной дороге. Вокруг — трава, кусты, открытый воздух, большое небо и даль; внизу видна река или деревья, озерца и рельеф карьера.</span></div></div>
+        <div class="step"><div><strong>Две зоны свидания</strong><span>Сначала Виктор ставит удобные стулья для отдыха и вида, приглашает сесть. Они вернутся к этим стульям вместе с десертом и чаем. Потом отдельно накрывает столик и готовит посадку для ужина. Мария любуется видами и наполняется прекрасными переживаниями.</span></div></div>
+        <div class="step"><div><strong>Ужин, чай, десерт</strong><span>Сцена держится не на роскоши, а на ощущении: «он запомнил, что я говорила». После еды появляется фруктовый чай из термоса и десерт.</span></div></div>
+        <div class="step"><div><strong>Видео после расставания</strong><span>Когда Виктор отвозит Марию домой, он присылает смонтированный ролик вечера. Она видит себя со стороны и понимает замысел.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Не тайна ради контроля</h2>
+      <p class="section-intro">Главный риск — кризис доверия Марии. Поэтому сюрприз не должен выглядеть как испытание: Виктор не давит, не требует восторга и не заставляет её «довериться» силой.</p>
+      <div class="two-mode">
+        <article class="card mode-a">
+          <h3>Вариант А: играть в приключение</h3>
+          <p>Виктор не раскрывает весь план сразу. Они забирают еду из ресторана, и Мария постепенно понимает, что ужин будет не там. Это работает, если она спокойно принимает неизвестность.</p>
+          <span class="scene-line">«Доверься мне. Я хочу тебя удивить».</span>
+        </article>
+        <article class="card mode-b">
+          <h3>Вариант Б: дать опору</h3>
+          <p>Если Мария напрягается, Виктор спокойно объясняет план и возвращает ей чувство контроля. Не спорит, не защищается, не делает из сюрприза проверку.</p>
+          <span class="scene-line">«Я заказал еду, которую ты любишь. Хочу отвезти тебя в одно место за городом. Там красиво».</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="location">
+        <div>
+          <div class="label">Локация</div>
+          <h2>Глубина вниз и простор вдаль</h2>
+          <p>Высокий берег Волги или край отработанного карьера дают красивый вид и ощущение масштаба: маленькие фигуры у стола, пространство, вода внизу и купол небо. Для дрона это сильная визуальная сцена, но дрон не вторгается — он наблюдает с расстояния.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Пространство свидания</h2>
+      <p class="section-intro">Виктор собирает событие в правильной последовательности: сначала устанавливает контакт, создает пространство доверия, потом переводит вечер к ужину.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Зона отдыха</h3>
+          <p>Низкие удобные туристические стулья ставятся рядом, ближе к виду. Мария садится, привыкает к месту, смотрит на карьер и воздух. У неё появляется пауза, а не обязанность сразу реагировать.</p>
+        </article>
+        <article class="card">
+          <h3>Зона ужина</h3>
+          <p>Отдельно появляется столик и более удобная посадка для еды. Есть в расслабленных креслах неудобно, поэтому в сцене важны два типа стульев — это маленькая, но точная бытовая правда.</p>
+        </article>
+      </div>
+      <div class="accent-list">
+        <div class="accent-item"><strong>Мягкий переход:</strong> Мария может сама сказать: «Пойдём? Ты же всё это для ужина готовил».</div>
+        <div class="accent-item"><strong>Лёгкий вариант Виктора:</strong> «Кажется, теперь можно открывать ресторан с видом».</div>
+        <div class="accent-item"><strong>Тон:</strong> без клоунады, без нажима, просто человеческий переход от вида к ужину.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Видео как подарок</h2>
+      <p class="section-intro">Финальный ролик не должен выглядеть как клип тщеславия Виктора. Он должен ощущаться как память, которую Мария не могла бы получить сама.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Слои ролика</h3>
+          <ul>
+            <li>прогулка в парке и снимки «случайного» фотографа;</li>
+            <li>карьер, ужин и виды с дрона;</li>
+            <li>финальный кадр.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Подготовка дрона</h3>
+          <p>Определение места и репетиция. Определить: время в дороге, позицию оператора, высоту, шум, траекторию, вид на столик и качество света перед закатом.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Почему это работает на доверие</h2>
+      <p class="section-intro">Мария переживает расставание с мужем, и с её слов у неё кризис доверия. Поэтому для неё важен не масштаб жеста, а его качество.</p>
+      <div class="quote">
+        <p>Он меня услышал. Он подготовился. Он не торопил. Он сделал это бережно.</p>
+        <small>Именно так красивое свидание создает шанс снова доверять.</small>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Развилка реакции</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Мария умиляется</h3>
+          <p>Жест попадает точно. Она чувствует себя увиденной, выбранной и услышанной — не украшением кадра, а человеком, ради которого всё продумали.</p>
+        </article>
+        <article class="card">
+          <h3>Мария смеётся</h3>
+          <p>Смех не комедийный, а живой. Она принимает необычность Виктора и впервые позволяет себе расслабиться внутри непривычного сценария.</p>
+        </article>
+        <article class="card">
+          <h3>Мария напрягается</h3>
+          <p>Виктор не спорит и не спасает свой план. Он объясняет, снижает тревогу и возвращает Марии контроль над ситуацией.</p>
+        </article>
+        <article class="card">
+          <h3>Главный смысл</h3>
+          <p>Это не свидание ради красивой картинки. Это возможность дать почувствовать что мужчина может быть внимательным, точным и бережным.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" aria-label="Контакты">
+      <div>
+        <div class="label">Обсудить задачу</div>
+        <h2>Соберём событие в формат, который сработает.</h2>
+        <p>Поможем превратить идею, сценарный эпизод или черновой материал в ясный сценарий, ролик, раскадровку и production-ready концепт.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <strong>AI партнёр</strong>
+          <a href="tel:+79394463156">+7 939 446-31-56</a>
+          <a href="https://t.me/kakayauvasinteresnayarabota">@kakayauvasinteresnayarabota</a>
+        </div>
+        <div class="contact-card">
+          <strong>CEO Дмитрий Дроздов</strong>
+          <a href="tel:+79104721024">+7 910 472-10-24</a>
+          <a href="https://t.me/drozdovhumandevelopment">@drozdovhumandevelopment</a>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:+79394463156">Обсудить задачу</a>
+        <a class="btn btn-secondary" href="https://t.me/kakayauvasinteresnayarabota">Написать в Telegram</a>
+      </div>
+    </section>
+
+    <footer>
+      Креативное агентство <strong>#КАКАЯУВАСИНТЕРЕСНАЯРАБОТА</strong><br>
+      © 2026 · Все права защищены
+    </footer>
+  </main>
+</body>
+</html>
