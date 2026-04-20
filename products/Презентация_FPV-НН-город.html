@@ -212,6 +212,7 @@
 
     .quote-card,
     .panel,
+    .highlight-panel,
     .cta,
     .card,
     .media-card {
@@ -235,6 +236,36 @@
 
     .muted {
       color: var(--muted);
+    }
+
+    .highlight-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 28px 30px;
+      background:
+        radial-gradient(circle at top left, rgba(158,123,87,0.22), transparent 42%),
+        linear-gradient(135deg, rgba(255,255,255,0.98), rgba(246,238,228,0.94));
+      border: 1px solid rgba(158,123,87,0.26);
+      box-shadow: 0 22px 56px rgba(38, 27, 17, 0.13);
+    }
+
+    .highlight-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+    }
+
+    .highlight-panel p {
+      position: relative;
+      max-width: 52ch;
+      color: #1f1711;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(19px, 2vw, 25px);
+      line-height: 1.38;
+      letter-spacing: -0.035em;
+      font-weight: 600;
     }
 
     .stack {
@@ -613,9 +644,9 @@
             </ul>
           </div>
 
-          <div class="panel">
+          <div class="highlight-panel">
             <p>
-              Проект даёт городу не разовую активацию, а рабочую модель, где туристическое впечатление и медиапроизводство усиливают друг друга.
+              Проект даёт городу рабочую модель, где туристическое впечатление и медиапроизводство усиливают друг друга.
             </p>
           </div>
         </div>
@@ -626,7 +657,7 @@
           <span class="label">Ближайший пилот</span>
         </div>
         <h2>Ближайший пилот - майские праздники</h2>
-        <p class="muted">Предметный сценарий для первых согласованных площадок</p>
+        <p class="muted">Предметный сценарий для первых согласованных площадок.</p>
 
         <div class="panel" style="margin-top:18px;">
           <div class="flow">
