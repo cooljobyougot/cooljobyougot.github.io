@@ -489,29 +489,26 @@
           <p>Новый туристический продукт для города, контентный актив для продвижения территории и понятный пилот по ключевым площадкам.</p>
         </div>
 
-        <section class="showreel-stage" id="showreel" aria-label="Showreel">
-          <div class="showreel-stage__sticky">
-            <div class="showreel-stage__frame" data-showreel-frame>
-              <div class="showreel-stage__media">
-                <img
-                  src="../assets/posters/hero-showreel-poster.webp"
-                  alt="Showreel агентства"
-                  width="1600"
-                  height="1000"
-                  loading="eager"
-                />
-                <div class="showreel-stage__overlay">
-                  <button class="showreel-play" type="button" aria-label="Запустить showreel" data-showreel-trigger>
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                      <path d="M8 6.5v11l9-5.5-9-5.5Z"/>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
+<section class="showreel-stage" id="showreel" aria-label="Showreel">
+  <div class="showreel-stage__sticky">
+    <div class="showreel-stage__frame">
+      <div class="showreel-stage__media">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster="../assets/posters/hero-showreel-poster.webp"
+          width="1600"
+          height="1000"
+          aria-label="Showreel агентства"
+        >
+          <source src="../assets/video/hero-showreel.mp4" type="video/mp4" />
+          Ваш браузер не поддерживает воспроизведение видео.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section class="section" id="model">
         <div class="label-row divider-title">
