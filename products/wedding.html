@@ -30,9 +30,13 @@
       --content-width: 980px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -45,7 +49,9 @@
       line-height: 1.72;
     }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
     .page {
       width: min(92vw, var(--content-width));
@@ -68,7 +74,9 @@
       border-top: 1px solid var(--line);
     }
 
-    .section:first-child { border-top: 0; }
+    .section:first-child {
+      border-top: 0;
+    }
 
     .brandbar {
       display: flex;
@@ -124,8 +132,14 @@
       text-decoration: none;
     }
 
-    .nav a { transition: background .18s ease, color .18s ease; }
-    .nav a:hover { background: rgba(23,23,23,0.08); color: var(--text); }
+    .nav a {
+      transition: background .18s ease, color .18s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(23,23,23,0.08);
+      color: var(--text);
+    }
 
     .label-row,
     .meta-grid {
@@ -139,7 +153,9 @@
       padding-bottom: 42px;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       margin: 0;
       font-family: 'Inter Tight', sans-serif;
       letter-spacing: -0.045em;
@@ -200,7 +216,9 @@
       padding: 24px;
     }
 
-    .quote-card { margin-top: 28px; }
+    .quote-card {
+      margin-top: 28px;
+    }
 
     .quote-card p {
       max-width: 31ch;
@@ -210,7 +228,26 @@
       letter-spacing: -0.04em;
     }
 
-    .muted { color: var(--muted); }
+    .video-card__frame {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #111;
+      border: 1px solid rgba(23,23,23,0.08);
+    }
+
+    .video-card__frame video {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #111;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
 
     .highlight-panel {
       position: relative;
@@ -242,7 +279,10 @@
       font-weight: 600;
     }
 
-    .stack { display: grid; gap: 16px; }
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
 
     .grid-2 {
       display: grid;
@@ -262,7 +302,8 @@
       gap: 16px;
     }
 
-    ul, ol {
+    ul,
+    ol {
       margin: 0;
       padding-left: 18px;
     }
@@ -272,7 +313,9 @@
       color: #262320;
     }
 
-    li:last-child { margin-bottom: 0; }
+    li:last-child {
+      margin-bottom: 0;
+    }
 
     .flow {
       display: flex;
@@ -291,7 +334,9 @@
       white-space: nowrap;
     }
 
-    .divider-title { margin-bottom: 18px; }
+    .divider-title {
+      margin-bottom: 18px;
+    }
 
     .kpi {
       margin-bottom: 10px;
@@ -333,7 +378,10 @@
       transition: transform .18s ease, background .18s ease;
     }
 
-    .button.primary { background: #171717; color: #fff; }
+    .button.primary {
+      background: #171717;
+      color: #fff;
+    }
 
     .button.secondary {
       background: rgba(23,23,23,0.06);
@@ -341,80 +389,17 @@
       border: 1px solid rgba(23,23,23,0.08);
     }
 
-    .button:hover { transform: translateY(-1px); }
-
-    .visual-stage { margin-top: 28px; }
-
-    .visual-frame {
-      width: 100%;
-      overflow: hidden;
-      border: 1px solid rgba(23,23,23,0.08);
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 22% 28%, rgba(255,255,255,0.92), transparent 18%),
-        radial-gradient(circle at 78% 38%, rgba(183,123,116,0.28), transparent 18%),
-        linear-gradient(135deg, #2a221e 0%, #8f7156 52%, #efe0d5 100%);
-      box-shadow: 0 24px 70px rgba(38, 27, 17, 0.12);
-      aspect-ratio: 16 / 9;
-      position: relative;
-      display: grid;
-      place-items: center;
-      padding: 34px;
+    .button:hover {
+      transform: translateY(-1px);
     }
 
-    .visual-card {
-      width: min(74%, 620px);
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.46);
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 28px 80px rgba(0,0,0,0.16);
-      padding: 28px;
-      color: #fff;
+    .audience-card {
+      min-height: 100%;
     }
 
-    .visual-card .mini {
-      display: inline-flex;
+    .audience-card .label {
       margin-bottom: 14px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.18);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
     }
-
-    .visual-card strong {
-      display: block;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(25px, 3vw, 44px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      max-width: 10ch;
-    }
-
-    .visual-card span {
-      display: block;
-      margin-top: 14px;
-      max-width: 38ch;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .floating-chip {
-      position: absolute;
-      right: 34px;
-      bottom: 30px;
-      padding: 12px 15px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.76);
-      color: #2b221c;
-      border: 1px solid rgba(255,255,255,0.7);
-      font-size: 13px;
-    }
-
-    .audience-card { min-height: 100%; }
-
-    .audience-card .label { margin-bottom: 14px; }
 
     .tariff {
       display: flex;
@@ -489,11 +474,21 @@
     @media (max-width: 1080px) {
       .grid-2,
       .grid-3,
-      .grid-4 { grid-template-columns: 1fr; }
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
 
-      .brandbar__top { flex-direction: column; }
-      .nav { justify-content: flex-start; }
-      .table-row { grid-template-columns: 1fr; }
+      .brandbar__top {
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .table-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 780px) {
@@ -502,7 +497,9 @@
         padding: 12px 12px 36px;
       }
 
-      .shell { border-radius: 28px; }
+      .shell {
+        border-radius: 28px;
+      }
 
       .brandbar,
       .section,
@@ -516,11 +513,17 @@
         font-size: 40px;
       }
 
-      .quote-card p { font-size: 20px; }
-      .visual-frame { border-radius: 22px; padding: 20px; aspect-ratio: 4 / 5; }
-      .visual-card { width: 100%; padding: 22px; }
-      .floating-chip { position: static; margin-top: 16px; }
-      .flow-step { white-space: normal; }
+      .quote-card p {
+        font-size: 20px;
+      }
+
+      .video-card__frame {
+        border-radius: 18px;
+      }
+
+      .flow-step {
+        white-space: normal;
+      }
     }
   </style>
 </head>
@@ -567,14 +570,20 @@
           <p>Слайд-шоу становится визуальным объектом внутри свадебного пространства, который хочется рассматривать снова и снова, открывая новые детали.</p>
         </div>
 
-        <div class="visual-stage" aria-label="Визуальный образ продукта">
-          <div class="visual-frame">
-            <div class="visual-card">
-              <span class="mini">Looped wedding film</span>
-              <strong>История пары на экране</strong>
-              <span>Предсвадебная съёмка, архивные фото, тексты и motion-графика собираются в цельный эмоциональный блок вечера.</span>
-            </div>
-            <div class="floating-chip">Короткий фильм / зацикленное слайд-шоу</div>
+        <div class="quote-card video-card" aria-label="Видео-пример продукта">
+          <div class="label" style="margin-bottom:14px;">Видео-пример</div>
+          <div class="video-card__frame">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              width="1920"
+              height="1080"
+              aria-label="Пример свадебного ролика из фото с моушн-дизайном"
+            >
+              <source src="../assets/video/hero-showreel.mp4" type="video/mp4" />
+              Ваш браузер не поддерживает воспроизведение видео.
+            </video>
           </div>
         </div>
       </section>
