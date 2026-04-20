@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Эмоциональный свадебный ролик из фото — КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</title>
+  <meta
+    name="description"
+    content="Презентация продукта: эмоциональный свадебный ролик из фото с моушн-дизайном для показа на экранах во время свадьбы."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f5f1eb;
+      --paper: rgba(255,255,255,0.72);
+      --paper-strong: rgba(255,255,255,0.92);
+      --text: #171717;
+      --muted: #5f5a55;
+      --line: rgba(23,23,23,0.10);
+      --accent: #9e7b57;
+      --accent-soft: rgba(158,123,87,0.12);
+      --accent-deep: #6e543b;
+      --rose: #b77b74;
+      --shadow: 0 24px 70px rgba(38, 27, 17, 0.10);
+      --radius: 28px;
+      --content-width: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.92), transparent 34%),
+        radial-gradient(circle at 92% 8%, rgba(183,123,116,0.13), transparent 28%),
+        linear-gradient(180deg, #f7f3ee 0%, #efe7de 100%);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.72;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(92vw, var(--content-width));
+      min-width: 320px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    .shell {
+      background: var(--paper);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .section {
+      padding: 34px 38px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section:first-child { border-top: 0; }
+
+    .brandbar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 24px 38px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.54));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brandbar__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .brand {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 19px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 600;
+    }
+
+    .brand-meta {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 720px;
+      margin-top: 8px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .nav a,
+    .label {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(23,23,23,0.05);
+      border: 1px solid rgba(23,23,23,0.08);
+      font-size: 11px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav a { transition: background .18s ease, color .18s ease; }
+    .nav a:hover { background: rgba(23,23,23,0.08); color: var(--text); }
+
+    .label-row,
+    .meta-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero {
+      padding-top: 42px;
+      padding-bottom: 42px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: 'Inter Tight', sans-serif;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+      color: var(--text);
+    }
+
+    h1 {
+      margin-top: 18px;
+      max-width: 12ch;
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .lede {
+      margin-top: 22px;
+      max-width: 56ch;
+      font-size: 18px;
+      color: #282522;
+    }
+
+    .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .quote-card,
+    .panel,
+    .highlight-panel,
+    .cta,
+    .card,
+    .tariff,
+    .metric-card {
+      background: var(--paper-strong);
+      border: 1px solid rgba(23,23,23,0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .quote-card { margin-top: 28px; }
+
+    .quote-card p {
+      max-width: 31ch;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+    }
+
+    .muted { color: var(--muted); }
+
+    .highlight-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 28px 30px;
+      background:
+        radial-gradient(circle at top left, rgba(158,123,87,0.22), transparent 42%),
+        linear-gradient(135deg, rgba(255,255,255,0.98), rgba(246,238,228,0.94));
+      border: 1px solid rgba(158,123,87,0.26);
+      box-shadow: 0 22px 56px rgba(38, 27, 17, 0.13);
+    }
+
+    .highlight-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+    }
+
+    .highlight-panel p {
+      position: relative;
+      max-width: 56ch;
+      color: #1f1711;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(19px, 2vw, 25px);
+      line-height: 1.38;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+    }
+
+    .stack { display: grid; gap: 16px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    ul, ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 0 0 10px;
+      color: #262320;
+    }
+
+    li:last-child { margin-bottom: 0; }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .flow-step {
+      padding: 11px 14px;
+      border-radius: 999px;
+      background: rgba(158,123,87,0.10);
+      color: var(--accent-deep);
+      border: 1px solid rgba(158,123,87,0.18);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .divider-title { margin-bottom: 18px; }
+
+    .kpi {
+      margin-bottom: 10px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 34px;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .big-number {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin-bottom: 10px;
+    }
+
+    .small-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .button.primary { background: #171717; color: #fff; }
+
+    .button.secondary {
+      background: rgba(23,23,23,0.06);
+      color: #171717;
+      border: 1px solid rgba(23,23,23,0.08);
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .visual-stage { margin-top: 28px; }
+
+    .visual-frame {
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(23,23,23,0.08);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 22% 28%, rgba(255,255,255,0.92), transparent 18%),
+        radial-gradient(circle at 78% 38%, rgba(183,123,116,0.28), transparent 18%),
+        linear-gradient(135deg, #2a221e 0%, #8f7156 52%, #efe0d5 100%);
+      box-shadow: 0 24px 70px rgba(38, 27, 17, 0.12);
+      aspect-ratio: 16 / 9;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 34px;
+    }
+
+    .visual-card {
+      width: min(74%, 620px);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.46);
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.16);
+      padding: 28px;
+      color: #fff;
+    }
+
+    .visual-card .mini {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .visual-card strong {
+      display: block;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(25px, 3vw, 44px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 10ch;
+    }
+
+    .visual-card span {
+      display: block;
+      margin-top: 14px;
+      max-width: 38ch;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .floating-chip {
+      position: absolute;
+      right: 34px;
+      bottom: 30px;
+      padding: 12px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.76);
+      color: #2b221c;
+      border: 1px solid rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
+
+    .audience-card { min-height: 100%; }
+
+    .audience-card .label { margin-bottom: 14px; }
+
+    .tariff {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tariff__price {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .tariff__name {
+      color: var(--accent-deep);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+    }
+
+    .table-like {
+      display: grid;
+      gap: 10px;
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(23,23,23,0.06);
+    }
+
+    .table-row strong {
+      font-family: 'Inter Tight', sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    .contacts {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-person {
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(23,23,23,0.08);
+      background: rgba(255,255,255,0.66);
+    }
+
+    .contact-person strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .footer {
+      padding: 22px 38px 30px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: rgba(255,255,255,0.52);
+    }
+
+    @media (max-width: 1080px) {
+      .grid-2,
+      .grid-3,
+      .grid-4 { grid-template-columns: 1fr; }
+
+      .brandbar__top { flex-direction: column; }
+      .nav { justify-content: flex-start; }
+      .table-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 780px) {
+      .page {
+        width: 100%;
+        padding: 12px 12px 36px;
+      }
+
+      .shell { border-radius: 28px; }
+
+      .brandbar,
+      .section,
+      .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        max-width: 12ch;
+        font-size: 40px;
+      }
+
+      .quote-card p { font-size: 20px; }
+      .visual-frame { border-radius: 22px; padding: 20px; aspect-ratio: 4 / 5; }
+      .visual-card { width: 100%; padding: 22px; }
+      .floating-chip { position: static; margin-top: 16px; }
+      .flow-step { white-space: normal; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="shell">
+      <header class="brandbar">
+        <div class="brandbar__top">
+          <div>
+            <div class="brand">КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</div>
+            <div class="brand-meta">
+              Стратегический видеопартнёр для бренда и продаж. Рекламные ролики, имиджевые форматы, FPV-съёмка и AI-продакшн — как единая система под задачи бизнеса.
+            </div>
+          </div>
+
+          <nav class="nav" aria-label="Навигация по странице">
+            <a href="#product">Продукт</a>
+            <a href="#audiences">Аудитории</a>
+            <a href="#production">Производство</a>
+            <a href="#economy">Экономика</a>
+            <a href="#sales">Продажи</a>
+          </nav>
+        </div>
+      </header>
+
+      <section class="section hero" id="product">
+        <div class="label-row">
+          <span class="label">Свадебный продукт</span>
+          <span class="label">Фото + motion design</span>
+          <span class="label">Экраны на свадьбе</span>
+        </div>
+
+        <h1>
+          Свадебный ролик как <span class="serif">объект</span>
+        </h1>
+
+        <p class="lede">
+          Эмоциональный короткий визуальный фильм из фотографий с графикой, анимацией, текстами и моушн-дизайном — для показа на экранах во время свадьбы.
+        </p>
+
+        <div class="quote-card">
+          <div class="label" style="margin-bottom:14px;">Главное УТП</div>
+          <p>Слайд-шоу становится визуальным объектом внутри свадебного пространства, который хочется рассматривать снова и снова, открывая новые детали.</p>
+        </div>
+
+        <div class="visual-stage" aria-label="Визуальный образ продукта">
+          <div class="visual-frame">
+            <div class="visual-card">
+              <span class="mini">Looped wedding film</span>
+              <strong>История пары на экране</strong>
+              <span>Предсвадебная съёмка, архивные фото, тексты и motion-графика собираются в цельный эмоциональный блок вечера.</span>
+            </div>
+            <div class="floating-chip">Короткий фильм / зацикленное слайд-шоу</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="hypothesis">
+        <div class="label-row divider-title">
+          <span class="label">Ключевая гипотеза</span>
+        </div>
+        <h2>Мы не заменяем съёмку. Мы усиливаем свадьбу.</h2>
+
+        <div class="grid-3">
+          <div class="panel">
+            <div class="kpi">01</div>
+            <h3>Фотограф</h3>
+            <p>Снимает свадьбу и создаёт фотоисторию события.</p>
+          </div>
+
+          <div class="panel">
+            <div class="kpi">02</div>
+            <h3>Видеограф</h3>
+            <p>Снимает свадьбу и делает фильм после мероприятия.</p>
+          </div>
+
+          <div class="panel">
+            <div class="kpi">03</div>
+            <h3>Наш продукт</h3>
+            <p>Создаёт готовый визуальный материал для показа внутри самой свадьбы.</p>
+          </div>
+        </div>
+
+        <div class="highlight-panel" style="margin-top:16px;">
+          <p>Продукт закрывает отдельную задачу: создать эмоциональный визуальный объект для самой свадьбы, а не конкурировать с фотографами и видеографами.</p>
+        </div>
+      </section>
+
+      <section class="section" id="audiences">
+        <div class="label-row divider-title">
+          <span class="label">Целевые аудитории</span>
+        </div>
+        <h2>Пять сценариев покупки</h2>
+
+        <div class="grid-2">
+          <div class="card audience-card">
+            <span class="label">Подруга невесты / друзья</span>
+            <h3>Эмоциональный сюрприз</h3>
+            <p>Друзья дарят молодожёнам красивый ролик для показа на экранах во время свадьбы.</p>
+            <p class="small-note">Материал: предсвадебная съёмка, девичник или свежие фото со свадебного дня. Сильный сценарий — съёмка за день до свадьбы или в день свадьбы с быстрой передачей фото в облако.</p>
+          </div>
+
+          <div class="card audience-card">
+            <span class="label">Родители</span>
+            <h3>Семейный фильм</h3>
+            <p>Трогательная история о дочери или сыне: путь ребёнка к созданию собственной семьи.</p>
+            <p class="small-note">Материал: детские фотографии, семейные архивы, школьные фото, важные моменты взросления и совместные фотографии пары. Здесь больше времени на драматургию, тексты и сбор материалов.</p>
+          </div>
+
+          <div class="card audience-card">
+            <span class="label">Молодожёны</span>
+            <h3>Контент для вечера</h3>
+            <p>Пара занимает экраны в начале банкета и в течение вечера красивым визуальным контентом.</p>
+            <p class="small-note">Материал: предсвадебная съёмка, love story и совместные фотографии.</p>
+          </div>
+
+          <div class="card audience-card">
+            <span class="label">Фотографы</span>
+            <h3>Усиление пакета</h3>
+            <p>Фотограф добавляет услугу “свадебный ролик из фото с моушн-дизайном” в свой свадебный пакет.</p>
+            <p class="small-note">Модель: +10 000 ₽ к пакету, 2 000 ₽ комиссия фотографу, производство — на нашей стороне.</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:16px;">
+          <span class="label" style="margin-bottom:14px;">Свадебные специалисты</span>
+          <h3>Ведущие, организаторы, координаторы, площадки, декораторы, технические подрядчики</h3>
+          <p>Для партнёров это готовый эмоциональный блок программы, дополнительная услуга для клиента, комиссия и усиление впечатления от мероприятия.</p>
+        </div>
+      </section>
+
+      <section class="section" id="production">
+        <div class="label-row divider-title">
+          <span class="label">Производственный путь</span>
+        </div>
+        <h2>Цель — потоковое производство за 2 часа</h2>
+        <p class="muted">От момента получения фотографий до готового продукта.</p>
+
+        <div class="panel" style="margin-top:18px;">
+          <div class="flow">
+            <div class="flow-step">Клиент покупает ролик</div>
+            <div class="flow-step">Договаривается с фотографом</div>
+            <div class="flow-step">Фото загружаются в облако</div>
+            <div class="flow-step">Специалист готовит материал</div>
+            <div class="flow-step">Монтажёр собирает ролик</div>
+            <div class="flow-step">Файл передаётся на свадьбу</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="card">
+            <h3>Что можно готовить заранее</h3>
+            <ul>
+              <li>подписи и обращения;</li>
+              <li>короткие фразы и пожелания;</li>
+              <li>историю пары;</li>
+              <li>тексты о любви;</li>
+              <li>структуру ролика под выбранный шаблон.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Роль ИИ-агента</h3>
+            <p>Часть текстовой работы может выполнять ИИ-агент: помогать собирать подписи, обращения, эмоциональные фразы и варианты драматургии.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tariffs">
+        <div class="label-row divider-title">
+          <span class="label">Тарифы</span>
+        </div>
+        <h2>Три уровня продукта</h2>
+
+        <div class="grid-3">
+          <div class="tariff">
+            <div class="tariff__name">Базовый</div>
+            <div class="tariff__price">7 900 ₽</div>
+            <ul>
+              <li>до 30 фотографий;</li>
+              <li>до 1,5 минут;</li>
+              <li>быстрый визуальный формат.</li>
+            </ul>
+          </div>
+
+          <div class="tariff">
+            <div class="tariff__name">Основной</div>
+            <div class="tariff__price">12 900 ₽</div>
+            <ul>
+              <li>до 50 фотографий;</li>
+              <li>до 2,5 минут;</li>
+              <li>оптимальный продукт для большинства сценариев.</li>
+            </ul>
+          </div>
+
+          <div class="tariff">
+            <div class="tariff__name">Премиум</div>
+            <div class="tariff__price">19 900 ₽</div>
+            <ul>
+              <li>до 100 фото / видео;</li>
+              <li>до 4,5 минут;</li>
+              <li>сценарная сборка;</li>
+              <li>сложная графика.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-panel" style="margin-top:16px;">
+          <p>Музыкальное оформление — отдельная статья к каждому тарифу, потому что влияет на производственный процесс и усложняет сборку ролика.</p>
+        </div>
+      </section>
+
+      <section class="section" id="economy">
+        <div class="label-row divider-title">
+          <span class="label">Экономика рынка</span>
+        </div>
+        <h2>Цель — 1% российского свадебного рынка</h2>
+
+        <div class="grid-3">
+          <div class="metric-card">
+            <div class="big-number">880k–1,2m</div>
+            <p>свадеб в год — база российского рынка.</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="big-number">8,8k–12k</div>
+            <p>заказов в год при занятии 1% рынка.</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="big-number">88–120 млн ₽</div>
+            <p>потенциальная выручка в год при среднем чеке 10 000 ₽.</p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="card">
+            <h3>Производственная модель</h3>
+            <ul>
+              <li>на базовый и основной тариф требуется около 1 часа машинного времени;</li>
+              <li>в производстве участвуют монтажёр и специалист по подготовке фото;</li>
+              <li>плановая команда: 2 специалиста по 100 000 ₽ / месяц;</li>
+              <li>рабочее время: 170 часов / месяц на человека.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Ключевая задача</h3>
+            <p>Сделать производство потоковым: специалист быстро принимает материал, готовит фотографии, передаёт их в монтаж и переходит к следующему заказу.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sales">
+        <div class="label-row divider-title">
+          <span class="label">Каналы продаж</span>
+        </div>
+        <h2>Сильнее всего — партнёрская сеть</h2>
+
+        <div class="grid-2">
+          <div class="panel">
+            <div class="kpi">01</div>
+            <h3>Прямые продажи</h3>
+            <p>Родители, молодожёны, подруга невесты и друзья покупают ролик как эмоциональный блок для показа на свадьбе.</p>
+          </div>
+
+          <div class="panel">
+            <div class="kpi">02</div>
+            <h3>Фотографы</h3>
+            <p>Фотограф добавляет услугу в пакет и получает комиссию. Доверие уже создано, клиент уже находится в свадебном бюджете.</p>
+          </div>
+
+          <div class="panel">
+            <div class="kpi">03</div>
+            <h3>Свадебные специалисты</h3>
+            <p>Ведущие, организаторы, координаторы, площадки, декораторы и технические подрядчики приводят клиента и получают комиссию.</p>
+          </div>
+
+          <div class="panel">
+            <div class="kpi">04</div>
+            <h3>Аутсорс-команда</h3>
+            <p>Команда берёт на себя таргет, воронки, обработку заявок, партнёрскую сеть и доведение клиента до оплаты.</p>
+          </div>
+        </div>
+
+        <div class="highlight-panel" style="margin-top:16px;">
+          <p>Нам важен не лид, а полностью оплаченный заказ, переданный в производство.</p>
+        </div>
+      </section>
+
+      <section class="section" id="outsourcing">
+        <div class="label-row divider-title">
+          <span class="label">Зона аутсорс-команды</span>
+        </div>
+        <h2>Привлечение должно заканчиваться оплатой</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Ответственность команды</h3>
+            <ul>
+              <li>найти клиентов и протестировать офферы;</li>
+              <li>вести рекламу и выстроить воронку;</li>
+              <li>обработать заявки и довести до оплаты;</li>
+              <li>собрать вводные и передать заказ в производство;</li>
+              <li>развивать сеть фотографов и свадебных специалистов.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Наша зона</h3>
+            <ul>
+              <li>принять материалы;</li>
+              <li>подготовить фотографии;</li>
+              <li>собрать ролик;</li>
+              <li>отдать готовый файл.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:16px;">
+          <div class="label" style="margin-bottom:14px;">Целевая стоимость оплаченного заказа</div>
+          <div class="flow">
+            <div class="flow-step">Хорошо: 1 500–2 500 ₽</div>
+            <div class="flow-step">Допустимо: 3 000–4 000 ₽</div>
+            <div class="flow-step">Предел теста: 5 000 ₽</div>
+            <div class="flow-step">Выше 5 000 ₽ — опасно</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="payment">
+        <div class="label-row divider-title">
+          <span class="label">Оплата аутсорс-команды</span>
+        </div>
+        <h2>Три модели мотивации</h2>
+
+        <div class="table-like">
+          <div class="table-row">
+            <strong>Комиссия за оплаченный заказ</strong>
+            <span>1 500 / 2 500 / 4 000 ₽</span>
+            <span>Бонус +500 ₽ от 30 заказов в месяц; от 100 заказов — отдельная ставка или процент.</span>
+          </div>
+
+          <div class="table-row">
+            <strong>Процент от оплаты</strong>
+            <span>25% от оплаченного заказа</span>
+            <span>Рекламный бюджет оплачивается из комиссии команды или отдельно лимитируется.</span>
+          </div>
+
+          <div class="table-row">
+            <strong>Фикс + KPI</strong>
+            <span>30 000–50 000 ₽ / месяц + 1 000–2 000 ₽ за заказ</span>
+            <span>KPI: стоимость оплаченного заказа не выше 3 500 ₽.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="unit">
+        <div class="label-row divider-title">
+          <span class="label">Операционные расходы</span>
+        </div>
+        <h2>Что учитываем в каждом заказе</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <ul>
+              <li>производство;</li>
+              <li>работа монтажёра;</li>
+              <li>работа специалиста по подготовке фото;</li>
+              <li>вознаграждение фотографа / партнёра: в среднем 1 000 ₽;</li>
+              <li>эквайринг, сервисы, облако: 700 ₽;</li>
+              <li>менеджмент и админка: 500 ₽;</li>
+              <li>налоги: 7%;</li>
+              <li>прочее: 15%.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Тестовая экономика на 1 месяц</h3>
+            <ul>
+              <li>цель: 20 оплаченных заказов;</li>
+              <li>минимум: 10 заказов;</li>
+              <li>хороший результат: 20–30 заказов;</li>
+              <li>сильный результат: 50+ заказов;</li>
+              <li>допустимый CPA: до 3 000 ₽;</li>
+              <li>бюджет на проверку: 60 000 ₽.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="conclusion">
+        <div class="label-row divider-title">
+          <span class="label">Главный вывод</span>
+        </div>
+
+        <div class="highlight-panel">
+          <p>Продукт занимает отдельную нишу внутри свадебного рынка: он не заменяет фотографа и видеографа, а усиливает свадьбу готовым эмоциональным визуальным объектом для показа на экранах.</p>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="card">
+            <h3>Самый сильный канал</h3>
+            <p>Партнёрская сеть фотографов и свадебных специалистов: доверие уже создано, клиент уже находится в свадебном бюджете, а стоимость привлечения заказа контролируема.</p>
+          </div>
+
+          <div class="card">
+            <h3>Ключевой принцип роста</h3>
+            <p>Аутсорс-команда отвечает не за лиды, а за оплаченные заказы, переданные в производство.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cta">
+        <div class="label-row divider-title">
+          <span class="label">Следующий шаг</span>
+        </div>
+
+        <div class="cta">
+          <h2 style="margin-bottom:10px;">Обсудить запуск теста и партнёрскую модель</h2>
+          <p class="muted">
+            Ближайшая задача — проверить спрос, партнёрские каналы и стоимость оплаченного заказа на первом месяце продаж.
+          </p>
+
+          <div class="card" style="margin-top:18px;">
+            <ul>
+              <li>зафиксировать офферы для прямых и партнёрских продаж;</li>
+              <li>подготовить шаблоны роликов и производственный маршрут;</li>
+              <li>запустить тест на 10–20 оплаченных заказов;</li>
+              <li>оценить CPA/CPO, маржинальность и готовность масштабирования.</li>
+            </ul>
+          </div>
+
+          <div class="actions">
+            <a class="button primary" href="tel:+79394463156">Обсудить задачу</a>
+            <a class="button secondary" href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+          </div>
+
+          <div class="contacts">
+            <div class="contact-person">
+              <strong>AI партнёр</strong>
+              <div>+7 939 446-31-56</div>
+              <div>Telegram: @kakayauvasinteresnayarabota</div>
+            </div>
+
+            <div class="contact-person">
+              <strong>CEO Дмитрий Дроздов</strong>
+              <div>+7 910 472-10-24</div>
+              <div>Telegram: @drozdovhumandevelopment</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Проект подготовлен Креативным агентством <strong><a href="https://какаяувасинтереснаяработа.рф" target="_blank" rel="noopener noreferrer">КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</a></strong><br />
+        ООО «КАКАЯУВАСИНТЕРЕСНАЯРАБОТА» ИНН 5254499015<br />
+        © 2026 · Все права защищены
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
