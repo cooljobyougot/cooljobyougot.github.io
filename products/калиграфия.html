@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ролик для школы каллиграфии</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f1ea;
+      --paper: #fffaf2;
+      --ink: #171413;
+      --muted: #756d64;
+      --line: rgba(23, 20, 19, 0.14);
+      --soft-line: rgba(23, 20, 19, 0.08);
+      --accent: #7a341f;
+      --dark: #171413;
+      --dark-muted: rgba(255, 250, 242, 0.72);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --shadow: 0 26px 80px rgba(43, 31, 24, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(166, 106, 66, 0.18), transparent 34rem),
+        radial-gradient(circle at 90% 10%, rgba(122, 52, 31, 0.12), transparent 30rem),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: 65%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 0 44px;
+    }
+
+    .topbar {
+      padding: 18px 0 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-name {
+      font-family: "Inter Tight", sans-serif;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+    }
+
+    .brand-legal {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .brand-position {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    main {
+      padding-top: 34px;
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 242, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1, h2, h3 {
+      font-family: "Inter Tight", sans-serif;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(40px, 5vw, 66px);
+      line-height: .95;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      line-height: .98;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.08;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .italic {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+
+    .lead, p, li {
+      font-size: 16px;
+      color: #3d3631;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .meta {
+      padding: 20px;
+      border: 1px solid var(--soft-line);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.32);
+    }
+
+    .meta strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 20px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .meta span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      padding: 22px;
+      border: 1px solid var(--soft-line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.32);
+    }
+
+    .step-number {
+      display: inline-block;
+      min-width: 54px;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(122,52,31,.09);
+      color: var(--accent);
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .cards,
+    .question-grid,
+    .info-list,
+    .contacts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card,
+    .question,
+    .info-item,
+    .person,
+    .cost-box {
+      padding: 24px;
+      border: 1px solid var(--soft-line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.32);
+    }
+
+    .eyebrow,
+    .question small {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .info-item strong,
+    .person h3 {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .cost-old {
+      font-size: 18px;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-bottom: 8px;
+    }
+
+    .cost-new {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+    }
+
+    .cost-discount {
+      font-size: 16px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .contact-card {
+      background: var(--dark);
+      color: var(--paper);
+    }
+
+    .contact-card h2,
+    .contact-card h3,
+    .contact-card p,
+    .contact-card li,
+    .contact-card .person p {
+      color: var(--paper);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,250,242,.20);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .button.primary {
+      background: var(--paper);
+      color: var(--dark);
+      border-color: var(--paper);
+    }
+
+    footer {
+      padding-top: 26px;
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1100px) {
+      .page {
+        width: 78%;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: calc(100% - 24px);
+      }
+
+      .section {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .cost-new {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand-name">Креативное агентство КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</div>
+      <div class="brand-legal">ООО "КАКАЯУВАСИНТЕРЕСНАЯРАБОТА"</div>
+      <div class="brand-position">Стратегический видеопартнёр для бренда и продаж. Рекламные ролики, имиджевые форматы, FPV-съёмка и AI-продакшн — как единая система под задачи бизнеса.</div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="label">Клиентская презентация</div>
+        <h1>Ролик для школы <span class="italic">каллиграфии</span></h1>
+
+        <div class="meta-grid">
+          <div class="meta">
+            <strong>10 секунд</strong>
+            <span>Формат: 10-секундный ролик для уличного экрана / билборда в горизонтальном формате.</span>
+          </div>
+          <div class="meta">
+            <strong>Городец. Уличный билборд.</strong>
+            <span>Городец. Уличный билборд.</span>
+          </div>
+          <div class="meta">
+            <strong>Акварельная техника</strong>
+            <span>Ролик будет выполнен в акварельной технике методами ИИ генерации.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="label">Сценарий</div>
+        <h2>Сценарная идея ролика</h2>
+        <p>Сценарий строится как короткая визуальная история.</p>
+
+        <div class="timeline">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>В начале — крупный план руки с пером.</h3>
+            <p>Рука выводит большой выразительный символ / знак во весь экран. Это первый визуальный акцент, который должен сразу остановить взгляд.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>Далее через движение и смену кадров раскрывается сам процесс письма.</h3>
+            <p>Символ как будто проходит через несколько образов и состояний, создавая ощущение преемственности, красоты и глубины самого искусства каллиграфии.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>Затем ролик приходит к ребёнку.</h3>
+            <p>Ребёнок становится финальной точкой этой истории: каллиграфия из образа и традиции переходит в живой, современный и понятный результат для семьи.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">04</div>
+            <h3>В финале — эмоциональная реакция мамы.</h3>
+            <p>Это только красивый кадр, а смысловой вывод: занятия дают ребёнку навык, результат и вызывают радость и доверие у родителя.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">05</div>
+            <h3>После этого появляется финальный информационный блок:</h3>
+            <ul>
+              <li>название;</li>
+              <li>контакты;</li>
+              <li>адрес;</li>
+              <li>при необходимости оффер или призыв к действию.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="label">Главная задача</div>
+        <h2>Главная задача ролика</h2>
+        <p>за 10 секунд показать каллиграфию как красивый, полезный и понятный навык для ребёнка, который вызывает радость и доверие у родителя.</p>
+      </section>
+
+      <section class="section">
+        <div class="label">Стоимость</div>
+        <h2>Стоимость</h2>
+        <div class="cost-box">
+          <div class="cost-old">Базовая стоимость 35 000 ₽</div>
+          <div class="cost-new">22 000 ₽</div>
+          <div class="cost-discount">Скидка прямо сейчас 37%</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="label">Короткий опросник для запуска</div>
+        <h2>Что нужно подтвердить</h2>
+
+        <div class="question-grid">
+          <article class="question">
+            <small>Вопрос 01</small>
+            <h3>Что для вас сейчас важнее:</h3>
+            <ul>
+              <li>подготовка к школе;</li>
+              <li>коррекция почерка.</li>
+            </ul>
+          </article>
+
+          <article class="question">
+            <small>Вопрос 02</small>
+            <h3>Что человек должен понять после просмотра?</h3>
+            <p>Одной короткой фразой.</p>
+          </article>
+
+
+          <article class="question">
+            <small>Вопрос 03</small>
+            <h3>Что обязательно должно быть в финальных кадрах?</h3>
+            <ul>
+              <li>название школы;</li>
+              <li>логотип;</li>
+              <li>телефон;</li>
+              <li>адрес;</li>
+              <li>соцсети;</li>
+            </ul>
+          </article>
+
+          <article class="question">
+            <small>Вопрос 05</small>
+            <h3>Есть ли у вас готовые материалы?</h3>
+            <ul>
+              <li>логотип;</li>
+              <li>фирменные цвета;</li>
+              <li>шрифты;</li>
+            </ul>
+          </article>
+
+          <article class="question">
+            <small>Вопрос 06</small>
+            <h3>Есть ли точные технические требования площадки?</h3>
+            <ul>
+              <li>разрешение;</li>
+              <li>формат;</li>
+              <li>дополнительные ограничения.</li>
+            </ul>
+          </article>
+
+          <article class="question">
+            <small>Вопрос 07</small>
+            <h3>Кто утверждает ролик?</h3>
+            <ul>
+              <li>один человек;</li>
+              <li>несколько человек.</li>
+            </ul>
+          </article>
+
+          <article class="question">
+            <small>Вопрос 08</small>
+            <h3>Срок готовности ролика?</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-card" id="contacts">
+        <div class="label">Контакты</div>
+        <h2>Обсудить задачу</h2>
+        <p>Написать в Telegram</p>
+
+        <div class="contact-actions">
+          <a class="button primary" href="tel:+79394463156">Обсудить задачу</a>
+          <a class="button" href="https://t.me/kakayauvasinteresnayarabota">Написать в Telegram</a>
+        </div>
+
+        <div class="contacts" style="margin-top: 18px;">
+          <article class="person">
+            <h3>AI партнёр</h3>
+            <p>+7 939 446-31-56<br>Telegram: @kakayauvasinteresnayarabota</p>
+          </article>
+
+          <article class="person">
+            <h3>CEO Дмитрий Дроздов</h3>
+            <p>+7 910 472-10-24<br>Telegram: @drozdovhumandevelopment</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Креативное агентство КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</div>
+      <div>ООО "КАКАЯУВАСИНТЕРЕСНАЯРАБОТА"</div>
+      <div>© 2026 · Все права защищены</div>
+    </footer>
+  </div>
+</body>
+</html>
