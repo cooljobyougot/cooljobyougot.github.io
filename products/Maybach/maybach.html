@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КП — рекламный ролик для Maybach-трансфера</title>
+  <meta name="description" content="Коммерческое предложение на производство рекламного ролика для Maybach-трансфера." />
+  <style>
+    :root{color-scheme:light dark;--bg:#f6f0e6;--bg2:#ebe0cf;--surface:#fffaf1;--surface2:#f1e7d5;--text:#17120b;--muted:#685c49;--line:rgba(23,18,11,.14);--accent:#b9883e;--gold:#d8ad62;--shadow:0 28px 80px rgba(32,20,6,.13);--radius:28px;--max:65vw;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+    html[data-theme="dark"]{--bg:#090806;--bg2:#0f0d0a;--surface:#15110c;--surface2:#211a11;--text:#fff7e8;--muted:#cdbb9d;--line:rgba(255,247,232,.14);--accent:#e8bd72;--gold:#ffd58b;--shadow:0 34px 100px rgba(0,0,0,.42)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:var(--font);color:var(--text);line-height:1.45;background:radial-gradient(900px 560px at 86% -8%,rgba(232,189,114,.24),transparent 54%),linear-gradient(180deg,var(--bg),var(--bg2) 52%,#070604);-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-underline-offset:4px}
+    .page{width:min(calc(100% - 28px),var(--max));margin:0 auto;padding:22px 0 70px}
+
+    .topbar{padding:18px 0 26px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+    .brand-name{font-size:clamp(18px,2vw,26px);font-weight:700;letter-spacing:-.045em;line-height:1.1}
+    .brand-legal{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.5}
+    .brand-position{margin-top:10px;color:var(--muted);font-size:14px;line-height:1.45}
+
+    .hero,.section{border:1px solid var(--line);border-radius:var(--radius);background:color-mix(in srgb,var(--surface) 84%,transparent);box-shadow:var(--shadow)}
+    .hero{padding:clamp(30px,5vw,64px);border-radius:38px;background:linear-gradient(135deg,color-mix(in srgb,var(--surface) 92%,transparent),color-mix(in srgb,var(--surface2) 82%,transparent))}
+    .section{margin-top:16px;padding:clamp(22px,3vw,34px)}
+    .eyebrow,.tag{display:inline-flex;width:max-content;max-width:100%;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;background:rgba(232,189,114,.08)}
+    h1{margin:16px 0 14px;font-size:clamp(34px,5.5vw,68px);line-height:.96;letter-spacing:-.06em}
+    h2{margin:0 0 16px;font-size:clamp(25px,3vw,38px);line-height:1.05;letter-spacing:-.04em}
+    h3{margin:0 0 8px;font-size:19px;line-height:1.2;letter-spacing:-.02em}
+    p{margin:0}
+    .lead{max-width:760px;color:var(--muted);font-size:18px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    .card,.shot,.priceCard{border:1px solid var(--line);border-radius:22px;background:color-mix(in srgb,var(--surface2) 60%,transparent);padding:16px}
+    .metric{font-size:clamp(38px,5vw,58px);line-height:.95;font-weight:950;letter-spacing:-.06em;color:var(--accent)}
+    .timeline{display:grid;gap:12px}
+    .shot{display:grid;grid-template-columns:90px 1fr;gap:14px}
+    .time{font-weight:950;color:var(--accent)}
+    .shot b{display:block;margin-bottom:4px}
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:rgba(232,189,114,.08);font-size:13px}
+    .quote{font-size:clamp(22px,2.5vw,30px);line-height:1.16;letter-spacing:-.035em}
+    .media figure{margin:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--surface2)}
+    .media img,.media video{display:block;width:100%;height:auto;background:#000}
+    .media figcaption{padding:12px 14px;color:var(--muted);font-size:14px}
+    .table{width:100%;border-collapse:separate;border-spacing:0 10px}
+    .table th{text-align:left;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.10em}
+    .table td,.table th{padding:10px 12px;vertical-align:top}
+    .table td{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface2) 48%,transparent)}
+    .table td:first-child{border-left:1px solid var(--line);border-radius:16px 0 0 16px;font-weight:850}
+    .table td:last-child{border-right:1px solid var(--line);border-radius:0 16px 16px 0}
+    .total-term{margin-top:14px;border:1px solid var(--line);border-radius:22px;background:rgba(232,189,114,.08);padding:18px}
+    .total-term strong{display:block;margin-bottom:6px;color:var(--accent);font-size:22px;letter-spacing:-.03em}
+    .price{display:grid;grid-template-columns:1fr;gap:14px}
+    .amount{margin:8px 0 10px;font-size:34px;line-height:1;font-weight:950;letter-spacing:-.06em;color:var(--accent)}
+    ul{margin:0;padding:0;list-style:none}
+    li{position:relative;margin-top:8px;padding-left:16px;color:var(--muted)}
+    li:before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    footer{padding-top:26px;margin-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+    @media(max-width:1100px){.page{width:min(calc(100% - 28px),860px)}}
+    @media(max-width:760px){.page{width:calc(100% - 24px)}.shot{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand-name">Креативное агентство КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</div>
+       <div class="brand-position">Стратегический видеопартнёр для бренда и продаж. Рекламные ролики, имиджевые форматы, FPV-съёмка и AI-продакшн — как единая система под задачи бизнеса.</div>
+    </header>
+
+    <header class="hero">
+      <div class="eyebrow">Коммерческое предложение</div>
+      <h1>Рекламный ролик для Maybach-трансфера</h1>
+      <p class="lead">55–60 секунд премиального спокойствия после хаоса аэропорта. Ролик продаёт не автомобиль, а сервис: контроль, тишину и заботу.</p>
+      <div class="grid" style="margin-top:24px">
+        <div class="card"><div class="metric">55–60 сек.</div><p class="muted">Формат для сайта, презентации, соцсетей и рекламы.</p></div>
+      </div>
+    </header>
+
+    <section class="section" id="idea">
+      <span class="tag">01 · идея</span>
+      <h2>Главная мысль</h2>
+      <div class="grid">
+        <article class="card"><p class="quote">Пассажиру не нужна задача. Он хочет, чтобы о нём уже позаботились.</p></article>
+        <article class="card"><h3>До</h3><p class="muted">Аэропорт, багаж, спешка, шум, усталость.</p></article>
+        <article class="card"><h3>Решение</h3><p class="muted">Maybach подъезжает вовремя. Водитель встречает и берёт заботу на себя.</p></article>
+        <article class="card"><h3>После</h3><p class="muted">Тишина, мягкий салон, ночной город, ощущение контроля.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="scenario">
+      <span class="tag">02 · сценарий 55–60</span>
+      <h2>Посекундная раскадровка</h2>
+      <div class="timeline">
+        <div class="shot"><div class="time">0–8 c</div><div><b>Героиня выходит из аэропорта. Багаж, шум, усталость, суета.</p></div></div>
+        <div class="shot"><div class="time">8–15 c</div><div><b>Появление Maybach</b><p class="muted">Подъезжает автомобиль. Фары, отражения, крупные кадры деталей.</p></div></div>
+        <div class="shot"><div class="time">15–23 c</div><div><b>Сервис</b><p class="muted">Водитель открывает дверь, помогает с багажом, действует точно, уверенно.</p></div></div>
+        <div class="shot"><div class="time">23–32 c</div><div><b>Салон</b><p class="muted">Дверь закрывается. Шум исчезает. Остаются тишина, приглушенный свет и комфорт. Кадры из салона, смена настроения героини.</p></div></div>
+        <div class="shot"><div class="time">32–45 c</div><div><b>Ночной город</b><p class="muted">Maybach едет по городу. Огни, диски, плавный ритм, общие планы, съёмка с дрона.</p></div></div>
+        <div class="shot"><div class="time">45–60 c</div><div><b>Состояние</b><p class="muted">Героиня расслабляется. Поездка становится частью отдыха.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section media" id="media-preview">
+      <span class="tag">02.1 · материалы</span>
+      <h2>Визуальные референсы</h2>
+      <div class="grid">
+        <figure><img src="./maybach.png" alt="Maybach на ночной городской улице"><figcaption>Ночной Maybach и премиальный городской вайб.</figcaption></figure>
+        <figure><img src="./maybach1.gif" alt="Деталь управления автомобилем"><figcaption>Контроль, движение, уверенность водителя.</figcaption></figure>
+        <figure><video src="./Mercedes_Maybach.mp4" controls playsinline preload="metadata"></video><figcaption>Визуальный референс премиального Maybach-настроения.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <span class="tag">03 · фишки</span>
+      <h2>Почему ролик работает</h2>
+      <div class="grid">
+        <article class="card"><h3>Контраст</h3><p class="muted">Хаос аэропорта сменяется тишиной салона.</p></article>
+        <article class="card"><h3>Детали сервиса</h3><p class="muted">Дверь, багаж, водитель, салон.</p></article>
+        <article class="card"><h3>Музыка</h3><p class="muted">Ведёт зрителя из стресса в спокойствие.</p></article>
+        <article class="card"><h3>Ночной город</h3><p class="muted">Огни, дрон и отражения подчеркивают статус.</p></article>
+        <article class="card"><h3>Финал</h3><p class="muted">Поездку не хочется заканчивать.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="tag">04 · ценности</span>
+      <h2>Что транслируем</h2>
+      <div class="pillrow">
+        <span class="pill">Премиальность</span>
+        <span class="pill">Спокойствие</span>
+        <span class="pill">Забота</span>
+        <span class="pill">Контроль</span>
+        <span class="pill">Безупречный сервис</span>
+        <span class="pill">Трансфер как отдых</span>
+      </div>
+    </section>
+
+    <section class="section" id="production">
+      <span class="tag">05 · производство</span>
+      <h2>Сроки и состав работ</h2>
+      <table class="table">
+        <thead><tr><th>Этап</th><th>Результат</th><th>Срок</th></tr></thead>
+        <tbody>
+          <tr><td>Препродакшн</td><td>Сценарий, маршрут, раскадровка.</td><td>2 дня</td></tr>
+          <tr><td>Подготовка</td><td>Готовая команда, план съёмок.</td><td>2 дня</td></tr>
+          <tr><td>Съёмка</td><td>Отснятый материал.</td><td>1 смена</td></tr>
+          <tr><td>Монтаж</td><td>Ролик 55–60 сек.</td><td>5 дней</td></tr>
+          <tr><td>Правки</td><td>Финальная версия под публикацию.</td><td>2 раунда</td></tr>
+        </tbody>
+      </table>
+
+      <div class="total-term">
+        <strong>Итоговый срок изготовления: 10 рабочих дней.</strong>
+        <p class="muted">Финальный срок зависит от скорости согласования и доступности автомобиля/локаций.</p>
+      </div>
+
+    </section>
+
+    <section class="section" id="brief">
+      <span class="tag">06 · мини-анкета</span>
+      <h2>Вопросы клиенту</h2>
+      <div class="grid">
+        <article class="card"><h3>1. Где будет использоваться ролик?</h3><p class="muted">Reels, VK, Telegram, сайт, таргет, презентация, экраны.</p></article>
+        <article class="card"><h3>2. Какой сегмент выбираем?</h3><p class="muted">Ролик делаем под один сегмент. Предлагаем целиться в бизнес-клиентов, гостей отелей 5★ и VIP-туристов.</p></article>
+        <article class="card"><h3>3. Какое целевое действие?</h3><p class="muted">Забронировать, написать в мессенджер, позвонить, запросить стоимость.</p></article>
+        <article class="card"><h3>4. Что обязательно показать?</h3><p class="muted">Логотип, сервис, маршрут, телефон, сайт, мессенджер.</p></article>
+        <article class="card"><h3>5. Когда нужен готовый ролик?</h3><p class="muted">Дата публикации и дедлайн на согласование.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="tag">07 · о компании</span>
+      <h2>Кто мы</h2>
+      <div class="grid">
+        <article class="card"><p class="muted">Создаём видео, которые усиливают бренд и работают на результат.</p></article>
+        <article class="card"><p class="muted">Рекламные ролики, имиджевые форматы, FPV-съёмка и AI-продакшн — как единая система под задачи бизнеса.</p></article>
+      </div>
+    </section>
+
+    <footer>
+      <div>Креативное агентство КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</div>
+      <div>ООО "КАКАЯУВАСИНТЕРЕСНАЯРАБОТА"</div>
+      <div>© 2026 · Все права защищены</div>
+    </footer>
+  </div>
+</body>
+</html>
