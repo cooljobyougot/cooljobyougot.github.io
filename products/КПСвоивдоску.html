@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Коммерческое предложение: сценарная упаковка серии роликов для компании Свои в доску" />
+  <title>КП — серия роликов «Свои в доску»</title>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@500;600;700;800&display=swap");
+
+  :root {
+    color-scheme: light dark;
+
+    --bg: #f4f0e7;
+    --surface: rgba(255, 250, 240, 0.78);
+    --surface-strong: #fff9ef;
+    --text: #171413;
+    --muted: #6f675f;
+    --line: rgba(23, 20, 19, 0.13);
+    --soft-line: rgba(23, 20, 19, 0.08);
+    --accent: #7d3b25;
+    --accent-2: #ba7a45;
+    --dark: #171413;
+    --paper: #fffaf2;
+    --shadow: 0 32px 90px rgba(42, 31, 24, 0.13);
+    --radius: 30px;
+    --radius-sm: 20px;
+    --max: 1120px;
+  }
+
+  html[data-theme="dark"] {
+    --bg: #11100f;
+    --surface: rgba(28, 25, 23, 0.78);
+    --surface-strong: #1d1a18;
+    --text: #fff7eb;
+    --muted: rgba(255, 247, 235, 0.68);
+    --line: rgba(255, 247, 235, 0.13);
+    --soft-line: rgba(255, 247, 235, 0.08);
+    --accent: #e0a26f;
+    --accent-2: #ad6f4d;
+    --dark: #fff7eb;
+    --paper: #171413;
+    --shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(circle at 8% -10%, rgba(186, 122, 69, 0.22), transparent 32rem),
+      radial-gradient(circle at 90% 2%, rgba(125, 59, 37, 0.16), transparent 28rem),
+      linear-gradient(180deg, var(--bg), var(--bg));
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-thickness: .08em;
+    text-underline-offset: .22em;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
+
+  .page {
+    width: min(calc(100% - 32px), var(--max));
+    margin: 0 auto;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: 1.4fr auto auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 0;
+    backdrop-filter: blur(22px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 18px 40px rgba(125, 59, 37, .26);
+  }
+
+  .brand-text {
+    display: block;
+    min-width: 0;
+  }
+
+  .brand-name {
+    display: block;
+    font-family: "Inter Tight", Inter, sans-serif;
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    overflow-wrap: anywhere;
+  }
+
+  .brand-link {
+    text-decoration: none;
+  }
+
+  .brand-sub {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .nav {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    color: var(--muted);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .theme-toggle,
+  .pill-link {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font: inherit;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(42, 31, 24, 0.06);
+  }
+
+  .pill-link {
+    text-decoration: none;
+  }
+
+  main {
+    padding: 42px 0 64px;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, .72fr);
+    gap: 24px;
+    align-items: stretch;
+    min-height: 620px;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .section,
+  .footer-panel {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+  }
+
+  .hero-copy {
+    padding: clamp(30px, 5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-card {
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .kicker::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: "Inter Tight", Inter, sans-serif;
+    letter-spacing: -0.055em;
+  }
+
+  h1 {
+    max-width: 880px;
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: .9;
+    font-weight: 620;
+  }
+
+  h2 {
+    font-size: clamp(34px, 4.6vw, 64px);
+    line-height: .94;
+    font-weight: 630;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.05;
+    font-weight: 680;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .hero-project {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .hero-title {
+    margin: 0;
+    max-width: 980px;
+    color: var(--text);
+    font-family: "Inter Tight", Inter, sans-serif;
+    font-size: clamp(38px, 6vw, 86px);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.065em;
+    white-space: normal;
+  }
+
+  .hero-title-accent {
+    display: inline;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.72em;
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+  }
+
+  .lead {
+    max-width: 760px;
+    margin-top: 28px;
+    color: var(--text);
+    font-size: clamp(20px, 2.4vw, 29px);
+    line-height: 1.25;
+  }
+
+  .small {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 46px;
+  }
+
+  .mini-stat {
+    border: 1px solid var(--soft-line);
+    border-radius: 20px;
+    padding: 18px;
+    background: rgba(255, 255, 255, .22);
+  }
+
+  .mini-stat strong {
+    display: block;
+    color: var(--text);
+    font-size: 20px;
+    letter-spacing: -.04em;
+  }
+
+  .mini-stat span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .visual-board {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 560px;
+    border-radius: 24px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff7eb;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, 0)),
+      radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .5), transparent 9rem),
+      linear-gradient(145deg, rgba(125, 59, 37, .9), rgba(22, 18, 15, .92));
+  }
+
+  .visual-board::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -20% 14%;
+    height: 48%;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(255, 255, 255, .03));
+    transform: rotate(-7deg);
+  }
+
+  .board-title {
+    position: relative;
+    z-index: 1;
+    color: #fff7eb;
+    font-size: 42px;
+    line-height: .94;
+    letter-spacing: -.06em;
+  }
+
+  .board-note {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    color: rgba(255, 247, 235, .74);
+    font-size: 15px;
+  }
+
+  .section {
+    margin-top: 24px;
+    padding: clamp(28px, 4.4vw, 52px);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: .42fr 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 28px;
+  }
+
+  .section-head p {
+    max-width: 680px;
+    font-size: 18px;
+  }
+
+  .offer-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .card,
+  .step,
+  .question,
+  .footer-card {
+    border: 1px solid var(--soft-line);
+    background: rgba(255, 255, 255, .25);
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  html[data-theme="dark"] .card,
+  html[data-theme="dark"] .step,
+  html[data-theme="dark"] .question,
+  html[data-theme="dark"] .footer-card,
+  html[data-theme="dark"] .mini-stat {
+    background: rgba(255, 255, 255, .04);
+  }
+
+  .timeline {
+    display: grid;
+    gap: 14px;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 150px 1fr .9fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .time {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-width: 104px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(125, 59, 37, .1);
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: -.03em;
+  }
+
+  .step h3 {
+    margin-bottom: 10px;
+  }
+
+  .caption {
+    margin-top: 12px;
+    color: var(--accent);
+    font-weight: 750;
+  }
+
+  .series-grid,
+  .questions-grid,
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .series-grid .card:first-child {
+    grid-column: span 2;
+  }
+
+  .num {
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 28px;
+    font-weight: 850;
+    letter-spacing: -.05em;
+  }
+
+  .tag {
+    display: inline-flex;
+    margin-top: 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 11px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  ul {
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 8px 0;
+    color: var(--muted);
+  }
+
+  li::before {
+    content: "— ";
+    color: var(--accent);
+  }
+
+  .cta {
+    margin-top: 24px;
+    padding: clamp(34px, 5vw, 64px);
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--dark), #7d3b25);
+    color: #fff7eb;
+    box-shadow: var(--shadow);
+  }
+
+  .cta h2,
+  .cta p {
+    color: #fff7eb;
+  }
+
+  .cta p {
+    max-width: 720px;
+    margin-top: 18px;
+    opacity: .78;
+    font-size: 19px;
+  }
+
+  footer {
+    padding: 0 0 40px;
+  }
+
+  .footer-panel {
+    padding: 34px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+  }
+
+  .footer-card {
+    min-width: 0;
+  }
+
+  .footer-card h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: "Inter Tight", Inter, sans-serif;
+    font-size: 24px;
+    line-height: 1.05;
+    font-weight: 680;
+    letter-spacing: -0.055em;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-card p {
+    margin-top: 12px;
+    color: var(--muted);
+  }
+
+  .company-legal {
+    font-size: 14px;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .pill.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff7eb;
+  }
+
+  .pill.ghost {
+    background: transparent;
+    color: var(--text);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 920px) {
+    .topbar {
+      grid-template-columns: 1fr auto;
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .hero,
+    .section-head,
+    .offer-strip {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-bottom,
+    .series-grid,
+    .questions-grid,
+    .contacts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .series-grid .card:first-child {
+      grid-column: auto;
+    }
+
+    .step {
+      grid-template-columns: 1fr;
+    }
+
+    .visual-board {
+      min-height: 420px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page {
+      width: min(calc(100% - 20px), var(--max));
+    }
+
+    .topbar {
+      gap: 12px;
+      padding: 14px 0;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+    }
+
+    .brand-name {
+      font-size: 13px;
+    }
+
+    .theme-toggle {
+      padding: 8px 11px;
+      font-size: 13px;
+    }
+
+    main {
+      padding: 28px 0 44px;
+    }
+
+    .hero-copy,
+    .section,
+    .footer-panel {
+      padding: 22px;
+      border-radius: 24px;
+    }
+
+    .hero-card {
+      padding: 18px;
+      border-radius: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 10vw, 54px);
+      line-height: .94;
+    }
+
+    .lead {
+      font-size: 19px;
+    }
+
+    .footer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .footer-card {
+      padding: 16px;
+      border-radius: 20px;
+    }
+
+    .footer-card h3 {
+      font-size: 18px;
+      line-height: 1.08;
+    }
+
+    .footer-card p,
+    .company-legal {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .contact-actions {
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+  }
+
+  @media print {
+    .topbar {
+      position: static;
+    }
+
+    .theme-toggle {
+      display: none;
+    }
+
+    body {
+      background: #f4f0e7;
+    }
+
+    .section,
+    .hero-copy,
+    .hero-card,
+    .footer-panel {
+      break-inside: avoid;
+      box-shadow: none;
+    }
+  }
+</style>
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('kp_theme');
+      var preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', saved || preferred);
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar" aria-label="Шапка сайта">
+      <div class="brand-block">
+        <span class="brand-mark" aria-hidden="true"></span>
+
+        <span class="brand-text">
+          <span class="brand-sub">Креативное агентство</span>
+
+          <span class="brand-name">
+            <a href="https://какаяувасинтереснаяработа.рф/" class="brand-link">
+              КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ
+            </a>
+          </span>
+
+          <span class="brand-sub">
+            Стратегический видеопартнёр для бренда, мероприятий и продаж.
+          </span>
+        </span>
+      </div>
+
+      <nav class="nav" aria-label="Навигация">
+        <a href="#script">Сценарий</a>
+        <a href="#series">Серия</a>
+        <a href="#questions">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Переключить тему">
+        Тема
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div>
+            <div class="kicker">Коммерческое предложение</div>
+
+            <p class="hero-project">Серия роликов для «Свои в доску»</p>
+
+            <h1 class="hero-title">
+              Летний день у воды, <span class="hero-title-accent">В КОТОРОМ ВСЁ</span> на своём месте
+            </h1>
+
+            <p class="lead">
+              Маршрут, сапы, инструктор, солнце и ощущение лёгкости с первой минуты.
+            </p>
+          </div>
+
+          <div class="hero-bottom" aria-label="Краткая структура предложения">
+            <div class="mini-stat"><strong>55-60 секунд</strong><span>основной ролик</span></div>
+            <div class="mini-stat"><strong>Покажем 2 маршрута</strong><span>понятный выбор</span></div>
+            <div class="mini-stat"><strong>Серия видео</strong><span>ролики под разные задачи</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Визуальная идея">
+          <div class="visual-board">
+            <div>
+              <div class="kicker" style="color:#fff7eb">Креативная платформа</div>
+              <h2 class="board-title">Собрались — и поехали</h2>
+            </div>
+
+            <p class="board-note">
+              Зритель чувствует: не нужно долго планировать. Достаточно выбрать маршрут и собрать своих.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="script">
+        <div class="section-head">
+          <div class="kicker">01 · сценарий ролика</div>
+          <div>
+            <h2>«Собрались — и поехали»</h2>
+            <p>Основной ролик на 55-60 секунд для сайта, экранов, VK и соцсетей: городская суета → быстрый выбор → готовый маршрут → два разных ощущения → живой финал.</p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="step">
+            <div><span class="time">0–3 c</span></div>
+            <div>
+              <h3>Город / чат / сборы</h3>
+              <p>Телефон с перепиской друзей, быстрые сборы, сумка, очки, бутылка воды, смех в машине.</p>
+            </div>
+            <div>
+              <p>Обычный городской день превращается в маленькое приключение.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div><span class="time">3–7 c</span></div>
+            <div>
+              <h3>Приехали</h3>
+              <p>Друзья выходят из машины, локация рядом с водой, их встречает инструктор, видны сапы, жилеты, весла.</p>
+            </div>
+            <div>
+              <p>Сразу понятно: всё уже подготовлено.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div><span class="time">7–13 c</span></div>
+            <div>
+              <h3>Маршрут "Выдох"</h3>
+              <p>Спокойная вода, лес, мягкий свет, друзья впервые встают на сапы, кто-то смеётся, инструктор помогает.</p>
+            </div>
+            <div>
+              <p>Спокойно, красиво, понятно. Подходит новичкам и тем, кто хочет мягкий отдых.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div><span class="time">13–19 c</span></div>
+            <div>
+              <h3>Маршрут "Вдох"</h3>
+              <p>Другая локация, больше движения, шире вода, поворот маршрута, друзья идут группой, камера с воды или с берега.</p>
+            </div>
+            <div>
+              <p>Больше впечатлений, динамики и ощущения приключения.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div><span class="time">19–28 c</span></div>
+            <div>
+              <h3>Эмоция</h3>
+              <p>Брызги, «дай пять», смех, общий кадр на воде, фото/видео на память, вода, весло, птицы, тишина природы.</p>
+            </div>
+            <div>
+              <p>Не постановка, а живой летний день со своими людьми.</p>
+              <p class="caption">Титр: «Своё лето. Своя компания. Своя вода.»</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div><span class="time">28–35 c</span></div>
+            <div>
+              <h3>Финал</h3>
+              <p>Компания на берегу или на воде, все вместе, спокойный красивый общий кадр, логотип, локация, контакт.</p>
+            </div>
+            <div>
+              <p>Финальная фраза собирает действие без давления.</p>
+              <p class="caption">«Свои в доску» · «Собрались и поехали»</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="series">
+        <div class="section-head">
+          <div class="kicker">02 · серия видеороликов</div>
+          <div>
+            <h2>Один ролик не может закрывать все смыслы сразу</h2>
+            <p>Предлагаем серию коротких роликов: основной сценарий продаёт идею готового летнего дня, а дополнительные форматы отдельно раскрывают маршруты, доверие, праздники и корпоративы.</p>
+          </div>
+        </div>
+
+        <div class="offer-strip">
+          <article class="card">
+            <h3>Зачем серия</h3>
+            <p>Серия позволяет отдельно продавать эмоцию, маршруты, доверие, праздники и корпоративы — без смешения смыслов в одном ролике.</p>
+          </article>
+
+          <article class="card">
+            <h3>Какой эффект</h3>
+            <p>Продуктовая линейка становится понятной, живой и визуально привлекательной: зрителю легко увидеть разницу между форматами, почувствовать атмосферу и выбрать отдых под себя.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="questions">
+        <div class="section-head">
+          <div class="kicker">03 · вопросы клиенту</div>
+          <div>
+            <h2>Что уточнить перед съёмкой</h2>
+            <p>Эти вопросы помогут точнее выстроить сценарий, показать реальные преимущества сервиса и грамотно распределить смыслы между роликами.</p>
+          </div>
+        </div>
+
+        <div class="questions-grid">
+          <article class="question">
+            <h3>Маршруты</h3>
+            <ul>
+              <li>Чем отличаются маршруты визуально и по ощущениям?</li>
+              <li>Есть ли узнаваемые точки: мосты, пляжи, база, панорама?</li>
+            </ul>
+          </article>
+
+          <article class="question">
+            <h3>Сервис и предложение</h3>
+            <ul>
+              <li>Есть ли фото/видео на маршруте?</li>
+              <li>Как формируется цена: пакет / фикс / доп. опции?</li>
+            </ul>
+          </article>
+
+          <article class="question">
+            <h3>Продакшн</h3>
+            <ul>
+              <li>Где будет использоваться ролик?</li>
+              <li>Нужны вертикальные или горизонтальные версии?</li>
+              <li>Какой контакт указывать в финале?</li>
+              <li>Показываем цену или оставляем CTA?</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+<footer id="contacts">
+  <div class="footer-panel">
+    <div class="footer-grid">
+      <article class="footer-card" aria-label="Контакты">
+        <div class="kicker">Контакты</div>
+
+        <h3>Менеджер</h3>
+
+        <div class="contact-actions">
+          <a class="pill primary" href="https://t.me/kakayauvasinteresnayarabota" target="_blank" rel="noopener">
+            Telegram
+          </a>
+
+          <a class="pill ghost" href="https://max.ru/u/f9LHodD0cOJC20Mf6g1GH2nSNHu3G6kt1rCWJZlJWWKab9ufxwUxt0z-OhU" target="_blank" rel="noopener">
+            MAX
+          </a>
+
+          <a class="pill ghost" href="tel:+79394463156">
+            Позвонить
+          </a>
+		          <p class="company-legal">ООО "КАКАЯУВАСИНТЕРЕСНАЯРАБОТА" | ИНН 5254499015 | КПП 525401001 | ОГРН 1265200007214</p>
+        </div>
+      </article>
+
+      <article class="footer-card" aria-label="Информация о компании">
+        <div class="kicker">Компания</div>
+
+        <h3>Креативное агентство КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</h3>
+
+        <p>Стратегический видеопартнёр для бренда, мероприятий и продаж.</p>
+
+      </article>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 · Все права защищены</span>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script>
+    var btn = document.getElementById('themeToggle');
+
+    if (btn) {
+      btn.addEventListener('click', function() {
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('kp_theme', next);
+      });
+    }
+  </script>
+</body>
+</html>
