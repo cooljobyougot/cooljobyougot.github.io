@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Партнёрское соглашение — Extreme Kids</title>
+
+ <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f0e7;
+      --surface: rgba(255, 250, 240, 0.78);
+      --surface-strong: #fff9ef;
+      --text: #171413;
+      --muted: #6f675f;
+      --line: rgba(23, 20, 19, 0.13);
+      --soft-line: rgba(23, 20, 19, 0.08);
+      --accent: #7d3b25;
+      --accent-2: #ba7a45;
+      --dark: #171413;
+      --paper: #fffaf2;
+      --shadow: 0 32px 90px rgba(42, 31, 24, 0.13);
+      --radius: 30px;
+      --radius-sm: 20px;
+      --max: 1120px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #11100f;
+      --surface: rgba(28, 25, 23, 0.78);
+      --surface-strong: #1d1a18;
+      --text: #fff7eb;
+      --muted: rgba(255, 247, 235, 0.68);
+      --line: rgba(255, 247, 235, 0.13);
+      --soft-line: rgba(255, 247, 235, 0.08);
+      --accent: #e0a26f;
+      --accent-2: #ad6f4d;
+      --dark: #fff7eb;
+      --paper: #171413;
+      --shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 8% -10%, rgba(186, 122, 69, 0.22), transparent 32rem),
+        radial-gradient(circle at 90% 2%, rgba(125, 59, 37, 0.16), transparent 28rem),
+        linear-gradient(180deg, var(--bg), var(--bg));
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .22em; }
+    a:hover { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 10px; }
+
+    .page { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: 1.4fr auto auto;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 0;
+      backdrop-filter: blur(22px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 18px 40px rgba(125, 59, 37, .26);
+      flex: 0 0 auto;
+    }
+
+    .brand-name {
+      font-weight: 750;
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+      overflow-wrap: anywhere;
+    }
+
+    .brand-sub { color: var(--muted); font-size: 13px; margin-top: 3px; }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .theme-toggle,
+    .pill-link {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(42, 31, 24, 0.06);
+    }
+
+    .pill-link { text-decoration: none; color: var(--text); }
+
+    main { padding: 42px 0 64px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .72fr);
+      gap: 24px;
+      align-items: stretch;
+      min-height: 620px;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .section,
+    .footer-panel {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .hero-copy { padding: clamp(30px, 5vw, 56px); display: flex; flex-direction: column; justify-content: space-between; }
+    .hero-card { padding: 28px; position: relative; overflow: hidden; }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    h1, h2, h3 { margin: 0; color: var(--text); letter-spacing: -0.055em; }
+    h1 { font-size: clamp(48px, 7vw, 92px); line-height: .9; font-weight: 620; max-width: 880px; }
+    h2 { font-size: clamp(34px, 4.6vw, 64px); line-height: .94; font-weight: 630; }
+    h3 { font-size: 24px; line-height: 1.05; font-weight: 680; }
+
+    p { margin: 0; color: var(--muted); }
+    .lead { font-size: clamp(20px, 2.4vw, 29px); line-height: 1.25; color: var(--text); margin-top: 28px; max-width: 760px; }
+    .small { font-size: 14px; color: var(--muted); }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 46px;
+    }
+
+    .mini-stat {
+      border: 1px solid var(--soft-line);
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255,255,255,.22);
+    }
+    .mini-stat strong { display:block; color: var(--text); font-size: 20px; letter-spacing: -.04em; }
+    .mini-stat span { display:block; color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    .visual-board {
+      height: 100%;
+      min-height: 560px;
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,0)),
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,.5), transparent 9rem),
+        linear-gradient(145deg, rgba(125,59,37,.9), rgba(22,18,15,.92));
+      color: #fff7eb;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual-board::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -20% 14%;
+      height: 48%;
+      border-radius: 50% 50% 0 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.03));
+      transform: rotate(-7deg);
+    }
+
+    .board-title { position: relative; z-index: 1; font-size: 42px; line-height: .94; letter-spacing: -.06em; color: #fff7eb; }
+    .board-note { position: relative; z-index: 1; color: rgba(255,247,235,.74); font-size: 15px; max-width: 300px; }
+
+    .section { margin-top: 24px; padding: clamp(28px, 4.4vw, 52px); }
+    .section-head { display: grid; grid-template-columns: .42fr 1fr; gap: 28px; align-items: start; margin-bottom: 28px; }
+    .section-head p { font-size: 18px; max-width: 680px; }
+
+    .offer-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .card, .step, .question, .contact-item {
+      border: 1px solid var(--soft-line);
+      background: rgba(255,255,255,.25);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    html[data-theme="dark"] .card,
+    html[data-theme="dark"] .step,
+    html[data-theme="dark"] .question,
+    html[data-theme="dark"] .contact-item,
+    html[data-theme="dark"] .mini-stat { background: rgba(255,255,255,.04); }
+
+    .timeline { display: grid; gap: 14px; }
+    .step {
+      display: grid;
+      grid-template-columns: 150px 1fr .9fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .time {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-width: 104px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(125,59,37,.1);
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .step h3 { margin-bottom: 10px; }
+    .caption { color: var(--accent); font-weight: 750; margin-top: 12px; }
+
+    .series-grid, .questions-grid, .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .series-grid .card:first-child { grid-column: span 2; }
+    .num { color: var(--accent); font-weight: 850; letter-spacing: -.05em; font-size: 28px; margin-bottom: 10px; }
+    .tag { display: inline-flex; margin-top: 14px; border: 1px solid var(--line); border-radius: 999px; padding: 7px 11px; font-size: 12px; color: var(--muted); }
+
+    ul { margin: 14px 0 0; padding: 0; list-style: none; }
+    li { color: var(--muted); margin: 8px 0; }
+    li::before { content: "— "; color: var(--accent); }
+
+    .cta {
+      margin-top: 24px;
+      padding: clamp(34px, 5vw, 64px);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--dark), #7d3b25);
+      color: #fff7eb;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2, .cta p { color: #fff7eb; }
+    .cta p { opacity: .78; font-size: 19px; margin-top: 18px; max-width: 720px; }
+
+    footer { padding: 0 0 40px; }
+    .footer-panel { padding: 34px; }
+    .footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; margin-bottom: 28px; }
+    .footer-brand { font-size: 28px; line-height: 1; font-weight: 760; letter-spacing: -.06em; }
+    .legal-links { display:flex; flex-wrap:wrap; gap: 12px; justify-content:flex-end; color:var(--muted); }
+    .contacts-grid { margin-top: 18px; }
+    .contact-item h3 { font-size: 18px; margin-bottom: 8px; }
+    .contact-actions { display:flex; flex-wrap:wrap; gap: 10px; margin-top: 12px; }
+    .contact-actions a { border:1px solid var(--line); border-radius:999px; padding:8px 11px; text-decoration:none; font-size:13px; }
+    .footer-bottom { border-top: 1px solid var(--line); padding-top: 22px; display:flex; justify-content:space-between; gap: 16px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 920px) {
+      .topbar { grid-template-columns: 1fr auto; }
+      .nav { display: none; }
+      .hero, .section-head, .offer-strip, .footer-top { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-bottom, .series-grid, .questions-grid, .contacts-grid { grid-template-columns: 1fr; }
+      .series-grid .card:first-child { grid-column: auto; }
+      .step { grid-template-columns: 1fr; }
+      .visual-board { min-height: 420px; }
+      .legal-links { justify-content: flex-start; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media print {
+      .topbar { position: static; }
+      .theme-toggle { display: none; }
+      body { background: #f4f0e7; }
+      .section, .hero-copy, .hero-card, .footer-panel { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="toggle" onclick="toggleTheme()">🌓</div>
+
+<div class="container">
+
+<!-- HERO -->
+<section class="section">
+<h1>Партнёрское соглашение</h1>
+<p>&nbsp;</p>
+<p>Сотрудничество по видеопродакшену и медиа сопровождению соревнований</p>
+</section>
+
+<!-- AGREEMENT -->
+<section class="section">
+<h2>Обязанности сторон</h2>
+<p>&nbsp;</p>
+<div class="card">
+<h3>Со стороны КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</h3>
+<ul>
+<li>Подготовка и съёмка имиджевого ролика соревнований</li>
+<li>Параметры: 1080 / 24 fps / 55–60 сек / камеры + дрон</li>
+<li>Выдача готового ролика в день мероприятия</li>
+<li>Съёмка персональных роликов участников</li>
+<li>Подготовка материалов для публикаций (тексты + визуалы)</li>
+</ul>
+</div>
+
+<br>
+
+<div class="card">
+<h3>Со стороны Extreme Kids</h3>
+<ul>
+<li>Предоставление площадки и условий работы</li>
+<li>Публикации в VK и Telegram</li>
+<li>3 поста до мероприятия</li>
+<li>1 пост после + 1 пост в неделю</li>
+</ul>
+</div>
+
+</section>
+
+<!-- ECONOMICS -->
+<section class="section">
+<h2>Экономика</h2>
+<p>&nbsp;</p>
+<div class="card">
+<ul>
+<li>Имиджевый ролик — партнёрская основа</li>
+<li>Доход: продажа персональных роликов участникам</li>
+<li>Промокод для отслеживания: <b>EXTREME</b></li>
+</ul>
+</div>
+</section>
+
+<!-- POSTS -->
+<section class="section">
+<h2>Контент для соцсетей</h2>
+<p>&nbsp;</p>
+<div class="post">
+<h3>ПОСТ 1 (10 мая)</h3>
+<p>&nbsp;</p>
+<p>🎬 Готовый клип про вашего ребёнка — уже в день выступления.</p>
+<p>Ребёнок выходит на площадку — и в этот же день становится героем собственного видео.</p>
+<p>Движение, эмоции, победы — всё собирается в динамичный ролик.</p>
+<p>Один ролик — 3000 ₽<br>Два — 5000 ₽</p>
+<p>
+<a href="https://max.ru/u/f9LHodD0cOJtZKU4s-u_PbRwDhzvZKDSOwa8XCKsLBhNO63nDlFON3-lO_M">MAX</a><br>
+<a href="https://t.me/kakayauvasinteresnayarabota">Telegram</a>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</p>
+</div>
+
+<div class="post">
+<h3>ПОСТ 2 (13 мая)</h3>
+<p>&nbsp;</p>
+<p>🎬 Ваш ребёнок выступает — и сразу получает свой экшн-клип.</p>
+<p>Через пару часов у вас уже готовый ролик.</p>
+<p>Видео, которое хочется показывать и сохранять.</p>
+<p>Один ролик — 3000 ₽<br>Два — 5000 ₽</p>
+<p>
+<a href="https://max.ru/u/f9LHodD0cOJtZKU4s-u_PbRwDhzvZKDSOwa8XCKsLBhNO63nDlFON3-lO_M">MAX</a><br>
+<a href="https://t.me/kakayauvasinteresnayarabota">Telegram</a>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</p>
+</div>
+
+<div class="post">
+<h3>ПОСТ 3 (15 мая)</h3>
+<p>&nbsp;</p>
+<p>🎬 Завтра ваш ребёнок уедет с соревнований уже со своим клипом.</p>
+<p>Мы снимаем прямо на площадке и отдаём ролики в тот же день.</p>
+<p>Видео, которое запоминается.</p>
+<p>Один ролик — 3000 ₽<br>Два — 5000 ₽</p>
+<p>
+<a href="https://max.ru/u/f9LHodD0cOJtZKU4s-u_PbRwDhzvZKDSOwa8XCKsLBhNO63nDlFON3-lO_M">MAX</a><br>
+<a href="https://t.me/kakayauvasinteresnayarabota">Telegram</a>
+</p>
+</div>
+
+</section>
+
+</div>
+
+<script>
+function toggleTheme(){
+  const html=document.documentElement;
+  html.dataset.theme = html.dataset.theme==="dark" ? "light":"dark";
+}
+</script>
+
+</body>
+</html>
