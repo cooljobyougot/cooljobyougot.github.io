@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Unbounded:wght@400;600;700&display=swap');
+
+:root{
+  --bg:#0a0a0a;
+  --surface:#111111;
+  --text:#f3f3f3;
+  --muted:#9f9f9f;
+  --accent:#b6ff00;
+  --accent2:#00e5ff;
+  --border:rgba(255,255,255,.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at top right, rgba(0,229,255,.08), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(182,255,0,.08), transparent 35%),
+    var(--bg);
+  color:var(--text);
+  font-family:'Space Grotesk',sans-serif;
+  line-height:1.5;
+  padding:48px 22px 80px;
+}
+
+.container{
+  width:min(980px,100%);
+  margin:0 auto;
+}
+
+.hero{
+  padding:42px;
+  border:1px solid var(--border);
+  border-radius:32px;
+  background:rgba(255,255,255,.03);
+  backdrop-filter:blur(18px);
+  margin-bottom:28px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  background:
+    linear-gradient(120deg,
+    transparent 30%,
+    rgba(182,255,0,.08),
+    transparent 70%);
+  transform:rotate(8deg);
+}
+
+.kicker{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+h1{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(38px,6vw,72px);
+  line-height:.92;
+  margin-bottom:22px;
+  width:100%;
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+.lead{
+  font-size:clamp(18px,2vw,24px);
+  color:#d7d7d7;
+  max-width:760px;
+}
+
+.meta{
+  margin-top:18px;
+  color:var(--muted);
+}
+
+.section{
+  margin-top:22px;
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:36px;
+  background:rgba(255,255,255,.025);
+}
+
+.section h2{
+  font-family:'Unbounded',sans-serif;
+  font-size:28px;
+  margin-bottom:22px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+
+.card{
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  background:rgba(255,255,255,.03);
+}
+
+.card h3{
+  margin-bottom:12px;
+  font-size:20px;
+}
+
+.steps{
+  display:grid;
+  gap:14px;
+}
+
+.step{
+  border-left:3px solid var(--accent);
+  padding-left:18px;
+}
+
+.price{
+  font-size:42px;
+  font-family:'Unbounded',sans-serif;
+  margin:18px 0;
+  color:var(--accent);
+}
+
+ul{
+  padding-left:20px;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+.clients{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.client{
+  padding:12px 16px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
+}
+
+.cta{
+  text-align:center;
+  padding:56px 24px;
+}
+
+.cta a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  color:#000;
+  background:var(--accent);
+  font-weight:700;
+  margin-top:20px;
+  transition:.2s ease;
+}
+
+.cta a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(182,255,0,.2);
+}
+
+.note{
+  color:var(--muted);
+  margin-top:12px;
+}
+
+@media(max-width:720px){
+  .hero,.section{
+    padding:24px;
+    border-radius:22px;
+  }
+
+  h1{
+    font-size:38px;
+  }
+
+  .price{
+    font-size:34px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<section class="hero">
+<div class="kicker">Креативное агентство</div>
+<h1>КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</h1>
+<p class="lead">
+Снимаем видео, после которых зритель делает то, что вам нужно.
+</p>
+<div class="meta">
+Нижний Новгород · Москва · Казань · Приволжский Федеральный округ
+</div>
+</section>
+
+<section class="section">
+<h2>Что мы делаем</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Имиджевые ролики</h3>
+<p>Живые истории о компании, которые вызывают желание работать именно с вами.</p>
+</div>
+
+<div class="card">
+<h3>Реклама</h3>
+<p>Коротко, точно и с фокусом на действие — купить, перейти, узнать.</p>
+</div>
+
+<div class="card">
+<h3>Контент для соцсетей</h3>
+<p>Динамичные форматы, которые досматривают и сохраняют.</p>
+</div>
+
+<div class="card">
+<h3>Съёмка мероприятий</h3>
+<p>Видео, после которого хочется оказаться на следующем событии.</p>
+</div>
+
+<div class="card">
+<h3>Креатив и режиссура</h3>
+<p>Нестандартные идеи, сложные сценарии и визуальные решения под задачу.</p>
+</div>
+
+<div class="card">
+<h3>Видео под ключ</h3>
+<p>От идеи до финального файла. Просто расскажите, что нужно.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Как мы работаем</h2>
+
+<div class="steps">
+<div class="step"><strong>1. Бриф / диалог</strong><br>Обсуждаем задачу и цели.</div>
+<div class="step"><strong>2. Идея и концепция</strong><br>Предлагаем решение под задачу бизнеса.</div>
+<div class="step"><strong>3. Сценарий и раскадровка</strong><br>Собираем визуальную структуру ролика.</div>
+<div class="step"><strong>4. Съёмка</strong><br>Продакшн, FPV-дроны, режиссура и операторская работа.</div>
+<div class="step"><strong>5. Монтаж и постпродакшн</strong><br>Цвет, звук, динамика и финальный ритм.</div>
+<div class="step"><strong>6. Правки и сдача</strong><br>Финальный ролик готов к публикации.</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Почему с нами легко</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Скорость</h3>
+<p>Можем сделать ролик за 2 дня, если задача срочная.</p>
+</div>
+
+<div class="card">
+<h3>FPV-дроны</h3>
+<p>Динамичные кадры и эффект полного присутствия.</p>
+</div>
+
+<div class="card">
+<h3>Саунд-дизайн</h3>
+<p>Звук создаётся специально под видео и усиливает эмоцию.</p>
+</div>
+
+<div class="card">
+<h3>Монтаж и удержание</h3>
+<p>Каждый кадр работает на внимание зрителя.</p>
+</div>
+
+<div class="card">
+<h3>Креативная режиссура</h3>
+<p>Не делаем шаблоны — ищем сильную идею под каждый проект.</p>
+</div>
+
+<div class="card">
+<h3>Партнёрство</h3>
+<p>Гибко адаптируемся под сроки, бюджет и формат работы.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Стоимость</h2>
+
+<div class="price">от 40 000 ₽</div>
+
+<ul>
+<li>1 съёмочный день</li>
+<li>Концептуальный сценарий</li>
+<li>Раскадровка и согласование</li>
+<li>Съёмка и монтаж</li>
+<li>FPV-дрон в помещении</li>
+<li>2 раунда правок</li>
+</ul>
+
+<p class="note">
+Дополнительные опции: AI-вставки, саунд-дизайн, FPV на улице, расширенные сценарии.
+</p>
+</section>
+
+<section class="section">
+<h2>С кем мы работали</h2>
+
+<div class="clients">
+<div class="client">Технострелка</div>
+<div class="client">Нижегородец</div>
+<div class="client">Технокабель НН</div>
+<div class="client">ТЦ «Жар-Птица»</div>
+<div class="client">NotDaily</div>
+<div class="client">Министерство туризма НО</div>
+</div>
+</section>
+
+<section class="section cta">
+<h2>Давайте подумаем вместе</h2>
+<p>
+Напишите нам. Или просто скажите: «Нужен ролик — давайте придумаем».
+</p>
+
+<a href="#">Telegram / MAX</a>
+</section>
+
+</div>
+
+</body>
+</html>

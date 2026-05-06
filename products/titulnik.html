@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МЫ СОЗДАЁМ ВНИМАНИЕ</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Syncopate:wght@700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --pink:#ff00ae;
+  --green:#67ff00;
+  --cyan:#00eaff;
+  --yellow:#fff000;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1.5vh;
+  background:
+    radial-gradient(circle at top left, rgba(255,0,174,.28), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(103,255,0,.22), transparent 34%),
+    linear-gradient(135deg,#050505,#0b0b0b 40%,#020202);
+  padding:3vh 4vw;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.025) 0px,
+      rgba(255,255,255,.025) 2px,
+      transparent 2px,
+      transparent 5px
+    );
+  pointer-events:none;
+  mix-blend-mode:overlay;
+}
+
+.title{
+  position:relative;
+  z-index:2;
+  width:100%;
+  text-align:center;
+  color:white;
+  text-transform:uppercase;
+  font-family:'Syncopate',sans-serif;
+  font-style:italic;
+  line-height:.9;
+  letter-spacing:.06em;
+  transform:skew(-12deg) rotate(-2deg);
+  text-shadow:
+    -5px 0 var(--pink),
+    5px 0 var(--cyan),
+    0 0 18px var(--yellow);
+  animation:glitch 1.2s infinite alternate;
+}
+
+.top{
+  font-size:clamp(38px,6vw,110px);
+}
+
+.bottom{
+  font-size:clamp(34px,5vw,92px);
+}
+
+.question{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:1vh 0;
+}
+
+.question a{
+  text-decoration:none;
+  color:var(--yellow);
+  font-family:'Monoton',cursive;
+  font-size:clamp(110px,15vw,240px);
+  transform:rotate(-8deg) skew(-8deg);
+  text-shadow:
+    0 0 14px var(--yellow),
+    -10px 0 var(--pink),
+    10px 0 var(--green);
+  transition:.15s ease;
+  animation:pulse .9s infinite alternate;
+}
+
+.question a:hover{
+  transform:scale(1.06) rotate(-12deg) skew(-8deg);
+  filter:brightness(1.35);
+}
+
+@keyframes pulse{
+  from{
+    transform:rotate(-8deg) skew(-8deg) scale(1);
+  }
+  to{
+    transform:rotate(-10deg) skew(-10deg) scale(1.04);
+  }
+}
+
+@keyframes glitch{
+  0%{transform:skew(-12deg) translate(0);}
+  20%{transform:skew(-12deg) translate(-2px,2px);}
+  40%{transform:skew(-10deg) translate(2px,-2px);}
+  60%{transform:skew(-14deg) translate(-4px,1px);}
+  80%{transform:skew(-12deg) translate(4px,-1px);}
+  100%{transform:skew(-12deg) translate(0);}
+}
+</style>
+</head>
+<body>
+
+<h1 class="title top">МЫ СОЗДАЁМ ВНИМАНИЕ</h1>
+
+<div class="question">
+  <a href="https://какаяувасинтереснаяработа.рф/products/info_glav.html" target="_blank">?</a>
+</div>
+
+<h2 class="title bottom">ВНИМАНИЕ = ДЕНЬГИ</h2>
+
+</body>
+</html>
