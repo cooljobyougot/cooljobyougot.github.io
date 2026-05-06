@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>КП — Шоу каскадёров</title>
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --surface: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.12);
+      --text: #f5f7fb;
+      --muted: #a7afc3;
+      --accent: #ff5b36;
+      --accent-2: #ffd166;
+      --shadow: 0 24px 60px rgba(0,0,0,.45);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,91,54,.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(255,209,102,.12), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
+        rgba(255,255,255,.02);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.03) 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: .95;
+      letter-spacing: -0.05em;
+      margin-bottom: 24px;
+      max-width: 850px;
+    }
+
+    .lead {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .offer {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), #ff784f);
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      box-shadow: 0 20px 50px rgba(255,91,54,.35);
+    }
+
+    section {
+      margin-top: 34px;
+      padding: 48px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    ul {
+      display: grid;
+      gap: 18px;
+      padding-left: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 14px;
+      color: white;
+      font-size: 20px;
+    }
+
+    .question {
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: rgba(255,255,255,.4);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero, section {
+        padding: 28px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .offer {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="badge">
+      Креативное агентство КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ
+    </div>
+
+    <h1>Ролик для Шоу каскадёров</h1>
+
+    <p class="lead">
+      Имиджевый видеоролик под ключ: съёмка live-материала, динамичный монтаж,
+      цвет, звук и эмоциональная драматургия, которая продаёт следующее шоу.
+    </p>
+
+    <div class="offer">
+      30 000 ₽ · 55–60 секунд · 1080p · 60fps
+    </div>
+  </section>
+
+  <section>
+    <h2>Что входит</h2>
+
+    <div class="grid">
+      <div class="card">
+        <strong>Съёмка фестиваля</strong>
+        <p>23–25 мая · стадион «Полёт». Работа с live-материалом и экшен-сценами.</p>
+      </div>
+
+      <div class="card">
+        <strong>Монтаж</strong>
+        <p>Динамичный ритм, синхронизация под музыку, работа с драматургией.</p>
+      </div>
+
+      <div class="card">
+        <strong>Пост-продакшн</strong>
+        <p>Цветокоррекция, sound design, финальный экспорт под публикацию.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Основные хуки ролика</h2>
+
+    <ul>
+      <li>Кадр-взрыв: внедорожник на рампе — мгновенный захват внимания.</li>
+      <li>Серия быстрых трюков: прыжки, пролёты, вращения.</li>
+      <li>Slow motion самых зрелищных моментов.</li>
+      <li>Крупные планы каскадёров и эмоций.</li>
+      <li>Реакция зрителей: восторг, аплодисменты, дети и семьи.</li>
+      <li>Финальный CTA: логотип, анонс, контакты.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Главная задача ролика</h2>
+
+    <p>
+      За 60 секунд убедить зрителя, что шоу каскадёров —
+      это главное адреналиновое событие сезона.
+      Показать масштаб, драйв и вызвать желание прийти
+      на следующее шоу или поделиться роликом.
+    </p>
+  </section>
+
+  <section>
+    <h2>Наши кейсы</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <strong>Автофестиваль NotDaily</strong>
+        <p>
+          Имиджевый event-ролик с акцентом на динамику авто,
+          атмосферу фестиваля и эмоции аудитории.
+        </p>
+        <br />
+        <a href="https://disk.yandex.ru/i/3fE4KAEWK1rcIA">→ Пример работы</a>
+      </div>
+
+      <div class="card">
+        <strong>Фестиваль «Технострелка»</strong>
+        <p>
+          Съёмка технологического фестиваля:
+          сцена, участники, активности и монтаж под электронный саунд.
+        </p>
+        <br />
+        <a href="https://disk.yandex.ru/i/OWCsR7CDkoojMg">→ Пример работы</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Короткий опросник для запуска</h2>
+
+    <div class="grid">
+
+      <div class="question">
+        <strong>Вопрос 01</strong>
+        <p>Что человек должен понять после просмотра ролика?</p>
+      </div>
+
+      <div class="question">
+        <strong>Вопрос 02</strong>
+        <p>
+          Что обязательно должно быть в финальных кадрах:
+          логотип, даты, QR-код, контакты?
+        </p>
+      </div>
+
+      <div class="question">
+        <strong>Вопрос 03</strong>
+        <p>
+          Есть ли готовые материалы:
+          логотип, фирменные цвета, шрифты, референсы?
+        </p>
+      </div>
+
+      <div class="question">
+        <strong>Вопрос 04</strong>
+        <p>
+          Срок готовности ролика и дата первой публикации?
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Контакты</h2>
+
+    <div class="contacts">
+      <p>
+        <strong>Менеджер:</strong><br />
+        +7 939 446-31-56 · @kakayauvasinteresnayarabota
+      </p>
+
+      <p>
+        <strong>CEO Дмитрий Дроздов:</strong><br />
+        +7 910 472-10-24 · @drozdovhumandevelopment
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 · КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ
+  </footer>
+
+</div>
+
+</body>
+</html>
