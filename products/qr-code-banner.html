@@ -251,13 +251,18 @@
       box-shadow: 0 12px 34px color-mix(in srgb, var(--primary) 16%, transparent);
     }
 
-    .pill.primary {
-      background: linear-gradient(135deg, var(--primary-2), var(--primary));
-      color: #2a121b;
-      border-color: transparent;
-      font-weight: 850;
-      box-shadow: 0 16px 44px color-mix(in srgb, var(--primary) 28%, transparent);
-    }
+.pill.primary {
+  background: linear-gradient(135deg, var(--primary-2), var(--primary));
+  color: #2a121b;
+  border-color: transparent;
+  font-weight: 850;
+  box-shadow: 0 16px 44px color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+html[data-theme="dark"] .pill.primary {
+  color: #180e13;
+  background: linear-gradient(135deg, #ffd2e5, #ff8fbd);
+}
 
     .pill.ghost {
       background: color-mix(in srgb, var(--surface) 68%, transparent);
