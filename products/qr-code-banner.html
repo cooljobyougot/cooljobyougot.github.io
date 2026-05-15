@@ -166,7 +166,7 @@
       color: var(--text);
       text-decoration: none;
       min-width: 0;
-      max-width: min(680px, calc(100vw - 132px));
+      max-width: min(760px, calc(100vw - 132px));
       overflow: hidden;
     }
 
@@ -185,7 +185,7 @@
     .brand-title {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 4px;
       min-width: 0;
       max-width: 100%;
       overflow: hidden;
@@ -204,14 +204,16 @@
     }
 
     .brand-title span {
+      display: block;
       max-width: 100%;
-      font-size: clamp(9px, 2.1vw, 12px);
+      font-size: clamp(9px, 1.45vw, 12px);
+      line-height: 1.2;
       color: var(--muted);
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      letter-spacing: .01em;
+      text-transform: none;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: initial;
     }
 
     .topbar-actions {
@@ -251,18 +253,18 @@
       box-shadow: 0 12px 34px color-mix(in srgb, var(--primary) 16%, transparent);
     }
 
-.pill.primary {
-  background: linear-gradient(135deg, var(--primary-2), var(--primary));
-  color: #2a121b;
-  border-color: transparent;
-  font-weight: 850;
-  box-shadow: 0 16px 44px color-mix(in srgb, var(--primary) 28%, transparent);
-}
+    .pill.primary {
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      color: #2a121b;
+      border-color: transparent;
+      font-weight: 850;
+      box-shadow: 0 16px 44px color-mix(in srgb, var(--primary) 28%, transparent);
+    }
 
-html[data-theme="dark"] .pill.primary {
-  color: #180e13;
-  background: linear-gradient(135deg, #ffd2e5, #ff8fbd);
-}
+    html[data-theme="dark"] .pill.primary {
+      color: #180e13;
+      background: linear-gradient(135deg, #ffd2e5, #ff8fbd);
+    }
 
     .pill.ghost {
       background: color-mix(in srgb, var(--surface) 68%, transparent);
@@ -292,7 +294,7 @@ html[data-theme="dark"] .pill.primary {
       min-height: 52svh;
       display: grid;
       align-items: end;
-      padding: clamp(76px, 10vw, 150px) 0 clamp(48px, 7vw, 88px);
+      padding: clamp(76px, 10vw, 150px) 0 clamp(32px, 5vw, 64px);
     }
 
     .intro-card {
@@ -371,6 +373,61 @@ html[data-theme="dark"] .pill.primary {
       overflow-wrap: normal;
       word-break: normal;
       hyphens: none;
+    }
+
+    .contact-message {
+      padding: 0 0 clamp(34px, 5vw, 72px);
+      position: relative;
+    }
+
+    .message-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface) 78%, transparent),
+        color-mix(in srgb, var(--surface) 36%, transparent)
+      );
+      box-shadow: 0 18px 70px color-mix(in srgb, var(--primary) 10%, transparent);
+      backdrop-filter: blur(16px);
+      padding: clamp(24px, 4.4vw, 54px);
+    }
+
+    .message-card::before {
+      content: "";
+      position: absolute;
+      right: -12%;
+      top: -42%;
+      width: min(48vw, 480px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        color-mix(in srgb, var(--accent) 34%, transparent),
+        transparent 66%
+      );
+      pointer-events: none;
+    }
+
+    .message-card p {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0;
+      font-size: clamp(22px, 3.1vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      color: var(--text);
+    }
+
+    .message-card p + p {
+      margin-top: 18px;
+      color: color-mix(in srgb, var(--primary) 76%, var(--text));
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
     }
 
     .section-title {
@@ -561,12 +618,15 @@ html[data-theme="dark"] .pill.primary {
         display: none;
       }
 
-      .brand-title span {
-        display: none;
-      }
-
       .brand-title strong {
         max-width: 58vw;
+      }
+
+      .brand-title span {
+        display: block;
+        max-width: 58vw;
+        font-size: 10px;
+        line-height: 1.18;
       }
 
       .brand-logo-img {
@@ -583,6 +643,14 @@ html[data-theme="dark"] .pill.primary {
 
       .intro-card {
         border-radius: 34px;
+      }
+
+      .message-card {
+        border-radius: 30px;
+      }
+
+      .message-card p {
+        font-size: clamp(24px, 7.2vw, 38px);
       }
     }
 
@@ -605,6 +673,17 @@ html[data-theme="dark"] .pill.primary {
         height: 44px;
       }
 
+      .brand-title strong {
+        max-width: 62vw;
+        font-size: clamp(9px, 2.8vw, 13px);
+      }
+
+      .brand-title span {
+        max-width: 62vw;
+        font-size: 9px;
+        line-height: 1.16;
+      }
+
       .pill.icon {
         width: 44px;
         height: 44px;
@@ -616,6 +695,14 @@ html[data-theme="dark"] .pill.primary {
 
       .hero-brand-name {
         font-size: clamp(28px, 10.5vw, 52px);
+      }
+
+      .contact-message {
+        padding-bottom: 44px;
+      }
+
+      .row .pill {
+        width: 100%;
       }
     }
 
@@ -653,7 +740,7 @@ html[data-theme="dark"] .pill.primary {
 
         <div class="brand-title">
           <strong>КАКАЯ<wbr>У<wbr>ВАС<wbr>ИНТЕРЕСНАЯ<wbr>РАБОТА.РФ</strong>
-          <span>Креативное агентство</span>
+          <span>Впечатления. FPV-аттракционы. Ивенты. Спорт. Видео, которое запоминают.</span>
         </div>
       </a>
 
@@ -678,6 +765,21 @@ html[data-theme="dark"] .pill.primary {
             <span>Креативное агентство</span>
             <span class="serif hero-brand-name">КАКАЯ<wbr>У<wbr>ВАС<wbr>ИНТЕРЕСНАЯ<wbr>РАБОТА.РФ</span>
           </h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-message" aria-label="Сообщение перед контактами">
+      <div class="container">
+        <div class="message-card reveal">
+          <p>
+            Напишите нам, чтобы добавить вашему событию, площадке или проекту вау-эффект:
+            FPV-аттракцион, динамичную съёмку и контент, который притягивает внимание.
+          </p>
+
+          <p>
+            Расскажите, что планируете — мы предложим формат, который люди запомнят.
+          </p>
         </div>
       </div>
     </section>
