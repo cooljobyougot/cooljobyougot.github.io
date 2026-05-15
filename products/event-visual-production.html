@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Визуальное сопровождение мероприятий — КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</title>
+  <meta name="description" content="FPV-квадрокоптеры, быстрый монтаж, AI-графика и комплексное визуальное сопровождение форумов, конференций и корпоративных событий." />
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090a0c;
+      --bg-2: #101217;
+      --paper: rgba(255, 249, 238, 0.08);
+      --paper-strong: rgba(255, 249, 238, 0.13);
+      --ink: #fff7e8;
+      --muted: rgba(255, 247, 232, 0.68);
+      --line: rgba(255, 247, 232, 0.14);
+      --line-strong: rgba(255, 247, 232, 0.24);
+      --accent: #ff5a1f;
+      --accent-2: #f2b15c;
+      --blue: #8fb7ff;
+      --shadow: 0 28px 120px rgba(0,0,0,.46);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --max: 1180px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% -10%, rgba(255,90,31,.22), transparent 30vw),
+        radial-gradient(circle at 82% 8%, rgba(143,183,255,.14), transparent 34vw),
+        var(--bg);
+      line-height: 1.62;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(9,10,12,.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand strong {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 13px;
+      transition: color .25s var(--ease);
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 82px);
+      padding: 100px 0 90px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-shell {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      min-height: 620px;
+      padding: clamp(34px, 5vw, 68px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255,90,31,.42), transparent 32%),
+        radial-gradient(circle at 74% 44%, rgba(143,183,255,.28), transparent 34%),
+        linear-gradient(145deg, #0b0f18, #1b120e 52%, #050608);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(5,6,8,.88) 0%, rgba(5,6,8,.58) 48%, rgba(5,6,8,.24) 100%),
+        url("../assets/images/fon1.png") center / cover no-repeat;
+      opacity: .94;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      z-index: -1;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.015));
+      background-size: 48px 48px, 48px 48px, auto;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.035),
+        inset 0 -120px 160px rgba(0,0,0,.34);
+      pointer-events: none;
+    }
+
+    .hero-panel > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--accent-2);
+    }
+
+    h1,h2,h3,h4 {
+      margin: 0;
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+
+    h1 {
+      font-size: clamp(56px, 9vw, 120px);
+      max-width: 860px;
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 70px);
+    }
+
+    h3 {
+      font-size: clamp(24px, 3vw, 36px);
+    }
+
+    .hero p {
+      margin-top: 30px;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 14px;
+      transition: all .25s var(--ease);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--paper-strong);
+    }
+
+    .btn-primary {
+      color: #120b05;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 18px 55px rgba(255,90,31,.28);
+    }
+
+    section {
+      position: relative;
+      padding: 84px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .34fr .66fr;
+      gap: 48px;
+      margin-bottom: 44px;
+    }
+
+    .section-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .content-block {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px,4vw,52px);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+        var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .content-block p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 900px;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    .card {
+      min-height: 100%;
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      transition: all .3s var(--ease);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line-strong);
+    }
+
+    .card-tag {
+      display: inline-flex;
+      margin-bottom: 18px;
+      color: var(--accent-2);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .card p,
+    .card ul {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(7,1fr);
+      gap: 12px;
+    }
+
+    .step {
+      padding: 20px;
+      min-height: 180px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .works-stage {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+    }
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  min-height: auto;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  background: #07080a;
+  box-shadow: var(--shadow);
+}
+
+    .work-card video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.72);
+    }
+
+    .work-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.18));
+    }
+
+    .work-content {
+      position: absolute;
+      inset: auto 20px 20px 20px;
+      z-index: 2;
+    }
+
+    .work-content span {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.3);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .work-content h3 {
+      margin-bottom: 12px;
+      color: #fff7e8;
+    }
+
+    .work-content p {
+      margin: 0;
+      color: rgba(255,247,232,.74);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      padding: 60px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,90,31,.24), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    footer {
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1100px) {
+      .section-head,
+      .grid-3,
+      .works-stage,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 70px;
+      }
+
+      .hero-panel {
+        min-height: 560px;
+        padding: 30px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .cta-box {
+        padding: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+    }
+	
+	
+	
+	.price-line {
+  margin-top: 24px;
+  color: var(--muted);
+}
+
+.price-accent {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: clamp(26px, 3vw, 42px);
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -.05em;
+  color: #ff8fc7;
+  background: linear-gradient(135deg, #ffd1e8 0%, #ff8fc7 38%, #c94cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 18px 60px rgba(255, 143, 199, .28);
+}
+	
+	
+	
+	
+	
+	
+	
+	.footer-info {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: right;
+}
+
+.footer-info small {
+  color: rgba(255, 247, 232, 0.46);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .footer-info {
+    text-align: left;
+  }
+}
+	
+	
+	
+	
+	
+	.prices-grid {
+  align-items: stretch;
+}
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-card .price-line {
+  margin-top: auto;
+  padding-top: 28px;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="shell topbar-inner">
+
+    <div class="brand">
+<a href="https://какаяувасинтереснаяработа.рф" target="_blank" rel="noopener">
+  <strong>КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</strong>
+</a>
+      <span>визуал · FPV · режиссура</span>
+    </div>
+
+<nav class="nav">
+  <a href="#hero">Главная</a>
+  <a href="#skills">Что умеем</a>
+  <a href="#prices">В рублях</a>
+  <a href="#workflow">Как работаем</a>
+  <a href="#proof">Чем докажем</a>
+  <a href="#contact">Контакты</a>
+</nav>
+
+  </div>
+</header>
+
+<main>
+
+<section id="hero" class="hero">
+    <div class="shell hero-shell">
+
+      <div class="hero-panel">
+
+        <div class="eyebrow">
+          Коммерческое предложение
+        </div>
+
+        <h1>
+          Визуальное сопровождение событий
+        </h1>
+
+        <p>
+          FPV-квадрокоптеры, быстрый монтаж, графика и технологичные визуальные решения
+          для мероприятий.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            Обсудить проект
+          </a>
+
+         <a href="#proof" class="btn">
+  Посмотреть форматы
+</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="shell">
+
+      <div class="section-head">
+
+        <div class="section-label">
+          Что умеем?
+        </div>
+
+        <div>
+          <h2>
+            Давайте конкретно
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <span class="card-tag">Продакшн</span>
+
+          <h3>
+            Видеосъёмка
+          </h3>
+
+          <ul>
+            <li>работа съёмочной команды на площадке;</li>
+            <li>FPV-съёмка пространства и активности;</li>
+            <li>динамическая съёмка с земли;</li>
+            <li>монтаж пресс-релиза в день события;</li>
+            <li>короткие ролики для публикации во время мероприятия;</li>
+            <li>работа с большими площадками и потоками гостей;</li>
+            <li>съёмка атмосферы, спикеров, взаимодействия и партнёрских зон.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="card-tag">Медиа</span>
+
+          <h3>
+            Контент для коммуникаций
+          </h3>
+
+          <ul>
+            <li>ролики для партнёров;</li>
+            <li>визуальный контент для PR и SMM;</li>
+            <li>контент для отчётности;</li>
+            <li>архив материалов для дальнейшего использования.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="card-tag">Графика</span>
+
+          <h3>
+            AI-графика и визуальное усиление
+          </h3>
+
+          <ul>
+            <li>заставки;</li>
+            <li>титры;</li>
+			<li>инфографика;</li>
+            <li>генеративные элементы;</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="card-tag">ВАУ!</span>
+
+          <h3>
+            Вовлечение гостей
+          </h3>
+
+          <ul>
+            <li>FPV-аттракцион как интерактивная wow-зона;</li>
+            <li>быстрые персональные ролики для гостей;</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+<section id="prices">
+  <div class="shell">
+
+    <div class="section-head">
+
+      <div class="section-label">
+        Сколько стоит
+      </div>
+
+      <div>
+        <h2>
+          Теперь в рублях
+        </h2>
+      </div>
+
+    </div>
+
+    <div class="grid-3 prices-grid">
+
+      <div class="card price-card">
+        <span class="card-tag">Базовый</span>
+
+        <h3>
+          Просто видео
+        </h3>
+
+        <p>
+          Быстро получить качественный ролик
+        </p>
+
+        <ul>
+          <li>Видеосъёмка — 1 оператор</li>
+          <li>FPV-съёмка — 1 оператор</li>
+      <li>ролик 16:9 | 9:16 | 1080р | 55-60сек под ключ</li>
+        </ul>
+
+        <p class="price-line">
+          <span class="price-accent">45 000 руб</span>
+        </p>
+      </div>
+
+      <div class="card price-card">
+        <span class="card-tag">Расширенный</span>
+
+        <h3>
+          Весь видеоконтент
+        </h3>
+
+        <p>
+          Вспомнить про заставку и контент в соц. сети
+        </p>
+
+        <ul>  
+      <li>всё, что слева</li>    
+          <li>2 анимированные заставки на экран</li>
+          <li>2 вертикальных клипа 1080р 20-25сек для соц. сетей</li>
+        </ul>
+
+        <p class="price-line">
+          <span class="price-accent">115 000 руб</span>
+        </p>
+      </div>
+
+      <div class="card price-card">
+        <span class="card-tag">Флагманский</span>
+
+        <h3>
+          И фото и видео, <p></p>всё что нужно
+        </h3>
+
+        <p>
+          Закроем весь блок услуг
+        </p>
+
+        <ul>
+          <li>всё, что слева</li>      
+          <li>фотосъёмка — 2 фотографа</li>
+      <li>500+ фотографий события</li>
+          <li>фото-видео-материалы для вашей отчетности</li>
+        </ul>
+
+        <p class="price-line">
+          <span class="price-accent">330 000 руб</span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  <section id="workflow">
+    <div class="shell">
+
+      <div class="section-head">
+
+        <div class="section-label">
+          Как работаем?
+        </div>
+
+        <div>
+          <h2>
+            Понятный процесс
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="process">
+
+        <div class="step">
+          <strong>01</strong>
+          <p>Уточняем задачу и сценарий события</p>
+        </div>
+
+        <div class="step">
+          <strong>02</strong>
+          <p>Формируем визуальную механику проекта</p>
+        </div>
+
+        <div class="step">
+          <strong>03</strong>
+          <p>Согласовываем состав команды и контентные задачи</p>
+        </div>
+
+        <div class="step">
+          <strong>04</strong>
+          <p>Подготавливаем технику и сценарии съёмки</p>
+        </div>
+
+        <div class="step">
+          <strong>05</strong>
+          <p>Работаем на площадке</p>
+        </div>
+
+        <div class="step">
+          <strong>06</strong>
+          <p>Оперативно собираем материалы и монтаж</p>
+        </div>
+
+        <div class="step">
+          <strong>07</strong>
+          <p>Передаём готовый контент и адаптации</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="shell">
+
+      <div class="section-head">
+
+        <div class="section-label">
+          Чем докажем?
+        </div>
+
+        <div>
+          <h2>
+            Видео доказательства
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="works-stage">
+
+        <article class="work-card">
+
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/poster-showreel.jpg">
+            <source src="assets/video/showreel.mp4" type="video/mp4" />
+          </video>
+
+          <div class="work-content">
+            <span>Showreel</span>
+
+            <p>
+             здесь 10сек из шоурила
+            </p>
+          </div>
+
+        </article>
+
+        <article class="work-card">
+
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/poster-fpv-attraction.jpg">
+            <source src="assets/video/fpv-attraction.mp4" type="video/mp4" />
+          </video>
+
+          <div class="work-content">
+            <span>FPV</span>
+
+            <p>
+              здесь 10сек полетов
+            </p>
+          </div>
+
+        </article>
+
+        <article class="work-card">
+
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/poster-event-recap.jpg">
+            <source src="assets/video/event-recap.mp4" type="video/mp4" />
+          </video>
+
+          <div class="work-content">
+            <span>Fast edit</span>
+
+            <p>
+              здесь 10сек снять монтажный процесс
+            </p>
+          </div>
+
+        </article>
+
+        <article class="work-card">
+
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/poster-ai-graphics.jpg">
+            <source src="assets/video/ai-graphics.mp4" type="video/mp4" />
+          </video>
+
+          <div class="work-content">
+            <span>AI graphics</span>
+
+            <p>
+              здесь 10сек из Талеха и похода
+            </p>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="shell">
+
+      <div class="cta-box">
+
+        <div class="eyebrow">
+          Знаем, что мы вам понравились. Вы нам тоже!
+        </div>
+
+        <h2>
+          Давайте работать?
+        </h2>
+
+        <p>
+          Предлагаем провести короткую встречу или созвон, чтобы:
+        </p>
+
+        <div class="grid-2">
+
+          <div class="card">
+            <ul>
+              <li>определить формат</li>
+              <li>подобрать оптимальную механику сопровождения</li>
+              <li>собрать релевантный пакет</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <ul>
+              <li>показать подходящие кейсы и видео-примеры</li>
+			  <li>просчитать стоимость</li>
+              <li>начать действовать!</li>
+            </ul>
+          </div>
+
+        </div>
+
+
+        <div class="hero-actions">
+<a href="contacts.html" class="btn btn-primary">
+  Назначить встречу
+</a>
+
+          <a href="#proof" class="btn">
+            Посмотреть кейсы
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell footer-inner">
+
+    <div class="brand">
+<a href="https://какаяувасинтереснаяработа.рф" target="_blank" rel="noopener">
+  <strong>КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</strong>
+</a>
+      <span>визуал · FPV · режиссура</span>
+    </div>
+
+    <div class="footer-info">
+      <span>
+        Коммерческое предложение · визуальное сопровождение мероприятий
+      </span>
+
+      <small>
+        ООО "КАКАЯУВАСИНТЕРЕСНАЯРАБОТА", ИНН 5254499015, КПП 525401001, ОГРН 1265200007214, Нижегородская область, г. Саров
+      </small>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
