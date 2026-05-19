@@ -347,9 +347,9 @@
       <span>визуал · FPV · режиссура</span>
     </div>
 
-    <a href="event-visual-production.html" class="back-link">
-      ← Вернуться к предложению
-    </a>
+<a href="event-visual-production.html" class="back-link" id="backToOffer">
+  ← Вернуться к предложению
+</a>
 
   </div>
 </header>
@@ -394,5 +394,23 @@
   </div>
 </main>
 
+
+<script>
+  (function () {
+    const pages = {
+      "event-visual-production.html": "event-visual-production.html",
+      "sport-extreme.html": "sport-extreme.html"
+    };
+
+    const from = new URLSearchParams(window.location.search).get("from");
+    const backLink = document.getElementById("backToOffer");
+
+    if (backLink && pages[from]) {
+      backLink.href = pages[from];
+    }
+  })();
+</script>
+
+	
 </body>
 </html>
