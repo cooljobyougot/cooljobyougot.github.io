@@ -131,14 +131,22 @@
 
   .shell { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(20px);
-    background: rgba(7, 7, 10, 0.72);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  background: rgba(7, 7, 10, 0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(0);
+  transition: transform .35s var(--ease), opacity .35s var(--ease);
+}
+
+.topbar.is-hidden {
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+}
 
   html[data-theme="light"] .topbar { background: rgba(247, 243, 239, .74); }
 
@@ -778,23 +786,6 @@
 </head>
 
 <body>
-
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109239506', 'ym');
-
-    ym(109239506, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109239506" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-	
   <header class="topbar">
     <div class="shell topbar-inner">
       <div class="brand">
@@ -821,10 +812,8 @@
       <div class="shell hero-shell">
         <div class="hero-panel">
           <div class="eyebrow">Коммерческое предложение</div>
-          <h1>FPV-видеопродакшн для концертов, шоу и музыкальных событий</h1>
-          <p>Кадры, которые передают энергию зала</p>
-          <p>FPV-дрон превращает концерт в движение: проводит взгляд через сцену, артиста, свет, зал и реакцию людей, собирая атмосферу события в цельный визуальный поток.</p>
-          <p>Организатор получает материал, который продолжает работать после финального трека: aftermovie, короткие ролики, анонсы следующих дат, промо площадки, медиакит артиста и контент для партнёров.</p>
+          <h1>FPV-видеопродакшн для концертов и шоу</h1>
+          <p>FPV-дрон превращает концерт в движение — проводит взгляд через сцену, артиста, свет, зал и реакцию людей, собирая атмосферу события в цельный визуальный поток.</p>
           <p>Задача такого видео — передать масштаб события и вызвать у будущего зрителя простое желание: оказаться там.</p>
 
           <div class="hero-actions">
@@ -847,17 +836,17 @@
         <div class="grid-2">
           <article class="card">
             <span class="card-tag">Съёмка</span>
-            <p>Снимаем концерт как цельное визуальное событие: сцену, артиста, свет, зал, реакцию людей, партнёрские зоны, бэкстейдж, детали площадки и FPV-пролёты между ключевыми точками.</p>
+            <p>Сцена, артист, свет, зал, реакция людей, партнёрские зоны, бэкстейдж, детали площадки и FPV-пролёты между ключевыми точками.</p>
           </article>
 
           <article class="card">
-            <span class="card-tag">Связка</span>
-            <p>Работаем в связке FPV-дрон + наземная камера: дрон создаёт движение и эффект присутствия, камера с земли забирает эмоции, крупные планы и стабильные сцены.</p>
+            <span class="card-tag">Оборудование</span>
+            <p>Работаем в связке FPV-дрон + наземная камера — дрон создаёт движение и эффект присутствия, камера с земли забирает эмоции, крупные планы и стабильные сцены.</p>
           </article>
 
           <article class="card">
             <span class="card-tag">Материалы</span>
-            <p>На выходе организатор получает aftermovie 60–70 секунд, 3+ вертикальных клипа 30 секунд, тизер следующего события, партнёрские фрагменты и архив кадров для афиш, сторис, постов, презентаций и медиакита.</p>
+            <p>На выходе организатор получает видео 60–70 секунд, 3+ вертикальных клипа 30 секунд, тизер следующего события, партнёрские фрагменты и архив кадров для афиш, сторис, постов, презентаций и медиакита.</p>
           </article>
 
           <article class="card">
@@ -885,76 +874,17 @@
 
           <article class="step">
             <strong>02</strong>
-            <p>Затем изучаем площадку, тайминг, свет, ограничения и собираем съёмочный план: FPV-маршруты, безопасные зоны, ключевые моменты, крупные планы и партнёрские интеграции.</p>
+            <p>Затем изучаем площадку, тайминг, свет, ограничения и собираем съёмочный план.</p>
           </article>
 
           <article class="step">
             <strong>03</strong>
-            <p>На событии работаем связкой FPV-дрон + наземная камера: дрон даёт движение и эффект присутствия, камера с земли забирает эмоции, детали и стабильные сцены.</p>
+            <p>На событии работаем связкой FPV-дрон + наземная камера.</p>
           </article>
 
           <article class="step">
             <strong>04</strong>
-            <p>После съёмки собираем ролики под ритм концерта и адаптируем материалы под нужные форматы: 16:9, 9:16, 1:1, соцсети, презентации и партнёрские отчёты.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="why">
-      <div class="shell">
-        <div class="section-head">
-          <div class="section-label">Почему это работает сильнее отчётного видео</div>
-          <div>
-            <h2>Концерт как опыт</h2>
-          </div>
-        </div>
-
-        <div class="content-block">
-          <p>FPV-видеопродакшн передаёт концерт как опыт: масштаб площадки, плотность зала, энергию артиста, реакцию людей и уровень организации.</p>
-          <p>Зритель получает ощущение присутствия, а организатор — промо-материал, который продолжает работать после события: усиливает имидж, подтверждает масштаб и помогает продавать следующие даты.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="audience">
-      <div class="shell">
-        <div class="section-head">
-          <div class="section-label">Кому подходит</div>
-          <div>
-            <h2>Один формат — разные задачи</h2>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <span class="card-tag">Организаторам концертов</span>
-            <h3>Организаторам концертов</h3>
-            <p>Масштаб события, промо следующих дат, доверие аудитории.</p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">Концертным площадкам</span>
-            <h3>Концертным площадкам</h3>
-            <p>Сцена, свет, зал, инфраструктура и атмосфера пространства в сильной визуальной подаче.</p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">Артистам и музыкальным проектам</span>
-            <h3>Артистам и музыкальным проектам</h3>
-            <p>Кадры для соцсетей, клипов, медиакита, тура и продвижения новых выступлений.</p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">Брендам и партнёрам</span>
-            <h3>Брендам и партнёрам</h3>
-            <p>Живое присутствие в событии: интеграции, зоны активности, контакт с аудиторией.</p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">Фестивалям и сериям мероприятий</span>
-            <h3>Фестивалям и сериям мероприятий</h3>
-            <p>Единый визуальный стиль, регулярный контент после каждого события и материал для будущих анонсов.</p>
+            <p>После съёмки собираем ролики и адаптируем материалы под нужные форматы.</p>
           </article>
         </div>
       </div>
@@ -964,11 +894,11 @@
       <div class="shell split">
         <div class="wide-card">
           <div class="section-label">Что важно для безопасности</div>
-          <h2 class="big-text" style="margin-top: 24px;">FPV на концерте работает как точный съёмочный инструмент</h2>
+          <h2 class="big-text" style="margin-top: 24px;">Мы работаем как точный съёмочный инструмент</h2>
         </div>
 
         <div class="content-block">
-          <p>FPV на концерте работает как точный съёмочный инструмент: маршрут, высота, зоны полёта и точки съёмки согласуются заранее.</p>
+          <p>Маршрут, высота, зоны полёта и точки съёмки согласуются заранее.</p>
           <p>Эффектные пролёты планируются там, где их можно выполнить контролируемо. Остальные кадры закрываются наземной камерой, крупными планами и монтажом.</p>
           <p>Главный принцип — сильный визуальный результат с уважением к безопасности гостей, артистов и площадки.</p>
         </div>
@@ -1030,8 +960,8 @@
 
         <div class="grid-3 prices-grid">
           <article class="card price-card">
-            <span class="card-tag">FPV знакомство</span>
-            <h3>FPV знакомство</h3>
+            <span class="card-tag">базовый</span>
+            <h3>FPV-знакомство</h3>
             <p>Для первого концерта или теста формата</p>
             <ul>
               <li>FPV-съёмка — 1 оператор</li>
@@ -1042,20 +972,20 @@
           </article>
 
           <article class="card price-card">
-            <span class="card-tag">Concert Aftermovie</span>
-            <h3>Concert Aftermovie</h3>
+            <span class="card-tag">популярный</span>
+            <h3>Весь видеоблок</h3>
             <p>Основной формат для полноценного события</p>
             <ul>
               <li>всё, что слева</li>
-              <li>2 анимированные заставки на экран</li>
+              <li>2 анимированные афиши для соц. сетей</li>
               <li>2 вертикальных клипа 1080р 20-25сек для соц. сетей</li>
             </ul>
             <p class="price-line"><span class="price-accent">115 000 руб</span></p>
           </article>
 
           <article class="card price-card">
-            <span class="card-tag">Concert Content Pack</span>
-            <h3>Concert Content Pack</h3>
+            <span class="card-tag">абсолютный</span>
+            <h3>Всё, что нужно</h3>
             <p>Для серии концертов, фестиваля или регулярной площадки</p>
             <ul>
 			  <li>всё, что слева</li>
@@ -1123,24 +1053,49 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var button = document.querySelector('[data-theme-toggle]');
-      if (!button) return;
+<script>
+  (function () {
+    var root = document.documentElement;
 
+    /* Переключение темы */
+    var button = document.querySelector('[data-theme-toggle]');
+
+    if (button) {
       function updateLabel() {
         button.textContent = root.getAttribute('data-theme') === 'light' ? 'Light' : 'Dark';
       }
 
       updateLabel();
+
       button.addEventListener('click', function () {
         var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
         root.setAttribute('data-theme', next);
-        try { localStorage.setItem('concert_fpv_theme', next); } catch (e) {}
+
+        try {
+          localStorage.setItem('concert_fpv_theme', next);
+        } catch (e) {}
+
         updateLabel();
       });
-    })();
-  </script>
+    }
+
+    /* Скрытие шапки после второго экрана */
+    var topbar = document.querySelector('.topbar');
+
+    if (topbar) {
+      function toggleTopbar() {
+        var hideAfter = window.innerHeight * 2;
+        topbar.classList.toggle('is-hidden', window.scrollY > hideAfter);
+      }
+
+      window.addEventListener('scroll', toggleTopbar, { passive: true });
+      window.addEventListener('resize', toggleTopbar);
+      toggleTopbar();
+    }
+  })();
+</script>
+  
+  
+  
 </body>
 </html>
