@@ -1079,13 +1079,40 @@
       });
     }
 
-    /* Скрытие шапки после второго экрана */
+    /* Шапка: скрывается после первого экрана, появляется при скролле вверх */
     var topbar = document.querySelector('.topbar');
 
     if (topbar) {
+      var lastScrollY = window.scrollY;
+      var showTimer = null;
+
+      function showTopbarTemporarily() {
+        topbar.classList.remove('is-hidden');
+
+        clearTimeout(showTimer);
+        showTimer = setTimeout(function () {
+          if (window.scrollY > window.innerHeight) {
+            topbar.classList.add('is-hidden');
+          }
+        }, 1400);
+      }
+
       function toggleTopbar() {
-        var hideAfter = window.innerHeight * 2;
-        topbar.classList.toggle('is-hidden', window.scrollY > hideAfter);
+        var currentScrollY = window.scrollY;
+        var afterFirstScreen = currentScrollY > window.innerHeight;
+        var scrollingUp = currentScrollY < lastScrollY;
+
+        if (!afterFirstScreen) {
+          topbar.classList.remove('is-hidden');
+          clearTimeout(showTimer);
+        } else if (scrollingUp) {
+          showTopbarTemporarily();
+        } else {
+          topbar.classList.add('is-hidden');
+          clearTimeout(showTimer);
+        }
+
+        lastScrollY = currentScrollY;
       }
 
       window.addEventListener('scroll', toggleTopbar, { passive: true });
