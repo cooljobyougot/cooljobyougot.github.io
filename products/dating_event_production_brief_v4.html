@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СУББОТА 23.05 — СВИДАНИЯ</title>
+  <meta name="description" content="Сводный сценарий-чек-лист съёмки" />
+  <meta property="og:title" content="СУББОТА 23.05 — СВИДАНИЯ" />
+  <meta property="og:description" content="Сводный сценарий-чек-лист съёмки" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./meta/og-default.jpg" />
+  <style>
+    :root{
+      color-scheme: light dark;
+      --bg:#0f0c10;
+      --paper:#fff8ef;
+      --ink:#2a2026;
+      --muted:#765f68;
+      --accent:#9d5c63;
+      --accent2:#d8a76f;
+      --soft:#f3e2d4;
+      --line:rgba(42,32,38,.18);
+      --card:rgba(255,255,255,.55);
+      --shadow:0 18px 48px rgba(0,0,0,.2);
+      --hero:linear-gradient(135deg,#fff8ef 0%,#f0dac8 100%);
+    }
+    html[data-theme="dark"]{
+      --bg:#0f0c10;
+      --paper:#fff8ef;
+      --ink:#2a2026;
+      --muted:#765f68;
+      --accent:#9d5c63;
+      --accent2:#d8a76f;
+      --soft:#f3e2d4;
+      --line:rgba(42,32,38,.18);
+      --card:rgba(255,255,255,.55);
+      --shadow:0 18px 48px rgba(0,0,0,.2);
+      --hero:linear-gradient(135deg,#fff8ef 0%,#f0dac8 100%);
+    }
+    html[data-theme="light"]{
+      --bg:#f0dac8;
+      --paper:#fff8ef;
+      --ink:#2a2026;
+      --muted:#765f68;
+      --accent:#9d5c63;
+      --accent2:#b9874e;
+      --soft:#f3e2d4;
+      --line:rgba(42,32,38,.16);
+      --card:rgba(255,255,255,.66);
+      --shadow:0 18px 48px rgba(80,48,48,.16);
+      --hero:linear-gradient(135deg,#fff8ef 0%,#f0dac8 100%);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:radial-gradient(circle at top left,rgba(216,167,111,.25),transparent 30%),radial-gradient(circle at bottom right,rgba(157,92,99,.35),transparent 35%),var(--bg);color:var(--ink);line-height:1.55}
+    .page{max-width:1120px;margin:0 auto;padding:40px 22px 72px}
+    .theme-toggle{position:fixed;right:20px;top:20px;z-index:10;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,248,239,.72);backdrop-filter:blur(18px);box-shadow:0 12px 40px rgba(0,0,0,.22);color:#241a20;cursor:pointer;font-size:18px;line-height:1}
+    .theme-toggle:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+    .hero{background:var(--hero);border-radius:32px;padding:42px;box-shadow:0 30px 80px rgba(0,0,0,.38);position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;right:-90px;top:-90px;width:260px;height:260px;border-radius:50%;background:rgba(157,92,99,.13)}
+    .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--accent);font-weight:800;margin-bottom:14px}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(36px,6vw,72px);line-height:.95;margin:0 0 14px;color:#241a20;max-width:900px}
+    .lead{font-size:clamp(22px,3vw,36px);font-family:Georgia,"Times New Roman",serif;line-height:1.1;color:#3f3037;max-width:860px;margin:0}
+    .meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:30px;position:relative;z-index:1}
+    .pill{background:rgba(255,255,255,.58);border:1px solid rgba(42,32,38,.12);border-radius:18px;padding:14px 16px;font-size:14px;color:#4d3b43}.pill b{display:block;color:#241a20;font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+    section{background:var(--paper);border-radius:28px;padding:30px;margin-top:22px;box-shadow:var(--shadow)}
+    .dark{background:linear-gradient(135deg,#1c151c,#2b1d25);color:#fff8ef}.dark h2,.dark h3{color:#fff8ef}.dark p,.dark li,.dark td,.dark .plain{color:rgba(255,248,239,.86)}.dark .tag{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff8ef}.dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+    h2{font-family:Georgia,"Times New Roman",serif;font-size:34px;line-height:1.05;margin:0 0 18px;color:#2a2026}h3{font-size:20px;margin:24px 0 10px;color:#33262d}p{margin:0 0 14px}.plain{color:#4d3b43}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px}.card h3:first-child{margin-top:0}.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}.tag{border:1px solid rgba(157,92,99,.25);background:rgba(157,92,99,.08);color:var(--accent);padding:7px 10px;border-radius:999px;font-size:13px;font-weight:700}.timeline{display:grid;gap:14px}.beat{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:18px;border-radius:20px;background:rgba(255,255,255,.52);border:1px solid var(--line)}.time{color:var(--accent);font-weight:900;font-size:18px;white-space:nowrap}.beat h3{margin:0 0 6px}.quote{font-family:Georgia,"Times New Roman",serif;font-size:22px;line-height:1.25;color:#2a2026;background:#f2dfcc;border-left:5px solid var(--accent);padding:18px 20px;border-radius:18px;margin:12px 0}.dark .quote{background:rgba(216,167,111,.12);color:#fff8ef;border-left-color:var(--accent2)}ul,ol{padding-left:20px;margin:8px 0 0}li{margin:8px 0}.section-label{text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:900;color:var(--accent);margin-bottom:8px}.final{text-align:center;padding:42px 28px}.final .quote{display:inline-block;max-width:760px;text-align:left;margin:16px auto 0}.divider{height:1px;background:var(--line);margin:22px 0}.media-slot{border:1px dashed rgba(157,92,99,.45);background:rgba(157,92,99,.06);border-radius:20px;padding:16px;margin-top:16px;color:#5b444d;font-size:14px}.dark .media-slot{border-color:rgba(216,167,111,.45);background:rgba(216,167,111,.08);color:rgba(255,248,239,.8)}
+
+    .check-section ul,.check-section ol{padding-left:0;margin:12px 0 0;display:grid;gap:10px}
+    .check-section li{list-style:none;margin:0}
+    .check-item{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:10px;border-radius:14px;background:rgba(255,255,255,.38);border:1px solid rgba(42,32,38,.10);line-height:1.35;cursor:pointer}
+    .dark .check-item{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12)}
+    .check-item input{appearance:none;-webkit-appearance:none;width:30px;height:30px;border:2px solid var(--accent);border-radius:8px;background:rgba(255,255,255,.78);margin:0;display:grid;place-content:center;flex:0 0 auto}
+    .dark .check-item input{border-color:var(--accent2);background:rgba(255,248,239,.9)}
+    .check-item input::before{content:"";width:16px;height:16px;transform:scale(0);transition:.12s transform ease-in-out;box-shadow:inset 1em 1em var(--accent);clip-path:polygon(14% 44%,0 59%,38% 100%,100% 19%,84% 5%,37% 70%)}
+    .dark .check-item input::before{box-shadow:inset 1em 1em var(--accent)}
+    .check-item input:checked::before{transform:scale(1)}
+    .check-item span{padding-top:3px}
+    @media(max-width:820px){.hero{padding:28px;border-radius:24px}section{padding:22px;border-radius:22px}.meta,.grid-2,.grid-3{grid-template-columns:1fr}.beat{grid-template-columns:1fr}h2{font-size:28px}.theme-toggle{right:14px;top:14px}.page{padding-top:72px}}
+    @media print{body{background:#fff}.theme-toggle{display:none}.page{padding:0;max-width:none}.hero,section{box-shadow:none;break-inside:avoid}section{page-break-inside:avoid}}
+  </style>
+  <script>
+    (function(){
+      try{
+        var saved=localStorage.getItem('lc_theme');
+        var system=window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || system);
+      }catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <button class="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему">◐</button>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">СУББОТА 23.05 — СВИДАНИЯ</div>
+      <h1>СУББОТА 23.05 — СВИДАНИЯ</h1>
+      <p class="lead">Сводный сценарий-чек-лист съёмки</p>
+      <div class="meta">
+        <div class="pill"><b>Локация:</b>Лофт «Конюшня», ул. Гоголя, 30</div>
+        <div class="pill"><b>Прибытие группы:</b>16:30</div>
+        <div class="pill"><b>Организатор:</b>Алёна, +7 920 071-74-73</div>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-label">1. Главная задача</div>
+      <h2>Главная задача</h2>
+      <p>Снять рекламный ролик о вечере знакомств и об Алёне как человеке, который создаёт атмосферу живого контакта.</p>
+      <p>Ролик должен передать:</p>
+      <ul>
+        <li>красивое пространство;</li>
+        <li>лёгкое знакомство;</li>
+        <li>живую близость между людьми;</li>
+        <li>Алёну как хозяйку атмосферы;</li>
+        <li>ощущение, что на следующее событие хочется прийти.</li>
+      </ul>
+    </section>
+
+    <section class="dark">
+      <div class="section-label">2. Сверхцель команды</div>
+      <h2>Сверхцель команды</h2>
+      <div class="quote">Алёна — ценный человек в мире ивента.</div>
+      <p>Это её личный проект. Она запускает его, волнуется, вкладывается лично.<br>Наша задача — показать профессиональный уровень, снять тревогу, быть точными, спокойными и полезными.</p>
+      <p>На площадке важно:</p>
+      <ul>
+        <li>держать процесс уверенно;</li>
+        <li>бережно относиться к Алёне;</li>
+        <li>лишний раз её не дёргать;</li>
+        <li>помогать ей чувствовать, что съёмка под контролем;</li>
+        <li>дать ей красивые кадры про неё;</li>
+        <li>показать вкус, собранность и партнёрскую позицию.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">3. Запрет по языку и смыслу</div>
+      <h2>Запрет по языку и смыслу</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>В сценарии, интервью, титрах и монтаже исключить:</h3>
+          <ul>
+            <li>отрицательное противопоставление;</li>
+            <li>формулы с обесцениванием первой части ради усиления второй;</li>
+            <li>конструкции по типу «не X, а Y»;</li>
+            <li>фразы, где мероприятие или привычные форматы знакомств выглядят слабыми ради возвышения этого проекта.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Тон ролика:</h3>
+          <ul>
+            <li>тёплый;</li>
+            <li>взрослый;</li>
+            <li>красивый;</li>
+            <li>живой;</li>
+            <li>уверенный;</li>
+            <li>без давления;</li>
+            <li>без пошлости;</li>
+            <li>без агрессивной продажи.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="section-label">4. Главная формула ролика</div>
+      <h2>Главная формула ролика</h2>
+      <div class="quote">Живой вечер.<br>Красивое пространство.<br>Люди постепенно раскрываются.<br>Алёна мягко собирает атмосферу.<br>Контакт возникает естественно.<br>Финальное ощущение: здесь можно быть собой.</div>
+      <p>Ключевая фраза:</p>
+      <div class="quote">День, когда люди находят близость.</div>
+    </section>
+
+    <section class="check-section">
+      <div class="section-label">5. Сценарий по блокам</div>
+      <h2>Сценарий по блокам</h2>
+      <div class="timeline">
+        <div class="beat">
+          <div class="time">16:30–17:15</div>
+          <div>
+            <h3>БЛОК 1 — ПРОСТРАНСТВО / WELCOME</h3>
+            <p><b>Задача:</b> показать атмосферу ожидания, красоту пространства и первые признаки живого контакта.</p>
+            <h3>Снять</h3>
+            <ul>
+              <li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>интерьер;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>свет;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>силуэты;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>вход гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>welcome-зону;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>детали одежды;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>напитки;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>руки;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>улыбки;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>первые взгляды;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>живые реакции;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>лёгкую неловкость в начале;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>первые разговоры;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну, встречающую гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну, которая замечает детали;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну внутри пространства.</span></label></li>
+            </ul>
+            <h3>FPV-дрон</h3>
+            <ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>один плавный пролёт по полному пространству;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>общий маршрут через зал;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>акцент на объём, свет, движение людей.</span></label></li></ul>
+            <p><b>Смысл блока</b></p>
+            <p>Люди заходят в пространство, где уже есть настроение, забота и вкус.</p>
+          </div>
+        </div>
+
+        <div class="beat">
+          <div class="time">17:20–17:30</div>
+          <div>
+            <h3>БЛОК 2 — АЛЁНА / ГЕРОИНЯ ВЕЧЕРА</h3>
+            <p>+ добирать весь вечер</p>
+            <p><b>Задача:</b> показать Алёну как эмоциональный и смысловой центр события.</p>
+            <h3>Снять</h3>
+            <ul>
+              <li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>средний план Алёны;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>профиль;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>3/4;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>взгляд мимо камеры;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>руки;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>улыбку;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>походку;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>микрожесты;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>приветствие гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>момент перед началом;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну в паузе;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну в разговоре;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну, наблюдающую за залом;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакции людей на неё;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>слушателей во время её слов;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>взгляды;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>руки гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>тишину перед началом.</span></label></li>
+            </ul>
+            <p><b>Смысл блока</b></p>
+            <p>Алёна создаёт ощущение безопасности, лёгкости и собранности.<br>Через неё зритель понимает характер вечера.</p>
+          </div>
+        </div>
+
+        <div class="beat">
+          <div class="time">17:30–17:45</div>
+          <div>
+            <h3>БЛОК 3 — «ВЗАИМОСВЯЗИ»</h3>
+            <p><b>Задача:</b> показать рождение контакта между людьми.</p>
+            <h3>Снять</h3>
+            <ul>
+              <li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>круги общения;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>пары в разговоре;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>людей, которые слушают;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакции после слов;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>улыбки после неловкости;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>взгляды;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>поворот корпуса к собеседнику;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>руки на столе;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>жесты внимания;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>обмен короткими репликами;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну, которая направляет процесс;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>людей, которым становится легче.</span></label></li>
+            </ul>
+            <p><b>Смысл блока</b></p>
+            <p>Контакт возникает через внимание, взгляд, голос, реакцию, присутствие.</p>
+          </div>
+        </div>
+
+        <div class="beat">
+          <div class="time">17:45–18:10</div>
+          <div>
+            <h3>БЛОК 4 — PECHAKUCHA</h3>
+            <p><b>Задача:</b> показать раскрытие участников через короткие выступления и реакцию группы.</p>
+            <h3>Снять</h3>
+            <ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>выход участников;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>лицо человека перед выступлением;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>первый вдох;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>жесты во время рассказа;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакцию слушателей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>улыбки;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>удивление;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>аплодисменты;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну, которая держит ритм;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>общий план группы;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>крупные планы слушающих лиц.</span></label></li></ul>
+            <h3>FPV-дрон</h3>
+            <ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>один пролёт через зал;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>движение через пространство выступлений;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакция людей на пролёт;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>финальная точка на группе или Алёне.</span></label></li></ul>
+            <p><b>Смысл блока</b></p>
+            <p>Люди раскрываются перед другими.<br>Группа становится живой.</p>
+          </div>
+        </div>
+
+        <div class="beat">
+          <div class="time">между блоками</div>
+          <div>
+            <h3>БЛОК 5 — ПЕРЕБИВКИ / ЖИВОЙ ОФФЛАЙН</h3>
+            <p>добрать между блоками</p>
+            <p><b>Задача:</b> собрать короткие кадры, которые дадут монтажу дыхание, ритм и телесность.</p>
+            <h3>Снять</h3>
+            <ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>телефон в руке;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>экран анкеты или переписки без читаемых личных данных;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>палец на экране;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>после этого — живой взгляд человека в пространстве;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>бокалы;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>ткань одежды;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>украшения;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>детали света;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>смех;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>плечи в движении;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>поворот головы;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>быстрый взгляд;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>люди идут через зал;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>музыка;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>аплодисменты;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>короткие эмоциональные реакции.</span></label></li></ul>
+            <p><b>Смысл блока</b></p>
+            <p>Живое знакомство ощущается через тело, голос, взгляд и атмосферу.</p>
+          </div>
+        </div>
+
+        <div class="beat">
+          <div class="time">18:50–19:05</div>
+          <div>
+            <h3>БЛОК 6 — «МОЛЕКУЛЫ»</h3>
+            <p><b>Задача:</b> добавить энергию, движение и ощущение игры.</p>
+            <h3>Снять</h3>
+            <ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>быстрые перемещения;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>смену пар;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>смех;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакцию на новую пару;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>людей в движении;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>лёгкую суету;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>неожиданные совпадения;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну, которая наблюдает за динамикой;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>общий живой ритм зала.</span></label></li></ul>
+            <h3>FPV-дрон</h3>
+            <ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>динамичный пролёт;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>движение через людей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>аккуратный маршрут с безопасной дистанцией;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакция гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>финальный красивый проход по залу.</span></label></li></ul>
+            <p><b>Смысл блока</b></p>
+            <p>Люди становятся ближе через движение, игру и смену контактов.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="check-section">
+      <div class="section-label">8. Обязательные кадры Алёны</div>
+      <h2>Обязательные кадры Алёны</h2>
+      <p>Снять в течение всего вечера:</p>
+      <div class="grid-3">
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна встречает гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна смотрит на зал;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна слушает человека;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна смеётся;</span></label></li></ul></div>
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна поправляет деталь;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна даёт знак участникам;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна говорит в микрофон;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна стоит в пространстве одна;</span></label></li></ul></div>
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна в окружении гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна в профиль;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна в движении;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёна после удачного момента вечера.</span></label></li></ul></div>
+      </div>
+      <div class="quote">Смысл: Алёна — причина собранной атмосферы.</div>
+    </section>
+
+    <section class="check-section">
+      <div class="section-label">9. Обязательные кадры гостей</div>
+      <h2>Обязательные кадры гостей</h2>
+      <div class="grid-3">
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>вход;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>первое знакомство;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>улыбка после первой фразы;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>внимательный взгляд;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>смех;</span></label></li></ul></div>
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>аплодисменты;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>короткий разговор;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>смена собеседника;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакция на Алёну;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакция на дрон;</span></label></li></ul></div>
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>пара в диалоге;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>группа в общем ритме;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>человек, которому стало комфортно.</span></label></li></ul></div>
+      </div>
+      <div class="quote">Смысл: люди раскрываются постепенно.</div>
+    </section>
+
+    <section class="check-section">
+      <div class="section-label">10. Обязательные кадры пространства</div>
+      <h2>Обязательные кадры пространства</h2>
+      <div class="grid-3">
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>общий план лофта;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>свет;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>столы;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>декор;</span></label></li></ul></div>
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>welcome-зона;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>напитки;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>проходы;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>детали фактуры;</span></label></li></ul></div>
+        <div class="card"><ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>музыка;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>силуэты;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>движение людей внутри пространства.</span></label></li></ul></div>
+      </div>
+      <div class="quote">Смысл: пространство помогает знакомству случиться.</div>
+    </section>
+
+    <section class="dark check-section">
+      <div class="section-label">11. Дрон</div>
+      <h2>Дрон</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Смысл</h3>
+          <p>Дрон показывает пространство как живую сцену.<br>Он добавляет ощущение движения, игры, масштаба и лёгкости.</p>
+          <h3>Обязательные пролёты</h3>
+          <ol><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Welcome-пролёт по полному пространству.</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Пролёт через зал во время PechaKucha.</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Динамичный пролёт в блоке «Молекулы».</span></label></li></ol>
+        </div>
+        <div class="card">
+          <h3>Что поймать</h3>
+          <ul><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>реакцию гостей;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>улыбку на дрон;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>взгляд вверх;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>движение группы;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>Алёну внутри пространства;</span></label></li><li><label class="check-item"><input type="checkbox" aria-label="Отметить выполнение"><span>финальный красивый общий кадр.</span></label></li></ul>
+          <h3>Важно</h3>
+          <p>Безопасность важнее эффектности.<br>Лучшее время для живых эмоций — середина и вторая половина вечера.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="section-label">6. Отдельный блок — интервью с Алёной</div>
+      <h2>Отдельный блок — интервью с Алёной</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Задача интервью</h3>
+          <p>Получить короткие фразы, которые раскроют Алёну:</p>
+          <ul><li>ум;</li><li>вкус;</li><li>женскую энергию;</li><li>наблюдательность;</li><li>умение собирать атмосферу;</li><li>бережное отношение к людям;</li><li>авторскую позицию.</li></ul>
+          <p>Формат: короткие ответы по 1–2 предложения.<br>Снимать на петличку.<br>Кадр: 3/4, взгляд чуть мимо камеры, спокойный портретный свет.</p>
+        </div>
+        <div class="card">
+          <h3>Фразы, которые желательно получить от Алёны</h3>
+          <ul><li>«Я создаю пространство, где людям легче знакомиться».</li><li>«Мне важно, чтобы здесь было спокойно, красиво и живо».</li><li>«Здесь можно быть собой».</li><li>«Я чувствую людей и собираю атмосферу вокруг них».</li><li>«Знакомство начинается с ощущения человека».</li><li>«Мне важно, чтобы вечер был бережным».</li><li>«Я хочу, чтобы люди уходили отсюда чуть более живыми».</li><li>«Близость рождается в простых моментах: взгляд, смех, внимание».</li></ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+<h3>Вопросы Алёне</h3>
+
+<div class="grid-2">
+
+  <div class="card">
+    <h3>О ней и вечере</h3>
+    <ol>
+      <li>В какой роли ты ощущаешь себя в этот вечер?</li>
+      <li>В идеальном мире, с каким переживанием человек может войти сюда?</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>О людях</h3>
+    <ol start="3">
+      <li>На что в первую очередь ты обращаешь внимание в людях?</li>
+      <li>Как ты понимаешь, кому с кем может быть интересно?</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Об атмосфере</h3>
+    <ol start="5">
+      <li>Из чего для тебя складывается удачный вечер знакомств?</li>
+      <li>Что помогает людям расслабиться и начать общаться?</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>О живом знакомстве</h3>
+    <ol start="7">
+      <li>Почему людям сейчас особенно важны живые встречи?</li>
+      <li>С каким чувством ты хочешь, чтобы человек ушёл по окончании вечера?</li>
+    </ol>
+  </div>
+
+</div>
+    </section>
+
+    <section>
+      <div class="section-label">7. Мини-интервью с гостями</div>
+      <h2>Мини-интервью с гостями</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Задача</h3>
+          <p>Добрать короткие подтверждения атмосферы.<br>Каждый гость говорит одну фразу или одно слово.</p>
+          <p>Снимать крупно, спокойно, с петличкой или близко к микрофону.</p>
+          <h3>Вопросы гостям</h3>
+          <ol><li>Какое первое ощущение от вечера?</li><li>Что здесь самое приятное?</li><li>Какое слово описывает атмосферу?</li><li>Что запомнилось?</li><li>Захотелось ли продолжить общение с кем-то?</li></ol>
+        </div>
+        <div class="card">
+          <h3>Фразы, которые нужны</h3>
+          <ul><li>«Здесь легко».</li><li>«Очень живая атмосфера».</li><li>«Красиво и спокойно».</li><li>«Люди открываются».</li><li>«Хочется остаться дольше».</li><li>«Тут тепло».</li><li>«Есть ощущение настоящего общения».</li><li>«Очень бережный формат».</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">12. Возможная монтажная структура до 60 секунд</div>
+      <h2>Возможная монтажная структура до 60 секунд</h2>
+      <div class="timeline">
+        <div class="beat"><div class="time">0–4 сек</div><div><p>Хук: живой взгляд, свет, рука с телефоном, вход в пространство.</p><p>Титр:</p><div class="quote">Иногда знакомство начинается с одного взгляда.</div></div></div>
+        <div class="beat"><div class="time">4–12 сек</div><div><p>Локация, welcome, гости, детали, первые улыбки.</p></div></div>
+        <div class="beat"><div class="time">12–22 сек</div><div><p>Алёна: профиль, руки, встреча гостей, голос.</p><p>Фраза Алёны:</p><div class="quote">Я создаю пространство, где людям легче знакомиться.</div></div></div>
+        <div class="beat"><div class="time">22–36 сек</div><div><p>Люди: разговоры, смех, слушание, круги, реакции.</p><p>Фразы гостей:</p><div class="quote">Здесь легко.<br>Очень живая атмосфера.</div></div></div>
+        <div class="beat"><div class="time">36–48 сек</div><div><p>Дрон, движение, PechaKucha, аплодисменты, «Молекулы».</p></div></div>
+        <div class="beat"><div class="time">48–56 сек</div><div><p>Алёна как финальный смысл: взгляд, спокойствие, гости вокруг.</p><p>Фраза Алёны:</p><div class="quote">Мне важно, чтобы здесь можно было быть собой.</div></div></div>
+        <div class="beat"><div class="time">56–60 сек</div><div><p>Финал: лица гостей, общий кадр, Алёна.</p><p>Титр:</p><div class="quote">День, когда люди находят близость.<br>Следующий вечер — скоро.</div></div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">13. Финальный чек-лист на площадке</div>
+      <h2>Финальный чек-лист на площадке</h2>
+      <div class="grid-3">
+        <div class="card"><h3>До начала</h3><ul><li>познакомиться с Алёной;</li><li>снять с неё тревогу;</li><li>уточнить ключевые моменты программы;</li><li>выбрать место для интервью;</li><li>проверить свет;</li><li>проверить звук;</li><li>согласовать безопасные маршруты FPV.</li></ul></div>
+        <div class="card"><h3>Во время</h3><ul><li>снимать Алёну весь вечер;</li><li>ловить живые реакции;</li><li>добирать короткие фразы;</li><li>снимать гостей до и после раскрытия;</li><li>фиксировать переход от ожидания к контакту;</li><li>держать дрон как часть атмосферы;</li><li>работать спокойно и уверенно.</li></ul></div>
+        <div class="card"><h3>После основной программы</h3><ul><li>добрать 2–3 фразы Алёны;</li><li>добрать 3–5 фраз гостей;</li><li>снять финальные портреты;</li><li>сделать общий кадр пространства;</li><li>поблагодарить Алёну;</li><li>коротко сказать, что в её проекте видна сильная атмосфера и потенциал.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="final dark">
+      <div class="section-label">14. Главный ориентир для команды</div>
+      <h2>Главный ориентир для команды</h2>
+      <p>Мы снимаем вечер, в котором люди становятся ближе.</p>
+      <p>Алёна — человек, который создаёт это поле.</p>
+      <p>Камера должна увидеть:</p>
+      <div class="tagrow" style="justify-content:center"><span class="tag">её вкус</span><span class="tag">её внимание</span><span class="tag">её спокойную силу</span><span class="tag">её влияние на людей</span><span class="tag">живую близость, которая возникает в пространстве</span></div>
+      <p style="margin-top:24px">Финальное ощущение ролика:</p>
+      <div class="quote">Здесь красиво.<br>Здесь спокойно.<br>Здесь живые люди.<br>Здесь можно быть собой.</div>
+    </section>
+  </main>
+  <script>
+    document.querySelector('.theme-toggle').addEventListener('click',function(){
+      var root=document.documentElement;
+      var next=root.getAttribute('data-theme')==='light'?'dark':'light';
+      root.setAttribute('data-theme',next);
+      try{localStorage.setItem('lc_theme',next)}catch(e){}
+    });
+  </script>
+</body>
+</html>
