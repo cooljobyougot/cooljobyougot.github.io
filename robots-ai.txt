@@ -2,22 +2,63 @@
 # AI crawler guidance file for inference-time discovery and controlled crawling.
 # This file complements /robots.txt and points AI systems to the canonical discovery files.
 # Place in site root: /robots-ai.txt
-# Related files:
-# /llms.txt
-# /llms-full.txt
-# /meta/sitemap.xml
 
 User-agent: *
 Allow: /
 
 # Canonical AI discovery endpoints
-# /llms.txt
-# /llms-full.txt
+LLMs: https://какаяувасинтереснаяработа.рф/llms.txt
+LLMs-Full: https://какаяувасинтереснаяработа.рф/llms-full.txt
 
 # Canonical crawl map
-# /meta/sitemap.xml
+Sitemap: https://какаяувасинтереснаяработа.рф/sitemap.xml
+
+# Main public entrypoints
+Home: https://какаяувасинтереснаяработа.рф/
+Contacts: https://какаяувасинтереснаяработа.рф/products/contacts.html
+
+# Main commercial pages
+Page: https://какаяувасинтереснаяработа.рф/products/event-visual-production.html
+Page: https://какаяувасинтереснаяработа.рф/products/sport-extreme.html
+Page: https://какаяувасинтереснаяработа.рф/products/fpv-attraction-wow-offer.html
+Page: https://какаяувасинтереснаяработа.рф/products/concert-fpv-offer.html
+Page: https://какаяувасинтереснаяработа.рф/products/sharnn-fpv-video-offer.html
+Page: https://какаяувасинтереснаяработа.рф/products/estel-beauty.html
+Page: https://какаяувасинтереснаяработа.рф/products/show_kaskaderov.html
+Page: https://какаяувасинтереснаяработа.рф/products/Extremekids.html
+
+# Additional public product and project pages
+Page: https://какаяувасинтереснаяработа.рф/products/dating_event_production_brief_v4.html
+Page: https://какаяувасинтереснаяработа.рф/products/info_glav.html
+Page: https://какаяувасинтереснаяработа.рф/products/titulnik.html
+Page: https://какаяувасинтереснаяработа.рф/products/qr-code-banner.html
+Page: https://какаяувасинтереснаяработа.рф/products/VOLGA/VOLGApresentation.html
+Page: https://какаяувасинтереснаяработа.рф/products/Maybach/maybach.html
+Page: https://какаяувасинтереснаяработа.рф/products/КПСвоивдоску.html
+Page: https://какаяувасинтереснаяработа.рф/products/svoi_v_dosku_oprosnik.html
+Page: https://какаяувасинтереснаяработа.рф/products/калиграфия.html
+Page: https://какаяувасинтереснаяработа.рф/products/affiliate-network.html
+Page: https://какаяувасинтереснаяработа.рф/products/wedding.html
+Page: https://какаяувасинтереснаяработа.рф/products/свидание.html
+Page: https://какаяувасинтереснаяработа.рф/products/Презентация_FPV-НН-город.html
+Page: https://какаяувасинтереснаяработа.рф/products/ads.html
+Page: https://какаяувасинтереснаяработа.рф/products/ai.html
+Page: https://какаяувасинтереснаяработа.рф/products/brand.html
+Page: https://какаяувасинтереснаяработа.рф/products/fpv.html
+Page: https://какаяувасинтереснаяработа.рф/products/lesnik17.html
+Page: https://какаяувасинтереснаяработа.рф/products/pohod.html
+
+# Do not treat these root URLs as canonical commercial pages
+# /event-visual-production.html
+# /sport-extreme.html
+# /fpv-attraction-wow-offer.html
+# /contacts.html
+
+# Correct canonical versions are in /products/
 
 # Notes
-# 1. robots directives guide compliant crawlers; they do not enforce access control.
-# 2. Keep this file as plain UTF-8 text in the site root.
-# 3. Keep paths stable so AI systems can re-fetch canonical context.
+# 1. This file is advisory for AI systems.
+# 2. It does not replace robots.txt.
+# 3. The main search-engine sitemap is /sitemap.xml.
+# 4. The strongest commercial pages are in /products/.
+# 5. Keep this file as plain UTF-8 text in the site root.
