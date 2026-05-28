@@ -1,0 +1,859 @@
+<!doctype html>
+
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,follow" />
+
+  <title>Список страниц для менеджера — КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</title>
+  <meta name="description" content="Справочник страниц сайта КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ для менеджера: основные коммерческие страницы, проектные страницы и пояснения, кому какую ссылку отправлять." />
+
+  <style>
+    :root {
+      --bg: #0f0f12;
+      --panel: #18181d;
+      --panel-2: #202027;
+      --text: #f5f2ea;
+      --muted: #b8b2a8;
+      --line: rgba(255,255,255,.12);
+      --accent: #e7b15f;
+      --accent-2: #ffdf9b;
+      --danger: #ff6b6b;
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(231,177,95,.18), transparent 32rem),
+        radial-gradient(circle at 85% 10%, rgba(255,255,255,.08), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(20px);
+      background: rgba(15,15,18,.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 16px;
+      letter-spacing: -.03em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .nav a:hover {
+      color: var(--text);
+      border-color: rgba(231,177,95,.55);
+    }
+
+    .hero {
+      padding: 64px 0 34px;
+    }
+
+    .hero-panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border-radius: 34px;
+      padding: clamp(28px, 5vw, 56px);
+      box-shadow: 0 24px 80px rgba(0,0,0,.28);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: -.045em;
+      line-height: .96;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(42px, 7vw, 86px);
+      font-weight: 650;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 640;
+      margin-bottom: 22px;
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .lead {
+      max-width: 840px;
+      margin-top: 24px;
+      font-size: clamp(18px, 2vw, 24px);
+      color: var(--text);
+    }
+
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .quick-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.04);
+      padding: 18px;
+    }
+
+    .quick-card strong {
+      display: block;
+      font-size: 28px;
+      color: var(--accent-2);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
+
+    .section-note {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      min-height: 180px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.045);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .card.main {
+      background:
+        linear-gradient(145deg, rgba(231,177,95,.13), rgba(255,255,255,.045));
+      border-color: rgba(231,177,95,.35);
+    }
+
+    .num {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel-2);
+      color: var(--accent-2);
+      font-weight: 800;
+      border: 1px solid var(--line);
+    }
+
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 10px;
+      border: 1px solid rgba(231,177,95,.32);
+      color: var(--accent-2);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .url {
+      display: block;
+      margin: 12px 0;
+      color: var(--accent-2);
+      overflow-wrap: anywhere;
+      font-size: 14px;
+      text-decoration-thickness: .08em;
+      text-underline-offset: .2em;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .old {
+      border-color: rgba(255,255,255,.1);
+      background: rgba(255,255,255,.028);
+    }
+
+    .old .tag {
+      color: var(--muted);
+      border-color: var(--line);
+    }
+
+    .notice {
+      border: 1px solid rgba(231,177,95,.32);
+      background: rgba(231,177,95,.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 14px;
+    }
+
+    .notice strong {
+      color: var(--accent-2);
+    }
+
+    .rules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .rule {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .rule strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    footer {
+      padding: 36px 0 54px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .quick,
+      .grid,
+      .rules {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <div class="brand">
+      <strong>КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</strong>
+      <span>Справочник страниц для менеджера</span>
+    </div>
+
+
+<nav class="nav" aria-label="Навигация">
+  <a href="#main">Основные</a>
+  <a href="#old">Проектные</a>
+  <a href="#additional">Дополнительные</a>
+  <a href="#rules">Как выбирать</a>
+</nav>
+
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="shell">
+      <div class="hero-panel">
+        <div class="eyebrow">Внутренний справочник</div>
+        <h1>Страницы сайта для менеджера</h1>
+        <p class="lead">
+          Быстрый список ссылок, чтобы понимать, какую страницу отправлять клиенту под конкретную задачу: мероприятия, спорт, FPV, концерты, beauty, шоу, детские спортивные события и проектные материалы.
+        </p>
+
+
+    <div class="quick">
+      <div class="quick-card">
+        <strong>10</strong>
+        <p>главных страниц для продаж и органического поиска</p>
+      </div>
+
+      <div class="quick-card">
+        <strong>4</strong>
+        <p>новые универсальные SEO-страницы</p>
+      </div>
+
+      <div class="quick-card">
+        <strong>3</strong>
+        <p>старые проектные страницы под конкретные кейсы</p>
+      </div>
+
+      <div class="quick-card">
+        <strong>32</strong>
+        <p>страницы в общем рабочем списке</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+  <section id="main">
+    <div class="shell">
+      <div class="section-head">
+        <h2>Основные страницы</h2>
+        <p class="section-note">
+          Эти ссылки можно отправлять клиентам в первую очередь. Они объясняют направления и работают как коммерческие посадочные страницы.
+        </p>
+      </div>
+
+
+  <div class="grid">
+
+    <article class="card main">
+      <div class="num">1</div>
+      <div>
+        <span class="tag">Главная</span>
+        <h3>Главная</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/</a>
+        <p class="desc">Общая витрина агентства: кто мы, чем занимаемся, какие направления есть.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">2</div>
+      <div>
+        <span class="tag">Контакты</span>
+        <h3>Контакты</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/contacts.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/contacts.html</a>
+        <p class="desc">Страница для связи: Telegram, MAX, телефон, реквизиты.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">3</div>
+      <div>
+        <span class="tag">Мероприятия</span>
+        <h3>Мероприятия</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/event-visual-production.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/event-visual-production.html</a>
+        <p class="desc">Видеосъёмка мероприятий: форумы, конференции, корпоративы, городские и деловые события.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">4</div>
+      <div>
+        <span class="tag">Спорт</span>
+        <h3>Спорт и экстрим</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/sport-extreme.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/sport-extreme.html</a>
+        <p class="desc">Видеосъёмка спортивных событий, гонок, забегов, соревнований и активных форматов.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">5</div>
+      <div>
+        <span class="tag">FPV / wow</span>
+        <h3>FPV-аттракцион</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/fpv-attraction-wow-offer.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/fpv-attraction-wow-offer.html</a>
+        <p class="desc">Wow-точка для мероприятий, площадок, брендов, фестивалей и городских пространств.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">6</div>
+      <div>
+        <span class="tag">Концерты</span>
+        <h3>Концерты</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/concert-fpv-offer.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/concert-fpv-offer.html</a>
+        <p class="desc">Видеосъёмка концертов, сцен, артистов, музыкальных событий и aftermovie.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">7</div>
+      <div>
+        <span class="tag">Воздушные шары</span>
+        <h3>Воздушные шары</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/air-balloon-fpv-video-offer.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/air-balloon-fpv-video-offer.html</a>
+        <p class="desc">FPV-видео полёта на воздушном шаре: аэростаты, свидания, подарки, love story, групповые полёты.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">8</div>
+      <div>
+        <span class="tag">Beauty</span>
+        <h3>Beauty-индустрия</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/beauty.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/beauty.html</a>
+        <p class="desc">КП для мастеров красоты, салонов, студий, академий, экспертов и косметических брендов.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">9</div>
+      <div>
+        <span class="tag">Шоу</span>
+        <h3>Шоу-индустрия</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/show.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/show.html</a>
+        <p class="desc">Видеосъёмка шоу, трюковых программ, авто- и мото-событий, фестивалей, экшн-форматов.</p>
+      </div>
+    </article>
+
+    <article class="card main">
+      <div class="num">10</div>
+      <div>
+        <span class="tag">Детский спорт</span>
+        <h3>Детские спортивные мероприятия</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/kids-sport.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/kids-sport.html</a>
+        <p class="desc">Ролик события для организатора + персональные клипы участников для родителей.</p>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+
+  </section>
+
+  <section id="old">
+    <div class="shell">
+      <div class="section-head">
+        <h2>Старые и проектные страницы</h2>
+        <p class="section-note">
+          Эти ссылки использовать, когда разговор идёт про конкретный проект. Для широких запросов лучше отправлять новые универсальные страницы.
+        </p>
+      </div>
+
+
+  <div class="grid">
+
+    <article class="card old">
+      <div class="num">11</div>
+      <div>
+        <span class="tag">Проектная</span>
+        <h3>ШарНН</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/sharnn-fpv-video-offer.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/sharnn-fpv-video-offer.html</a>
+        <p class="desc">Старая / проектная страница под конкретный проект ШарНН.</p>
+      </div>
+    </article>
+
+    <article class="card old">
+      <div class="num">12</div>
+      <div>
+        <span class="tag">Проектная</span>
+        <h3>Estel Beauty</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/estel-beauty.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/estel-beauty.html</a>
+        <p class="desc">Старая / проектная страница под Estel.</p>
+      </div>
+    </article>
+
+    <article class="card old">
+      <div class="num">13</div>
+      <div>
+        <span class="tag">Проектная</span>
+        <h3>Шоу каскадёров</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/show_kaskaderov.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/show_kaskaderov.html</a>
+        <p class="desc">Старая / проектная страница под шоу каскадёров.</p>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+
+  </section>
+
+  <section id="additional">
+    <div class="shell">
+      <div class="section-head">
+        <h2>Дополнительные страницы</h2>
+        <p class="section-note">
+          Проектные, внутренние, презентационные и вспомогательные страницы.
+        </p>
+      </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="num">14</div>
+      <div>
+        <span class="tag">Бриф</span>
+        <h3>Спиддейтинг</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/dating_event_production_brief_v4.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/dating_event_production_brief_v4.html</a>
+        <p class="desc">Сценарий и производственный бриф события.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">15</div>
+      <div>
+        <span class="tag">Продажи</span>
+        <h3>Продажникам</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/info_glav.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/info_glav.html</a>
+        <p class="desc">Страница для продажников / внутренняя продуктовая страница.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">16</div>
+      <div>
+        <span class="tag">QR</span>
+        <h3>QR-код на баннере</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/qr-code-banner.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/qr-code-banner.html</a>
+        <p class="desc">Страница для перехода с физического QR-кода.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">17</div>
+      <div>
+        <span class="tag">Презентация</span>
+        <h3>Зелёные / VOLGA</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/VOLGA/VOLGApresentation.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/VOLGA/VOLGApresentation.html</a>
+        <p class="desc">Презентация проекта «Зелёные» / VOLGA.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">18</div>
+      <div>
+        <span class="tag">Проект</span>
+        <h3>Майбах</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/Maybach/maybach.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/Maybach/maybach.html</a>
+        <p class="desc">Проектная страница «Майбах».</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">19</div>
+      <div>
+        <span class="tag">КП</span>
+        <h3>Свои в доску</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/КПСвоивдоску.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/КПСвоивдоску.html</a>
+        <p class="desc">Коммерческое предложение проекта «Свои в доску».</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">20</div>
+      <div>
+        <span class="tag">Опросник</span>
+        <h3>Опросник «Свои в доску»</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/svoi_v_dosku_oprosnik.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/svoi_v_dosku_oprosnik.html</a>
+        <p class="desc">Опросник / сбор вводных по проекту.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">21</div>
+      <div>
+        <span class="tag">Проект</span>
+        <h3>Каллиграфия</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/калиграфия.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/калиграфия.html</a>
+        <p class="desc">Проектная страница по каллиграфии.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">22</div>
+      <div>
+        <span class="tag">Слайд-шоу</span>
+        <h3>Слайд-шоу / партнёрская сеть</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/affiliate-network.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/affiliate-network.html</a>
+        <p class="desc">Страница слайд-шоу / партнёрского формата.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">23</div>
+      <div>
+        <span class="tag">Свадьба</span>
+        <h3>Свадьба</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/wedding.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/wedding.html</a>
+        <p class="desc">Свадебный видеопродукт / слайд-шоу.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">24</div>
+      <div>
+        <span class="tag">Романтика</span>
+        <h3>Свидание</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/свидание.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/свидание.html</a>
+        <p class="desc">Видеопродукт для свидания, подарка или романтического события.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">25</div>
+      <div>
+        <span class="tag">FPV</span>
+        <h3>FPV для города</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/Презентация_FPV-НН-город.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/Презентация_FPV-НН-город.html</a>
+        <p class="desc">Презентация FPV-формата для города.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">26</div>
+      <div>
+        <span class="tag">Реклама</span>
+        <h3>Рекламные ролики</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/ads.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/ads.html</a>
+        <p class="desc">Направление рекламных роликов.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">27</div>
+      <div>
+        <span class="tag">AI</span>
+        <h3>AI-продакшн</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/ai.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/ai.html</a>
+        <p class="desc">Направление AI-видео и генеративных визуальных решений.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">28</div>
+      <div>
+        <span class="tag">Бренд</span>
+        <h3>Имидж бренда</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/brand.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/brand.html</a>
+        <p class="desc">Направление имиджевых роликов и визуального образа бренда.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">29</div>
+      <div>
+        <span class="tag">Черновик</span>
+        <h3>Черновая продуктовая</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/draft.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/draft.html</a>
+        <p class="desc">Черновая / служебная страница.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">30</div>
+      <div>
+        <span class="tag">FPV</span>
+        <h3>FPV-съёмка</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/fpv.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/fpv.html</a>
+        <p class="desc">Общая страница направления FPV-съёмки.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">31</div>
+      <div>
+        <span class="tag">Проект</span>
+        <h3>Lesnik17</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/lesnik17.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/lesnik17.html</a>
+        <p class="desc">Проектная страница.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">32</div>
+      <div>
+        <span class="tag">Проект</span>
+        <h3>Поход</h3>
+        <a class="url" href="https://какаяувасинтереснаяработа.рф/products/pohod.html" target="_blank" rel="noopener">https://какаяувасинтереснаяработа.рф/products/pohod.html</a>
+        <p class="desc">Проектная страница.</p>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+
+  </section>
+
+  <section id="rules">
+    <div class="shell">
+      <div class="section-head">
+        <h2>Как выбирать страницу для клиента</h2>
+      </div>
+
+
+  <div class="rules">
+    <div class="rule">
+      <strong>Мероприятие, форум, конференция, корпоратив</strong>
+      <p>Отправлять страницу «Мероприятия».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Спорт, экстрим, гонки, забеги, соревнования</strong>
+      <p>Отправлять страницу «Спорт и экстрим».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Детские соревнования, секция, школа, клуб</strong>
+      <p>Отправлять страницу «Детские спортивные мероприятия».</p>
+    </div>
+
+    <div class="rule">
+      <strong>FPV-аттракцион, wow-точка, интерактив</strong>
+      <p>Отправлять страницу «FPV-аттракцион».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Концерт, артист, сцена, музыкальное событие</strong>
+      <p>Отправлять страницу «Концерты».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Воздушный шар, аэростат, свидание, подарок</strong>
+      <p>Отправлять страницу «Воздушные шары».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Beauty-салон, мастер, студия, эксперт</strong>
+      <p>Отправлять страницу «Beauty-индустрия».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Шоу, трюки, автошоу, мото-шоу, фестиваль</strong>
+      <p>Отправлять страницу «Шоу-индустрия».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Клиент готов обсуждать задачу</strong>
+      <p>Отправлять страницу «Контакты».</p>
+    </div>
+
+    <div class="rule">
+      <strong>Клиент просит просто посмотреть агентство</strong>
+      <p>Отправлять главную страницу.</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    <p>
+      <strong>Важно:</strong> старые проектные страницы отправлять только тогда, когда клиент прямо связан с этим проектом или просит именно его. Для новых клиентов лучше использовать универсальные коммерческие страницы.
+    </p>
+  </div>
+</div>
+
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <p>Служебная страница. Справочник для внутренней работы менеджера.</p>
+  </div>
+</footer>
+
+</body>
+</html>
