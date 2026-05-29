@@ -305,3 +305,60 @@ html[data-theme="light"] .legal-left .tiny{
 html[data-theme="light"] .legal-left strong{
   color:#FFFFFF;
 }
+
+
+#contact{
+  background:
+    radial-gradient(circle at 85% 20%, rgba(122,162,255,.18), transparent 34%),
+    var(--bgSoft);
+}
+
+#contact .container{
+  padding:clamp(28px,4vw,54px);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  background:var(--bgElevated);
+  box-shadow:0 18px 54px var(--shadowColor);
+}
+
+#contact .section-title{
+  max-width:880px;
+}
+
+#contact .section-title h2{
+  font-size:clamp(2.8rem,6vw,6.4rem);
+  line-height:.9;
+  letter-spacing:-.07em;
+}
+
+#contact .row .pill{
+  min-height:56px;
+  padding:0 22px;
+  border-color:var(--borderStrong);
+}
+
+#contact .row .pill:first-child{
+  background:var(--textStrong);
+  color:var(--bg);
+  box-shadow:0 16px 42px rgba(122,162,255,.28);
+}
+
+#contact .row .pill:last-child{
+  background:var(--chip-bg);
+  color:var(--chip-text);
+}
+
+#contact .row .pill:hover{
+  transform:translateY(-2px);
+}
+
+
+
+
+a.pill.primary[href="#contact"],
+#contact a.pill[href*="contacts.html"]{
+  color:#120b05 !important;
+  border-color:transparent !important;
+  background:linear-gradient(135deg,#ff5a1f,#f2b15c) !important;
+  box-shadow:0 18px 55px rgba(255,90,31,.28) !important;
+}
