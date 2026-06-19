@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Индивидуальная медиаплощадка для ресторанной экосистемы Александра Угая / О’Суси</title>
+  <style>
+    :root {
+      --bg: #101010;
+      --bg-2: #171513;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.15);
+      --text: #f7f1e8;
+      --muted: rgba(247, 241, 232, 0.74);
+      --soft: rgba(247, 241, 232, 0.52);
+      --gold: #d8b66a;
+      --gold-2: #f0d99a;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(216, 182, 106, 0.28), transparent 34%),
+        radial-gradient(circle at 90% 18%, rgba(255, 255, 255, 0.12), transparent 30%),
+        linear-gradient(135deg, #0b0b0b 0%, #181512 47%, #0e0e0e 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.88), transparent 86%);
+    }
+
+    .page {
+      width: min(100% - 40px, var(--max));
+      margin: 0 auto;
+      padding: 42px 0 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      align-items: end;
+      padding: clamp(56px, 11vw, 120px) clamp(24px, 5vw, 62px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(150deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045)),
+        radial-gradient(circle at 20% 15%, rgba(216, 182, 106, 0.24), transparent 34%),
+        radial-gradient(circle at 80% 75%, rgba(216, 182, 106, 0.14), transparent 36%);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(216, 182, 106, 0.42), rgba(255,255,255,0.08));
+      filter: blur(2px);
+      opacity: 0.66;
+    }
+
+    .hero::before {
+      width: 320px;
+      height: 320px;
+      right: -110px;
+      top: -90px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      left: -70px;
+      bottom: 80px;
+    }
+
+    .hero h1 {
+      max-width: 930px;
+      margin: 0;
+      font-size: clamp(40px, 7vw, 88px);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      font-weight: 720;
+      text-wrap: balance;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .section-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.095), rgba(255,255,255,0.045));
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+      padding: clamp(26px, 4vw, 54px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(216, 182, 106, 0.18), transparent 24%, transparent 76%, rgba(255,255,255,0.035));
+      opacity: 0.62;
+    }
+
+    .section-card h2,
+    .section-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      max-width: 850px;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 690;
+    }
+
+    .section-body {
+      display: grid;
+      gap: 18px;
+      max-width: 910px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .copy,
+    .lead-copy {
+      color: var(--muted);
+      font-size: clamp(18px, 2.1vw, 23px);
+      line-height: 1.55;
+      letter-spacing: -0.02em;
+    }
+
+    .lead-copy {
+      max-width: 960px;
+    }
+
+    strong {
+      color: var(--gold-2);
+      font-weight: 720;
+    }
+
+    .audience-lines {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 4px 0;
+    }
+
+    .audience-lines p,
+    .chain {
+      border: 1px solid rgba(216, 182, 106, 0.22);
+      border-radius: var(--radius-md);
+      background: rgba(216, 182, 106, 0.075);
+      color: var(--text);
+      padding: 18px 20px;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .chain {
+      font-weight: 650;
+      text-align: center;
+      color: var(--gold-2);
+      background: linear-gradient(135deg, rgba(216, 182, 106, 0.13), rgba(255, 255, 255, 0.06));
+    }
+
+    .clean-list {
+      list-style: none;
+      margin: 2px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .clean-list li {
+      position: relative;
+      padding: 17px 18px 17px 46px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.052);
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.42;
+      letter-spacing: -0.018em;
+    }
+
+    .clean-list li::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      left: 20px;
+      top: 25px;
+      background: var(--gold);
+      box-shadow: 0 0 22px rgba(216,182,106,0.8);
+    }
+
+    .steps {
+      display: grid;
+      gap: 10px;
+      margin: 2px 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.052);
+    }
+
+    .step span {
+      display: grid;
+      place-items: center;
+      min-height: 42px;
+      border-radius: 999px;
+      color: #15120c;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.42;
+      letter-spacing: -0.018em;
+      padding-top: 6px;
+    }
+
+    .price-table {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(216, 182, 106, 0.24);
+      background: rgba(0,0,0,0.18);
+      margin-top: 2px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 20px 22px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    th {
+      color: var(--gold-2);
+      font-weight: 760;
+      background: rgba(216, 182, 106, 0.09);
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    td:last-child,
+    th:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 24px, var(--max));
+        padding: 18px 0 42px;
+      }
+
+      .hero {
+        min-height: 62vh;
+        border-radius: 26px;
+      }
+
+      .section-card {
+        border-radius: 24px;
+      }
+
+      .audience-lines {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 48px 1fr;
+      }
+
+      th,
+      td {
+        padding: 16px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1>Индивидуальная медиаплощадка для ресторанной экосистемы Александра Угая / О’Суси</h1>
+    </header>
+
+    <div class="content">
+<section class="section-card">
+  <h2>1. Главная идея</h2>
+  <div class="section-body">
+<p class="copy">Предлагаем создать индивидуальную медиаплощадку для ресторанной экосистемы Александра Угая / О’Суси.</p>
+<p class="lead-copy">Это система тестирования спроса через короткие коммерческие ролики: формулируем гипотезу, превращаем её в сценарий, снимаем, публикуем, замеряем цифры и делаем выводы для следующего цикла.</p>
+<p class="copy">Главный смысл площадки — собрать разные аудитории вокруг одной ресторанной группы.</p>
+<div class="audience-lines"><p>Один человек приходит за суши.</p><p>Другой — за атмосферой.</p><p>Третий — за поводом встретиться.</p><p>Четвёртый — за новым впечатлением.</p></div>
+<p class="lead-copy">Аудитории разные, игрок один. Площадка помогает переводить внимание между заведениями, продуктами и форматами внутри одной экосистемы.</p>
+  </div>
+</section>
+<section class="section-card">
+  <h2>2. Почему это работает для ресторанной группы</h2>
+  <div class="section-body">
+<p class="lead-copy">Человек может заинтересоваться одним продуктом, сохранить другой ролик, отправить третье предложение друзьям и вернуться уже к новому формату внутри той же группы.</p>
+<p class="copy">Медиаплощадка связывает предложения между собой и формирует привычку следить за новыми поводами внутри ресторанной экосистемы.</p>
+  </div>
+</section>
+<section class="section-card">
+  <h2>3. Механика тестирования спроса</h2>
+  <div class="section-body">
+<p class="copy">Каждый ролик — отдельная коммерческая гипотеза.</p>
+<p class="copy">Рабочая цепочка:</p>
+<p class="copy chain"><strong>гипотеза → идея → сценарий → съёмка → публикация → цифры → вывод</strong></p>
+<p class="copy">После публикации смотрим фактическую реакцию: просмотры, сохранения, пересылки, обсуждения и другие доступные показатели.</p>
+<p class="lead-copy">Смысл теста — перевести предположения о спросе в фактические данные: что вызывает реакцию, что требует изменения, что можно усилить.</p>
+  </div>
+</section>
+<section class="section-card">
+  <h2>4. Что проверяем в роликах</h2>
+  <div class="section-body">
+<p class="copy">В роликах проверяем спрос на конкретные поводы и предложения.</p>
+<ul class="clean-list"><li>какой повод посещения сработает сильнее;</li><li>какой продукт чаще сохраняют и пересылают;</li><li>какой формат вызывает больше реакции;</li><li>какой сценарий лучше возвращает внимание в ресторанную группу;</li><li>какие заведения или предложения можно связать между собой.</li></ul>
+  </div>
+</section>
+<section class="section-card">
+  <h2>5. Что получает ресторанная группа</h2>
+  <div class="section-body">
+<p class="copy">Систему регулярной проверки спроса и готовые материалы для дальнейшего использования:</p>
+<ul class="clean-list"><li>опубликованные ролики;</li><li>фактические цифры после выхода;</li><li>понимание реакции аудитории;</li><li>база для следующих гипотез;</li><li>материалы для соцсетей, рекламы, рассылок, презентаций и сайта.</li></ul>
+  </div>
+</section>
+<section class="section-card">
+  <h2>6. Что делает команда и как запускается работа</h2>
+  <div class="section-body">
+<p class="lead-copy">Берём на себя полный цикл коротких коммерческих роликов: гипотезы, сценарии, съёмку, монтаж, публикацию, замер цифр и обратную связь по статистике.</p>
+<p class="copy">Порядок запуска:</p>
+<div class="steps"><div class="step"><span>1.</span><p>Согласовываем стартовый объём тестов.</p></div><div class="step"><span>2.</span><p>Готовим несколько коммерческих гипотез на выбор.</p></div><div class="step"><span>3.</span><p>Оформляем договор и документы.</p></div><div class="step"><span>4.</span><p>Вместе выбираем гипотезы для запуска.</p></div><div class="step"><span>5.</span><p>Вносится оплата за согласованный пакет.</p></div><div class="step"><span>6.</span><p>Переводим гипотезы в идеи и сценарии.</p></div><div class="step"><span>7.</span><p>Согласовываем даты съёмок и организационные детали.</p></div><div class="step"><span>8.</span><p>Снимаем, монтируем и готовим ролики к публикации.</p></div><div class="step"><span>9.</span><p>Размещаем ролики на площадке.</p></div><div class="step"><span>10.</span><p>После выхода замеряем цифры и передаём выводы.</p></div></div>
+<p class="lead-copy">Серия роликов нужна для сравнения гипотез между собой. Один ролик показывает реакцию на одну идею, серия помогает увидеть закономерности.</p>
+  </div>
+</section>
+<section class="section-card">
+  <h2>7. Риски и ограничения</h2>
+  <div class="section-body">
+<p class="copy">Мы не гарантируем конкретное количество гостей, броней, заказов, заявок и продаж.</p>
+<p class="lead-copy">На результат влияют аудитория, сезон, продукт, цена, локация, оффер, день публикации, сила гипотезы и готовность предложения к спросу.</p>
+<p class="copy">Гарантированный результат нашей работы — выполненный цикл: гипотезы, сценарии, съёмка, публикации, цифры и рекомендации.</p>
+<p class="lead-copy">Коммерческий результат в виде гостей, броней и продаж появляется как следствие сильной гипотезы, точного предложения и реакции аудитории.</p>
+  </div>
+</section>
+<section class="section-card">
+  <h2>8. Пакеты и стоимость</h2>
+  <div class="section-body">
+<p class="copy">Стоимость одного коммерческого ролика в рамках первого тестового цикла — <strong>10 000 ₽</strong>.</p>
+<p class="lead-copy">Цена находится на грани себестоимости и рассчитана на быстрый старт: нам важно вовлечь ресторанную группу в процесс, запустить первые гипотезы и показать механику на практике.</p>
+<p class="copy">Для проверки спроса эффективнее запускать серию гипотез: так появляется сравнение реакции аудитории.</p>
+<div class="price-table"><table>
+<thead><tr><th>Пакет</th><th>Объём</th></tr></thead>
+<tbody>
+<tr><td>Безопасный вход</td><td>2 ролика</td></tr>
+<tr><td>Короткая серия</td><td>3 ролика</td></tr>
+<tr><td>Рабочий тест месяца</td><td>10 роликов</td></tr>
+<tr><td>Полный 1-й месяц площадки</td><td>30 роликов</td></tr>
+</tbody></table></div>
+  </div>
+</section>
+<section class="section-card">
+  <h2>9. Первый шаг</h2>
+  <div class="section-body">
+<p class="copy">Предлагаем начать с <strong>30-минутной рабочей встречи</strong>.</p>
+<p class="copy">На встрече:</p>
+<ul class="clean-list"><li>определим направления, которые логично протестировать первыми;</li><li>выберем стартовый объём;</li><li>согласуем официальный порядок работы;</li><li>зафиксируем первый цикл запуска.</li></ul>
+  </div>
+</section>
+    </div>
+  </main>
+</body>
+</html>
