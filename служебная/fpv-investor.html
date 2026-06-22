@@ -705,6 +705,315 @@
         margin-inline: -4px;
       }
     }
+    
+    :root {
+      --surface-2: rgba(255, 255, 255, 0.72);
+    }
+    html[data-theme="dark"] {
+      --surface-2: rgba(22, 32, 43, 0.72);
+    }
+    .topbar.is-hidden:focus-within {
+      transform: translateY(0);
+    }
+    .topbar-inner {
+      position: relative;
+      min-height: var(--topbar-h);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      align-items: center;
+      gap: 18px;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav a, .theme-toggle, .menu-toggle {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: .95rem;
+      color: var(--muted);
+      text-decoration: none;
+      background: transparent;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .nav a.active, .nav a:hover, .theme-toggle:hover, .menu-toggle:hover {
+      color: var(--text);
+      background: var(--surface-soft);
+      border-color: var(--line);
+    }
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    .mt-16 { margin-top: 16px; }
+    .mt-18 { margin-top: 18px; }
+    .mt-20 { margin-top: 20px; }
+    .mb-18 { margin-bottom: 18px; }
+    .card-pad-20 { padding: 20px; }
+    .amount-compact {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+    .text-lg {
+      font-size: 1.08rem;
+    }
+    #request .request-shell {
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 24px;
+      align-items: start;
+    }
+    #request .request-main,
+    #request .stack,
+    #request .card {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #request .request-main,
+    #request .stack {
+      display: grid;
+      gap: 24px;
+    }
+    #request .flow-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    #request .flow-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) auto;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface-2);
+    }
+    #request .flow-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.35;
+      margin: 0 0 4px;
+    }
+    #request .flow-item p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    #request .flow-item .sum {
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.2;
+      text-align: right;
+    }
+    #request .stat-rail {
+      display: grid;
+      gap: 10px;
+    }
+    #request .stat-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    #request .stat-line:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    #request .stat-line strong,
+    #request .stat-line span {
+      min-width: 0;
+    }
+    #request .stat-line span {
+      white-space: nowrap;
+      text-align: right;
+      font-weight: 700;
+    }
+    #trc-model .mall-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    #trc-model .scenario-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    #trc-model .scenario-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(120px, .9fr) minmax(120px, .9fr) 88px;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface-2);
+    }
+    #trc-model .scenario-item strong,
+    #trc-model .scenario-item span {
+      min-width: 0;
+    }
+    #trc-model .scenario-item .scenario-name {
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    #trc-model .scenario-item .scenario-metric {
+      text-align: right;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    #trc-model .scenario-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(120px, .9fr) minmax(120px, .9fr) 88px;
+      gap: 14px;
+      padding: 0 16px 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    #trc-model .scenario-head div:not(:first-child) {
+      text-align: right;
+    }
+    #trc-model .wide-note {
+      margin-top: 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface-2);
+    }
+    #trc-model .wide-note-mark {
+      flex: 0 0 auto;
+      font-weight: 700;
+      line-height: 1;
+    }
+    #trc-model .wide-note-text {
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    @media (max-width: 760px) {
+      :root { --topbar-h: 72px; }
+      .topbar {
+        position: sticky;
+      }
+      .topbar-inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+        padding: 12px 0;
+      }
+      .topbar-actions {
+        gap: 8px;
+      }
+      .menu-toggle {
+        display: inline-flex;
+      }
+      .nav {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: color-mix(in srgb, var(--bg) 94%, transparent);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+      }
+      .topbar.nav-open .nav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .nav a {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 640px) {
+      #request .flow-item {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      #request .flow-item .sum,
+      #request .stat-line span {
+        text-align: left;
+      }
+      #request .stat-line {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+    @media (max-width: 720px) {
+      #trc-model .scenario-head {
+        display: none;
+      }
+      #trc-model .scenario-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+      }
+      #trc-model .scenario-item .scenario-metric {
+        text-align: left;
+        white-space: normal;
+      }
+      #trc-model .scenario-item .scenario-metric::before {
+        content: attr(data-label) " ";
+        color: var(--muted);
+        font-weight: 500;
+      }
+      #trc-model .wide-note {
+        padding: 16px 18px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -741,15 +1050,22 @@
         <strong>Воздушный тур — интерактивная FPV-зона</strong>
         <span>1 точка → 3 улица → 5 ТРЦ</span>
       </a>
-      <nav class="nav" aria-label="Основная навигация">
+      <nav class="nav" id="site-nav" aria-label="Основная навигация">
         <a href="#thesis">Тезис</a>
         <a href="#roadmap">Маршрут</a>
         <a href="#economics">Экономика</a>
         <a href="#request">Запрос</a>
         <a href="#trc-model">ТРЦ</a>
         <a href="#investor">Инвестору</a>
-        <button class="theme-toggle" type="button" aria-label="Переключить тему">Тема</button>
       </nav>
+      <div class="topbar-actions">
+        <button class="theme-toggle" type="button" aria-label="Переключить тему">Тема</button>
+        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="site-nav" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -860,7 +1176,7 @@
           <div class="metric-label">Расчёт на 30 смен</div>
           <div class="metric-value">246 563 ₽</div>
         </article></div>
-            <div class="note" style="margin-top:18px;">
+            <div class="note mt-18">
               <div>→</div>
               <div>
                 <strong>Пики уже понятны:</strong> пиковая выручка сосредоточена в пятницу и субботу. Уличная модель сейчас работает как вечерняя-закатная и выходная. Для роста уже работаем с блогерами и дооформляем точку визуально.
@@ -873,7 +1189,7 @@
             <div class="stat-rail">
               <div class="stat-line"><strong>Текущая выручка 1 точки по факту</strong><span>164 375 ₽ / мес</span></div><div class="stat-line"><strong>Целевая выручка 1 уличной точки в июле–августе</strong><span>210 000 ₽ / мес</span></div><div class="stat-line"><strong>Целевая выручка 3 уличных точек</strong><span>630 000 ₽ / мес</span></div><div class="stat-line"><strong>Сентябрьская выручка 1 уличной точки</strong><span>150 000 ₽</span></div><div class="stat-line"><strong>Основной драйвер</strong><span>пятница, суббота, вечер, закат, поток</span></div>
             </div>
-            <div class="note" style="margin-top:18px;">
+            <div class="note mt-18">
               <div>→</div>
               <div>Статус ТРЦ-модели — расчётная модель.</div>
             </div>
@@ -987,7 +1303,7 @@
             <div class="stat-rail">
               <div class="stat-line"><strong>Управление</strong><span>100 000 ₽</span></div><div class="stat-line"><strong>Инструктор пилотов</strong><span>35 000 ₽</span></div><div class="stat-line"><strong>Техник</strong><span>25 000 ₽</span></div><div class="stat-line"><strong>Офис</strong><span>80 000 ₽</span></div><div class="stat-line"><strong>Итого фиксированный контур</strong><span>240 000 ₽ / мес</span></div>
             </div>
-            <div class="note" style="margin-top:18px;">
+            <div class="note mt-18">
               <div>→</div>
               <div>Продвижение в июле–сентябре считается отдельно: <strong>100 000 ₽ в месяц</strong>. Закупка оборудования считается отдельно от операционных расходов.</div>
             </div>
@@ -996,137 +1312,9 @@
       </div>
     </section>
 
-<style>
-  #request .request-shell{
-    display:grid;
-    grid-template-columns:minmax(0,1.08fr) minmax(0,0.92fr);
-    gap:24px;
-    align-items:start;
-  }
-  #request .request-main,
-  #request .stack,
-  #request .card,
-  #request .table-wrap,
-  #request table{
-    min-width:0;
-    width:100%;
-    box-sizing:border-box;
-  }
-  #request .request-main,
-  #request .stack{
-    display:grid;
-    gap:24px;
-  }
-  #request .table-wrap{
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-  }
-  #request table{
-    border-collapse:collapse;
-    table-layout:fixed;
-  }
-  #request th,
-  #request td{
-    word-break:break-word;
-  }
-  @media (max-width: 980px){
-    #request .request-shell{
-      grid-template-columns:minmax(0,1fr);
-    }
-  }
-</style>
 
 <section class="section section-anchor-offset" id="request">
-  <style>
-    #request .request-shell{
-      display:grid;
-      grid-template-columns:minmax(0,1.08fr) minmax(0,0.92fr);
-      gap:24px;
-      align-items:start;
-    }
-    #request .request-main,
-    #request .stack{
-      min-width:0;
-      display:grid;
-      gap:24px;
-    }
-    #request .flow-list{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-    #request .flow-item{
-      display:grid;
-      grid-template-columns:minmax(0,1.25fr) auto;
-      gap:14px;
-      align-items:start;
-      padding:14px 16px;
-      border:1px solid var(--line, rgba(20,20,20,.08));
-      border-radius:18px;
-      background:var(--surface-2, rgba(255,255,255,.72));
-    }
-    #request .flow-item strong{
-      display:block;
-      font-size:15px;
-      line-height:1.35;
-      margin:0 0 4px;
-    }
-    #request .flow-item p{
-      margin:0;
-      font-size:14px;
-      line-height:1.5;
-      color:var(--muted, rgba(20,20,20,.66));
-    }
-    #request .flow-item .sum{
-      white-space:nowrap;
-      font-weight:700;
-      font-size:15px;
-      line-height:1.2;
-      text-align:right;
-    }
-    #request .stat-rail{
-      display:grid;
-      gap:10px;
-    }
-    #request .stat-line{
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      padding:12px 0;
-      border-bottom:1px solid var(--line, rgba(20,20,20,.08));
-    }
-    #request .stat-line:last-child{
-      border-bottom:0;
-      padding-bottom:0;
-    }
-    #request .stat-line strong,
-    #request .stat-line span{
-      min-width:0;
-    }
-    #request .stat-line span{
-      white-space:nowrap;
-      text-align:right;
-      font-weight:700;
-    }
-    @media (max-width: 980px){
-      #request .request-shell{
-        grid-template-columns:minmax(0,1fr);
-      }
-    }
-    @media (max-width: 640px){
-      #request .flow-item{
-        grid-template-columns:minmax(0,1fr);
-      }
-      #request .flow-item .sum,
-      #request .stat-line span{
-        text-align:left;
-      }
-      #request .stat-line{
-        flex-direction:column;
-        gap:6px;
-      }
-    }
-  </style>
+  
 
   <div class="container">
     <div class="section-head">
@@ -1142,7 +1330,7 @@
           <div class="request-amount">1,65<br>млн ₽</div>
           <p class="request-caption">950 000 ₽ в июле и 700 000 ₽ в августе. Деньги направляются на оборудование, операционный разрыв июля и запас на начало перехода.</p>
 
-          <div class="request-breakdown" style="margin-top:20px;">
+          <div class="request-breakdown mt-20">
             <div class="breakdown-line"><span>Закупка двух уличных точек в июле</span><strong>670 000 ₽</strong></div>
             <div class="breakdown-line"><span>Закупка двух точек под ТРЦ в августе</span><strong>670 000 ₽</strong></div>
             <div class="breakdown-line"><span>Покрытие июльского операционного разрыва</span><strong>124 400 ₽</strong></div>
@@ -1204,7 +1392,7 @@
             </div>
           </div>
 
-          <div class="stat-rail" style="margin-top:18px;">
+          <div class="stat-rail mt-18">
             <div class="stat-line"><strong>Поступление инвестиций</strong><span>+950 000 ₽</span></div>
             <div class="stat-line"><strong>Выручка июля</strong><span>+490 000 ₽</span></div>
             <div class="stat-line"><strong>Закупка оборудования</strong><span>−670 000 ₽</span></div>
@@ -1242,7 +1430,7 @@
             </div>
           </div>
 
-          <div class="stat-rail" style="margin-top:18px;">
+          <div class="stat-rail mt-18">
             <div class="stat-line"><strong>Остаток после июля</strong><span>+155 600 ₽</span></div>
             <div class="stat-line"><strong>Поступление инвестиций</strong><span>+700 000 ₽</span></div>
             <div class="stat-line"><strong>Выручка августа</strong><span>+630 000 ₽</span></div>
@@ -1255,11 +1443,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-
 
 
     <section class="section section-anchor-offset" id="model">
@@ -1282,15 +1465,15 @@
             <div class="table-wrap "><table><thead><tr><th>Месяц</th><th>Выручка</th><th>Переменные расходы 56%</th><th>Фикс. контур</th><th>Продвижение</th><th>Опер. расходы</th><th>Опер. результат</th></tr></thead><tbody><tr><td>Июль</td><td>490 000 ₽</td><td>274 400 ₽</td><td>240 000 ₽</td><td>100 000 ₽</td><td>614 400 ₽</td><td>−124 400 ₽</td></tr><tr><td>Август</td><td>630 000 ₽</td><td>352 800 ₽</td><td>240 000 ₽</td><td>100 000 ₽</td><td>692 800 ₽</td><td>−62 800 ₽</td></tr><tr><td>Сентябрь</td><td>1 200 000 ₽</td><td>672 000 ₽</td><td>240 000 ₽</td><td>100 000 ₽</td><td>1 012 000 ₽</td><td>+188 000 ₽</td></tr><tr><td>Октябрь</td><td>1 270 000 ₽</td><td>711 200 ₽</td><td>240 000 ₽</td><td>0 ₽</td><td>951 200 ₽</td><td>+318 800 ₽</td></tr><tr><td>Ноябрь</td><td>1 270 000 ₽</td><td>711 200 ₽</td><td>240 000 ₽</td><td>0 ₽</td><td>951 200 ₽</td><td>+318 800 ₽</td></tr><tr><td>Декабрь</td><td>1 270 000 ₽</td><td>711 200 ₽</td><td>240 000 ₽</td><td>0 ₽</td><td>951 200 ₽</td><td>+318 800 ₽</td></tr><tr><td>Итого</td><td>6 130 000 ₽</td><td>3 432 800 ₽</td><td>1 440 000 ₽</td><td>300 000 ₽</td><td>5 172 800 ₽</td><td>+957 200 ₽</td></tr></tbody></table></div>
           </div>
           <div class="tab-panel" id="panel-margin" role="tabpanel" aria-labelledby="tab-margin" hidden>
-            <div class="grid grid-2" style="margin-bottom:18px;">
-              <article class="card" style="padding:20px;">
+            <div class="grid grid-2 mb-18">
+              <article class="card card-pad-20">
                 <div class="metric-label">маржа после переменных расходов</div>
-                <div class="request-amount" style="font-size:2.5rem; margin-bottom:8px;">44%</div>
+                <div class="request-amount amount-compact">44%</div>
                 <div class="muted">Выручка 100% минус переменные расходы 56%.</div>
               </article>
-              <article class="card" style="padding:20px;">
+              <article class="card card-pad-20">
                 <div class="metric-label">расчётная операционная маржа ТРЦ</div>
-                <div class="request-amount" style="font-size:2.5rem; margin-bottom:8px;">25%</div>
+                <div class="request-amount amount-compact">25%</div>
                 <div class="muted">С октября пять точек работают по расчётной модели ТРЦ.</div>
               </article>
             </div>
@@ -1304,101 +1487,7 @@
     </section>
 
 <section class="section section-anchor-offset" id="trc-model">
-  <style>
-    #trc-model .mall-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-      gap:24px;
-      align-items:start;
-    }
-    #trc-model .scenario-list{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-    #trc-model .scenario-item{
-      display:grid;
-      grid-template-columns:minmax(0,1.05fr) minmax(120px,.9fr) minmax(120px,.9fr) 88px;
-      gap:14px;
-      align-items:center;
-      padding:14px 16px;
-      border:1px solid var(--line, rgba(20,20,20,.08));
-      border-radius:18px;
-      background:var(--surface-2, rgba(255,255,255,.72));
-    }
-    #trc-model .scenario-item strong,
-    #trc-model .scenario-item span{
-      min-width:0;
-    }
-    #trc-model .scenario-item .scenario-name{
-      font-weight:700;
-      line-height:1.35;
-    }
-    #trc-model .scenario-item .scenario-metric{
-      text-align:right;
-      font-weight:600;
-      white-space:nowrap;
-    }
-    #trc-model .scenario-head{
-      display:grid;
-      grid-template-columns:minmax(0,1.05fr) minmax(120px,.9fr) minmax(120px,.9fr) 88px;
-      gap:14px;
-      padding:0 16px 8px;
-      color:var(--muted, rgba(20,20,20,.66));
-      font-size:12px;
-      line-height:1.35;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-    }
-    #trc-model .scenario-head div:not(:first-child){
-      text-align:right;
-    }
-    #trc-model .wide-note{
-      margin-top:24px;
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      padding:18px 20px;
-      border:1px solid var(--line, rgba(20,20,20,.08));
-      border-radius:20px;
-      background:var(--surface-2, rgba(255,255,255,.72));
-    }
-    #trc-model .wide-note-mark{
-      flex:0 0 auto;
-      font-weight:700;
-      line-height:1;
-    }
-    #trc-model .wide-note-text{
-      font-size:16px;
-      line-height:1.55;
-    }
-    @media (max-width: 980px){
-      #trc-model .mall-grid{
-        grid-template-columns:minmax(0,1fr);
-      }
-    }
-    @media (max-width: 720px){
-      #trc-model .scenario-head{
-        display:none;
-      }
-      #trc-model .scenario-item{
-        grid-template-columns:minmax(0,1fr);
-        gap:8px;
-      }
-      #trc-model .scenario-item .scenario-metric{
-        text-align:left;
-        white-space:normal;
-      }
-      #trc-model .scenario-item .scenario-metric::before{
-        content:attr(data-label) " ";
-        color:var(--muted, rgba(20,20,20,.66));
-        font-weight:500;
-      }
-      #trc-model .wide-note{
-        padding:16px 18px;
-      }
-    }
-  </style>
+  
 
   <div class="container">
     <div class="section-head">
@@ -1480,9 +1569,6 @@
 </section>
 
 
-
-
-
     <section class="section section-anchor-offset" id="investor">
       <div class="container">
         <div class="section-head">
@@ -1504,11 +1590,11 @@
             <div class="label">декабрьская точка решения</div>
             <p class="muted">В декабре фиксируем:</p>
             <ul class="bullet-list"><li>фактическую выручку пяти точек в ТРЦ</li><li>фактические расходы</li><li>операционный результат</li><li>остаток денег</li><li>качество площадок</li><li>повторяемость спроса</li><li>готовность команды</li><li>интерес баров и ресторанов</li><li>следующий маршрут масштабирования</li></ul>
-            <p class="muted" style="margin-top:16px;">После этого садимся за стол переговоров и решаем, как плывём дальше.</p>
+            <p class="muted mt-16">После этого садимся за стол переговоров и решаем, как плывём дальше.</p>
           </article>
           <article class="card">
             <div class="label">финальная формула</div>
-            <p style="font-size:1.08rem;">Рабочий запрос <strong>1,65 млн ₽</strong> позволяет дойти до конца года с положительным денежным остатком, пятью рабочими комплектами и понятной моделью для переговоров.</p>
+            <p class="text-lg">Рабочий запрос <strong>1,65 млн ₽</strong> позволяет дойти до конца года с положительным денежным остатком, пятью рабочими комплектами и понятной моделью для переговоров.</p>
           </article>
         </div>
       </div>
@@ -1613,48 +1699,102 @@
       function applyTheme(nextTheme) {
         root.setAttribute('data-theme', nextTheme);
         try { localStorage.setItem('lc_theme', nextTheme); } catch (e) {}
-        themeButton.setAttribute('aria-pressed', String(nextTheme === 'dark'));
+        if (themeButton) {
+          themeButton.setAttribute('aria-pressed', String(nextTheme === 'dark'));
+        }
       }
 
-      themeButton.addEventListener('click', function() {
-        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        applyTheme(next);
-      });
-      themeButton.setAttribute('aria-pressed', String(root.getAttribute('data-theme') === 'dark'));
+      if (themeButton) {
+        themeButton.addEventListener('click', function() {
+          const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          applyTheme(next);
+        });
+        themeButton.setAttribute('aria-pressed', String(root.getAttribute('data-theme') === 'dark'));
+      }
 
       const topbar = document.querySelector('.topbar');
       const hero = document.getElementById('hero');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteNav = document.getElementById('site-nav');
       let lastY = window.scrollY;
 
+      function setMenu(open) {
+        if (!topbar || !menuToggle) return;
+        topbar.classList.toggle('nav-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+        if (open) topbar.classList.remove('is-hidden');
+      }
+
+      if (menuToggle && siteNav && topbar) {
+        menuToggle.addEventListener('click', function() {
+          setMenu(!topbar.classList.contains('nav-open'));
+        });
+
+        siteNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 760) setMenu(false);
+          });
+        });
+
+        document.addEventListener('click', function(event) {
+          if (window.innerWidth > 760) return;
+          if (!topbar.contains(event.target)) setMenu(false);
+        });
+
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape') setMenu(false);
+        });
+
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 760) setMenu(false);
+        });
+
+        topbar.addEventListener('focusin', function() {
+          topbar.classList.remove('is-hidden');
+        });
+      }
+
       function updateTopbar() {
+        if (!topbar) return;
         const y = window.scrollY;
-        const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
-        const afterFirstScreen = y > heroHeight * 0.82;
+        const firstScreenBottom = Math.max(
+          window.innerHeight * 0.92,
+          hero ? hero.offsetTop + Math.min(hero.offsetHeight, window.innerHeight) - 24 : 0
+        );
+        const afterFirstScreen = y > firstScreenBottom;
         const scrollingDown = y > lastY + 4;
         const scrollingUp = y < lastY - 4;
+        const menuOpen = topbar.classList.contains('nav-open');
+        const focusedInside = topbar.matches(':focus-within');
+
         topbar.classList.toggle('is-compact', y > 8);
-        if (afterFirstScreen && scrollingDown) {
+
+        if (y <= 80 || scrollingUp || !afterFirstScreen || menuOpen || focusedInside) {
+          topbar.classList.remove('is-hidden');
+        } else if (afterFirstScreen && scrollingDown) {
           topbar.classList.add('is-hidden');
         }
-        if (!afterFirstScreen || scrollingUp) {
-          topbar.classList.remove('is-hidden');
-        }
+
         lastY = y;
       }
+
       updateTopbar();
       window.addEventListener('scroll', updateTopbar, { passive: true });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = '#' + entry.target.id;
-            navLinks.forEach(link => {
-              link.classList.toggle('active', link.getAttribute('href') === id);
-            });
-          }
-        });
-      }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
-      sections.forEach(section => observer.observe(section));
+      if (sections.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = '#' + entry.target.id;
+              navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === id);
+              });
+            }
+          });
+        }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+        sections.forEach(section => observer.observe(section));
+      }
 
       const tabs = Array.from(document.querySelectorAll('.tab-button'));
       const panels = Array.from(document.querySelectorAll('.tab-panel'));
@@ -1682,7 +1822,8 @@
           activateTab(tabs[nextIndex]);
         });
       });
-      activateTab(document.querySelector('.tab-button[aria-selected="true"]'));
+      const initialTab = document.querySelector('.tab-button[aria-selected="true"]');
+      if (initialTab) activateTab(initialTab);
     })();
   </script>
 </body>
