@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шаблоны сообщений Telegram и VK — 27 июня</title>
+  <meta name="description" content="Минималистичная страница с шаблонами сообщений и скриптами для Telegram и VK: первые касания, ответы, дожимы, напоминания и статусы.">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:title" content="Шаблоны сообщений Telegram и VK — 27 июня">
+  <meta property="og:description" content="Готовые сообщения, ответы, дожимы и напоминания для Telegram и VK.">
+  <meta property="og:type" content="website">
+  <style>
+    :root{
+      --bg:#0d0f12; --bg2:#14181d; --surface:#171b21; --surface2:#1e242c; --text:#f3f5f7; --muted:#aab3be;
+      --line:rgba(255,255,255,.11); --accent:#f3f5f7; --accent2:#8fb9ff; --shadow:0 10px 30px rgba(0,0,0,.24);
+      --radius:22px; --radius-sm:16px; --container:1180px;
+    }
+    html[data-theme="light"]{
+      --bg:#f7f8fa; --bg2:#ffffff; --surface:#ffffff; --surface2:#f0f3f6; --text:#111418; --muted:#5f6b78;
+      --line:rgba(17,20,24,.10); --accent:#111418; --accent2:#335dff; --shadow:0 10px 30px rgba(20,25,32,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(143,185,255,.12), transparent 22%),
+        radial-gradient(circle at top left, rgba(255,255,255,.05), transparent 20%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text); line-height:1.55;
+    }
+    a{color:var(--text); text-decoration-color:rgba(255,255,255,.35); text-underline-offset:3px}
+    html[data-theme="light"] a{text-decoration-color:rgba(17,20,24,.35)}
+    a:hover{text-decoration-color:currentColor}
+    .container{width:min(calc(100% - 32px), var(--container)); margin:0 auto}
+    .topbar{
+      position:sticky; top:0; z-index:20; backdrop-filter:blur(16px);
+      background:color-mix(in srgb, var(--bg) 72%, transparent); border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{display:flex; justify-content:flex-end; align-items:center; min-height:72px}
+    .burger{
+      width:56px; height:56px; border-radius:999px; border:1px solid var(--line); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; box-shadow:var(--shadow);
+    }
+    .burger span,.burger span::before,.burger span::after{
+      display:block; width:20px; height:2px; border-radius:99px; background:var(--text); position:relative; transition:.2s ease;
+      content:"";
+    }
+    .burger span::before{position:absolute; top:-6px}
+    .burger span::after{position:absolute; top:6px}
+    .menu{
+      position:fixed; inset:72px 16px auto auto; width:min(360px, calc(100% - 32px)); padding:18px; display:none;
+      background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow);
+      backdrop-filter:blur(20px);
+    }
+    .menu.open{display:block}
+    .menu nav{display:grid; gap:10px; margin-bottom:14px}
+    .menu a,.theme-toggle,.menu-note{
+      border:1px solid var(--line); background:var(--surface2); border-radius:16px; padding:12px 14px; text-decoration:none;
+    }
+    .theme-toggle{
+      width:100%; color:var(--text); cursor:pointer; text-align:left; font:inherit;
+    }
+    .menu-note{color:var(--muted); font-size:14px}
+    .hero{padding:72px 0 28px}
+    .hero-card,.card,.cta{
+      background:color-mix(in srgb, var(--surface) 90%, transparent); border:1px solid var(--line);
+      border-radius:32px; box-shadow:var(--shadow);
+    }
+    .hero-card{padding:clamp(28px,5vw,54px); display:grid; gap:22px}
+    .eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted)}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-size:clamp(2rem, 6vw, 4.9rem); line-height:.95; max-width:11ch}
+    h2{font-size:clamp(1.45rem, 3vw, 2.4rem)}
+    h3{font-size:1.06rem}
+    .lead{font-size:clamp(1rem, 1.6vw, 1.2rem); color:var(--muted); max-width:64ch}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:18px}
+    .statline{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .pill{
+      background:var(--surface2); border:1px solid var(--line); border-radius:18px; padding:14px;
+      font-size:14px; color:var(--muted)
+    }
+    section{padding:20px 0}
+    .section-head{display:grid; gap:6px; margin-bottom:18px}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .card{padding:22px}
+    .span-4{grid-column:span 4}
+    .span-6{grid-column:span 6}
+    .span-8{grid-column:span 8}
+    .span-12{grid-column:1/-1}
+    ul,ol{margin:0; padding-left:20px}
+    li+li{margin-top:8px}
+    .quote-list{display:grid; gap:12px}
+    .quote{
+      padding:16px 18px; border:1px solid var(--line); border-radius:18px; background:var(--surface2);
+    }
+    .cards-2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+    .cards-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+    .cta{margin:28px 0 18px; padding:clamp(28px,5vw,52px)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 18px; border-radius:999px;
+      text-decoration:none; border:1px solid var(--line); background:var(--text); color:var(--bg); font-weight:600;
+    }
+    .footer{
+      padding:10px 0 40px; color:var(--muted);
+    }
+    .brand{font-size:13px; letter-spacing:.12em; text-transform:uppercase}
+    .brand strong{display:block; color:var(--text); letter-spacing:.08em}
+    .tag{display:inline-flex; padding:8px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:13px}
+    :focus-visible{outline:3px solid var(--accent2); outline-offset:3px}
+    @media (max-width: 900px){
+      .hero-grid,.cards-2,.cards-3,.statline{grid-template-columns:1fr}
+      .span-4,.span-6,.span-8{grid-column:1/-1}
+      .hero{padding-top:48px}
+      .topbar-inner{min-height:64px}
+      .menu{inset:64px 16px auto 16px; width:auto}
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none !important; animation:none !important}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-controls="menu" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <aside class="menu" id="menu" aria-label="Навигация">
+    <nav>
+      <a href="#logic">Логика</a>
+      <a href="#what-to-write">Что писать</a>
+      <a href="#before-send">Перед отправкой</a>
+      <a href="#short">Короткие входы</a>
+      <a href="#full">Первые сообщения</a>
+      <a href="#answers">Ответы</a>
+      <a href="#push">Дожимы</a>
+      <a href="#reminders">Напоминания</a>
+      <a href="#statuses">Статусы</a>
+      <a href="#cta">Финал</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">Тема: тёмная</button>
+    <div class="menu-note">Минималистичная навигация. В шапке — только гамбургер.</div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">Telegram / VK • 27 июня</div>
+          <div class="hero-grid">
+            <div>
+              <h1>Шаблоны сообщений и скрипты</h1>
+              <p class="lead">Одна страница с готовыми первыми сообщениями, ответами, дожимами и напоминаниями. Цель переписки — не просто явка, а покупка на точке 27 июня: полёт, сертификат на полёт или сертификат на съёмку.</p>
+            </div>
+            <div class="statline">
+              <div class="pill"><strong>Фокус</strong><br>привести к покупке на месте</div>
+              <div class="pill"><strong>Ограничение</strong><br>без предоплаты и переводов заранее</div>
+              <div class="pill"><strong>Форматы</strong><br>полёт, сертификат, съёмка</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="logic">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">0</div>
+          <h2>Главная логика</h2>
+          <p class="lead">Суть переписки — привести людей 27 июня в сквер им. Свердлова, чтобы они купили полёт, сертификат на полёт или сертификат на съёмку. В первом сообщении не давить, но честно обозначать продажную цель.</p>
+        </div>
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Что важно проговаривать</h3>
+            <div class="quote-list">
+              <div class="quote">Мне нужна не просто явка, а продажа на точке в день конкурса.</div>
+              <div class="quote">Все оплаты — только 27 июня на месте, по команде.</div>
+            </div>
+          </article>
+          <article class="card span-6">
+            <h3>Что человек может купить</h3>
+            <div class="quote-list">
+              <div class="quote">Полёт себе.</div>
+              <div class="quote">Полёт ребёнку.</div>
+              <div class="quote">Сертификат на будущий полёт.</div>
+              <div class="quote">Сертификат на будущую FPV-съёмку.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-to-write">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">1</div>
+          <h2>Что писать</h2>
+        </div>
+        <div class="cards-3">
+          <article class="card"><div class="quote">«Мне важно, чтобы ты пришёл и купил полёт 27-го»</div></article>
+          <article class="card"><div class="quote">«Покупка на месте идёт мне в зачёт конкурса»</div></article>
+          <article class="card"><div class="quote">«Буду рад, если поддержишь покупкой полёта или сертификата»</div></article>
+          <article class="card"><div class="quote">«Можно взять полёт себе, ребёнку или сертификат на будущее»</div></article>
+          <article class="card"><div class="quote">«Для бизнеса можно оформить сертификат на FPV-съёмку»</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="before-send">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">2</div>
+          <h2>Перед отправкой</h2>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Подставить имя.</li>
+            <li>Выбрать разное начало.</li>
+            <li>Не отправлять всем одинаковый текст подряд.</li>
+            <li>Не вставлять ссылку в первое сообщение.</li>
+            <li>Не отправлять фото или видео первым сообщением.</li>
+            <li>Не отправлять реквизиты и не просить предоплату.</li>
+            <li>Завершать вопросом про покупку 27-го.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="short">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">3</div>
+          <h2>Короткие входы</h2>
+          <p class="lead">Короткие формулировки для разных типов контактов.</p>
+        </div>
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Друзья / свои</h3>
+            <ol>
+              <li>{Имя}, привет. У меня 27-го важная продажная точка по “Мой стартап”. Очень нужна поддержка покупкой на месте.</li>
+              <li>{Имя}, привет. 27 июня мы будем продавать FPV-полёты в сквере им. Свердлова. Хочу позвать тебя лично.</li>
+              <li>{Имя}, привет. Мне 27-го важно не просто собрать людей, а сделать продажи на точке. Можешь поддержать покупкой полёта?</li>
+              <li>{Имя}, привет. У нас конкурсная история: кто больше продаст на точке. Хочу попросить тебя прийти и купить полёт или сертификат.</li>
+              <li>{Имя}, привет. 27-го мне очень нужна живая продажа на месте. Буду рад, если ты купишь FPV-полёт или сертификат.</li>
+            </ol>
+          </article>
+          <article class="card span-6">
+            <h3>Тёплый контакт</h3>
+            <ol>
+              <li>{Имя}, привет. Напишу лично: 27-го у нас точка с FPV-полётами, и важны именно продажи на месте.</li>
+              <li>{Имя}, привет. 27 июня буду в сквере им. Свердлова. Продаём FPV-полёты глазами дрона, и мне нужна поддержка покупкой.</li>
+              <li>{Имя}, привет. У меня конкурсная задача — продать как можно больше на точке 27-го. Хочу пригласить тебя купить полёт или сертификат.</li>
+              <li>{Имя}, привет. Не кидаю в общий чат, пишу лично. 27-го буду продавать FPV-полёты в центре, покупка на месте очень поможет.</li>
+              <li>{Имя}, привет. Если тебе интересны дроны/новые форматы, 27-го можно купить полёт глазами дрона или сертификат на будущее.</li>
+            </ol>
+          </article>
+          <article class="card span-4">
+            <h3>Мужчинам</h3>
+            <ol>
+              <li>{Имя}, привет. 27-го продаём FPV-полёты в сквере им. Свердлова. Мне нужна реальная продажа на точке, не просто просмотры.</li>
+              <li>{Имя}, привет. Коротко: конкурсная задача — продать максимум на месте. Можешь 27-го купить FPV-полёт глазами дрона?</li>
+              <li>{Имя}, привет. Будет формат: надеваешь очки и летишь глазами дрона. 27-го продажи идут в зачёт, хочу позвать тебя купить полёт.</li>
+              <li>{Имя}, привет. Если хотел понять, чем мы занимаемся с FPV, 27-го лучший момент: можно купить полёт и сразу попробовать.</li>
+              <li>{Имя}, привет. Мне нужна поддержка делом: прийти 27-го и купить FPV-полёт или сертификат.</li>
+            </ol>
+          </article>
+          <article class="card span-4">
+            <h3>Женщинам</h3>
+            <ol>
+              <li>{Имя}, привет. 27-го у меня важный день по “Мой стартап”: мы будем продавать FPV-полёты, и мне очень нужна поддержка покупкой.</li>
+              <li>{Имя}, привет. Будем в сквере им. Свердлова с полётами глазами дрона. Можно купить себе, ребёнку или взять сертификат.</li>
+              <li>{Имя}, привет. Пишу лично: 27-го мне важно сделать продажи на точке. Буду очень рада, если поддержишь покупкой полёта или сертификата.</li>
+              <li>{Имя}, привет. У нас будет необычный формат: надеваешь очки и видишь полёт глазами дрона. 27-го это можно будет купить на месте.</li>
+              <li>{Имя}, привет. Мне нужна не просто моральная поддержка, а покупка на точке 27-го. Можно взять короткий полёт, основной или сертификат.</li>
+            </ol>
+          </article>
+          <article class="card span-4">
+            <h3>Бизнес / организаторы</h3>
+            <ol>
+              <li>{Имя}, привет. 27-го будем продавать FPV-полёты в сквере им. Свердлова. Для бизнеса можно будет оформить сертификат на будущую FPV-съёмку.</li>
+              <li>{Имя}, привет. У нас конкурсная точка 27 июня: продаём FPV-полёты и сертификаты. Для мероприятий можно взять сертификат на съёмку от 5000 ₽.</li>
+              <li>{Имя}, привет. Пишу по делу: 27-го можно будет купить не только полёт, но и сертификат на FPV-съёмку для бара, события или площадки.</li>
+              <li>{Имя}, привет. Мы показываем FPV как аттракцион и как услугу для мероприятий. 27-го продажи идут в зачёт конкурса, можно будет оформить сертификат на съёмку.</li>
+              <li>{Имя}, привет. Если вам может быть интересна FPV-съёмка для события/площадки, 27-го можно зафиксировать сертификат на будущий выезд.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="full">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">4</div>
+          <h2>Первые сообщения целиком</h2>
+        </div>
+        <div class="cards-3">
+          <article class="card">
+            <h3>Друзья / свои — вариант 1</h3>
+            <p>{Имя}, привет. У меня 27 июня важная точка по “Мой стартап”. Суть задания — продать как можно больше на месте. Мы будем в сквере им. Свердлова с FPV-полётами: надеваешь очки и видишь полёт глазами дрона. Буду очень рад, если придёшь и купишь полёт или сертификат. Сможешь поддержать покупкой 27-го?</p>
+          </article>
+          <article class="card">
+            <h3>Друзья / свои — вариант 2</h3>
+            <p>{Имя}, привет. Нужна твоя поддержка 27-го, но не лайком и не “морально”. У нас будет продажная точка в сквере им. Свердлова: FPV-полёт глазами дрона. Можно купить короткий полёт, основной, полёт с видео или сертификат. Получится прийти и купить на месте?</p>
+          </article>
+          <article class="card">
+            <h3>Друзья / свои — вариант 3</h3>
+            <p>{Имя}, привет. Я участвую в “Мой стартап”, и 27-го у нас будет испытание продажами. Нужно, чтобы люди пришли и купили продукт на точке. Продукт — FPV-полёт глазами дрона через очки. Буду рад, если ты купишь полёт или сертификат 27-го.</p>
+          </article>
+          <article class="card">
+            <h3>Тёплые контакты — вариант 1</h3>
+            <p>{Имя}, привет. Напишу лично, потому что 27 июня у меня важный день по проекту. В сквере им. Свердлова будем продавать FPV-полёты глазами дрона. Для конкурса важны именно продажи на месте. Получится прийти и купить полёт или сертификат?</p>
+          </article>
+          <article class="card">
+            <h3>Тёплые контакты — вариант 2</h3>
+            <p>{Имя}, привет. У нас 27-го точка с FPV-полётами. Формат простой: надеваешь очки и видишь полёт глазами дрона. Сейчас мне важно собрать людей, которые реально купят на месте. Могу тебя записать на 27-е?</p>
+          </article>
+          <article class="card">
+            <h3>Бизнес / мероприятия — вариант 1</h3>
+            <p>{Имя}, привет. 27 июня у нас продажная точка по “Мой стартап” в сквере им. Свердлова. Будем продавать FPV-полёты для гостей и сертификаты на будущую FPV-съёмку. Для мероприятий, баров, открытий и площадок базовый формат съёмки — от 5000 ₽. Вам может быть интересно зафиксировать сертификат 27-го?</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="answers">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">5</div>
+          <h2>Ответы после реакции</h2>
+        </div>
+        <div class="grid">
+          <article class="card span-4"><h3>Да / интересно</h3><p>Супер. 27 июня сквер им. Свердлова. Будет 350 — короткий полёт, 500 — основной, 1000 — полёт с видео. Ещё можно будет оформить сертификат на будущий полёт. Оплата только 27-го на месте. Тебя записать?</p></article>
+          <article class="card span-4"><h3>Сколько стоит?</h3><p>350 — короткий, 500 — основной, 1000 — с видео. Если хочешь поддержать нормально, лучше 500 или 1000. Ещё будет сертификат на будущий полёт. Всё оплачивается только 27-го.</p></article>
+          <article class="card span-4"><h3>Можно сертификат?</h3><p>Да. 27-го можно будет оформить сертификат на будущий FPV-полёт. Это хороший вариант, если хочешь поддержать, но не уверен по времени. Сейчас оплату не собираем, просто отмечу интерес.</p></article>
+          <article class="card span-4"><h3>Не смогу прийти</h3><p>Понял. Тогда вариант — сертификат на будущий FPV-полёт. Его можно будет оформить 27-го, это тоже пойдёт в продажи по конкурсу. Сейчас ничего оплачивать не нужно, просто могу отметить тебя.</p></article>
+          <article class="card span-4"><h3>Можно на ребёнка?</h3><p>Да, можно. Можно купить короткий полёт ребёнку или взять сертификат на будущий полёт. На месте 27-го подберём формат.</p></article>
+          <article class="card span-4"><h3>Можно съёмку?</h3><p>Да. Для съёмки это отдельный формат: день рождения, бар, открытие, ивент, площадка. 27-го можно будет оформить сертификат на будущую FPV-съёмку. Базовый вариант — от 5000 ₽. Отметить тебя как интерес к съёмке?</p></article>
+          <article class="card span-4"><h3>Что входит в съёмку?</h3><p>Базово — FPV-выезд и динамичные кадры для ролика, сторис или промо. Детали зависят от места и задачи. Если интересно, 27-го можно зафиксировать сертификат на съёмку.</p></article>
+          <article class="card span-4"><h3>Подумаю</h3><p>Ок. Я тогда ближе к 27-му напомню. Мне важно именно в этот день сделать продажи на точке, поэтому буду рад, если решишь поддержать покупкой.</p></article>
+          <article class="card span-4"><h3>Молчит 24–48 часов</h3><p>Напомню про 27 июня. У нас в сквере им. Свердлова будет продажная точка с FPV-полётами. Мне важно собрать покупки в день конкурса. Сможешь купить полёт или сертификат?</p></article>
+          <article class="card span-12"><h3>Отказ</h3><p>Понял, спасибо, что ответил. Если планы поменяются — 27-го буду рад видеть на точке.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="push">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">6</div>
+          <h2>Дожимы без воды</h2>
+        </div>
+        <div class="cards-2">
+          <article class="card"><p>{Имя}, напомню про 27-е. Мне важна именно покупка на точке: полёт, полёт с видео или сертификат. Могу тебя записать?</p></article>
+          <article class="card"><p>{Имя}, уточню, чтобы не потерять: на 27-е тебя считать? Можно купить полёт себе/ребёнку или сертификат на будущий полёт.</p></article>
+          <article class="card"><p>{Имя}, у нас в конкурсе считается продажа. Поэтому честно спрашиваю: сможешь 27-го поддержать покупкой полёта или сертификата?</p></article>
+          <article class="card"><p>{Имя}, напомню: 27-го можно оформить сертификат на FPV-съёмку для мероприятия или площадки. Базово от 5000 ₽. Зафиксировать интерес?</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reminders">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">7</div>
+          <h2>Напоминания</h2>
+        </div>
+        <div class="cards-3">
+          <article class="card"><h3>Накануне</h3><p>{Имя}, напомню: завтра будем в сквере им. Свердлова с FPV-полётами. Продажи идут в зачёт конкурса, так что буду рад, если купишь полёт или сертификат.</p></article>
+          <article class="card"><h3>Утром 27-го</h3><p>{Имя}, сегодня день продаж. Мы в сквере им. Свердлова с FPV-полётами глазами дрона. Можно купить полёт, полёт с видео или сертификат. Буду ждать.</p></article>
+          <article class="card"><h3>Для тех, кто обещал</h3><p>{Имя}, привет. Ты говорил, что получится прийти. Напомню: сегодня сквер им. Свердлова, FPV-полёты, оплата на месте. Покупка сегодня очень поможет по конкурсу.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="statuses">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">8</div>
+          <h2>Статусы для таблицы</h2>
+        </div>
+        <div class="card">
+          <div class="quote-list">
+            <span class="tag">написал</span>
+            <span class="tag">ответил</span>
+            <span class="tag">интерес</span>
+            <span class="tag">придёт купить</span>
+            <span class="tag">думает</span>
+            <span class="tag">напомнить</span>
+            <span class="tag">сертификат на полёт</span>
+            <span class="tag">сертификат на съёмку</span>
+            <span class="tag">съёмка / бизнес-лид</span>
+            <span class="tag">отказ</span>
+            <span class="tag">пришёл</span>
+            <span class="tag">оплатил 27</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta">
+      <div class="container">
+        <div class="cta">
+          <div class="section-head">
+            <div class="eyebrow">Финальный блок</div>
+            <h2>Давайте работать?</h2>
+            <p class="lead">Если нужно, следующим сообщением соберу ещё одну страницу в таком же стиле или сделаю патч по этому файлу.</p>
+          </div>
+          <a class="btn" href="contacts.html?from=message-scripts-telegram-vk.html">Открыть контактный маршрут</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="brand"><strong>КАКАЯУВАСИНТЕРЕСНАЯРАБОТА.РФ</strong>визуал · FPV · режиссура</div>
+    </div>
+  </footer>
+
+  <script id="asset-manifest" type="application/json">
+  {
+    "version": "3.0",
+    "mode": "single_html",
+    "visual_profile": "cinematic_service_premium",
+    "page_file": "message-scripts-telegram-vk.html",
+    "slots": [
+      {"slot":"hero_visual","role":"hero","status":"placeholder","type":"css_visual","aspect_ratio":"16:9"},
+      {"slot":"cta_visual","role":"cta","status":"placeholder","type":"css_visual","aspect_ratio":"16:9"},
+      {"slot":"og_image","role":"meta","status":"placeholder","type":"css_visual","aspect_ratio":"1200:630"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Шаблоны сообщений Telegram и VK — 27 июня",
+    "description":"Страница с шаблонами сообщений и скриптами для Telegram и VK: первые сообщения, ответы, дожимы, напоминания и статусы.",
+    "inLanguage":"ru"
+  }
+  </script>
+
+  <script>
+    const root = document.documentElement;
+    const menu = document.getElementById('menu');
+    const burger = document.getElementById('burger');
+    const themeToggle = document.getElementById('themeToggle');
+    const storageKey = 'lc_theme';
+
+    function syncThemeLabel(){
+      const isLight = root.getAttribute('data-theme') === 'light';
+      themeToggle.textContent = 'Тема: ' + (isLight ? 'светлая' : 'тёмная');
+    }
+    function setTheme(value){
+      root.setAttribute('data-theme', value);
+      localStorage.setItem(storageKey, value);
+      syncThemeLabel();
+    }
+    function initTheme(){
+      const saved = localStorage.getItem(storageKey);
+      if(saved === 'light' || saved === 'dark'){ setTheme(saved); return; }
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      setTheme(prefersLight ? 'light' : 'dark');
+    }
+
+    burger.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    themeToggle.addEventListener('click', () => {
+      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.addEventListener('click', (e) => {
+      if(!menu.contains(e.target) && !burger.contains(e.target)){
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    initTheme();
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(109239506, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109239506" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+</body>
+</html>
